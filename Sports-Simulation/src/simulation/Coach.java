@@ -37,25 +37,9 @@ public class Coach {
 	public Coach(String coachName, int offense, int defense) {
 		this.coachName = coachName;
 
-		try {
-			if (offense < 0 || offense > 100) {
-				throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
-			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
-		}
+		setOffense(offense);
 
-		this.offense = offense;
-
-		try {
-			if (defense < 0 || defense > 100) {
-				throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
-			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
-		}
-
-		this.defense = defense;
+		setDefense(defense);
 
 	}
 

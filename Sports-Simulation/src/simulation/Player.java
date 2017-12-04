@@ -58,69 +58,19 @@ public class Player {
 	public Player(String playerName, int offense, int defense, int[] position, double contractAmount, int contractYears,
 			int age) {
 
-		this.playerName = playerName;
+		setPlayerName(playerName);
 
-		try {
-			if (offense < 0 || offense > 100) {
-				throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
-			} else {
-				this.offense = offense;
-			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
-		}
+		setOffense(offense);
+		
+		setDefense(defense);
 
-		try {
-			if (defense < 0 || defense > 100) {
-				throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
-			} else {
-				this.defense = defense;
-			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
-		}
+		setPosition(position);
 
-		try {
-			for (int i = 0; i < position.length; i++) {
-				if (position[i] < 0 || position[i] > 6) {
-					throw new IllegalArgumentException("All listed positions must be between 0 and 6 inclusive");
-				} else {
-					this.position = position;
-				}
-			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
-		}
+		setContractAmount(contractAmount);
+		
+		setContractYears(contractYears);
 
-		try {
-			if (contractAmount < 0) {
-				throw new IllegalArgumentException("Contract amount must be greater than or equal to zero.");
-			} else {
-				this.contractAmount = contractAmount;
-			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
-		}
-
-		try {
-			if (contractYears < 0) {
-				throw new IllegalArgumentException("Contract years must be greater than or equal to zero.");
-			} else {
-				this.contractYears = contractYears;
-			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
-		}
-
-		try {
-			if (age < 0) {
-				throw new IllegalArgumentException("Age of player must be greater than zero.");
-			} else {
-				this.age = age;
-			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
-		}
+		setAge(age);
 
 	}
 
@@ -140,6 +90,7 @@ public class Player {
 	 *            New name for player
 	 */
 	public void setPlayerName(String playerName) {
+		// Check for valid character inputs?
 		this.playerName = playerName;
 	}
 
@@ -251,7 +202,15 @@ public class Player {
 	 *            New contract amount
 	 */
 	public void setContractAmount(double contractAmount) {
-		this.contractAmount = contractAmount;
+		try {
+			if (contractAmount < 0) {
+				throw new IllegalArgumentException("Contract amount must be greater than or equal to zero.");
+			} else {
+				this.contractAmount = contractAmount;
+			}
+		} catch (IllegalArgumentException e) {
+			e.getMessage();
+		}
 	}
 
 	/**
@@ -270,7 +229,15 @@ public class Player {
 	 *            New number of years left on contract
 	 */
 	public void setContractYears(int contractYears) {
-		this.contractYears = contractYears;
+		try {
+			if (contractYears < 0) {
+				throw new IllegalArgumentException("Contract years must be greater than or equal to zero.");
+			} else {
+				this.contractYears = contractYears;
+			}
+		} catch (IllegalArgumentException e) {
+			e.getMessage();
+		}
 	}
 
 	/**
@@ -288,7 +255,15 @@ public class Player {
 	 * 		New age of player
 	 */
 	public void setAge(int age) {
-		this.age = age;
+		try {
+			if (age < 0) {
+				throw new IllegalArgumentException("Age of player must be greater than zero.");
+			} else {
+				this.age = age;
+			}
+		} catch (IllegalArgumentException e) {
+			e.getMessage();
+		}
 	}
 
 }

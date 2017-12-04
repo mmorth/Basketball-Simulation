@@ -193,9 +193,9 @@ public class Team {
 			
 			bw.write(teamName);
 			bw.newLine();
-			bw.write("Position\tName\t\t\tAge\tOffense\tDefense\tContract\tYears");
+			bw.write("Position\t\tName\t\t\t\tAge\t\tOffense\t\tDefense\t\tContract\t\tYears");
 			bw.newLine();
-			System.out.println("Position\tName\t\t\tAge\tOffense\tDefense\tContract\tYears");
+			System.out.println("Position\t\tName\t\t\t\tAge\t\tOffense\t\tDefense\t\tContract\t\tYears");
 			
 			for (int i = 0; i < roster.length; i++) {
 				for (int j = 0; j < roster[i].getPosition().length; j++) {
