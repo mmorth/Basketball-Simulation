@@ -15,6 +15,16 @@ import java.util.Scanner;
 public class Simulation {
 
 	/**
+	 * Represents the score of team1
+	 */
+	private int team1Score = 0;
+
+	/**
+	 * Represents the score of team2
+	 */
+	private int team2Score = 0;
+
+	/**
 	 * Makes calls to the simulation methods to simulate
 	 * 
 	 * @param args
@@ -55,8 +65,6 @@ public class Simulation {
 	 *            The second team in simulated game
 	 */
 	public void processSimulation(Team team1, Team team2) {
-		int team1Score = 0;
-		int team2Score = 0;
 
 		int team1FirstQuarterScore = 0;
 		int team1SecondQuarterScore = 0;
@@ -69,14 +77,14 @@ public class Simulation {
 		int team2ThirdQuarterScore = 0;
 		int team2FourthQuarterScore = 0;
 		int team2OvertimeScore = 0;
-		
+
 		char choice = ' ';
 
-		for (int i = 1; i <= 100; i++) {
+		for (int possessionsRemaining = 1; possessionsRemaining <= 100; possessionsRemaining++) {
 			// Simulate based on user's choice
 			if (choice != 'g') {
 
-				printOptions(101 - i, team1Score, team2Score);
+				printOptions(101 - possessionsRemaining, team1Score, team2Score);
 				choice = input.next().charAt(0);
 
 				if (choice == 'p') {
@@ -86,47 +94,11 @@ public class Simulation {
 
 				} else if (choice == 'q') {
 
-					if (i < 25) {
-						team1Score += simulateQuarter(25 - i, team1, team2);
-						team2Score += simulateQuarter(25 - i, team2, team1);
-						i = 25;
-					} else if (i < 50) {
-						team1Score += simulateQuarter(50 - i, team1, team2);
-						team2Score += simulateQuarter(50 - i, team2, team1);
-						i = 50;
-					} else if (i < 75) {
-						team1Score += simulateQuarter(75 - i, team1, team2);
-						team2Score += simulateQuarter(75 - i, team2, team1);
-						i = 75;
-					} else {
-						team1Score += simulateGame(100 - i, team1, team2);
-						team2Score += simulateGame(100 - i, team2, team1);
-						i = 100;
-					}
+					possessionsRemaining = simulatePossessionsQuarter(team1, team2, possessionsRemaining);
 
 				} else if (choice == 'g') {
 
-					if (i < 25) {
-						team1Score += simulateQuarter(25 - i, team1, team2);
-						team2Score += simulateQuarter(25 - i, team2, team1);
-						i = 25;
-					} else if (i < 50) {
-						team1Score += simulateQuarter(50 - i, team1, team2);
-						team2Score += simulateQuarter(50 - i, team2, team1);
-						i = 50;
-					} else if (i < 75) {
-						team1Score += simulateQuarter(75 - i, team1, team2);
-						team2Score += simulateQuarter(75 - i, team2, team1);
-						i = 75;
-					} else {
-						team1Score += simulateGame(100 - i, team1, team2);
-						team2Score += simulateGame(100 - i, team2, team1);
-						i = 100;
-					}
-					
-//					team1Score += simulateGame(100 - i, team1, team2);
-//					team2Score += simulateGame(100 - i, team2, team1);
-//					i = 100;
+					possessionsRemaining = simulatePossessionsQuarter(team1, team2, possessionsRemaining);
 
 				} else if (choice == 'e') {
 
@@ -134,44 +106,26 @@ public class Simulation {
 
 				} else {
 
-					i--;
+					possessionsRemaining--;
 
 				}
 
-			} else if (choice == 'g' && i < 100) {
-				
-				if (i < 25) {
-					team1Score += simulateQuarter(25 - i, team1, team2);
-					team2Score += simulateQuarter(25 - i, team2, team1);
-					i = 25;
-				} else if (i < 50) {
-					team1Score += simulateQuarter(50 - i, team1, team2);
-					team2Score += simulateQuarter(50 - i, team2, team1);
-					i = 50;
-				} else if (i < 75) {
-					team1Score += simulateQuarter(75 - i, team1, team2);
-					team2Score += simulateQuarter(75 - i, team2, team1);
-					i = 75;
-				} else {
-					team1Score += simulateGame(100 - i, team1, team2);
-					team2Score += simulateGame(100 - i, team2, team1);
-					i = 100;
-				}
-				
+			} else if (choice == 'g' && possessionsRemaining < 100) {
+
+				possessionsRemaining = simulatePossessionsQuarter(team1, team2, possessionsRemaining);
+
 			}
 
-			if (i == 25) {
+			if (possessionsRemaining == 25) {
 				team1FirstQuarterScore = team1Score;
 				team2FirstQuarterScore = team2Score;
-				System.out.println(team1FirstQuarterScore);
-				System.out.println(team2FirstQuarterScore);
-			} else if (i == 50) {
+			} else if (possessionsRemaining == 50) {
 				team1SecondQuarterScore = team1Score - team1FirstQuarterScore;
 				team2SecondQuarterScore = team2Score - team2FirstQuarterScore;
-			} else if (i == 75) {
+			} else if (possessionsRemaining == 75) {
 				team1ThirdQuarterScore = team1Score - team1SecondQuarterScore - team1FirstQuarterScore;
 				team2ThirdQuarterScore = team2Score - team2SecondQuarterScore - team2FirstQuarterScore;
-			} else if (i == 100) {
+			} else if (possessionsRemaining == 100) {
 				team1FourthQuarterScore = team1Score - team1SecondQuarterScore - team1ThirdQuarterScore
 						- team1FirstQuarterScore;
 				team2FourthQuarterScore = team2Score - team2SecondQuarterScore - team2ThirdQuarterScore
@@ -182,7 +136,7 @@ public class Simulation {
 
 		// Overtime simulation
 		while (team1Score == team2Score) {
-			for (int i = 0; i < 10; i++) {
+			for (int possessionsRemaining = 0; possessionsRemaining < 10; possessionsRemaining++) {
 				System.out.println("\n\nPress p to simulate possession or g to end game");
 				choice = input.next().charAt(0);
 				if (choice == 'p') {
@@ -192,7 +146,7 @@ public class Simulation {
 				} else {
 					team1Score += simulateQuarter(10, team1, team2);
 					team2Score += simulateQuarter(10, team2, team1);
-					i = 10;
+					possessionsRemaining = 10;
 				}
 			}
 			team1OvertimeScore = team1Score - team1FourthQuarterScore - team1SecondQuarterScore - team1ThirdQuarterScore
@@ -218,7 +172,7 @@ public class Simulation {
 			bw.newLine();
 			bw.write(team1Results);
 			bw.newLine();
-			bw.write(team1Results);
+			bw.write(team2Results);
 			bw.newLine();
 			bw.newLine();
 			bw.flush();
@@ -342,6 +296,40 @@ public class Simulation {
 		System.out.println("Press g to simulate game");
 		System.out.println("Press e to exit");
 		System.out.print("Choice: ");
+	}
+
+	/**
+	 * Simulates a quarter for both teams and updates the number of possessions
+	 * remaining in the game.
+	 * 
+	 * @param team1
+	 *            The first team in the game
+	 * @param team2
+	 *            The second team in the game
+	 * @param possessionsRemaining
+	 *            The number of possessions remaining in the game
+	 * @return The number of possessions remaining in the game
+	 */
+	public int simulatePossessionsQuarter(Team team1, Team team2, int possessionsRemaining) {
+		if (possessionsRemaining < 25) {
+			team1Score += simulateQuarter(25 - possessionsRemaining, team1, team2);
+			team2Score += simulateQuarter(25 - possessionsRemaining, team2, team1);
+			possessionsRemaining = 25;
+		} else if (possessionsRemaining < 50) {
+			team1Score += simulateQuarter(50 - possessionsRemaining, team1, team2);
+			team2Score += simulateQuarter(50 - possessionsRemaining, team2, team1);
+			possessionsRemaining = 50;
+		} else if (possessionsRemaining < 75) {
+			team1Score += simulateQuarter(75 - possessionsRemaining, team1, team2);
+			team2Score += simulateQuarter(75 - possessionsRemaining, team2, team1);
+			possessionsRemaining = 75;
+		} else {
+			team1Score += simulateGame(100 - possessionsRemaining, team1, team2);
+			team2Score += simulateGame(100 - possessionsRemaining, team2, team1);
+			possessionsRemaining = 100;
+		}
+
+		return possessionsRemaining;
 	}
 
 }

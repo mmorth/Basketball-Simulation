@@ -74,7 +74,7 @@ public class League {
 		roster[2] = new Player("Curtis Baron", 95, 95, position2, 5, 2, 25);
 		
 		int[] position3 = {2,3};
-		roster[3] = new Player("Steve Wells", 95, 95, position3, 5, 2, 25);
+		roster[3] = new Player("Steve Wells", 1000, 1000, position3, 5, 2, 25);
 		
 		int[] position4 = {3,4};
 		roster[4] = new Player("Kenny Carter", 95, 95, position4, 5, 2, 25);

@@ -61,13 +61,13 @@ public class Player {
 		setPlayerName(playerName);
 
 		setOffense(offense);
-		
+
 		setDefense(defense);
 
 		setPosition(position);
 
 		setContractAmount(contractAmount);
-		
+
 		setContractYears(contractYears);
 
 		setAge(age);
@@ -141,10 +141,11 @@ public class Player {
 	public void setOffense(int offense) {
 		try {
 			if (offense < 0 || offense > 100) {
-				throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
+				throw new IllegalArgumentException("Offensive rating needs to be between 0 and 100 inclusive");
 			}
 		} catch (IllegalArgumentException e) {
 			e.getMessage();
+			// END OR REPROMPT FOR INPUT
 		}
 
 		this.offense = offense;
@@ -242,8 +243,8 @@ public class Player {
 
 	/**
 	 * Returns the age of the player
-	 * @return
-	 * 		Age of player
+	 * 
+	 * @return Age of player
 	 */
 	public int getAge() {
 		return age;
@@ -251,8 +252,9 @@ public class Player {
 
 	/**
 	 * Sets the age of the player to a new value
+	 * 
 	 * @param age
-	 * 		New age of player
+	 *            New age of player
 	 */
 	public void setAge(int age) {
 		try {
