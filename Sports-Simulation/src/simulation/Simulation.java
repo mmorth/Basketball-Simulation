@@ -25,14 +25,14 @@ public class Simulation {
 		Simulation s1 = new Simulation();
 
 		Team Dragons = League.getDragons();
-		
+
 		Team Gators = League.getGators();
-		
+
 		Dragons.printTeamRosters();
-		
+
 		Gators.printTeamRosters();
 
-		 System.out.println(League.getDragons().getTeamOffensiveRating());
+		System.out.println(League.getDragons().getTeamOffensiveRating());
 
 		s1.processSimulation(League.getDragons(), League.getGators());
 
@@ -46,8 +46,8 @@ public class Simulation {
 	/**
 	 * Makes calls to other methods to accept user input on what to simulate and
 	 * simulate based on the user input Also displays the final score There are
-	 * simulation options for the possession, quarter, game, overtime, and
-	 * ending the game
+	 * simulation options for the possession, quarter, game, overtime, and ending
+	 * the game
 	 * 
 	 * @param team1
 	 *            The first team in simulated game
@@ -57,31 +57,89 @@ public class Simulation {
 	public void processSimulation(Team team1, Team team2) {
 		int team1Score = 0;
 		int team2Score = 0;
-		
+
 		int team1FirstQuarterScore = 0;
 		int team1SecondQuarterScore = 0;
 		int team1ThirdQuarterScore = 0;
 		int team1FourthQuarterScore = 0;
 		int team1OvertimeScore = 0;
-		
+
 		int team2FirstQuarterScore = 0;
 		int team2SecondQuarterScore = 0;
 		int team2ThirdQuarterScore = 0;
 		int team2FourthQuarterScore = 0;
 		int team2OvertimeScore = 0;
+		
+		char choice = ' ';
 
 		for (int i = 1; i <= 100; i++) {
 			// Simulate based on user's choice
-			printOptions(101 - i, team1Score, team2Score);
-			char choice = input.next().charAt(0);
+			if (choice != 'g') {
 
-			if (choice == 'p') {
+				printOptions(101 - i, team1Score, team2Score);
+				choice = input.next().charAt(0);
 
-				team1Score += simulatePossession(team1, team2);
-				team2Score += simulatePossession(team2, team1);
+				if (choice == 'p') {
 
-			} else if (choice == 'q') {
+					team1Score += simulatePossession(team1, team2);
+					team2Score += simulatePossession(team2, team1);
 
+				} else if (choice == 'q') {
+
+					if (i < 25) {
+						team1Score += simulateQuarter(25 - i, team1, team2);
+						team2Score += simulateQuarter(25 - i, team2, team1);
+						i = 25;
+					} else if (i < 50) {
+						team1Score += simulateQuarter(50 - i, team1, team2);
+						team2Score += simulateQuarter(50 - i, team2, team1);
+						i = 50;
+					} else if (i < 75) {
+						team1Score += simulateQuarter(75 - i, team1, team2);
+						team2Score += simulateQuarter(75 - i, team2, team1);
+						i = 75;
+					} else {
+						team1Score += simulateGame(100 - i, team1, team2);
+						team2Score += simulateGame(100 - i, team2, team1);
+						i = 100;
+					}
+
+				} else if (choice == 'g') {
+
+					if (i < 25) {
+						team1Score += simulateQuarter(25 - i, team1, team2);
+						team2Score += simulateQuarter(25 - i, team2, team1);
+						i = 25;
+					} else if (i < 50) {
+						team1Score += simulateQuarter(50 - i, team1, team2);
+						team2Score += simulateQuarter(50 - i, team2, team1);
+						i = 50;
+					} else if (i < 75) {
+						team1Score += simulateQuarter(75 - i, team1, team2);
+						team2Score += simulateQuarter(75 - i, team2, team1);
+						i = 75;
+					} else {
+						team1Score += simulateGame(100 - i, team1, team2);
+						team2Score += simulateGame(100 - i, team2, team1);
+						i = 100;
+					}
+					
+//					team1Score += simulateGame(100 - i, team1, team2);
+//					team2Score += simulateGame(100 - i, team2, team1);
+//					i = 100;
+
+				} else if (choice == 'e') {
+
+					break;
+
+				} else {
+
+					i--;
+
+				}
+
+			} else if (choice == 'g' && i < 100) {
+				
 				if (i < 25) {
 					team1Score += simulateQuarter(25 - i, team1, team2);
 					team2Score += simulateQuarter(25 - i, team2, team1);
@@ -99,26 +157,14 @@ public class Simulation {
 					team2Score += simulateGame(100 - i, team2, team1);
 					i = 100;
 				}
-
-			} else if (choice == 'g') {
-
-				team1Score += simulateGame(100 - i, team1, team2);
-				team2Score += simulateGame(100 - i, team2, team1);
-				i = 100;
-
-			} else if (choice == 'e') {
-
-				break;
-
-			} else {
-
-				i--;
-
+				
 			}
-			
-			if (i == 25) { 
+
+			if (i == 25) {
 				team1FirstQuarterScore = team1Score;
 				team2FirstQuarterScore = team2Score;
+				System.out.println(team1FirstQuarterScore);
+				System.out.println(team2FirstQuarterScore);
 			} else if (i == 50) {
 				team1SecondQuarterScore = team1Score - team1FirstQuarterScore;
 				team2SecondQuarterScore = team2Score - team2FirstQuarterScore;
@@ -126,8 +172,10 @@ public class Simulation {
 				team1ThirdQuarterScore = team1Score - team1SecondQuarterScore - team1FirstQuarterScore;
 				team2ThirdQuarterScore = team2Score - team2SecondQuarterScore - team2FirstQuarterScore;
 			} else if (i == 100) {
-				team1FourthQuarterScore = team1Score - team1SecondQuarterScore - team1ThirdQuarterScore - team1FirstQuarterScore;
-				team2FourthQuarterScore = team2Score - team2SecondQuarterScore - team2ThirdQuarterScore - team2FirstQuarterScore;
+				team1FourthQuarterScore = team1Score - team1SecondQuarterScore - team1ThirdQuarterScore
+						- team1FirstQuarterScore;
+				team2FourthQuarterScore = team2Score - team2SecondQuarterScore - team2ThirdQuarterScore
+						- team2FirstQuarterScore;
 			}
 
 		}
@@ -136,7 +184,7 @@ public class Simulation {
 		while (team1Score == team2Score) {
 			for (int i = 0; i < 10; i++) {
 				System.out.println("\n\nPress p to simulate possession or g to end game");
-				char choice = input.next().charAt(0);
+				choice = input.next().charAt(0);
 				if (choice == 'p') {
 					team1Score += simulatePossession(team1, team2);
 					team2Score += simulatePossession(team2, team1);
@@ -147,37 +195,47 @@ public class Simulation {
 					i = 10;
 				}
 			}
-			team1OvertimeScore = team1Score - team1FourthQuarterScore - team1SecondQuarterScore - team1ThirdQuarterScore - team1FirstQuarterScore;
-			team2OvertimeScore = team2Score - team2FourthQuarterScore - team2SecondQuarterScore - team2ThirdQuarterScore - team2FirstQuarterScore;
+			team1OvertimeScore = team1Score - team1FourthQuarterScore - team1SecondQuarterScore - team1ThirdQuarterScore
+					- team1FirstQuarterScore;
+			team2OvertimeScore = team2Score - team2FourthQuarterScore - team2SecondQuarterScore - team2ThirdQuarterScore
+					- team2FirstQuarterScore;
 		}
 
+		String scoreHeader = String.format("Team\t\tQ1\tQ2\tQ3\tQ4\tOT\tFinal");
+		String team1Results = String.format("%s\t\t%d\t%d\t%d\t%d\t%d\t%d", team1.getTeamName(), team1FirstQuarterScore,
+				team1SecondQuarterScore, team1ThirdQuarterScore, team1FourthQuarterScore, team1OvertimeScore,
+				team1Score);
+		String team2Results = String.format("%s\t\t%d\t%d\t%d\t%d\t%d\t%d", team2.getTeamName(), team2FirstQuarterScore,
+				team2SecondQuarterScore, team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore,
+				team2Score);
+
 		try {
-			
+
 			FileWriter fw = new FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\GameResults.txt", true);
 			BufferedWriter bw = new BufferedWriter(fw);
-			
-			bw.write("Final Score: ");
+
+			bw.write(scoreHeader);
 			bw.newLine();
-			bw.write(team1.getTeamName() + ": " + team1Score);
+			bw.write(team1Results);
 			bw.newLine();
-			bw.write(team2.getTeamName() + ": " + team2Score);
+			bw.write(team1Results);
 			bw.newLine();
 			bw.newLine();
 			bw.flush();
-			
+
 			fw.close();
 			bw.close();
-			
+
 		} catch (FileNotFoundException e) {
 			e.getMessage();
 		} catch (IOException e) {
 			e.getMessage();
 		}
-		
+
 		// Display final results
-		System.out.println("\n\nFinal Score: ");
-		System.out.println(team1.getTeamName() + ": " + team1Score);
-		System.out.println(team2.getTeamName() + " " + team2Score);
+		System.out.println(scoreHeader);
+		System.out.println(team1Results);
+		System.out.println(team2Results);
 
 	}
 
@@ -284,31 +342,6 @@ public class Simulation {
 		System.out.println("Press g to simulate game");
 		System.out.println("Press e to exit");
 		System.out.print("Choice: ");
-	}
-	
-	/**
-	 * Prints the box score of the basketball game results after the game is over.
-	 * @param team1
-	 * @param team2
-	 * @param team1Score
-	 * @param team1FirstQuarterScore
-	 * @param team1SecondQuarterScore
-	 * @param team1ThridQuarterScore
-	 * @param team1FourthQuarterScore
-	 * @param team1OvertimeScore
-	 * @param team2Score
-	 * @param team2FirstQuarterScore
-	 * @param team2SecondQuarterScore
-	 * @param team2ThridQuarterScore
-	 * @param team2FourthQuarterScore
-	 * @param team2OvertimeScore
-	 */
-	public void printGameResults(Team team1, Team team2, int team1Score, int team1FirstQuarterScore, int team1SecondQuarterScore, int team1ThridQuarterScore, int team1FourthQuarterScore, int team1OvertimeScore, int team2Score, int team2FirstQuarterScore, int team2SecondQuarterScore, int team2ThridQuarterScore, int team2FourthQuarterScore, int team2OvertimeScore) {
-		System.out.println("\n");
-		System.out.println("Final Score: ");
-		System.out.printf();
-		System.out.println("Team 1: " + pointsTeam1);
-		System.out.println("Team 2: " + pointsTeam2);
 	}
 
 }
