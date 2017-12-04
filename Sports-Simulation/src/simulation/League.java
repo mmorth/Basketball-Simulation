@@ -1,4 +1,4 @@
-package league;
+package simulation;
 
 public class League {
 	

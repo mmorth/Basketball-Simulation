@@ -1,4 +1,4 @@
-package league;
+package simulation;
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;

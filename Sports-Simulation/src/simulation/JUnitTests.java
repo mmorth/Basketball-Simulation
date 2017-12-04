@@ -1,5 +1,4 @@
-package league;
-
+package simulation;
 
 import static org.junit.Assert.*;
 

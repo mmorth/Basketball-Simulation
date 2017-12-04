@@ -1,4 +1,4 @@
-package league;
+package simulation;
 
 /**
  * Represents a basketball coach. Stores name and ratings.
@@ -143,3 +143,4 @@ public class Coach {
 	}
 
 }
+

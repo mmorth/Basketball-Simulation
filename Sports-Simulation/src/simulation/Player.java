@@ -1,4 +1,4 @@
-package league;
+package simulation;
 
 /**
  * Represents a basketball player. Stores name and ratings.
