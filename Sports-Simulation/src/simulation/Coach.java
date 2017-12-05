@@ -44,7 +44,7 @@ public class Coach implements Athlete {
 
 	/**
 	 * Creates a new basketball player with various attributes
-	 * @param playerName
+	 * @param coachName
 	 * 		Name of the player
 	 * @param offenseRating
 	 * 		The offensive rating of the player
@@ -59,7 +59,7 @@ public class Coach implements Athlete {
 	 * @param age
 	 * 		The age of the player
 	 */
-	public Coach(String playerName, int offenseRating, int defenseRating, int[] position, double contractAmount, int contractYears,
+	public Coach(String coachName, int offenseRating, int defenseRating, int[] position, double contractAmount, int contractYears,
 			int age) {
 
 		setName(coachName);

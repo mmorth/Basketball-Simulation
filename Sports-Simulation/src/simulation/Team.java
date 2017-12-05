@@ -114,7 +114,7 @@ public class Team {
 			overall += a.getOffenseRating();
 		}
 
-		return overall;
+		return overall/roster.length;
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class Team {
 			overall += a.getDefenseRating();
 		}
 
-		return overall;
+		return overall/roster.length;
 	}
 
 	/**
@@ -141,31 +141,31 @@ public class Team {
 		return getTeamDefensiveRating() + getTeamOffensiveRating();
 	}
 
-	/**
-	 * Updates each player's rating based on if they are in their correct
-	 * position A 10% decrease in offensive and defensive rating of the player
-	 * will occur if they are placed in a position not in their position[]
-	 * array.
-	 */
-	public void updatePlayers() {
-
-		for (int i = 1; i <= 5; i++) {
-			Athlete current = roster[i];
-			boolean inCorrectPosition = false;
-			for (int j = 0; j < current.getPosition().length; j++) {
-				if (current.getPosition()[j] == i) {
-					inCorrectPosition = true;
-					break;
-				}
-			}
-
-			if (!inCorrectPosition) {
-				current.setOffenseRating((int) (current.getOffenseRating() * .9));
-				current.setDefenseRating((int) (current.getDefenseRating() * .9));
-			}
-		}
-
-	}
+//	/**
+//	 * Updates each player's rating based on if they are in their correct
+//	 * position A 10% decrease in offensive and defensive rating of the player
+//	 * will occur if they are placed in a position not in their position[]
+//	 * array.
+//	 */
+//	public void updatePlayers() {
+//
+//		for (int i = 1; i <= 5; i++) {
+//			Athlete current = roster[i];
+//			boolean inCorrectPosition = false;
+//			for (int j = 0; j < current.getPosition().length; j++) {
+//				if (current.getPosition()[j] == i) {
+//					inCorrectPosition = true;
+//					break;
+//				}
+//			}
+//
+//			if (!inCorrectPosition) {
+//				current.setOffenseRating((int) (current.getOffenseRating() * .9));
+//				current.setDefenseRating((int) (current.getDefenseRating() * .9));
+//			}
+//		}
+//
+//	}
 
 	/**
 	 * Returns the team salary cap

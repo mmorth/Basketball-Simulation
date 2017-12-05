@@ -17,12 +17,12 @@ public class Simulation {
 	/**
 	 * Represents the score of team1
 	 */
-	private int team1Score = 0;
+	private static int team1Score = 0;
 
 	/**
 	 * Represents the score of team2
 	 */
-	private int team2Score = 0;
+	private static int team2Score = 0;
 
 	/**
 	 * Makes calls to the simulation methods to simulate
@@ -32,19 +32,37 @@ public class Simulation {
 	 */
 	public static void main(String[] args) {
 
-		Simulation s1 = new Simulation();
+		boolean underdogWins = false;
+		int games = 0;
 
-		Team Dragons = League.getDragons();
+		while (!underdogWins) {
+			
+			games++;
 
-		Team Gators = League.getGators();
+			Simulation s1 = new Simulation();
 
-		Dragons.printTeamRosters();
+			Team Dragons = League.getDragons();
 
-		Gators.printTeamRosters();
+			Team Gators = League.getGators();
 
-		System.out.println(League.getDragons().getTeamOffensiveRating());
+			Dragons.printTeamRosters();
 
-		s1.processSimulation(League.getDragons(), League.getGators());
+			Gators.printTeamRosters();
+
+			System.out.println(League.getDragons().getTeamOffensiveRating());
+
+			s1.processSimulation(League.getDragons(), League.getGators());
+			
+			if (team2Score > team1Score) {
+				underdogWins = true;
+			}
+			
+			team1Score = 0;
+			team2Score = 0;
+
+		}
+		
+		System.out.println("Games until upset: " + games);
 
 	}
 
@@ -85,7 +103,8 @@ public class Simulation {
 			if (choice != 'g') {
 
 				printOptions(101 - possessionsRemaining, team1Score, team2Score);
-				choice = input.next().charAt(0);
+				choice = 'g';
+				//choice = input.next().charAt(0);
 
 				if (choice == 'p') {
 
@@ -138,7 +157,8 @@ public class Simulation {
 		while (team1Score == team2Score) {
 			for (int possessionsRemaining = 0; possessionsRemaining < 10; possessionsRemaining++) {
 				System.out.println("\n\nPress p to simulate possession or g to end game");
-				choice = input.next().charAt(0);
+				choice = 'g';
+				//choice = input.next().charAt(0);
 				if (choice == 'p') {
 					team1Score += simulatePossession(team1, team2);
 					team2Score += simulatePossession(team2, team1);
@@ -203,19 +223,21 @@ public class Simulation {
 	 * @return Points scored by offensive team on current possession
 	 */
 	public int simulatePossession(Team offenseTeam, Team defenseTeam) {
-		int offensiveRating = (int) ((Math.random() * 100) + 1) * offenseTeam.getTeamOffensiveRating();
+		int offensiveRating = (int) ((Math.random()) * 100 + 1) * offenseTeam.getTeamOffensiveRating();
 		int defensiveRating = (int) ((Math.random() * 100) + 1) * defenseTeam.getTeamDefensiveRating();
 
 		int difference = offensiveRating - defensiveRating;
 
 		if (difference < 0) {
 			return 0;
-		} else if (difference < 3500) {
+		} else if (difference < 500) {
 			return 1;
-		} else if (difference < 40000) {
+		} else if (difference < 4000) {
 			return 2;
-		} else {
+		} else if (difference < 9500) {
 			return 3;
+		} else {
+			return 4;
 		}
 	}
 
