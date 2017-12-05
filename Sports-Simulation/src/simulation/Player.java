@@ -6,7 +6,7 @@ package simulation;
  * @author Owner
  *
  */
-public class Player {
+public class Player implements Athlete {
 
 	/**
 	 * Stores player name
@@ -58,11 +58,11 @@ public class Player {
 	public Player(String playerName, int offense, int defense, int[] position, double contractAmount, int contractYears,
 			int age) {
 
-		setPlayerName(playerName);
+		setName(playerName);
 
-		setOffense(offense);
+		setOffenseRating(offense);
 
-		setDefense(defense);
+		setDefenseRating(defense);
 
 		setPosition(position);
 
@@ -79,7 +79,7 @@ public class Player {
 	 * 
 	 * @return Name of the player
 	 */
-	public String getPlayerName() {
+	public String getName() {
 		return playerName;
 	}
 
@@ -89,7 +89,7 @@ public class Player {
 	 * @param playerName
 	 *            New name for player
 	 */
-	public void setPlayerName(String playerName) {
+	public void setName(String playerName) {
 		// Check for valid character inputs?
 		this.playerName = playerName;
 	}
@@ -102,23 +102,18 @@ public class Player {
 	public int[] getPosition() {
 		return position;
 	}
-
-	/**
-	 * Sets the position of the player
-	 * 
-	 * @param position
-	 *            New position of the player
-	 */
-	public void setPosition(int[] position) {
-		try {
+	
+	@Override
+	public void setPostition(int[] position) {
+//		try {
 			for (int i = 0; i < position.length; i++) {
 				if (position[i] < 0 || position[i] > 6) {
 					throw new IllegalArgumentException("All listed positions must be between 0 and 6 inclusive");
 				}
 			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
-		}
+//		} catch (IllegalArgumentException e) {
+//			e.getMessage();
+//		}
 
 		this.position = position;
 	}
@@ -128,7 +123,7 @@ public class Player {
 	 * 
 	 * @return Offensive rating of the player
 	 */
-	public int getOffense() {
+	public int getOffenseRating() {
 		return offense;
 	}
 
@@ -138,15 +133,15 @@ public class Player {
 	 * @param offense
 	 *            New offensive rating of player
 	 */
-	public void setOffense(int offense) {
-		try {
+	public void setOffenseRating(int offense) {
+//		try {
 			if (offense < 0 || offense > 100) {
 				throw new IllegalArgumentException("Offensive rating needs to be between 0 and 100 inclusive");
 			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
-			// END OR REPROMPT FOR INPUT
-		}
+//		} catch (IllegalArgumentException e) {
+//			e.getMessage();
+//			// END OR REPROMPT FOR INPUT
+//		}
 
 		this.offense = offense;
 	}
@@ -156,7 +151,7 @@ public class Player {
 	 * 
 	 * @return Defensive rating of the player
 	 */
-	public int getDefense() {
+	public int getDefenseRating() {
 		return defense;
 	}
 
@@ -166,14 +161,14 @@ public class Player {
 	 * @param defense
 	 *            New defensive rating of the player
 	 */
-	public void setDefense(int defense) {
-		try {
+	public void setDefenseRating(int defense) {
+//		try {
 			if (defense < 0 || defense > 100) {
 				throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
 			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
-		}
+//		} catch (IllegalArgumentException e) {
+//			e.getMessage();
+//		}
 
 		this.defense = defense;
 	}
@@ -203,15 +198,16 @@ public class Player {
 	 *            New contract amount
 	 */
 	public void setContractAmount(double contractAmount) {
-		try {
+//		try {
 			if (contractAmount < 0) {
 				throw new IllegalArgumentException("Contract amount must be greater than or equal to zero.");
-			} else {
-				this.contractAmount = contractAmount;
 			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
-		}
+//		} catch (IllegalArgumentException e) {
+//			e.getMessage();
+//		}
+		
+		this.contractAmount = contractAmount;
+		
 	}
 
 	/**
@@ -230,15 +226,15 @@ public class Player {
 	 *            New number of years left on contract
 	 */
 	public void setContractYears(int contractYears) {
-		try {
+//		try {
 			if (contractYears < 0) {
 				throw new IllegalArgumentException("Contract years must be greater than or equal to zero.");
-			} else {
-				this.contractYears = contractYears;
 			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
-		}
+//		} catch (IllegalArgumentException e) {
+//			e.getMessage();
+//		}
+		
+		this.contractYears = contractYears;
 	}
 
 	/**
@@ -257,15 +253,15 @@ public class Player {
 	 *            New age of player
 	 */
 	public void setAge(int age) {
-		try {
+//		try {
 			if (age < 0) {
 				throw new IllegalArgumentException("Age of player must be greater than zero.");
-			} else {
-				this.age = age;
 			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
-		}
+//		} catch (IllegalArgumentException e) {
+//			e.getMessage();
+//		}
+		
+		this.age = age;
 	}
 
 }

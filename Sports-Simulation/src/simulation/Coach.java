@@ -5,7 +5,7 @@ package simulation;
  * @author Owner
  *
  */
-public class Coach {
+public class Coach implements Athlete {
 
 	/**
 	 * Stores coache's name
