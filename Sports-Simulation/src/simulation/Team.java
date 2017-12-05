@@ -16,7 +16,7 @@ public class Team {
 	/**
 	 * Stores the roster for the team
 	 */
-	private Player[] roster = new Player[7];
+	private Athlete[] roster = new Athlete[7];
 
 	/**
 	 * Stores team name
@@ -29,7 +29,7 @@ public class Team {
 	 * @param roster
 	 *            Roster for team
 	 */
-	public Team(String teamName, Player[] roster) {
+	public Team(String teamName, Athlete[] roster) {
 
 		this.teamName = teamName;
 
@@ -68,7 +68,7 @@ public class Team {
 	 * 
 	 * @return Roster of the team
 	 */
-	public Player[] getRoster() {
+	public Athlete[] getRoster() {
 		return roster;
 	}
 
@@ -78,7 +78,7 @@ public class Team {
 	 * @param roster
 	 *            New team roster
 	 */
-	public void setRoster(Player[] roster) {
+	public void setRoster(Athlete[] roster) {
 		try {
 			if (roster.length != 7) {
 				throw new IllegalArgumentException("The roster needs to be of 7 players length");
@@ -98,7 +98,7 @@ public class Team {
 	 * @param player
 	 *            New replacement player
 	 */
-	public void changeRoster(int position, Player player) {
+	public void changeRoster(int position, Athlete player) {
 		roster[position] = player;
 	}
 
@@ -110,8 +110,8 @@ public class Team {
 	public int getTeamOffensiveRating() {
 		int overall = 0;
 
-		for (Player p : roster) {
-			overall += p.getOffense();
+		for (Athlete a : roster) {
+			overall += a.getOffenseRating();
 		}
 
 		return overall;
@@ -125,8 +125,8 @@ public class Team {
 	public int getTeamDefensiveRating() {
 		int overall = 0;
 
-		for (Player p : roster) {
-			overall += p.getDefense();
+		for (Athlete a : roster) {
+			overall += a.getDefenseRating();
 		}
 
 		return overall;
@@ -150,7 +150,7 @@ public class Team {
 	public void updatePlayers() {
 
 		for (int i = 1; i <= 5; i++) {
-			Player current = roster[i];
+			Athlete current = roster[i];
 			boolean inCorrectPosition = false;
 			for (int j = 0; j < current.getPosition().length; j++) {
 				if (current.getPosition()[j] == i) {
@@ -160,8 +160,8 @@ public class Team {
 			}
 
 			if (!inCorrectPosition) {
-				current.setOffense((int) (current.getOffense() * .9));
-				current.setDefense((int) (current.getDefense() * .9));
+				current.setOffenseRating((int) (current.getOffenseRating() * .9));
+				current.setDefenseRating((int) (current.getDefenseRating() * .9));
 			}
 		}
 
@@ -204,7 +204,7 @@ public class Team {
 					bw.write(playerPosition);
 				}
 				String playerInformation = String.format("\t\t%-20s\t%d\t%d\t%d\t%.1f\t\t%d\n",
-						roster[i].getPlayerName(), roster[i].getAge(), roster[i].getOffense(), roster[i].getDefense(),
+						roster[i].getName(), roster[i].getAge(), roster[i].getOffenseRating(), roster[i].getDefenseRating(),
 						roster[i].getContractAmount(), roster[i].getContractYears());
 				bw.write(playerInformation);
 				System.out.print(playerInformation);

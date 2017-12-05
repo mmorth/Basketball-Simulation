@@ -23,15 +23,15 @@ public class League {
 		Dragons = dragons;
 	}
 	
-	public static Player[] createDragonsRoster() {
-		Player[] roster = new Player[7];
+	public static Athlete[] createDragonsRoster() {
+		Athlete[] roster = new Athlete[7];
 		
 
 		int[] position0 = {0};
-		roster[0] = new Player("Travis Johnson", 100, 100, position0, 5, 2, 25);
+		roster[0] = new Coach("Travis Johnson", 100, 100, position0, 5, 2, 25);
 		
 		int[] position1 = {1};
-		roster[1] = new Player("Dayton", 100, 100, position1, 5, 2, 25);
+		roster[1] = new Player("Dayton", 96, 96, position1, 5, 2, 25);
 		
 		int[] position2 = {2,3,4};
 		roster[2] = new Player("Doug Martin", 100, 100, position2, 5, 2, 25);
@@ -43,10 +43,10 @@ public class League {
 		roster[4] = new Player("Travis Davis", 100, 100, position4, 5, 2, 25);
 		
 		int[] position5 = {5};
-		roster[5] = new Player("Greg Gates", 100, 100, position5, 5, 2, 25);
+		roster[5] = new Player("Greg Gates", 95, 95, position5, 5, 2, 25);
 		
 		int[] position6 = {6};
-		roster[6] = new Player("Clyde Glaxondale", 100, 100, position6, 5, 2, 25);
+		roster[6] = new Player("Mason Ponder", 95, 95, position6, 5, 2, 25);
 		
 		
 		return roster;
@@ -60,12 +60,12 @@ public class League {
 		Gators = gators;
 	}
 
-	public static Player[] createGatorsRoster() {
-		Player[] roster = new Player[7];
+	public static Athlete[] createGatorsRoster() {
+		Athlete[] roster = new Athlete[7];
 		
 
 		int[] position0 = {0};
-		roster[0] = new Player("Dennis Smith", 95, 95, position0, 5, 2, 25);
+		roster[0] = new Coach("Dennis Smith", 95, 95, position0, 5, 2, 25);
 		
 		int[] position1 = {1};
 		roster[1] = new Player("Isaiah Tate", 95, 95, position1, 5, 2, 25);
@@ -77,7 +77,7 @@ public class League {
 		roster[3] = new Player("Steve Wells", 100, 100, position3, 5, 2, 25);
 		
 		int[] position4 = {3,4};
-		roster[4] = new Player("Kenny Carter", 95, 95, position4, 5, 2, 25);
+		roster[4] = new Player("Kenny Carter", 100, 100, position4, 5, 2, 25);
 		
 		int[] position5 = {5};
 		roster[5] = new Player("Brock Lyons", 95, 95, position5, 5, 2, 25);

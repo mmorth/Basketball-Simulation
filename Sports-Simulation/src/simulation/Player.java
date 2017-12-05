@@ -16,12 +16,12 @@ public class Player implements Athlete {
 	/**
 	 * Stores player offensive rating
 	 */
-	private int offense;
+	private int offenseRating;
 
 	/**
 	 * Stores player defensive rating
 	 */
-	private int defense;
+	private int defenseRating;
 
 	/**
 	 * Stores player position
@@ -34,7 +34,7 @@ public class Player implements Athlete {
 	private double contractAmount;
 
 	/**
-	 * Stores number of years left on contract
+	 * Stores number of years left on player contract
 	 */
 	private int contractYears;
 
@@ -44,25 +44,30 @@ public class Player implements Athlete {
 	private int age;
 
 	/**
-	 * Constructs a new Player object
-	 * 
+	 * Creates a new basketball player with various attributes
 	 * @param playerName
-	 *            Name of the player
-	 * @param offense
-	 *            Offensive rating of the player
-	 * @param defense
-	 *            Defensive rating of the player
+	 * 		Name of the player
+	 * @param offenseRating
+	 * 		The offensive rating of the player
+	 * @param defenseRating
+	 * 		The defensive rating of the player
 	 * @param position
-	 *            Position of the player
+	 * 		The position(s) of the player
+	 * @param contractAmount
+	 * 		The yearly salary of the player
+	 * @param contractYears
+	 * 		The number of years left on the player's contract
+	 * @param age
+	 * 		The age of the player
 	 */
-	public Player(String playerName, int offense, int defense, int[] position, double contractAmount, int contractYears,
+	public Player(String playerName, int offenseRating, int defenseRating, int[] position, double contractAmount, int contractYears,
 			int age) {
 
 		setName(playerName);
 
-		setOffenseRating(offense);
+		setOffenseRating(offenseRating);
 
-		setDefenseRating(defense);
+		setDefenseRating(defenseRating);
 
 		setPosition(position);
 
@@ -79,6 +84,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return Name of the player
 	 */
+	@Override
 	public String getName() {
 		return playerName;
 	}
@@ -89,6 +95,7 @@ public class Player implements Athlete {
 	 * @param playerName
 	 *            New name for player
 	 */
+	@Override
 	public void setName(String playerName) {
 		// Check for valid character inputs?
 		this.playerName = playerName;
@@ -99,12 +106,18 @@ public class Player implements Athlete {
 	 * 
 	 * @return Position of player
 	 */
+	@Override
 	public int[] getPosition() {
 		return position;
 	}
 	
+	/**
+	 * Sets a new position for a player
+	 * @param position
+	 * 		The new position of the player
+	 */
 	@Override
-	public void setPostition(int[] position) {
+	public void setPosition(int[] position) {
 //		try {
 			for (int i = 0; i < position.length; i++) {
 				if (position[i] < 0 || position[i] > 6) {
@@ -123,19 +136,21 @@ public class Player implements Athlete {
 	 * 
 	 * @return Offensive rating of the player
 	 */
+	@Override
 	public int getOffenseRating() {
-		return offense;
+		return offenseRating;
 	}
 
 	/**
 	 * Sets the offensive rating of the player
 	 * 
-	 * @param offense
+	 * @param offenseRating
 	 *            New offensive rating of player
 	 */
-	public void setOffenseRating(int offense) {
+	@Override
+	public void setOffenseRating(int offenseRating) {
 //		try {
-			if (offense < 0 || offense > 100) {
+			if (offenseRating < 0 || offenseRating > 100) {
 				throw new IllegalArgumentException("Offensive rating needs to be between 0 and 100 inclusive");
 			}
 //		} catch (IllegalArgumentException e) {
@@ -143,7 +158,7 @@ public class Player implements Athlete {
 //			// END OR REPROMPT FOR INPUT
 //		}
 
-		this.offense = offense;
+		this.offenseRating = offenseRating;
 	}
 
 	/**
@@ -151,26 +166,28 @@ public class Player implements Athlete {
 	 * 
 	 * @return Defensive rating of the player
 	 */
+	@Override
 	public int getDefenseRating() {
-		return defense;
+		return defenseRating;
 	}
 
 	/**
 	 * Sets the defensive rating of the player
 	 * 
-	 * @param defense
+	 * @param defenseRating
 	 *            New defensive rating of the player
 	 */
-	public void setDefenseRating(int defense) {
+	@Override
+	public void setDefenseRating(int defenseRating) {
 //		try {
-			if (defense < 0 || defense > 100) {
+			if (defenseRating < 0 || defenseRating > 100) {
 				throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
 			}
 //		} catch (IllegalArgumentException e) {
 //			e.getMessage();
 //		}
 
-		this.defense = defense;
+		this.defenseRating = defenseRating;
 	}
 
 	/**
@@ -178,8 +195,9 @@ public class Player implements Athlete {
 	 * 
 	 * @return Overall rating of player
 	 */
-	public int getOverall() {
-		return (offense + defense) / 2;
+	@Override
+	public int getOverallRating() {
+		return (offenseRating + defenseRating) / 2;
 	}
 
 	/**
@@ -187,6 +205,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return Contract amount for current player
 	 */
+	@Override
 	public double getContractAmount() {
 		return contractAmount;
 	}
@@ -197,6 +216,7 @@ public class Player implements Athlete {
 	 * @param contractAmount
 	 *            New contract amount
 	 */
+	@Override
 	public void setContractAmount(double contractAmount) {
 //		try {
 			if (contractAmount < 0) {
@@ -215,6 +235,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return Number of years left on contract
 	 */
+	@Override
 	public int getContractYears() {
 		return contractYears;
 	}
@@ -225,6 +246,7 @@ public class Player implements Athlete {
 	 * @param contractYears
 	 *            New number of years left on contract
 	 */
+	@Override
 	public void setContractYears(int contractYears) {
 //		try {
 			if (contractYears < 0) {
@@ -242,6 +264,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return Age of player
 	 */
+	@Override
 	public int getAge() {
 		return age;
 	}
@@ -252,6 +275,7 @@ public class Player implements Athlete {
 	 * @param age
 	 *            New age of player
 	 */
+	@Override
 	public void setAge(int age) {
 //		try {
 			if (age < 0) {
