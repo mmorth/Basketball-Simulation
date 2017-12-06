@@ -1,21 +1,21 @@
 package simulation;
 
-import java.util.Scanner;
+import java.util.Random;
 
 public class Tester {
 
 	public static void main(String[] args) {
 
-		Scanner input = new Scanner(System.in);
+		Random rng = new Random();
 		
-		stringPass(input.next());
+		for (int i = 0; i < 10; i++) {
+			int rand = rng.nextInt(3)+1;
+			if (rand == 2) {
+				System.out.println("WHAT THE HECK!!!!!?!?!?!?!?");
+			}
+			System.out.println(rand);
+		}
 		
-		input.close();
-		
-	}
-	
-	public static String stringPass(String example) {
-		return example;
 	}
 
 }
