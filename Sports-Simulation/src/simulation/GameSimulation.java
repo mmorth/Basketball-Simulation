@@ -321,8 +321,8 @@ public class GameSimulation {
 
 		double weight = .2;
 
-		double team1ShotResult = ((team1RelativeRating * weight + rng.nextDouble() * 100 * (1 - weight)) / 2) * team1ShotModifier;
-		double team2ShotResult = ((team2RelativeRating * weight + rng.nextDouble() * 100 * (1 - weight)) / 2) * team2ShotModifier;
+		double team1ShotResult = ((team1RelativeRating * weight + rng.nextDouble() * 100 * (1 - weight)) / 2) * team1ShotModifier * (team1.getTeamOffensiveRating() / team2.getTeamDefensiveRating());
+		double team2ShotResult = ((team2RelativeRating * weight + rng.nextDouble() * 100 * (1 - weight)) / 2) * team2ShotModifier * (team2.getTeamOffensiveRating() / team1.getTeamDefensiveRating());
 
 		if (team1ShotResult >= shotMakeValue) {
 			team1Score += team1ShotSelection;

@@ -147,7 +147,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public void setOffenseRating(int offenseRating) {
-		if (offenseRating < 20 || offenseRating > 100) {
+		if (offenseRating < 30 || offenseRating > 100) {
 			throw new IllegalArgumentException("Offensive rating needs to be between 0 and 100 inclusive");
 		}
 
@@ -172,7 +172,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public void setDefenseRating(int defenseRating) {
-		if (defenseRating < 20 || defenseRating > 100) {
+		if (defenseRating < 30 || defenseRating > 100) {
 			throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
 		}
 

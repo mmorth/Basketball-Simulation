@@ -27,7 +27,7 @@ public class League {
 		Athlete[] roster = new Athlete[7];
 		
 
-		int offensiveRating = 50;
+		int offensiveRating = 100;
 		int defensiveRating = 100;
 
 		int[] position0 = {0};
@@ -66,7 +66,7 @@ public class League {
 	public static Athlete[] createGatorsRoster() {
 		Athlete[] roster = new Athlete[7];
 		
-		int offensiveRating = 50;
+		int offensiveRating = 100;
 		int defensiveRating = 100;
 
 		int[] position0 = {0};
