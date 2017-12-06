@@ -3,7 +3,7 @@ package simulation;
 /**
  * Represents a basketball player. Stores name and ratings.
  * 
- * @author Owner
+ * @author Matthew Orth
  *
  */
 public class Player implements Athlete {
@@ -45,23 +45,24 @@ public class Player implements Athlete {
 
 	/**
 	 * Creates a new basketball player with various attributes
+	 * 
 	 * @param playerName
-	 * 		Name of the player
+	 *            Name of the player
 	 * @param offenseRating
-	 * 		The offensive rating of the player
+	 *            The offensive rating of the player
 	 * @param defenseRating
-	 * 		The defensive rating of the player
+	 *            The defensive rating of the player
 	 * @param position
-	 * 		The position(s) of the player
+	 *            The position(s) of the player
 	 * @param contractAmount
-	 * 		The yearly salary of the player
+	 *            The yearly salary of the player
 	 * @param contractYears
-	 * 		The number of years left on the player's contract
+	 *            The number of years left on the player's contract
 	 * @param age
-	 * 		The age of the player
+	 *            The age of the player
 	 */
-	public Player(String playerName, int offenseRating, int defenseRating, int[] position, double contractAmount, int contractYears,
-			int age) {
+	public Player(String playerName, int offenseRating, int defenseRating, int[] position, double contractAmount,
+			int contractYears, int age) {
 
 		setName(playerName);
 
@@ -110,23 +111,20 @@ public class Player implements Athlete {
 	public int[] getPosition() {
 		return position;
 	}
-	
+
 	/**
 	 * Sets a new position for a player
+	 * 
 	 * @param position
-	 * 		The new position of the player
+	 *            The new position of the player
 	 */
 	@Override
 	public void setPosition(int[] position) {
-//		try {
-			for (int i = 0; i < position.length; i++) {
-				if (position[i] < 0 || position[i] > 6) {
-					throw new IllegalArgumentException("All listed positions must be between 0 and 6 inclusive");
-				}
+		for (int i = 0; i < position.length; i++) {
+			if (position[i] < 1 || position[i] > 6) {
+				throw new IllegalArgumentException("All listed positions must be between 0 and 6 inclusive");
 			}
-//		} catch (IllegalArgumentException e) {
-//			e.getMessage();
-//		}
+		}
 
 		this.position = position;
 	}
@@ -149,14 +147,9 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public void setOffenseRating(int offenseRating) {
-//		try {
-			if (offenseRating < 0 || offenseRating > 100) {
-				throw new IllegalArgumentException("Offensive rating needs to be between 0 and 100 inclusive");
-			}
-//		} catch (IllegalArgumentException e) {
-//			e.getMessage();
-//			// END OR REPROMPT FOR INPUT
-//		}
+		if (offenseRating < 0 || offenseRating > 100) {
+			throw new IllegalArgumentException("Offensive rating needs to be between 0 and 100 inclusive");
+		}
 
 		this.offenseRating = offenseRating;
 	}
@@ -179,13 +172,9 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public void setDefenseRating(int defenseRating) {
-//		try {
-			if (defenseRating < 0 || defenseRating > 100) {
-				throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
-			}
-//		} catch (IllegalArgumentException e) {
-//			e.getMessage();
-//		}
+		if (defenseRating < 0 || defenseRating > 100) {
+			throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
+		}
 
 		this.defenseRating = defenseRating;
 	}
@@ -218,16 +207,12 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public void setContractAmount(double contractAmount) {
-//		try {
-			if (contractAmount < 0) {
-				throw new IllegalArgumentException("Contract amount must be greater than or equal to zero.");
-			}
-//		} catch (IllegalArgumentException e) {
-//			e.getMessage();
-//		}
-		
+		if (contractAmount < 0) {
+			throw new IllegalArgumentException("Contract amount must be greater than or equal to zero.");
+		}
+
 		this.contractAmount = contractAmount;
-		
+
 	}
 
 	/**
@@ -248,14 +233,10 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public void setContractYears(int contractYears) {
-//		try {
-			if (contractYears < 0) {
-				throw new IllegalArgumentException("Contract years must be greater than or equal to zero.");
-			}
-//		} catch (IllegalArgumentException e) {
-//			e.getMessage();
-//		}
-		
+		if (contractYears < 0) {
+			throw new IllegalArgumentException("Contract years must be greater than or equal to zero.");
+		}
+
 		this.contractYears = contractYears;
 	}
 
@@ -277,14 +258,10 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public void setAge(int age) {
-//		try {
-			if (age < 0) {
-				throw new IllegalArgumentException("Age of player must be greater than zero.");
-			}
-//		} catch (IllegalArgumentException e) {
-//			e.getMessage();
-//		}
-		
+		if (age < 0) {
+			throw new IllegalArgumentException("Age of player must be greater than zero.");
+		}
+
 		this.age = age;
 	}
 

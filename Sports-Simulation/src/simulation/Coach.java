@@ -2,13 +2,14 @@ package simulation;
 
 /**
  * Represents a basketball coach. Stores name and ratings.
- * @author Owner
+ * 
+ * @author Matthew Orth
  *
  */
 public class Coach implements Athlete {
 
 	/**
-	 * Stores coache's name
+	 * Stores coach's name
 	 */
 	private String coachName;
 
@@ -21,14 +22,14 @@ public class Coach implements Athlete {
 	 * Stores defensive rating of coach
 	 */
 	private int defenseRating;
-	
+
 	/**
 	 * Stores coach's position, which is 0
 	 */
 	private int[] position;
-	
+
 	/**
-	 * Stores coach contract amount in millions per year
+	 * Stores coach contract amount, in millions, per year
 	 */
 	private double contractAmount;
 
@@ -44,23 +45,24 @@ public class Coach implements Athlete {
 
 	/**
 	 * Creates a new basketball player with various attributes
+	 * 
 	 * @param coachName
-	 * 		Name of the player
+	 *            Name of the Coach
 	 * @param offenseRating
-	 * 		The offensive rating of the player
+	 *            The offensive rating of the coach
 	 * @param defenseRating
-	 * 		The defensive rating of the player
+	 *            The defensive rating of the coach
 	 * @param position
-	 * 		The position(s) of the player
+	 *            The position(s) of the coach
 	 * @param contractAmount
-	 * 		The yearly salary of the player
+	 *            The yearly salary of the coach
 	 * @param contractYears
-	 * 		The number of years left on the player's contract
+	 *            The number of years left on the coach's contract
 	 * @param age
-	 * 		The age of the player
+	 *            The age of the coach
 	 */
-	public Coach(String coachName, int offenseRating, int defenseRating, int[] position, double contractAmount, int contractYears,
-			int age) {
+	public Coach(String coachName, int offenseRating, int defenseRating, int[] position, double contractAmount,
+			int contractYears, int age) {
 
 		setName(coachName);
 
@@ -117,12 +119,8 @@ public class Coach implements Athlete {
 	 */
 	@Override
 	public void setOffenseRating(int offenseRating) {
-		try {
-			if (offenseRating < 0 || offenseRating > 100) {
-				throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
-			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
+		if (offenseRating < 0 || offenseRating > 100) {
+			throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
 		}
 
 		this.offenseRating = offenseRating;
@@ -146,12 +144,8 @@ public class Coach implements Athlete {
 	 */
 	@Override
 	public void setDefenseRating(int defenseRating) {
-		try {
-			if (defenseRating < 0 || defenseRating > 100) {
-				throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
-			}
-		} catch (IllegalArgumentException e) {
-			e.getMessage();
+		if (defenseRating < 0 || defenseRating > 100) {
+			throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
 		}
 
 		this.defenseRating = defenseRating;
@@ -167,27 +161,19 @@ public class Coach implements Athlete {
 	public int[] getPosition() {
 		return position;
 	}
-	
+
 	/**
-	 * Sets a new position for a coach
+	 * Sets a new position for a coach The position of the coach will always be set
+	 * to 0 no matter what the user enters for the position argument to this method.
+	 * 
 	 * @param position
-	 * 		The new position of the coach
+	 *            The new position of the coach
 	 */
 	@Override
 	public void setPosition(int[] position) {
-//		try {
-			for (int i = 0; i < position.length; i++) {
-				if (position[i] < 0 || position[i] > 6) {
-					throw new IllegalArgumentException("All listed positions must be between 0 and 6 inclusive");
-				}
-			}
-//		} catch (IllegalArgumentException e) {
-//			e.getMessage();
-//		}
-
-		this.position = position;
+		this.position = new int[] { 0 };
 	}
-	
+
 	/**
 	 * Returns the overall rating of the coach
 	 * 
@@ -197,7 +183,7 @@ public class Coach implements Athlete {
 	public int getOverallRating() {
 		return (offenseRating + defenseRating) / 2;
 	}
-	
+
 	/**
 	 * Returns the contract amount for current coach
 	 * 
@@ -216,16 +202,12 @@ public class Coach implements Athlete {
 	 */
 	@Override
 	public void setContractAmount(double contractAmount) {
-//		try {
-			if (contractAmount < 0) {
-				throw new IllegalArgumentException("Contract amount must be greater than or equal to zero.");
-			}
-//		} catch (IllegalArgumentException e) {
-//			e.getMessage();
-//		}
-		
+		if (contractAmount < 0) {
+			throw new IllegalArgumentException("Contract amount must be greater than or equal to zero.");
+		}
+
 		this.contractAmount = contractAmount;
-		
+
 	}
 
 	/**
@@ -246,14 +228,10 @@ public class Coach implements Athlete {
 	 */
 	@Override
 	public void setContractYears(int contractYears) {
-//		try {
-			if (contractYears < 0) {
-				throw new IllegalArgumentException("Contract years must be greater than or equal to zero.");
-			}
-//		} catch (IllegalArgumentException e) {
-//			e.getMessage();
-//		}
-		
+		if (contractYears < 0) {
+			throw new IllegalArgumentException("Contract years must be greater than or equal to zero.");
+		}
+
 		this.contractYears = contractYears;
 	}
 
@@ -275,16 +253,11 @@ public class Coach implements Athlete {
 	 */
 	@Override
 	public void setAge(int age) {
-//		try {
-			if (age < 0) {
-				throw new IllegalArgumentException("Age of player must be greater than zero.");
-			}
-//		} catch (IllegalArgumentException e) {
-//			e.getMessage();
-//		}
-		
+		if (age < 0) {
+			throw new IllegalArgumentException("Age of player must be greater than zero.");
+		}
+
 		this.age = age;
 	}
 
 }
-
