@@ -27,7 +27,7 @@ public class League {
 		Athlete[] roster = new Athlete[7];
 		
 
-		int offensiveRating = 100;
+		int offensiveRating = 50;
 		int defensiveRating = 100;
 
 		int[] position0 = {0};
@@ -39,7 +39,7 @@ public class League {
 		int[] position2 = {2};
 		roster[2] = new Player("Curtis Baron", offensiveRating, defensiveRating, position2, 5, 2, 25);
 		
-		int[] position3 = {2,3};
+		int[] position3 = {1,2,3,4,5};
 		roster[3] = new Player("Steve Wells", offensiveRating, defensiveRating, position3, 5, 2, 25);
 		
 		int[] position4 = {3,4};
@@ -66,8 +66,8 @@ public class League {
 	public static Athlete[] createGatorsRoster() {
 		Athlete[] roster = new Athlete[7];
 		
-		int offensiveRating = 60;
-		int defensiveRating = 60;
+		int offensiveRating = 50;
+		int defensiveRating = 100;
 
 		int[] position0 = {0};
 		roster[0] = new Coach("Dennis Smith", offensiveRating, defensiveRating, position0, 5, 2, 25);

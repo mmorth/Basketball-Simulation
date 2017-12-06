@@ -35,7 +35,9 @@ public class GameSimulation {
 		int team1Wins = 0;
 		int team2Wins = 0;
 
-		for (int i = 0; i < 1000; i++) {
+		int i;
+		
+		for (i = 0; i < 1; i++) {
 
 			Team Dragons = League.getDragons();
 
@@ -65,8 +67,8 @@ public class GameSimulation {
 
 		}
 
-		team1Average /= 1000;
-		team2Average /= 1000;
+		team1Average /= i;
+		team2Average /= i;
 
 		System.out.println("Higher Team Average Score: " + team1Average);
 		System.out.println("Lower Team Average Score: " + team2Average);
@@ -299,22 +301,22 @@ public class GameSimulation {
 		double team1ShotModifier = 0;
 
 		if (team1ShotSelection == 1) {
-			team1ShotModifier = .9;
+			team1ShotModifier = .8;
 		} else if (team1ShotSelection == 2) {
 			team1ShotModifier = .5;
 		} else {
-			team1ShotModifier = .3;
+			team1ShotModifier = .32;
 		}
 
 		int team2ShotSelection = rng.nextInt(3) + 1;
 		double team2ShotModifier = 0;
 
 		if (team2ShotSelection == 1) {
-			team2ShotModifier = .9;
+			team2ShotModifier = .8;
 		} else if (team2ShotSelection == 2) {
 			team2ShotModifier = .5;
 		} else {
-			team2ShotModifier = .3;
+			team2ShotModifier = .32;
 		}
 
 		double weight = .2;

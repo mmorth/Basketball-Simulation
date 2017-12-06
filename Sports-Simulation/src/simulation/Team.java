@@ -142,14 +142,14 @@ public class Team {
 	 * 
 	 * @return Offensive rating of team
 	 */
-	private int generateNewTeamOffensiveRating() {
+	private void generateNewTeamOffensiveRating() {
 		int overall = 0;
 
 		for (Athlete a : roster) {
 			overall += a.getOffenseRating();
 		}
 
-		return overall / roster.length;
+		teamOffensiveRating = overall / roster.length;
 	}
 	
 	/**
@@ -166,14 +166,14 @@ public class Team {
 	 * 
 	 * @return Defensive rating of team
 	 */
-	public int generateNewTeamDefensiveRating() {
+	public void generateNewTeamDefensiveRating() {
 		int overall = 0;
 
 		for (Athlete a : roster) {
 			overall += a.getDefenseRating();
 		}
 
-		return overall / roster.length;
+		teamDefensiveRating = overall / roster.length;
 	}
 	
 	/**
@@ -190,8 +190,8 @@ public class Team {
 	 * 
 	 * @return Overall rating of team
 	 */
-	public int generateNewTeamOverallRating() {
-		return (teamOffensiveRating + teamDefensiveRating) / 2;
+	public void generateNewTeamOverallRating() {
+		teamOverallRating = (teamOffensiveRating + teamDefensiveRating) / 2;
 	}
 
 //	/**
@@ -233,14 +233,14 @@ public class Team {
 	 * 
 	 * @return Team salary cap
 	 */
-	public double generateNewTeamSalary() {
+	public void generateNewTeamSalary() {
 		double totalSalary = 0;
 
 		for (int i = 0; i < roster.length; i++) {
 			totalSalary += roster[i].getContractAmount();
 		}
 
-		return totalSalary;
+		totalTeamSalary = totalSalary;
 	}
 
 	/**
@@ -264,7 +264,7 @@ public class Team {
 					System.out.print(playerPosition);
 					bw.write(playerPosition);
 				}
-				String playerInformation = String.format("\t\t%-20s\t%d\t%d\t%d\t%.1f\t\t%d\n", roster[i].getName(),
+				String playerInformation = String.format("\t\t\t%-20s\t%d\t%d\t%d\t%.1f\t\t%d\n", roster[i].getName(),
 						roster[i].getAge(), roster[i].getOffenseRating(), roster[i].getDefenseRating(),
 						roster[i].getContractAmount(), roster[i].getContractYears());
 				bw.write(playerInformation);

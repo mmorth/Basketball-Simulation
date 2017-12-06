@@ -341,6 +341,7 @@ public class JUnitTests {
 		assertEquals(team.getTeamOffensiveRating(), 50);
 		assertEquals(team.getTeamDefensiveRating(), 50);
 		assertEquals(team.getTeamOverallRating(), 50);
+		assertEquals(team.getSalaryCap(), 35, .01);
 	}
 	
 	@Test
@@ -396,19 +397,19 @@ public class JUnitTests {
 		assertEquals(50, t2.getTeamOverallRating());
 	}
 	
-	@Test
-	public void teamUpdatePlayers() {
-		assertEquals(t1.getRoster()[1].getOffenseRating(), 45);
-		assertEquals(t1.getRoster()[1].getDefenseRating(), 45);
-		assertEquals(t1.getRoster()[2].getOffenseRating(), 50);
-		assertEquals(t1.getRoster()[2].getDefenseRating(), 50);
-		assertEquals(t1.getRoster()[3].getOffenseRating(), 50);
-		assertEquals(t1.getRoster()[3].getDefenseRating(), 50);
-		assertEquals(t1.getRoster()[4].getOffenseRating(), 45);
-		assertEquals(t1.getRoster()[4].getDefenseRating(), 45);
-		assertEquals(t1.getRoster()[5].getOffenseRating(), 45);
-		assertEquals(t1.getRoster()[5].getDefenseRating(), 45);
-	}
+//	@Test
+//	public void teamUpdatePlayers() {
+//		assertEquals(t1.getRoster()[1].getOffenseRating(), 45);
+//		assertEquals(t1.getRoster()[1].getDefenseRating(), 45);
+//		assertEquals(t1.getRoster()[2].getOffenseRating(), 50);
+//		assertEquals(t1.getRoster()[2].getDefenseRating(), 50);
+//		assertEquals(t1.getRoster()[3].getOffenseRating(), 50);
+//		assertEquals(t1.getRoster()[3].getDefenseRating(), 50);
+//		assertEquals(t1.getRoster()[4].getOffenseRating(), 45);
+//		assertEquals(t1.getRoster()[4].getDefenseRating(), 45);
+//		assertEquals(t1.getRoster()[5].getOffenseRating(), 45);
+//		assertEquals(t1.getRoster()[5].getDefenseRating(), 45);
+//	}
 	
 	@Test
 	public void teamGetSalaryCap() {
