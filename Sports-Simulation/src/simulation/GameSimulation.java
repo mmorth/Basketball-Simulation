@@ -37,7 +37,7 @@ public class GameSimulation {
 
 		int i;
 		
-		for (i = 0; i < 1; i++) {
+		for (i = 0; i < 1000; i++) {
 
 			Team Dragons = League.getDragons();
 
@@ -294,8 +294,9 @@ public class GameSimulation {
 	public void simulatePossession() {
 
 		Random rng = new Random();
-
-		double shotMakeValue = 10;
+		
+		double team1ShotMakeValue = 20 * (1-(team1RelativeRating / 100));
+		double team2ShotMakeValue = 20 * (1-(team2RelativeRating / 100));
 		
 		int team1ShotSelection = rng.nextInt(3) + 1;
 		double team1ShotModifier = 0;
@@ -321,14 +322,14 @@ public class GameSimulation {
 
 		double weight = .2;
 
-		double team1ShotResult = ((team1RelativeRating * weight + rng.nextDouble() * 100 * (1 - weight)) / 2) * team1ShotModifier * (team1.getTeamOffensiveRating() / team2.getTeamDefensiveRating());
-		double team2ShotResult = ((team2RelativeRating * weight + rng.nextDouble() * 100 * (1 - weight)) / 2) * team2ShotModifier * (team2.getTeamOffensiveRating() / team1.getTeamDefensiveRating());
+		double team1ShotResult = ((team1RelativeRating * weight + rng.nextDouble() * 100 * (1 - weight)) / 2) * team1ShotModifier;
+		double team2ShotResult = ((team2RelativeRating * weight + rng.nextDouble() * 100 * (1 - weight)) / 2) * team2ShotModifier;
 
-		if (team1ShotResult >= shotMakeValue) {
+		if (team1ShotResult >= team1ShotMakeValue) {
 			team1Score += team1ShotSelection;
 		}
 
-		if (team2ShotResult >= shotMakeValue) {
+		if (team2ShotResult >= team2ShotMakeValue) {
 			team2Score += team2ShotSelection;
 		}
 
