@@ -117,6 +117,16 @@ public class GameSimulation {
 	 * Represents team2's offensive rating relative to team1's defensive rating
 	 */
 	private double team2RelativeRating;
+	
+	/**
+	 * Makes it easier who have higher offense compared to the other team's defense to score
+	 */
+	private double team1Boost;
+	
+	/**
+	 * Makes it easier who have higher offense compared to the other team's defense to score
+	 */
+	private double team2Boost;
 
 	/**
 	 * Accepts user input
@@ -141,6 +151,9 @@ public class GameSimulation {
 
 		team1RelativeRating = (team1.getTeamOffensiveRating() - team2.getTeamDefensiveRating() + 100) / 2;
 		team2RelativeRating = (team2.getTeamOffensiveRating() - team1.getTeamDefensiveRating() + 100) / 2;
+		
+		team1BoostCalculation();
+		team2BoostCalculation();
 
 	}
 
@@ -299,6 +312,7 @@ public class GameSimulation {
 
 		double team1ShotSelection = rng.nextDouble();
 		int team1Shot = 0;
+		double team1OffDefRatio = team1.getTeamOffensiveRating() / team2.getTeamDefensiveRating();
 			
 		if (team1ShotSelection <= .1) {
 			shotMultiplier = .5;
@@ -311,12 +325,13 @@ public class GameSimulation {
 			team1Shot = 3;
 		}
 
-		if (rng.nextDouble() * team1RelativeRating > ((team1RelativeRating / 2.5) + 5) * shotMultiplier) {
+		if (team1Boost * rng.nextDouble() * team1RelativeRating > ((team1RelativeRating / 2.5) + 5) * shotMultiplier) {
 			team1Score += team1Shot;
 		}
 		
 		double team2ShotSelection = rng.nextDouble();
 		int team2Shot = 0;
+		double team2OffDefRatio = team2.getTeamOffensiveRating() / team1.getTeamDefensiveRating();
 			
 		if (team2ShotSelection <= .1) {
 			shotMultiplier = .5;
@@ -329,7 +344,7 @@ public class GameSimulation {
 			team2Shot = 3;
 		}
 
-		if (rng.nextDouble() * team2RelativeRating > ((team2RelativeRating / 2.5) + 5) * shotMultiplier) {
+		if (team2Boost * rng.nextDouble() * team2RelativeRating > ((team2RelativeRating / 2.5) + 5) * shotMultiplier) {
 			team2Score += team2Shot;
 		}
 
@@ -513,6 +528,34 @@ public class GameSimulation {
 		}
 
 		return possessions;
+	}
+	
+	
+	public void team1BoostCalculation() {
+		double ratio = team1.getTeamOffensiveRating() / team2.getTeamDefensiveRating();
+		
+		if (ratio >= 2) {
+			team1Boost = 1.1 + .2 * ratio;
+		} else if (ratio < 1) {
+			team1Boost = 1;
+		} else {
+			team1Boost = .9 + .1 * ratio;
+		}
+			
+	}
+	
+	
+	public void team2BoostCalculation() {
+		double ratio = team2.getTeamOffensiveRating() / team1.getTeamDefensiveRating();
+		
+		if (ratio >= 2) {
+			team2Boost = 1.1 + .2 * ratio;
+		} else if (ratio <= 1) {
+			team2Boost = 1;
+		} else {
+			team2Boost = .9 + .1 * ratio;
+		}
+			
 	}
 
 }
