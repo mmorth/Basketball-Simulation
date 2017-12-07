@@ -256,17 +256,26 @@ public class Team {
 			bw.newLine();
 			bw.write("Position\t\tName\t\t\t\tAge\t\tOffense\t\tDefense\t\tContract\t\tYears");
 			bw.newLine();
-			System.out.println("Position\t\tName\t\t\t\tAge\t\tOffense\t\tDefense\t\tContract\t\tYears");
+			System.out.printf("");
+			System.out.println("Position\tName\t\t\tAge\tOffense\tDefense\tContract/t\tYears");
 
 			for (int i = 0; i < roster.length; i++) {
+				String positionString = "";
 				for (int j = 0; j < roster[i].getPosition().length; j++) {
-					String playerPosition = String.format("%d ", roster[i].getPosition()[j]);
-					System.out.print(playerPosition);
-					bw.write(playerPosition);
+					positionString += Integer.toString(roster[i].getPosition()[j]);
+					positionString += " ";
+					//String playerPosition = String.format("%d ", roster[i].getPosition()[j]);
+//					System.out.print(playerPosition);
+//					bw.write(playerPosition);
 				}
-				String playerInformation = String.format("\t\t\t%-20s\t%d\t%d\t%d\t%.1f\t\t%d\n", roster[i].getName(),
-						roster[i].getAge(), roster[i].getOffenseRating(), roster[i].getDefenseRating(),
-						roster[i].getContractAmount(), roster[i].getContractYears());
+				
+//				String playerInformation = String.format("%-15s%-20s%-10d%-10d%-10d%-10d%.1f\n", positionString, roster[i].getName(),
+//						roster[i].getAge(), roster[i].getOffenseRating(), roster[i].getDefenseRating(), roster[i].getContractYears(), 
+//						roster[i].getContractAmount());
+				
+				String playerInformation = String.format("%-10s\t%-20s\t%d\t%d\t%d\t%.1f\t\t%d\n", positionString,
+						roster[i].getName(), roster[i].getAge(), roster[i].getOffenseRating(),
+						roster[i].getDefenseRating(), roster[i].getContractAmount(), roster[i].getContractYears());
 				bw.write(playerInformation);
 				System.out.print(playerInformation);
 				bw.newLine();
@@ -291,7 +300,7 @@ public class Team {
 
 	public static void main(String[] args) {
 
-		Team t1 = new Team("Test", League.getDragons().getRoster());
+		Team t1 = new Team(League.getDragons().getTeamName(), League.getDragons().getRoster());
 
 		t1.printTeamRosters();
 	}

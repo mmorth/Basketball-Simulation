@@ -36,7 +36,7 @@ public class GameSimulation {
 		int team2Wins = 0;
 
 		int i;
-		
+
 		for (i = 0; i < 1000; i++) {
 
 			Team Dragons = League.getDragons();
@@ -55,8 +55,8 @@ public class GameSimulation {
 
 			team1Average += team1Score;
 			team2Average += team2Score;
-			
-			if (team1Score > team2Score)  {
+
+			if (team1Score > team2Score) {
 				team1Wins++;
 			} else {
 				team2Wins++;
@@ -295,43 +295,83 @@ public class GameSimulation {
 
 		Random rng = new Random();
 		
-		double team1ShotMakeValue = 20 * (1-(team1RelativeRating / 100));
-		double team2ShotMakeValue = 20 * (1-(team2RelativeRating / 100));
+		double shotMultiplier = 0;
+
+		double team1ShotSelection = rng.nextDouble();
+		int team1Shot = 0;
+			
+		if (team1ShotSelection <= .1) {
+			shotMultiplier = .5;
+			team1Shot = 1;
+		} else if (team1ShotSelection <= .7) {
+			shotMultiplier = 1;
+			team1Shot = 2;
+		} else {
+			shotMultiplier = 1.2;
+			team1Shot = 3;
+		}
+
+		if (rng.nextDouble() * team1RelativeRating > ((team1RelativeRating / 2.5) + 5) * shotMultiplier) {
+			team1Score += team1Shot;
+		}
 		
-		int team1ShotSelection = rng.nextInt(3) + 1;
-		double team1ShotModifier = 0;
-
-		if (team1ShotSelection == 1) {
-			team1ShotModifier = .8;
-		} else if (team1ShotSelection == 2) {
-			team1ShotModifier = .5;
+		double team2ShotSelection = rng.nextDouble();
+		int team2Shot = 0;
+			
+		if (team2ShotSelection <= .1) {
+			shotMultiplier = .5;
+			team2Shot = 1;
+		} else if (team2ShotSelection <= .7) {
+			shotMultiplier = 1;
+			team2Shot = 2;
 		} else {
-			team1ShotModifier = .32;
+			shotMultiplier = 1.2;
+			team2Shot = 3;
 		}
 
-		int team2ShotSelection = rng.nextInt(3) + 1;
-		double team2ShotModifier = 0;
-
-		if (team2ShotSelection == 1) {
-			team2ShotModifier = .8;
-		} else if (team2ShotSelection == 2) {
-			team2ShotModifier = .5;
-		} else {
-			team2ShotModifier = .32;
+		if (rng.nextDouble() * team2RelativeRating > ((team2RelativeRating / 2.5) + 5) * shotMultiplier) {
+			team2Score += team2Shot;
 		}
 
-		double weight = .2;
-
-		double team1ShotResult = ((team1RelativeRating * weight + rng.nextDouble() * 100 * (1 - weight)) / 2) * team1ShotModifier;
-		double team2ShotResult = ((team2RelativeRating * weight + rng.nextDouble() * 100 * (1 - weight)) / 2) * team2ShotModifier;
-
-		if (team1ShotResult >= team1ShotMakeValue) {
-			team1Score += team1ShotSelection;
-		}
-
-		if (team2ShotResult >= team2ShotMakeValue) {
-			team2Score += team2ShotSelection;
-		}
+		// double team1ShotMakeValue = 20 * (1-(team1RelativeRating / 100));
+		//
+		// int team1ShotSelection = rng.nextInt(3) + 1;
+		// double team1ShotModifier = 0;
+		//
+		// if (team1ShotSelection == 1) {
+		// team1ShotModifier = .8;
+		// } else if (team1ShotSelection == 2) {
+		// team1ShotModifier = .5;
+		// } else {
+		// team1ShotModifier = .32;
+		// }
+		//
+		// double team2ShotMakeValue = 20 * (1-(team2RelativeRating / 100));
+		// int team2ShotSelection = rng.nextInt(3) + 1;
+		// double team2ShotModifier = 0;
+		//
+		// if (team2ShotSelection == 1) {
+		// team2ShotModifier = .8;
+		// } else if (team2ShotSelection == 2) {
+		// team2ShotModifier = .5;
+		// } else {
+		// team2ShotModifier = .32;
+		// }
+		//
+		// double weight = .2;
+		//
+		// double team1ShotResult = ((team1RelativeRating * weight + rng.nextDouble() *
+		// 100 * (1 - weight)) / 2) * team1ShotModifier;
+		// double team2ShotResult = ((team2RelativeRating * weight + rng.nextDouble() *
+		// 100 * (1 - weight)) / 2) * team2ShotModifier;
+		//
+		// if (team1ShotResult >= team1ShotMakeValue) {
+		// team1Score += team1ShotSelection;
+		// }
+		//
+		// if (team2ShotResult >= team2ShotMakeValue) {
+		// team2Score += team2ShotSelection;
+		// }
 
 		// int offensiveRating = (int) ((Math.random() * 100 +1) *
 		// offenseTeam.getTeamOffensiveRating());
@@ -455,7 +495,7 @@ public class GameSimulation {
 				simulatePossession();
 			}
 			possessions = 50;
-		} else if (possessions<= 75) {
+		} else if (possessions <= 75) {
 			for (int i = possessions; i <= 75; i++) {
 				simulatePossession();
 			}
