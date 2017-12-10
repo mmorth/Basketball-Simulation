@@ -10,10 +10,12 @@ import java.util.Scanner;
 /**
  * Simulates a basketball game
  * 
- * @author Owner
+ * @author Matthew Orth
  *
  */
 public class GameSimulation {
+
+	public static int DEBUG = 0;
 
 	/**
 	 * Makes calls to the simulation methods to simulate
@@ -22,69 +24,87 @@ public class GameSimulation {
 	 *            Passed in command line arguments
 	 */
 	public static void main(String[] args) {
-		//
-		// boolean underdogWins = false;
-		// int games = 0;
-		//
-		// while (!underdogWins) {
 
-		// games++;
+		/*
+		 * NOTE: The below loop code is used for testing purposes. This will be removed
+		 * after testing is complete.
+		 */
 
-		double team1Average = 0;
-		double team2Average = 0;
-		int team1Wins = 0;
-		int team2Wins = 0;
+		// TODO Remove DEBUG line once finished testing
+		if (DEBUG == 1) {
+			//
+			// boolean underdogWins = false;
+			// int games = 0;
+			//
+			// while (!underdogWins) {
 
-		int i;
+			// games++;
+			//
+			double team1Average = 0;
+			double team2Average = 0;
+			int team1Wins = 0;
+			int team2Wins = 0;
 
-		for (i = 0; i < 1000; i++) {
+			int i;
 
+			for (i = 0; i < 1000; i++) {
+
+				Team Dragons = League.getDragons();
+
+				Team Gators = League.getGators();
+
+				GameSimulation s1 = new GameSimulation(Dragons, Gators);
+
+				// Dragons.printTeamRosters();
+				//
+				// Gators.printTeamRosters();
+				//
+				// System.out.println(League.getDragons().getTeamOffensiveRating());
+
+				s1.processSimulation(League.getDragons(), League.getGators());
+
+				team1Average += team1Score;
+				team2Average += team2Score;
+
+				if (team1Score > team2Score) {
+					team1Wins++;
+				} else {
+					team2Wins++;
+				}
+
+				team1Score = 0;
+				team2Score = 0;
+
+			}
+
+			team1Average /= i;
+			team2Average /= i;
+
+			System.out.println("Higher Team Average Score: " + team1Average);
+			System.out.println("Lower Team Average Score: " + team2Average);
+			System.out.println("Higher Team Wins: " + team1Wins);
+			System.out.println("Lower Team Wins: " + team2Wins);
+
+			// if (team2Score > team1Score) {
+			// underdogWins = true;
+			// }
+			//
+			// team1Score = 0;
+			// team2Score = 0;
+			//
+			// }
+			//
+			// System.out.println("Games until upset: " + games);
+
+		} else {
 			Team Dragons = League.getDragons();
 
 			Team Gators = League.getGators();
 
 			GameSimulation s1 = new GameSimulation(Dragons, Gators);
 
-			// Dragons.printTeamRosters();
-			//
-			// Gators.printTeamRosters();
-			//
-			// System.out.println(League.getDragons().getTeamOffensiveRating());
-
 			s1.processSimulation(League.getDragons(), League.getGators());
-
-			team1Average += team1Score;
-			team2Average += team2Score;
-
-			if (team1Score > team2Score) {
-				team1Wins++;
-			} else {
-				team2Wins++;
-			}
-
-			team1Score = 0;
-			team2Score = 0;
-
 		}
-
-		team1Average /= i;
-		team2Average /= i;
-
-		System.out.println("Higher Team Average Score: " + team1Average);
-		System.out.println("Lower Team Average Score: " + team2Average);
-		System.out.println("Higher Team Wins: " + team1Wins);
-		System.out.println("Lower Team Wins: " + team2Wins);
-
-		// if (team2Score > team1Score) {
-		// underdogWins = true;
-		// }
-		//
-		// team1Score = 0;
-		// team2Score = 0;
-		//
-		// }
-		//
-		// System.out.println("Games until upset: " + games);
 
 	}
 
@@ -117,14 +137,16 @@ public class GameSimulation {
 	 * Represents team2's offensive rating relative to team1's defensive rating
 	 */
 	private double team2RelativeRating;
-	
+
 	/**
-	 * Makes it easier who have higher offense compared to the other team's defense to score
+	 * Makes it easier for team1 to score if they have a higher offensive rating
+	 * compared to the other team2's defensive rating
 	 */
 	private double team1Boost;
-	
+
 	/**
-	 * Makes it easier who have higher offense compared to the other team's defense to score
+	 * Makes it easier for team2 to score if they have a higher offensive rating
+	 * compared to the other team1's defensive rating
 	 */
 	private double team2Boost;
 
@@ -134,7 +156,7 @@ public class GameSimulation {
 	static Scanner input = new Scanner(System.in);
 
 	/**
-	 * Constructs a new SImulation object
+	 * Constructs a new GameSimulation object
 	 * 
 	 * @param team1
 	 *            The first team in the game simulation
@@ -151,17 +173,16 @@ public class GameSimulation {
 
 		team1RelativeRating = (team1.getTeamOffensiveRating() - team2.getTeamDefensiveRating() + 100) / 2;
 		team2RelativeRating = (team2.getTeamOffensiveRating() - team1.getTeamDefensiveRating() + 100) / 2;
-		
+
 		team1BoostCalculation();
 		team2BoostCalculation();
 
 	}
 
 	/**
-	 * Makes calls to other methods to accept user input on what to simulate and
-	 * simulate based on the user input Also displays the final score There are
-	 * simulation options for the possession, quarter, game, overtime, and ending
-	 * the game
+	 * Makes calls to other methods to accept user input on what to simulate based
+	 * on the user input. Also displays the final score. There are simulation
+	 * options for the possession, quarter, game, overtime, and ending the game
 	 * 
 	 * @param team1
 	 *            The first team in simulated game
@@ -170,56 +191,55 @@ public class GameSimulation {
 	 */
 	public void processSimulation(Team team1, Team team2) {
 
+		// Stores the scores for team1 for each quarter and overtime
 		int team1FirstQuarterScore = 0;
 		int team1SecondQuarterScore = 0;
 		int team1ThirdQuarterScore = 0;
 		int team1FourthQuarterScore = 0;
 		int team1OvertimeScore = 0;
 
+		// Stores the scores for team2 for each quarter and overtime
 		int team2FirstQuarterScore = 0;
 		int team2SecondQuarterScore = 0;
 		int team2ThirdQuarterScore = 0;
 		int team2FourthQuarterScore = 0;
 		int team2OvertimeScore = 0;
 
+		// Stores the user's choice for how much of the game they want to simulate
 		char choice = ' ';
 
+		// Continues the simulation process for 100 possessions for each team
 		for (int possessions = 1; possessions <= 100; possessions++) {
-			// Simulate based on user's choice
+			// If the user choose to simulate the game, then simulate the game by quarters
 			if (choice != 'g') {
 
 				printOptions(possessions, team1Score, team2Score);
-				choice = 'g';
-				// choice = input.next().charAt(0);
 
-				if (choice == 'p') {
-
-					simulatePossession();
-
-				} else if (choice == 'q') {
-
-					possessions = simulatePossessionsQuarter(possessions);
-
-				} else if (choice == 'g') {
-
-					possessions = simulatePossessionsQuarter(possessions);
-
-				} else if (choice == 'e') {
-
-					break;
-
+				// TODO Remove DEBUG line once finished testing
+				if (DEBUG == 1) {
+					choice = 'g';
 				} else {
+					choice = input.next().charAt(0);
+				}
 
+				// Simulate based on user's choice
+				if (choice == 'p') {
+					simulatePossession();
+				} else if (choice == 'q') {
+					possessions = simulatePossessionsQuarter(possessions);
+				} else if (choice == 'g') {
+					possessions = simulatePossessionsQuarter(possessions);
+				} else if (choice == 'e') {
+					break;
+				} else {
 					possessions--;
-
 				}
 
 			} else if (choice == 'g' && possessions < 100) {
-
 				possessions = simulatePossessionsQuarter(possessions);
-
 			}
 
+			// Calculate the number of points scored by the team during the quarter
 			if (possessions == 25) {
 				team1FirstQuarterScore = team1Score;
 				team2FirstQuarterScore = team2Score;
@@ -238,12 +258,19 @@ public class GameSimulation {
 
 		}
 
-		// Overtime simulation
+		// Overtime simulation. Only happens when the two team's scores are tied at the
+		// end of the game
 		while (team1Score == team2Score) {
 			for (int possessions = 101; possessions <= 110; possessions++) {
 				System.out.println("\n\nPress p to simulate possession or g to end game");
-				choice = 'g';
-				// choice = input.next().charAt(0);
+
+				// TODO Remove DEBUG line once finished testing
+				if (DEBUG == 1) {
+					choice = 'g';
+				} else {
+					choice = input.next().charAt(0);
+				}
+
 				if (choice == 'p') {
 					simulatePossession();
 					printScoreboard(team1Score, team2Score);
@@ -251,12 +278,120 @@ public class GameSimulation {
 					possessions = simulatePossessionsQuarter(possessions);
 				}
 			}
+
+			// Calculate the number of points scored by each team in overtime
 			team1OvertimeScore = team1Score - team1FourthQuarterScore - team1SecondQuarterScore - team1ThirdQuarterScore
 					- team1FirstQuarterScore;
 			team2OvertimeScore = team2Score - team2FourthQuarterScore - team2SecondQuarterScore - team2ThirdQuarterScore
 					- team2FirstQuarterScore;
 		}
 
+		printFinalScores(team1FirstQuarterScore, team1SecondQuarterScore, team1ThirdQuarterScore,
+				team1FourthQuarterScore, team1OvertimeScore, team2FirstQuarterScore, team2SecondQuarterScore,
+				team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore);
+
+	}
+
+	/**
+	 * Simulates a basketball possession
+	 * 
+	 * @param offenseTeam
+	 *            Current offensive team
+	 * @param defenseTeam
+	 *            Current defensive team
+	 * @return Points scored by offensive team on current possession
+	 */
+	public void simulatePossession() {
+
+		Random rng = new Random();
+
+		double shotMultiplier = 0;
+
+		double team1ShotSelection = rng.nextDouble();
+		int team1Shot = 0;
+		double team1OffDefRatio = team1.getTeamOffensiveRating() / team2.getTeamDefensiveRating();
+
+		if (team1ShotSelection <= .1) {
+			shotMultiplier = .5;
+			team1Shot = 1;
+		} else if (team1ShotSelection <= .7) {
+			shotMultiplier = 1;
+			team1Shot = 2;
+		} else {
+			shotMultiplier = 1.2;
+			team1Shot = 3;
+		}
+
+		if (team1Boost * rng.nextDouble() * team1RelativeRating > ((team1RelativeRating / 2.5) + 5) * shotMultiplier) {
+			team1Score += team1Shot;
+		}
+
+		double team2ShotSelection = rng.nextDouble();
+		int team2Shot = 0;
+		double team2OffDefRatio = team2.getTeamOffensiveRating() / team1.getTeamDefensiveRating();
+
+		if (team2ShotSelection <= .1) {
+			shotMultiplier = .5;
+			team2Shot = 1;
+		} else if (team2ShotSelection <= .7) {
+			shotMultiplier = 1;
+			team2Shot = 2;
+		} else {
+			shotMultiplier = 1.2;
+			team2Shot = 3;
+		}
+
+		if (team2Boost * rng.nextDouble() * team2RelativeRating > ((team2RelativeRating / 2.5) + 5) * shotMultiplier) {
+			team2Score += team2Shot;
+		}
+
+	}
+
+	/**
+	 * Prints the current scoreboard for the game
+	 * 
+	 * @param pointsTeam1
+	 *            Current points for team1
+	 * @param pointsTeam2
+	 *            Current points for team2
+	 */
+	public void printScoreboard(int pointsTeam1, int pointsTeam2) {
+		System.out.println("\n");
+		System.out.println("Score: ");
+		System.out.println("Team 1: " + pointsTeam1);
+		System.out.println("Team 2: " + pointsTeam2);
+	}
+
+
+	/**
+	 * Print the final box score for each team at the end of the simulation game.
+	 * @param team1FirstQuarterScore
+	 * 		The number of points scored by team 1 in the first quarter
+	 * @param team1SecondQuarterScore
+	 * 		The number of points scored by team 1 in the second quarter
+	 * @param team1ThirdQuarterScore
+	 * 		The number of points scored by team 1 in the third quarter
+	 * @param team1FourthQuarterScore
+	 * 		The number of points scored by team 1 in the fourth quarter
+	 * @param team1OvertimeScore
+	 * 		The number of points scored by team 1 in overtime
+	 * @param team2FirstQuarterScore
+	 * 		The number of points scored by team 2 in the first quarter
+	 * @param team2SecondQuarterScore
+	 * 		The number of points scored by team 2 in the second quarter
+	 * @param team2ThirdQuarterScore
+	 * 		The number of points scored by team 2 in the third quarter
+	 * @param team2FourthQuarterScore
+	 * 		The number of points scored by team 2 in the fourth quarter
+	 * @param team2OvertimeScore
+	 * 		The number of points scored by team 2 in overtime
+	 */
+	public void printFinalScores(int team1FirstQuarterScore, int team1SecondQuarterScore, int team1ThirdQuarterScore,
+			int team1FourthQuarterScore, int team1OvertimeScore, int team2FirstQuarterScore,
+			int team2SecondQuarterScore, int team2ThirdQuarterScore, int team2FourthQuarterScore,
+			int team2OvertimeScore) {
+		
+		// Print team scores
 		String scoreHeader = String.format("Team\t\tQ1\tQ2\tQ3\tQ4\tOT\tFinal");
 		String team1Results = String.format("%s\t\t%d\t%d\t%d\t%d\t%d\t%d", team1.getTeamName(), team1FirstQuarterScore,
 				team1SecondQuarterScore, team1ThirdQuarterScore, team1FourthQuarterScore, team1OvertimeScore,
@@ -265,6 +400,7 @@ public class GameSimulation {
 				team2SecondQuarterScore, team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore,
 				team2Score);
 
+		// Try to write the output to a file
 		try {
 
 			FileWriter fw = new FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\GameResults.txt", true);
@@ -282,187 +418,17 @@ public class GameSimulation {
 			fw.close();
 			bw.close();
 
+		// TODO Fix the error handling to stop when file cannot be written to
 		} catch (FileNotFoundException e) {
 			e.getMessage();
 		} catch (IOException e) {
 			e.getMessage();
 		}
 
-		// Display final results
+		// Display final results to console
 		System.out.println(scoreHeader);
 		System.out.println(team1Results);
 		System.out.println(team2Results);
-
-	}
-
-	/**
-	 * Simulates a basketball possession
-	 * 
-	 * @param offenseTeam
-	 *            Current offensive team
-	 * @param defenseTeam
-	 *            Current defensive team
-	 * @return Points scored by offensive team on current possession
-	 */
-	public void simulatePossession() {
-
-		Random rng = new Random();
-		
-		double shotMultiplier = 0;
-
-		double team1ShotSelection = rng.nextDouble();
-		int team1Shot = 0;
-		double team1OffDefRatio = team1.getTeamOffensiveRating() / team2.getTeamDefensiveRating();
-			
-		if (team1ShotSelection <= .1) {
-			shotMultiplier = .5;
-			team1Shot = 1;
-		} else if (team1ShotSelection <= .7) {
-			shotMultiplier = 1;
-			team1Shot = 2;
-		} else {
-			shotMultiplier = 1.2;
-			team1Shot = 3;
-		}
-
-		if (team1Boost * rng.nextDouble() * team1RelativeRating > ((team1RelativeRating / 2.5) + 5) * shotMultiplier) {
-			team1Score += team1Shot;
-		}
-		
-		double team2ShotSelection = rng.nextDouble();
-		int team2Shot = 0;
-		double team2OffDefRatio = team2.getTeamOffensiveRating() / team1.getTeamDefensiveRating();
-			
-		if (team2ShotSelection <= .1) {
-			shotMultiplier = .5;
-			team2Shot = 1;
-		} else if (team2ShotSelection <= .7) {
-			shotMultiplier = 1;
-			team2Shot = 2;
-		} else {
-			shotMultiplier = 1.2;
-			team2Shot = 3;
-		}
-
-		if (team2Boost * rng.nextDouble() * team2RelativeRating > ((team2RelativeRating / 2.5) + 5) * shotMultiplier) {
-			team2Score += team2Shot;
-		}
-
-		// double team1ShotMakeValue = 20 * (1-(team1RelativeRating / 100));
-		//
-		// int team1ShotSelection = rng.nextInt(3) + 1;
-		// double team1ShotModifier = 0;
-		//
-		// if (team1ShotSelection == 1) {
-		// team1ShotModifier = .8;
-		// } else if (team1ShotSelection == 2) {
-		// team1ShotModifier = .5;
-		// } else {
-		// team1ShotModifier = .32;
-		// }
-		//
-		// double team2ShotMakeValue = 20 * (1-(team2RelativeRating / 100));
-		// int team2ShotSelection = rng.nextInt(3) + 1;
-		// double team2ShotModifier = 0;
-		//
-		// if (team2ShotSelection == 1) {
-		// team2ShotModifier = .8;
-		// } else if (team2ShotSelection == 2) {
-		// team2ShotModifier = .5;
-		// } else {
-		// team2ShotModifier = .32;
-		// }
-		//
-		// double weight = .2;
-		//
-		// double team1ShotResult = ((team1RelativeRating * weight + rng.nextDouble() *
-		// 100 * (1 - weight)) / 2) * team1ShotModifier;
-		// double team2ShotResult = ((team2RelativeRating * weight + rng.nextDouble() *
-		// 100 * (1 - weight)) / 2) * team2ShotModifier;
-		//
-		// if (team1ShotResult >= team1ShotMakeValue) {
-		// team1Score += team1ShotSelection;
-		// }
-		//
-		// if (team2ShotResult >= team2ShotMakeValue) {
-		// team2Score += team2ShotSelection;
-		// }
-
-		// int offensiveRating = (int) ((Math.random() * 100 +1) *
-		// offenseTeam.getTeamOffensiveRating());
-		// int defensiveRating = (int) ((Math.random() * 100 + 1) *
-		// defenseTeam.getTeamDefensiveRating());
-		//
-		// int difference = offensiveRating - defensiveRating;
-		//
-		// if (difference < 0) {
-		// return 0;
-		// } else if (difference < 750) {
-		// return 1;
-		// } else if (difference < 7500) {
-		// return 2;
-		// } else if (difference < 9950) {
-		// return 3;
-		// } else {
-		// return 4;
-		// }
-	}
-
-	// /**
-	// * Simulates a basketball quarter (25 possessions)
-	// *
-	// * @param possessions
-	// * Number of possessions to simulate until end of the quarter
-	// * @param offenseTeam
-	// * Current team on offense
-	// * @param defenseTeam
-	// * Current team on defense
-	// * @return Number of points scored by current offensive team in quarter
-	// */
-	// public int simulateQuarter(int possessions) {
-	// int total = 0;
-	//
-	// for (int i = 0; i < possessions; i++) {
-	// total += simulatePossession();
-	// }
-	//
-	// return total;
-	// }
-	//
-	// /**
-	// * Simulates until the end of the basketball game
-	// *
-	// * @param remainingPossessions
-	// * Number of possessions to simulate until end of the game
-	// * @param offenseTeam
-	// * Current team on offense
-	// * @param defenseTeam
-	// * Current team on defense
-	// * @return Number of points scored by current offensive team in the game
-	// */
-	// public int simulateGame(int remainingPossessions) {
-	// int total = 0;
-	//
-	// for (int i = 0; i < remainingPossessions; i++) {
-	// total += simulatePossession();
-	// }
-	//
-	// return total;
-	// }
-
-	/**
-	 * Prints the current scoreboard for the game
-	 * 
-	 * @param pointsTeam1
-	 *            Current points for team1
-	 * @param pointsTeam2
-	 *            Current points for team2
-	 */
-	public void printScoreboard(int pointsTeam1, int pointsTeam2) {
-		System.out.println("\n");
-		System.out.println("Score: ");
-		System.out.println("Team 1: " + pointsTeam1);
-		System.out.println("Team 2: " + pointsTeam2);
 	}
 
 	/**
@@ -478,7 +444,7 @@ public class GameSimulation {
 	 */
 	public void printOptions(int remainingPossessions, int pointsTeam1, int pointsTeam2) {
 		printScoreboard(pointsTeam1, pointsTeam2);
-		System.out.println(remainingPossessions + " possessions remaining");
+		System.out.println((101 - remainingPossessions) + " possessions remaining");
 		System.out.println("Options: ");
 		System.out.println("Press p to simulate a possession");
 		System.out.println("Press q to simulate a quarter");
@@ -529,11 +495,13 @@ public class GameSimulation {
 
 		return possessions;
 	}
-	
-	
+
+	/**
+	 * Calculates how much increase in chance that team1 scores on this possession
+	 */
 	public void team1BoostCalculation() {
 		double ratio = team1.getTeamOffensiveRating() / team2.getTeamDefensiveRating();
-		
+
 		if (ratio >= 2) {
 			team1Boost = 1.1 + .2 * ratio;
 		} else if (ratio < 1) {
@@ -541,13 +509,15 @@ public class GameSimulation {
 		} else {
 			team1Boost = .9 + .1 * ratio;
 		}
-			
+
 	}
-	
-	
+
+	/**
+	 * Calculates how much increase in change that team2 scores on this possession
+	 */
 	public void team2BoostCalculation() {
 		double ratio = team2.getTeamOffensiveRating() / team1.getTeamDefensiveRating();
-		
+
 		if (ratio >= 2) {
 			team2Boost = 1.1 + .2 * ratio;
 		} else if (ratio <= 1) {
@@ -555,7 +525,7 @@ public class GameSimulation {
 		} else {
 			team2Boost = .9 + .1 * ratio;
 		}
-			
+
 	}
 
 }
