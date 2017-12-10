@@ -258,37 +258,42 @@ public class GameSimulation {
 
 		}
 
-		// Overtime simulation. Only happens when the two team's scores are tied at the
-		// end of the game
-		while (team1Score == team2Score) {
-			for (int possessions = 101; possessions <= 110; possessions++) {
-				System.out.println("\n\nPress p to simulate possession or g to end game");
+		// Check if the user ended the game
+		if (choice != 'e') {
+			// Overtime simulation. Only happens when the two team's scores are tied at the
+			// end of the game
+			while (team1Score == team2Score) {
+				for (int possessions = 101; possessions <= 110; possessions++) {
+					System.out.println("\n\nPress p to simulate possession or g to end game");
 
-				// TODO Remove DEBUG line once finished testing
-				if (DEBUG == 1) {
-					choice = 'g';
-				} else {
-					choice = input.next().charAt(0);
+					// TODO Remove DEBUG line once finished testing
+					if (DEBUG == 1) {
+						choice = 'g';
+					} else {
+						choice = input.next().charAt(0);
+					}
+
+					if (choice == 'p') {
+						simulatePossession();
+						printScoreboard(team1Score, team2Score);
+					} else {
+						possessions = simulatePossessionsQuarter(possessions);
+					}
 				}
 
-				if (choice == 'p') {
-					simulatePossession();
-					printScoreboard(team1Score, team2Score);
-				} else {
-					possessions = simulatePossessionsQuarter(possessions);
-				}
+				// Calculate the number of points scored by each team in overtime
+				team1OvertimeScore = team1Score - team1FourthQuarterScore - team1SecondQuarterScore
+						- team1ThirdQuarterScore - team1FirstQuarterScore;
+				team2OvertimeScore = team2Score - team2FourthQuarterScore - team2SecondQuarterScore
+						- team2ThirdQuarterScore - team2FirstQuarterScore;
 			}
 
-			// Calculate the number of points scored by each team in overtime
-			team1OvertimeScore = team1Score - team1FourthQuarterScore - team1SecondQuarterScore - team1ThirdQuarterScore
-					- team1FirstQuarterScore;
-			team2OvertimeScore = team2Score - team2FourthQuarterScore - team2SecondQuarterScore - team2ThirdQuarterScore
-					- team2FirstQuarterScore;
+			printFinalScores(team1FirstQuarterScore, team1SecondQuarterScore, team1ThirdQuarterScore,
+					team1FourthQuarterScore, team1OvertimeScore, team2FirstQuarterScore, team2SecondQuarterScore,
+					team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore);
+		} else {
+			System.out.println("Game ended. Draw.");
 		}
-
-		printFinalScores(team1FirstQuarterScore, team1SecondQuarterScore, team1ThirdQuarterScore,
-				team1FourthQuarterScore, team1OvertimeScore, team2FirstQuarterScore, team2SecondQuarterScore,
-				team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore);
 
 	}
 
@@ -307,9 +312,9 @@ public class GameSimulation {
 
 		double shotMultiplier = 0;
 
+		// Team1 scoring calculations
 		double team1ShotSelection = rng.nextDouble();
 		int team1Shot = 0;
-		double team1OffDefRatio = team1.getTeamOffensiveRating() / team2.getTeamDefensiveRating();
 
 		if (team1ShotSelection <= .1) {
 			shotMultiplier = .5;
@@ -326,9 +331,9 @@ public class GameSimulation {
 			team1Score += team1Shot;
 		}
 
+		// Team2 scoring calculations
 		double team2ShotSelection = rng.nextDouble();
 		int team2Shot = 0;
-		double team2OffDefRatio = team2.getTeamOffensiveRating() / team1.getTeamDefensiveRating();
 
 		if (team2ShotSelection <= .1) {
 			shotMultiplier = .5;
@@ -362,35 +367,35 @@ public class GameSimulation {
 		System.out.println("Team 2: " + pointsTeam2);
 	}
 
-
 	/**
 	 * Print the final box score for each team at the end of the simulation game.
+	 * 
 	 * @param team1FirstQuarterScore
-	 * 		The number of points scored by team 1 in the first quarter
+	 *            The number of points scored by team 1 in the first quarter
 	 * @param team1SecondQuarterScore
-	 * 		The number of points scored by team 1 in the second quarter
+	 *            The number of points scored by team 1 in the second quarter
 	 * @param team1ThirdQuarterScore
-	 * 		The number of points scored by team 1 in the third quarter
+	 *            The number of points scored by team 1 in the third quarter
 	 * @param team1FourthQuarterScore
-	 * 		The number of points scored by team 1 in the fourth quarter
+	 *            The number of points scored by team 1 in the fourth quarter
 	 * @param team1OvertimeScore
-	 * 		The number of points scored by team 1 in overtime
+	 *            The number of points scored by team 1 in overtime
 	 * @param team2FirstQuarterScore
-	 * 		The number of points scored by team 2 in the first quarter
+	 *            The number of points scored by team 2 in the first quarter
 	 * @param team2SecondQuarterScore
-	 * 		The number of points scored by team 2 in the second quarter
+	 *            The number of points scored by team 2 in the second quarter
 	 * @param team2ThirdQuarterScore
-	 * 		The number of points scored by team 2 in the third quarter
+	 *            The number of points scored by team 2 in the third quarter
 	 * @param team2FourthQuarterScore
-	 * 		The number of points scored by team 2 in the fourth quarter
+	 *            The number of points scored by team 2 in the fourth quarter
 	 * @param team2OvertimeScore
-	 * 		The number of points scored by team 2 in overtime
+	 *            The number of points scored by team 2 in overtime
 	 */
 	public void printFinalScores(int team1FirstQuarterScore, int team1SecondQuarterScore, int team1ThirdQuarterScore,
 			int team1FourthQuarterScore, int team1OvertimeScore, int team2FirstQuarterScore,
 			int team2SecondQuarterScore, int team2ThirdQuarterScore, int team2FourthQuarterScore,
 			int team2OvertimeScore) {
-		
+
 		// Print team scores
 		String scoreHeader = String.format("Team\t\tQ1\tQ2\tQ3\tQ4\tOT\tFinal");
 		String team1Results = String.format("%s\t\t%d\t%d\t%d\t%d\t%d\t%d", team1.getTeamName(), team1FirstQuarterScore,
@@ -418,7 +423,7 @@ public class GameSimulation {
 			fw.close();
 			bw.close();
 
-		// TODO Fix the error handling to stop when file cannot be written to
+			// TODO Fix the error handling to stop when file cannot be written to
 		} catch (FileNotFoundException e) {
 			e.getMessage();
 		} catch (IOException e) {

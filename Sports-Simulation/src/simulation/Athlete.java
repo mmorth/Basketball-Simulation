@@ -9,19 +9,40 @@ package simulation;
 public interface Athlete {
 
 	/**
-	 * Returns the name of the athlete
+	 * Returns the first name of the athlete
 	 * 
-	 * @return Name of the athlete
+	 * @return First name of the athlete
 	 */
-	String getName();
+	String getFirstName();
+
+	/**
+	 * Returns the last name of the athlete
+	 * 
+	 * @return Last name of the athlete
+	 */
+	String getLastName();
 
 	/**
 	 * Sets the athlete name
 	 * 
 	 * @param athleteName
 	 *            New name for athlete
+	 * @throws IllegalArgumentException
+	 *             Throws an IllegalArgumentException if the name is greater than 15
+	 *             characters or contains spaces.
 	 */
-	void setName(String athleteName);
+	void setFirstName(String athleteFirstName);
+
+	/**
+	 * Sets the athlete name
+	 * 
+	 * @param athleteName
+	 *            New name for athlete
+	 * @throws IllegalArgumentException
+	 *             Throws an IllegalArgumentException if the name is greater than 15
+	 *             characters or contains spaces.
+	 */
+	void setLastName(String athleteLastName);
 
 	/**
 	 * Returns the position of the athlete
@@ -56,8 +77,7 @@ public interface Athlete {
 	/**
 	 * Returns the defensive rating of the athlete
 	 * 
-	 * @return 
-	 * 		Defensive rating of the athlete
+	 * @return Defensive rating of the athlete
 	 */
 	int getDefenseRating();
 

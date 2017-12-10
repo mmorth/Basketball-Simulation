@@ -9,9 +9,14 @@ package simulation;
 public class Player implements Athlete {
 
 	/**
-	 * Stores player name
+	 * Stores player's first name
 	 */
-	private String playerName;
+	private String playerFirstName;
+	
+	/**
+	 * Stores player's last name
+	 */
+	private String playerLastName;
 
 	/**
 	 * Stores player offensive rating
@@ -61,10 +66,12 @@ public class Player implements Athlete {
 	 * @param age
 	 *            The age of the player
 	 */
-	public Player(String playerName, int offenseRating, int defenseRating, int[] position, double contractAmount,
+	public Player(String playerFirstName, String playerLastName, int offenseRating, int defenseRating, int[] position, double contractAmount,
 			int contractYears, int age) {
 
-		setName(playerName);
+		setFirstName(playerFirstName);
+		
+		setLastName(playerLastName);
 
 		setOffenseRating(offenseRating);
 
@@ -81,25 +88,55 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Returns the name of the player
+	 * Returns the first name of the player
 	 * 
 	 * @return Name of the player
 	 */
 	@Override
-	public String getName() {
-		return playerName;
+	public String getFirstName() {
+		return playerFirstName;
 	}
 
 	/**
-	 * Sets the player name to playerName
+	 * Sets the first name of the player
 	 * 
-	 * @param playerName
-	 *            New name for player
+	 * @param coachName
+	 *            New first name for player
+	 * @throws IllegalArgumentException
+	 * 		Throws an IllegalArgumentException if the name is greater than 15 characters or contains spaces.
 	 */
 	@Override
-	public void setName(String playerName) {
-		// Check for valid character inputs?
-		this.playerName = playerName;
+	public void setFirstName(String playerFirstName) {
+		if (playerFirstName.length() > 15 || Helper.containsSpaces(playerFirstName)) {
+			throw new IllegalArgumentException("Player first name must be 15 or fewer characters and may not contain any spaces.");
+		}
+		this.playerFirstName = playerFirstName;
+	}
+	
+	/**
+	 * Returns the last name of the player
+	 * 
+	 * @return Last name of player
+	 */
+	@Override
+	public String getLastName() {
+		return playerLastName;
+	}
+
+	/**
+	 * Sets the last name of the player
+	 * 
+	 * @param coachName
+	 *            New last name for player
+	 * @throws IllegalArgumentException
+	 * 		Throws an IllegalArgumentException if the name is greater than 15 characters or contains spaces.
+	 */
+	@Override
+	public void setLastName(String playerLastName) {
+		if (playerLastName.length() > 15 || Helper.containsSpaces(playerLastName)) {
+			throw new IllegalArgumentException("Player last name must be 15 or fewer characters and may not contain any spaces.");
+		}
+		this.playerLastName = playerLastName;
 	}
 
 	/**

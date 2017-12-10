@@ -78,8 +78,13 @@ public class Team {
 	 * 
 	 * @param name
 	 *            New team name
+	 * @throws IllegalArgumentException
+	 * 			  Throws an IllegalArgumentException is the new team name is 30 characters or more
 	 */
 	public void setTeamName(String teamName) {
+		if (teamName.length() > 30) {
+			throw new IllegalArgumentException("Team name must be 30 characters or fewer.");
+		}
 		this.teamName = teamName;
 	}
 
@@ -273,8 +278,8 @@ public class Team {
 //						roster[i].getAge(), roster[i].getOffenseRating(), roster[i].getDefenseRating(), roster[i].getContractYears(), 
 //						roster[i].getContractAmount());
 				
-				String playerInformation = String.format("%-10s\t%-20s\t%d\t%d\t%d\t%.1f\t\t%d\n", positionString,
-						roster[i].getName(), roster[i].getAge(), roster[i].getOffenseRating(),
+				String playerInformation = String.format("%-10s\t%-15s\t%-15s\t%d\t%d\t%d\t%.1f\t\t%d\n", positionString,
+						roster[i].getFirstName(), roster[i].getLastName(), roster[i].getAge(), roster[i].getOffenseRating(),
 						roster[i].getDefenseRating(), roster[i].getContractAmount(), roster[i].getContractYears());
 				bw.write(playerInformation);
 				System.out.print(playerInformation);
