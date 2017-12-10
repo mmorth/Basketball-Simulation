@@ -40050,3 +40050,7 @@ Team		Q1	Q2	Q3	Q4	OT	Final
 Dragons		16	32	24	21	0	93
 Gators		30	26	23	33	0	112
 
+Team		Q1	Q2	Q3	Q4	OT	Final
+Dragons		28	21	19	28	0	96
+Gators		39	24	25	16	0	104
+

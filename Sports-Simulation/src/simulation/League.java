@@ -40,7 +40,7 @@ public class League {
 		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
 		
 		int[] position3 = {1,2,3,4,5};
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
+		roster[3] = new Player("AAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAA", offensiveRating, defensiveRating, position3, 5, 2, 25);
 		
 		int[] position4 = {3,4};
 		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);

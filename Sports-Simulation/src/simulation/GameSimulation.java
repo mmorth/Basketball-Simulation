@@ -22,8 +22,9 @@ public class GameSimulation {
 	 * 
 	 * @param args
 	 *            Passed in command line arguments
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		/*
 		 * NOTE: The below loop code is used for testing purposes. This will be removed
@@ -188,8 +189,9 @@ public class GameSimulation {
 	 *            The first team in simulated game
 	 * @param team2
 	 *            The second team in simulated game
+	 * @throws IOException 
 	 */
-	public void processSimulation(Team team1, Team team2) {
+	public void processSimulation(Team team1, Team team2) throws IOException {
 
 		// Stores the scores for team1 for each quarter and overtime
 		int team1FirstQuarterScore = 0;
@@ -390,14 +392,16 @@ public class GameSimulation {
 	 *            The number of points scored by team 2 in the fourth quarter
 	 * @param team2OvertimeScore
 	 *            The number of points scored by team 2 in overtime
+	 * @throws IOException 
+	 * 			  Throws an IOException if the specified file does not exist
 	 */
 	public void printFinalScores(int team1FirstQuarterScore, int team1SecondQuarterScore, int team1ThirdQuarterScore,
 			int team1FourthQuarterScore, int team1OvertimeScore, int team2FirstQuarterScore,
 			int team2SecondQuarterScore, int team2ThirdQuarterScore, int team2FourthQuarterScore,
-			int team2OvertimeScore) {
+			int team2OvertimeScore) throws IOException {
 
 		// Print team scores
-		String scoreHeader = String.format("Team\t\tQ1\tQ2\tQ3\tQ4\tOT\tFinal");
+		String scoreHeader = String.format("\nTeam\t\tQ1\tQ2\tQ3\tQ4\tOT\tFinal");
 		String team1Results = String.format("%s\t\t%d\t%d\t%d\t%d\t%d\t%d", team1.getTeamName(), team1FirstQuarterScore,
 				team1SecondQuarterScore, team1ThirdQuarterScore, team1FourthQuarterScore, team1OvertimeScore,
 				team1Score);
@@ -405,10 +409,8 @@ public class GameSimulation {
 				team2SecondQuarterScore, team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore,
 				team2Score);
 
-		// Try to write the output to a file
-		try {
-
-			FileWriter fw = new FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\GameResults.txt", true);
+//			FileWriter fw = new FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\GameResults.txt", true);
+			FileWriter fw = new FileWriter("/home/mmorth/Coding/Storage_Files/GameResults.txt", true);
 			BufferedWriter bw = new BufferedWriter(fw);
 
 			bw.write(scoreHeader);
@@ -422,13 +424,6 @@ public class GameSimulation {
 
 			fw.close();
 			bw.close();
-
-			// TODO Fix the error handling to stop when file cannot be written to
-		} catch (FileNotFoundException e) {
-			e.getMessage();
-		} catch (IOException e) {
-			e.getMessage();
-		}
 
 		// Display final results to console
 		System.out.println(scoreHeader);

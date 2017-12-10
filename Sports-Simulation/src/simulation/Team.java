@@ -198,31 +198,6 @@ public class Team {
 	public void generateNewTeamOverallRating() {
 		teamOverallRating = (teamOffensiveRating + teamDefensiveRating) / 2;
 	}
-
-//	/**
-//	 * Updates each player's rating based on if they are in their correct position A
-//	 * 10% decrease in offensive and defensive rating of the player will occur if
-//	 * they are placed in a position not in their position[] array.
-//	 */
-//	private void updatePlayers() {
-//
-//		for (int i = 1; i <= 5; i++) {
-//			Athlete current = roster[i];
-//			boolean inCorrectPosition = false;
-//			for (int j = 0; j < current.getPosition().length; j++) {
-//				if (current.getPosition()[j] == i) {
-//					inCorrectPosition = true;
-//					break;
-//				}
-//			}
-//
-//			if (!inCorrectPosition) {
-//				current.setOffenseRating((int) (current.getOffenseRating() * .9));
-//				current.setDefenseRating((int) (current.getDefenseRating() * .9));
-//			}
-//		}
-//
-//	}
 	
 	/**
 	 * Returns the team salary cap
@@ -250,28 +225,27 @@ public class Team {
 
 	/**
 	 * Prints the team rosters to the console
+	 * @throws IOException 
+	 * 		Throws IOException if file is not found
 	 */
-	public void printTeamRosters() {
-		try {
+	public void printTeamRosters() throws IOException {
 
-			FileWriter fw = new FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\Rosters.txt", true);
+//			FileWriter fw = new FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\Rosters.txt", true);
+			FileWriter fw = new FileWriter("/home/mmorth/Coding/Storage_Files/Rosters.txt", true);
 			BufferedWriter bw = new BufferedWriter(fw);
 
-			bw.write(teamName);
+			bw.write("Team: " + teamName);
 			bw.newLine();
-			bw.write("Position\t\tName\t\t\t\tAge\t\tOffense\t\tDefense\t\tContract\t\tYears");
+			bw.write("Position\tFirst Name\tLast Name\tAge\tOffense\tDefense\tContract\tYears");
 			bw.newLine();
 			System.out.printf("");
-			System.out.println("Position\tName\t\t\tAge\tOffense\tDefense\tContract/t\tYears");
+			System.out.println("Position\tFirst Name\tLast Name\tAge\tOffense\tDefense\tContract\tYears");
 
 			for (int i = 0; i < roster.length; i++) {
 				String positionString = "";
 				for (int j = 0; j < roster[i].getPosition().length; j++) {
 					positionString += Integer.toString(roster[i].getPosition()[j]);
 					positionString += " ";
-					//String playerPosition = String.format("%d ", roster[i].getPosition()[j]);
-//					System.out.print(playerPosition);
-//					bw.write(playerPosition);
 				}
 				
 //				String playerInformation = String.format("%-15s%-20s%-10d%-10d%-10d%-10d%.1f\n", positionString, roster[i].getName(),
@@ -283,7 +257,7 @@ public class Team {
 						roster[i].getDefenseRating(), roster[i].getContractAmount(), roster[i].getContractYears());
 				bw.write(playerInformation);
 				System.out.print(playerInformation);
-				bw.newLine();
+				//bw.newLine();
 			}
 
 			bw.newLine();
@@ -295,19 +269,16 @@ public class Team {
 			fw.close();
 			bw.close();
 
-		} catch (FileNotFoundException e) {
-			e.getMessage();
-		} catch (IOException e) {
-			e.getMessage();
-		}
+		
 
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		Team t1 = new Team(League.getDragons().getTeamName(), League.getDragons().getRoster());
 
 		t1.printTeamRosters();
+		
 	}
 
 }
