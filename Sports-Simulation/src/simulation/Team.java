@@ -280,13 +280,13 @@ public class Team {
 
 	}
 
-	// TODO Remove main method once testing is complete
-	public static void main(String[] args) throws IOException {
-
-		Team t1 = new Team(League.getDragons().getTeamName(), League.getDragons().getRoster());
-
-		t1.printTeamRosters();
-
-	}
+//	// TODO Remove main method once testing is complete
+//	public static void main(String[] args) throws IOException {
+//
+//		Team t1 = new Team(League.getDragons().getTeamName(), League.getDragons().getRoster());
+//
+//		t1.printTeamRosters();
+//
+//	}
 
 }

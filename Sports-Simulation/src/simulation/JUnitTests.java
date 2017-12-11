@@ -1,7 +1,11 @@
 package simulation;
 
+import simulation.League;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+
+import java.io.IOException;
+
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -28,6 +32,23 @@ public class JUnitTests {
 
 	// Create team
 	Team t1, t2;
+	
+	Team OneHundred;
+	Team NinetyFive;
+	Team Ninety;
+	Team EightyFive;
+	Team Eighty;
+	Team SeventyFive;
+	Team Seventy;
+	Team SixtyFive;
+	Team Sixty;
+	Team FiftyFive;
+	Team Fifty;
+	Team FourtyFive;
+	Team Fourty;
+	Team ThirtyFive;
+	Team Thirty;
+	int numberSimulations = 1000;
 
 	@Before
 	public void setUp() {
@@ -79,6 +100,22 @@ public class JUnitTests {
 		roster2[13] = new Player("First", "Last", 50, 50, position3, 5, 2, 25);
 		roster2[14] = new Player("First", "Last", 50, 50, position1, 5, 2, 25);
 		roster2[15] = new Player("First", "Last", 50, 50, position1, 5, 2, 25);
+		
+		OneHundred = new Team("100", League.createOneHundredRoster());
+		NinetyFive = new Team("95", League.createNinetyFiveRoster());
+		Ninety = new Team("90", League.createNinetyRoster());
+		EightyFive = new Team("85", League.createEightyFiveRoster());
+		Eighty = new Team("80", League.createEightyRoster());
+		SeventyFive = new Team("75", League.createSeventyFiveRoster());
+		Seventy = new Team("70", League.createSeventyRoster());
+		SixtyFive = new Team("65", League.createSixtyFiveRoster());
+		Sixty = new Team("60", League.createSixtyRoster());
+		FiftyFive = new Team("55", League.createFiftyFiveRoster());
+		Fifty = new Team("50", League.createFiftyRoster());
+		FourtyFive = new Team("45", League.createFourtyFiveRoster());
+		Fourty = new Team("40", League.createFourtyRoster());
+		ThirtyFive = new Team("35", League.createThirtyFiveRoster());
+		Thirty = new Team("30", League.createThirtyRoster());
 	}
 
 	// -------------------------Player Class-----------------------
@@ -509,5 +546,29 @@ public class JUnitTests {
 	// ---------------GameSimulation Class--------------
 
 	// TODO Once final scoring algorithm is determined, write JUnit tests for it
-
+	
+	@Test
+	public void OneHundredVSOneHundred() throws IOException {
+		GameSimulation gs = new GameSimulation(OneHundred, OneHundred, 1);
+		gs.runSimulations(numberSimulations, OneHundred, OneHundred);
+		
+		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
+		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
+		
+		System.out.println("T1WP: " + team1WinPercentage);
+		System.out.println("T2WP: " + team2WinPercentage);
+		System.out.println("T1AS: " + gs.getTeam1AverageScore());
+		System.out.println("T2AS: " + gs.getTeam2AverageScore());
+		
+		if ((team1WinPercentage > 52 && team1WinPercentage < 48) || (team2WinPercentage > 52 && team2WinPercentage < 48)) {
+			fail();
+		}
+		
+		if ((gs.getTeam1AverageScore() > 106 && gs.getTeam1AverageScore() < 100) || (gs.getTeam2AverageScore() > 106 && gs.getTeam2AverageScore() < 100)) {
+			fail();
+		}
+		
+		assertTrue(true);
+	}
+	
 }

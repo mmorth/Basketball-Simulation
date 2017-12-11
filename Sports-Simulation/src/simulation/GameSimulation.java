@@ -17,97 +17,98 @@ public class GameSimulation {
 
 	public static int DEBUG = 0;
 
-	/**
-	 * Makes calls to the simulation methods to simulate
-	 * 
-	 * @param args
-	 *            Passed in command line arguments
-	 * @throws IOException 
-	 */
-	public static void main(String[] args) throws IOException {
-
-		/*
-		 * NOTE: The below loop code is used for testing purposes. This will be removed
-		 * after testing is complete.
-		 */
-
-		// TODO Remove DEBUG line once finished testing
-		if (DEBUG == 1) {
-			//
-			// boolean underdogWins = false;
-			// int games = 0;
-			//
-			// while (!underdogWins) {
-
-			// games++;
-			//
-			double team1Average = 0;
-			double team2Average = 0;
-			int team1Wins = 0;
-			int team2Wins = 0;
-
-			int i;
-
-			for (i = 0; i < 1000; i++) {
-
-				Team Dragons = League.getDragons();
-
-				Team Gators = League.getGators();
-
-				GameSimulation s1 = new GameSimulation(Dragons, Gators);
-
-				// Dragons.printTeamRosters();
-				//
-				// Gators.printTeamRosters();
-				//
-				// System.out.println(League.getDragons().getTeamOffensiveRating());
-
-				s1.processSimulation(League.getDragons(), League.getGators());
-
-				team1Average += team1Score;
-				team2Average += team2Score;
-
-				if (team1Score > team2Score) {
-					team1Wins++;
-				} else {
-					team2Wins++;
-				}
-
-				team1Score = 0;
-				team2Score = 0;
-
-			}
-
-			team1Average /= i;
-			team2Average /= i;
-
-			System.out.println("Higher Team Average Score: " + team1Average);
-			System.out.println("Lower Team Average Score: " + team2Average);
-			System.out.println("Higher Team Wins: " + team1Wins);
-			System.out.println("Lower Team Wins: " + team2Wins);
-
-			// if (team2Score > team1Score) {
-			// underdogWins = true;
-			// }
-			//
-			// team1Score = 0;
-			// team2Score = 0;
-			//
-			// }
-			//
-			// System.out.println("Games until upset: " + games);
-
-		} else {
-			Team Dragons = League.getDragons();
-
-			Team Gators = League.getGators();
-
-			GameSimulation s1 = new GameSimulation(Dragons, Gators);
-
-			s1.processSimulation(League.getDragons(), League.getGators());
-		}
-
-	}
+	// /**
+	// * Makes calls to the simulation methods to simulate
+	// *
+	// * @param args
+	// * Passed in command line arguments
+	// * @throws IOException
+	// */
+	// public static void main(String[] args) throws IOException {
+	//
+	// /*
+	// * NOTE: The below loop code is used for testing purposes. This will be
+	// removed
+	// * after testing is complete.
+	// */
+	//
+	// // TODO Remove DEBUG line once finished testing
+	// if (DEBUG == 1) {
+	// //
+	// // boolean underdogWins = false;
+	// // int games = 0;
+	// //
+	// // while (!underdogWins) {
+	//
+	// // games++;
+	// //
+	// double team1Average = 0;
+	// double team2Average = 0;
+	// int team1Wins = 0;
+	// int team2Wins = 0;
+	//
+	// int i;
+	//
+	// for (i = 0; i < 1000; i++) {
+	//
+	// Team Dragons = League.getDragons();
+	//
+	// Team Gators = League.getGators();
+	//
+	// GameSimulation s1 = new GameSimulation(Dragons, Gators);
+	//
+	// // Dragons.printTeamRosters();
+	// //
+	// // Gators.printTeamRosters();
+	// //
+	// // System.out.println(League.getDragons().getTeamOffensiveRating());
+	//
+	// s1.processSimulation(League.getDragons(), League.getGators());
+	//
+	// team1Average += team1Score;
+	// team2Average += team2Score;
+	//
+	// if (team1Score > team2Score) {
+	// team1Wins++;
+	// } else {
+	// team2Wins++;
+	// }
+	//
+	// team1Score = 0;
+	// team2Score = 0;
+	//
+	// }
+	//
+	// team1Average /= i;
+	// team2Average /= i;
+	//
+	// System.out.println("Higher Team Average Score: " + team1Average);
+	// System.out.println("Lower Team Average Score: " + team2Average);
+	// System.out.println("Higher Team Wins: " + team1Wins);
+	// System.out.println("Lower Team Wins: " + team2Wins);
+	//
+	// // if (team2Score > team1Score) {
+	// // underdogWins = true;
+	// // }
+	// //
+	// // team1Score = 0;
+	// // team2Score = 0;
+	// //
+	// // }
+	// //
+	// // System.out.println("Games until upset: " + games);
+	//
+	// } else {
+	// Team Dragons = League.getDragons();
+	//
+	// Team Gators = League.getGators();
+	//
+	// GameSimulation s1 = new GameSimulation(Dragons, Gators);
+	//
+	// s1.processSimulation(League.getDragons(), League.getGators());
+	// }
+	//
+	// }
 
 	/**
 	 * Represents team1 in the simulation
@@ -151,6 +152,12 @@ public class GameSimulation {
 	 */
 	private double team2Boost;
 
+	// TODO Remove once testing is complete
+	private int team1Wins = 0;
+	private int team2Wins = 0;
+	private double team1AverageScore = 0;
+	private double team2AverageScore = 0;
+
 	/**
 	 * Accepts user input
 	 */
@@ -164,7 +171,7 @@ public class GameSimulation {
 	 * @param team2
 	 *            The second team in the game simulation
 	 */
-	public GameSimulation(Team team1, Team team2) {
+	public GameSimulation(Team team1, Team team2, int debug) {
 
 		this.team1 = team1;
 		this.team2 = team2;
@@ -177,6 +184,8 @@ public class GameSimulation {
 
 		team1BoostCalculation();
 		team2BoostCalculation();
+		
+		DEBUG = debug;
 
 	}
 
@@ -189,9 +198,9 @@ public class GameSimulation {
 	 *            The first team in simulated game
 	 * @param team2
 	 *            The second team in simulated game
-	 * @throws IOException 
+	 * @throws IOException
 	 */
-	public void processSimulation(Team team1, Team team2) throws IOException {
+	public void processSimulation(Team team1, Team team2, int numSimulations) throws IOException {
 
 		// Stores the scores for team1 for each quarter and overtime
 		int team1FirstQuarterScore = 0;
@@ -215,7 +224,10 @@ public class GameSimulation {
 			// If the user choose to simulate the game, then simulate the game by quarters
 			if (choice != 'g') {
 
-				printOptions(possessions, team1Score, team2Score);
+				//TODO Remove after testing
+				if (DEBUG == 0) {
+					printOptions(possessions, team1Score, team2Score);
+				}
 
 				// TODO Remove DEBUG line once finished testing
 				if (DEBUG == 1) {
@@ -266,7 +278,11 @@ public class GameSimulation {
 			// end of the game
 			while (team1Score == team2Score) {
 				for (int possessions = 101; possessions <= 110; possessions++) {
-					System.out.println("\n\nPress p to simulate possession or g to end game");
+					
+					//TODO Remove after testing
+					if (DEBUG == 0) {
+						System.out.println("\n\nPress p to simulate possession or g to end game");
+					}
 
 					// TODO Remove DEBUG line once finished testing
 					if (DEBUG == 1) {
@@ -277,7 +293,12 @@ public class GameSimulation {
 
 					if (choice == 'p') {
 						simulatePossession();
-						printScoreboard(team1Score, team2Score);
+						
+						//TODO Remove after testing
+						if (DEBUG == 0) {
+							printScoreboard(team1Score, team2Score);
+						}
+						
 					} else {
 						possessions = simulatePossessionsQuarter(possessions);
 					}
@@ -290,9 +311,13 @@ public class GameSimulation {
 						- team2ThirdQuarterScore - team2FirstQuarterScore;
 			}
 
-			printFinalScores(team1FirstQuarterScore, team1SecondQuarterScore, team1ThirdQuarterScore,
-					team1FourthQuarterScore, team1OvertimeScore, team2FirstQuarterScore, team2SecondQuarterScore,
-					team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore);
+			//TODO Remove after testing
+			if (DEBUG == 0) {
+				printFinalScores(team1FirstQuarterScore, team1SecondQuarterScore, team1ThirdQuarterScore,
+						team1FourthQuarterScore, team1OvertimeScore, team2FirstQuarterScore, team2SecondQuarterScore,
+						team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore);
+			}
+
 		} else {
 			System.out.println("Game ended. Draw.");
 		}
@@ -392,8 +417,8 @@ public class GameSimulation {
 	 *            The number of points scored by team 2 in the fourth quarter
 	 * @param team2OvertimeScore
 	 *            The number of points scored by team 2 in overtime
-	 * @throws IOException 
-	 * 			  Throws an IOException if the specified file does not exist
+	 * @throws IOException
+	 *             Throws an IOException if the specified file does not exist
 	 */
 	public void printFinalScores(int team1FirstQuarterScore, int team1SecondQuarterScore, int team1ThirdQuarterScore,
 			int team1FourthQuarterScore, int team1OvertimeScore, int team2FirstQuarterScore,
@@ -409,21 +434,22 @@ public class GameSimulation {
 				team2SecondQuarterScore, team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore,
 				team2Score);
 
-//			FileWriter fw = new FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\GameResults.txt", true);
-			FileWriter fw = new FileWriter("/home/mmorth/Coding/Storage_Files/GameResults.txt", true);
-			BufferedWriter bw = new BufferedWriter(fw);
+		// FileWriter fw = new
+		// FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\GameResults.txt", true);
+		FileWriter fw = new FileWriter("/home/mmorth/Coding/Storage_Files/GameResults.txt", true);
+		BufferedWriter bw = new BufferedWriter(fw);
 
-			bw.write(scoreHeader);
-			bw.newLine();
-			bw.write(team1Results);
-			bw.newLine();
-			bw.write(team2Results);
-			bw.newLine();
-			bw.newLine();
-			bw.flush();
+		bw.write(scoreHeader);
+		bw.newLine();
+		bw.write(team1Results);
+		bw.newLine();
+		bw.write(team2Results);
+		bw.newLine();
+		bw.newLine();
+		bw.flush();
 
-			fw.close();
-			bw.close();
+		fw.close();
+		bw.close();
 
 		// Display final results to console
 		System.out.println(scoreHeader);
@@ -527,5 +553,64 @@ public class GameSimulation {
 		}
 
 	}
+
+	// TODO: Remove below methods after testing is complete
+	
+	/**
+	 * Runs the a simulated game numSimulations number of times. Used for automated testing.
+	 * @param numSimulations
+	 * 		Number of games to simulate
+	 * @param team1
+	 * 		The first team in the simulations
+	 * @param team2
+	 * 		The second team in the simulations
+	 * @throws IOException
+	 * 		Throws an IOException if the files cannot be found
+	 */
+	public void runSimulations(int numSimulations, Team team1, Team team2) throws IOException {
+
+		int i;
+
+		for (i = 0; i < numSimulations; i++) {
+
+			GameSimulation s1 = new GameSimulation(team1, team2, 1);
+
+			s1.processSimulation(team1, team2, 1000);
+
+			team1AverageScore += team1Score;
+			team2AverageScore += team2Score;
+
+			if (team1Score > team2Score) {
+				team1Wins++;
+			} else {
+				team2Wins++;
+			}
+
+			team1Score = 0;
+			team2Score = 0;
+
+		}
+
+		team1AverageScore /= i;
+		team2AverageScore /= i;
+
+	}
+	
+
+	public int getTeam1Wins() {
+		return team1Wins;
+	}
+
+	public double getTeam1AverageScore() {
+		return team1AverageScore;
+	}
+
+	public double getTeam2AverageScore() {
+		return team2AverageScore;
+	}
+
+	public int getTeam2Wins() {
+		return team2Wins;
+	}	
 
 }
