@@ -1,9 +1,11 @@
 package simulation;
 
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Represents a basketball team. Stores name and rating.
@@ -232,6 +234,12 @@ public class Team {
 	 */
 	public void printTeamRosters() throws IOException {
 
+//		String d = System.getProperty("user.home");
+//		String dir = d + File.separator+"Documents"+File.separator+"CarPark";
+//		final File file = new File(dir, "abnormal");
+//		file.mkdirs();// all directories down
+//		PrintWriter restoreNo = new PrintWriter(new FileOutputStream(new File(file, "restoreNo.txt")));
+		
 		// Setup the file saving location
 		// FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\Rosters.txt", true);
 		FileWriter fw = new FileWriter("/home/mmorth/Coding/Storage_Files/Rosters.txt", true);

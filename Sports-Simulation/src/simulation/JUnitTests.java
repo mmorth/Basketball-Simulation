@@ -1,6 +1,6 @@
 package simulation;
 
-import simulation.League;
+import simulation.TestMatchups;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
@@ -101,21 +101,21 @@ public class JUnitTests {
 		roster2[14] = new Player("First", "Last", 50, 50, position1, 5, 2, 25);
 		roster2[15] = new Player("First", "Last", 50, 50, position1, 5, 2, 25);
 		
-		OneHundred = new Team("100", League.createOneHundredRoster());
-		NinetyFive = new Team("95", League.createNinetyFiveRoster());
-		Ninety = new Team("90", League.createNinetyRoster());
-		EightyFive = new Team("85", League.createEightyFiveRoster());
-		Eighty = new Team("80", League.createEightyRoster());
-		SeventyFive = new Team("75", League.createSeventyFiveRoster());
-		Seventy = new Team("70", League.createSeventyRoster());
-		SixtyFive = new Team("65", League.createSixtyFiveRoster());
-		Sixty = new Team("60", League.createSixtyRoster());
-		FiftyFive = new Team("55", League.createFiftyFiveRoster());
-		Fifty = new Team("50", League.createFiftyRoster());
-		FourtyFive = new Team("45", League.createFourtyFiveRoster());
-		Fourty = new Team("40", League.createFourtyRoster());
-		ThirtyFive = new Team("35", League.createThirtyFiveRoster());
-		Thirty = new Team("30", League.createThirtyRoster());
+		OneHundred = new Team("100", TestMatchups.createOneHundredRoster());
+		NinetyFive = new Team("95", TestMatchups.createNinetyFiveRoster());
+		Ninety = new Team("90", TestMatchups.createNinetyRoster());
+		EightyFive = new Team("85", TestMatchups.createEightyFiveRoster());
+		Eighty = new Team("80", TestMatchups.createEightyRoster());
+		SeventyFive = new Team("75", TestMatchups.createSeventyFiveRoster());
+		Seventy = new Team("70", TestMatchups.createSeventyRoster());
+		SixtyFive = new Team("65", TestMatchups.createSixtyFiveRoster());
+		Sixty = new Team("60", TestMatchups.createSixtyRoster());
+		FiftyFive = new Team("55", TestMatchups.createFiftyFiveRoster());
+		Fifty = new Team("50", TestMatchups.createFiftyRoster());
+		FourtyFive = new Team("45", TestMatchups.createFourtyFiveRoster());
+		Fourty = new Team("40", TestMatchups.createFourtyRoster());
+		ThirtyFive = new Team("35", TestMatchups.createThirtyFiveRoster());
+		Thirty = new Team("30", TestMatchups.createThirtyRoster());
 	}
 
 	// -------------------------Player Class-----------------------
@@ -544,8 +544,38 @@ public class JUnitTests {
 	}
 
 	// ---------------GameSimulation Class--------------
-
-	// TODO Once final scoring algorithm is determined, write JUnit tests for it
+	
+//	@Test
+//	public void () throws IOException {
+//		
+//		Team team1 = ;
+//		Team team2 = ;
+//		
+//		double team1LowerWinPercentage = ;
+//		double team1UpperWinPercentage = ;
+//		
+//		double team2LowerWinPercentage = ;
+//		double team2UpperWinPercentage = ;
+//		
+//		double team1LowerAverageScore = ;
+//		double team1UpperAverageScore = ;
+//		
+//		double team2LowerAverageScore = ;
+//		double team2UpperAverageScore = ;
+//		
+//		GameSimulation gs = new GameSimulation(team1, team2, 1);
+//		gs.runSimulations(numberSimulations, team1, team2);
+//		
+//		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
+//		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
+//		
+//		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage) || (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage))) || (!((gs.getTeam1AverageScore() < team1UpperAverageScore && gs.getTeam1AverageScore() > team1LowerAverageScore) || (gs.getTeam2AverageScore() < team2UpperAverageScore && gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+//			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs, team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore, team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage, team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+//			fail(failMessage);
+//		}
+//		
+//		assertTrue(true);
+//	}
 	
 	@Test
 	public void OneHundredVSOneHundred() throws IOException {
@@ -553,11 +583,11 @@ public class JUnitTests {
 		Team team1 = OneHundred;
 		Team team2 = OneHundred;
 		
-		double team1LowerWinPercentage = .7;
-		double team1UpperWinPercentage = .8;
+		double team1LowerWinPercentage = .48;
+		double team1UpperWinPercentage =  .52;
 		
-		double team2LowerWinPercentage = .2;
-		double team2UpperWinPercentage = .3;
+		double team2LowerWinPercentage = .48;
+		double team2UpperWinPercentage = .52;
 		
 		double team1LowerAverageScore = 100;
 		double team1UpperAverageScore = 106;

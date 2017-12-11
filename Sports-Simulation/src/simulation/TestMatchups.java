@@ -1,6 +1,6 @@
 package simulation;
 
-public class League {
+public class TestMatchups {
 
 	private static Team[] teams;
 
