@@ -2,6 +2,7 @@ package simulation;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +12,7 @@ public class JUnitTests {
 	// Create player
 	Player p1;
 
+	// Various positions
 	int[] position0 = { 0 };
 	int[] position1 = { 1 };
 	int[] position2 = { 2 };
@@ -47,6 +49,7 @@ public class JUnitTests {
 
 		t1 = new Team("Team", roster);
 
+		// Create another team
 		roster1 = new Athlete[7];
 		roster1[0] = new Coach("First", "Last", 30, 30, position0, 5, 2, 25);
 		roster1[1] = new Player("First", "Last", 30, 30, position1, 5, 2, 25);
@@ -58,6 +61,7 @@ public class JUnitTests {
 
 		t2 = new Team("Team", roster1);
 
+		// Create a large team
 		roster2 = new Athlete[16];
 		roster2[0] = new Player("First", "Last", 50, 50, position1, 5, 2, 25);
 		roster2[1] = new Player("First", "Last", 50, 50, position1, 5, 2, 25);
@@ -488,9 +492,22 @@ public class JUnitTests {
 		assertEquals(35, t1.getSalaryCap(), .01);
 	}
 
-	// ------------------------------GameSimulation
-	// Class----------------------------------
+	// ---------------------- Helper Class -----------------
 	
-	//TODO Once final scoring algorithm is determined, write JUnit tests for it
+	@Test
+	public void helperContainsSpacesYes() {
+		String space = "Has space";
+		assertTrue(Helper.containsSpaces(space));
+	}
+	
+	@Test
+	public void helperContainsSpacesNo() {
+		String noSpace = "NoSpace";
+		assertFalse(Helper.containsSpaces(noSpace));
+	}
+
+	// ---------------GameSimulation Class--------------
+
+	// TODO Once final scoring algorithm is determined, write JUnit tests for it
 
 }

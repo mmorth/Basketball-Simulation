@@ -27,9 +27,6 @@ public interface Athlete {
 	 * 
 	 * @param athleteName
 	 *            New name for athlete
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgumentException if the name is greater than 15
-	 *             characters or contains spaces.
 	 */
 	void setFirstName(String athleteFirstName);
 
@@ -38,9 +35,6 @@ public interface Athlete {
 	 * 
 	 * @param athleteName
 	 *            New name for athlete
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgumentException if the name is greater than 15
-	 *             characters or contains spaces.
 	 */
 	void setLastName(String athleteLastName);
 

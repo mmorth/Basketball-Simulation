@@ -12,7 +12,7 @@ public class Player implements Athlete {
 	 * Stores player's first name
 	 */
 	private String playerFirstName;
-	
+
 	/**
 	 * Stores player's last name
 	 */
@@ -66,11 +66,11 @@ public class Player implements Athlete {
 	 * @param age
 	 *            The age of the player
 	 */
-	public Player(String playerFirstName, String playerLastName, int offenseRating, int defenseRating, int[] position, double contractAmount,
-			int contractYears, int age) {
+	public Player(String playerFirstName, String playerLastName, int offenseRating, int defenseRating, int[] position,
+			double contractAmount, int contractYears, int age) {
 
 		setFirstName(playerFirstName);
-		
+
 		setLastName(playerLastName);
 
 		setOffenseRating(offenseRating);
@@ -100,19 +100,21 @@ public class Player implements Athlete {
 	/**
 	 * Sets the first name of the player
 	 * 
-	 * @param coachName
+	 * @param playerFirstName
 	 *            New first name for player
 	 * @throws IllegalArgumentException
-	 * 		Throws an IllegalArgumentException if the name is greater than 15 characters or contains spaces.
+	 *             Throws an IllegalArgumentException if the name is greater than 15
+	 *             characters or contains spaces.
 	 */
 	@Override
 	public void setFirstName(String playerFirstName) {
 		if (playerFirstName.length() > 15 || Helper.containsSpaces(playerFirstName)) {
-			throw new IllegalArgumentException("Player first name must be 15 or fewer characters and may not contain any spaces.");
+			throw new IllegalArgumentException(
+					"Player first name must be 15 or fewer characters and may not contain any spaces.");
 		}
 		this.playerFirstName = playerFirstName;
 	}
-	
+
 	/**
 	 * Returns the last name of the player
 	 * 
@@ -126,15 +128,17 @@ public class Player implements Athlete {
 	/**
 	 * Sets the last name of the player
 	 * 
-	 * @param coachName
+	 * @param playerLastName
 	 *            New last name for player
 	 * @throws IllegalArgumentException
-	 * 		Throws an IllegalArgumentException if the name is greater than 15 characters or contains spaces.
+	 *             Throws an IllegalArgumentException if the name is greater than 15
+	 *             characters or contains spaces.
 	 */
 	@Override
 	public void setLastName(String playerLastName) {
 		if (playerLastName.length() > 15 || Helper.containsSpaces(playerLastName)) {
-			throw new IllegalArgumentException("Player last name must be 15 or fewer characters and may not contain any spaces.");
+			throw new IllegalArgumentException(
+					"Player last name must be 15 or fewer characters and may not contain any spaces.");
 		}
 		this.playerLastName = playerLastName;
 	}
@@ -154,12 +158,19 @@ public class Player implements Athlete {
 	 * 
 	 * @param position
 	 *            The new position of the player
+	 * @throws IllegalArgumentException
+	 *             Throws an IllegalArgument exception if there are more than 5
+	 *             elements in position or if a position is not between 1 and 6
 	 */
 	@Override
 	public void setPosition(int[] position) {
+		if (position.length > 6) {
+			throw new IllegalArgumentException("All listed positions must be between 0 and 6 inclusive");
+		}
+
 		for (int i = 0; i < position.length; i++) {
 			if (position[i] < 1 || position[i] > 6) {
-				throw new IllegalArgumentException("All listed positions must be between 0 and 6 inclusive");
+				throw new IllegalArgumentException("All listed positions must be between 1 and 6 inclusive");
 			}
 		}
 
@@ -181,6 +192,9 @@ public class Player implements Athlete {
 	 * 
 	 * @param offenseRating
 	 *            New offensive rating of player
+	 * @throws IllegalArgumentException
+	 *             Throws an IllegalArgument exception if offenseRating is less than
+	 *             30 or greater than 100
 	 */
 	@Override
 	public void setOffenseRating(int offenseRating) {
@@ -206,6 +220,9 @@ public class Player implements Athlete {
 	 * 
 	 * @param defenseRating
 	 *            New defensive rating of the player
+	 * @throws IllegalArgumentException
+	 *             Throws an IllegalArgument exception if defenseRating is less than
+	 *             30 or greater than 100
 	 */
 	@Override
 	public void setDefenseRating(int defenseRating) {
@@ -241,6 +258,9 @@ public class Player implements Athlete {
 	 * 
 	 * @param contractAmount
 	 *            New contract amount
+	 * @throws IllegalArgumentException
+	 *             Throws an IllegalArgument exception if contractAmount is less
+	 *             than 0
 	 */
 	@Override
 	public void setContractAmount(double contractAmount) {
@@ -267,6 +287,9 @@ public class Player implements Athlete {
 	 * 
 	 * @param contractYears
 	 *            New number of years left on contract
+	 * @throws IllegalArgumentException
+	 *             Throws an IllegalArgument exception if contractYears is less than
+	 *             0
 	 */
 	@Override
 	public void setContractYears(int contractYears) {
@@ -292,6 +315,8 @@ public class Player implements Athlete {
 	 * 
 	 * @param age
 	 *            New age of player
+	 * @throws IllegalArgumentException
+	 *             Throws an IllegalArgument exception if age is less than 0
 	 */
 	@Override
 	public void setAge(int age) {

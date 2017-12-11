@@ -12,7 +12,7 @@ public class Coach implements Athlete {
 	 * Stores coach's first name
 	 */
 	private String coachFirstName;
-	
+
 	/**
 	 * Stores coach's last name
 	 */
@@ -54,7 +54,7 @@ public class Coach implements Athlete {
 	 * @param coachFirstName
 	 *            First name of the coach
 	 * @param coachLastName
-	 * 		 	  Last name of the coach
+	 *            Last name of the coach
 	 * @param offenseRating
 	 *            The offensive rating of the coach
 	 * @param defenseRating
@@ -68,11 +68,11 @@ public class Coach implements Athlete {
 	 * @param age
 	 *            The age of the coach
 	 */
-	public Coach(String coachFirstName, String coachLastName, int offenseRating, int defenseRating, int[] position, double contractAmount,
-			int contractYears, int age) {
+	public Coach(String coachFirstName, String coachLastName, int offenseRating, int defenseRating, int[] position,
+			double contractAmount, int contractYears, int age) {
 
 		setFirstName(coachFirstName);
-		
+
 		setLastName(coachLastName);
 
 		setOffenseRating(offenseRating);
@@ -92,7 +92,7 @@ public class Coach implements Athlete {
 	/**
 	 * Returns the first name of the coach
 	 * 
-	 * @return Name of the coach
+	 * @return First name of the coach
 	 */
 	@Override
 	public String getFirstName() {
@@ -102,19 +102,21 @@ public class Coach implements Athlete {
 	/**
 	 * Sets the first name of the coach
 	 * 
-	 * @param coachName
+	 * @param coachFirstName
 	 *            New first name for coach
 	 * @throws IllegalArgumentException
-	 * 		Throws an IllegalArgumentException if the name is greater than 15 characters or contains spaces.
+	 *             Throws an IllegalArgumentException if the name is greater than 15
+	 *             characters or contains spaces.
 	 */
 	@Override
 	public void setFirstName(String coachFirstName) {
 		if (coachFirstName.length() > 15 || Helper.containsSpaces(coachFirstName)) {
-			throw new IllegalArgumentException("Coach first name must be 15 or fewer characters and may not contain any spaces.");
+			throw new IllegalArgumentException(
+					"Coach first name must be 15 or fewer characters and may not contain any spaces.");
 		}
 		this.coachFirstName = coachFirstName;
 	}
-	
+
 	/**
 	 * Returns the last name of the coach
 	 * 
@@ -128,15 +130,17 @@ public class Coach implements Athlete {
 	/**
 	 * Sets the last name of the coach
 	 * 
-	 * @param coachName
+	 * @param coachLastName
 	 *            New last name for coach
 	 * @throws IllegalArgumentException
-	 * 		Throws an IllegalArgumentException if the name is greater than 15 characters or contains spaces.
+	 *             Throws an IllegalArgumentException if the name is greater than 15
+	 *             characters or contains spaces.
 	 */
 	@Override
 	public void setLastName(String coachLastName) {
 		if (coachLastName.length() > 15 || Helper.containsSpaces(coachLastName)) {
-			throw new IllegalArgumentException("Coach last name must be 15 or fewer characters and may not contain any spaces.");
+			throw new IllegalArgumentException(
+					"Coach last name must be 15 or fewer characters and may not contain any spaces.");
 		}
 		this.coachLastName = coachLastName;
 	}
@@ -156,6 +160,9 @@ public class Coach implements Athlete {
 	 * 
 	 * @param offenseRating
 	 *            New offensive rating of coach
+	 * @throws IllegalArgumentException
+	 *             Throws an IllegalArgument exception if offenseRating is less than
+	 *             30 or greater than 100
 	 */
 	@Override
 	public void setOffenseRating(int offenseRating) {
@@ -181,6 +188,9 @@ public class Coach implements Athlete {
 	 * 
 	 * @param defenseRating
 	 *            New defensive rating of the coach
+	 * @throws IllegalArgumentException
+	 *             Throws an IllegalArgument exception if defenseRating is less than
+	 *             30 or greater than 100
 	 */
 	@Override
 	public void setDefenseRating(int defenseRating) {
@@ -195,7 +205,7 @@ public class Coach implements Athlete {
 	/**
 	 * Returns the position of the coach
 	 * 
-	 * @return Position of player
+	 * @return Position of coach
 	 */
 	@Override
 	public int[] getPosition() {
@@ -239,6 +249,9 @@ public class Coach implements Athlete {
 	 * 
 	 * @param contractAmount
 	 *            New contract amount
+	 * @throws IllegalArgumentException
+	 *             Throws an IllegalArgument exception if the contract amount is
+	 *             less than 0
 	 */
 	@Override
 	public void setContractAmount(double contractAmount) {
@@ -265,6 +278,9 @@ public class Coach implements Athlete {
 	 * 
 	 * @param contractYears
 	 *            New number of years left on contract
+	 * @throws IllegalArgumentException
+	 *             Throws an IllegalArgument exception if the number of years on the
+	 *             contract is less than 0
 	 */
 	@Override
 	public void setContractYears(int contractYears) {
@@ -290,6 +306,8 @@ public class Coach implements Athlete {
 	 * 
 	 * @param age
 	 *            New age of coach
+	 * @throws IllegalArgumentException
+	 *             Throws an IllegalArgument exception if age is less than 0
 	 */
 	@Override
 	public void setAge(int age) {
