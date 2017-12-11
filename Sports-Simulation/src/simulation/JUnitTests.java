@@ -549,28 +549,36 @@ public class JUnitTests {
 	
 	@Test
 	public void OneHundredVSOneHundred() throws IOException {
+		
+		Team team1 = OneHundred;
+		Team team2 = OneHundred;
+		
 		double team1LowerWinPercentage = .7;
 		double team1UpperWinPercentage = .8;
+		
 		double team2LowerWinPercentage = .2;
 		double team2UpperWinPercentage = .3;
 		
 		double team1LowerAverageScore = 100;
 		double team1UpperAverageScore = 106;
+		
 		double team2LowerAverageScore = 100;
 		double team2UpperAverageScore = 106;
 		
-		GameSimulation gs = new GameSimulation(OneHundred, Eighty, 1);
-		gs.runSimulations(numberSimulations, OneHundred, Eighty);
+		GameSimulation gs = new GameSimulation(team1, team2, 1);
+		gs.runSimulations(numberSimulations, team1, team2);
 		
 		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
 		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
 		
 		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage) || (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage))) || (!((gs.getTeam1AverageScore() < team1UpperAverageScore && gs.getTeam1AverageScore() > team1LowerAverageScore) || (gs.getTeam2AverageScore() < team2UpperAverageScore && gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			fail("\nTEAM1 --> Lower Bound: " + team1LowerWinPercentage + " Actual Percentage: " + team1WinPercentage + " Upper Bound: " + team1UpperWinPercentage + " TEAM2 --> Lower Bound: " + team2LowerWinPercentage + " Actual Percentage: " + team2WinPercentage + " Upper Bound: " + team2UpperWinPercentage + "\n"
-					+ "TEAM1 --> Lower Bound: " + team1LowerAverageScore + " Actual Score: " + gs.getTeam1AverageScore() + " Upper Bound: " + team1UpperAverageScore + " TEAM2 --> Lower Bound: " + team2LowerAverageScore + " Actual Score: " + gs.getTeam2AverageScore() + " Upper Bound: " + team2UpperAverageScore);
+			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs, team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore, team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage, team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+			fail(failMessage);
 		}
 		
 		assertTrue(true);
 	}
+	
+	
 	
 }
