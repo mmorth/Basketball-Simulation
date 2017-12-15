@@ -234,24 +234,25 @@ public class Team {
 	 */
 	public void printTeamRosters() throws IOException {
 
-//		String d = System.getProperty("user.home");
-//		String dir = d + File.separator+"Documents"+File.separator+"CarPark";
-//		final File file = new File(dir, "abnormal");
-//		file.mkdirs();// all directories down
-//		PrintWriter restoreNo = new PrintWriter(new FileOutputStream(new File(file, "restoreNo.txt")));
+		String d = System.getProperty("user.home");
+		String dir = d + File.separator+"Documents"+File.separator+"Basketball-Simulation" + File.separator + "Rosters.txt";
+		final File file = new File(dir);
+		file.getParentFile().mkdirs();// all directories down
+		//PrintWriter restoreNo = new PrintWriter(new FileOutputStream(new File(file, "restoreNo.txt")));
 		
 		// Setup the file saving location
 		// FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\Rosters.txt", true);
-		FileWriter fw = new FileWriter("/home/mmorth/Coding/Storage_Files/Rosters.txt", true);
+		//FileWriter fw = new FileWriter("/home/mmorth/Coding/Storage_Files/Rosters.txt", true);
+		FileWriter fw = new FileWriter(file, true);
 		BufferedWriter bw = new BufferedWriter(fw);
 
 		// Write the headers of the output
 		bw.write("Team: " + teamName);
 		bw.newLine();
-		bw.write("Position\tFirst Name\tLast Name\tAge\tOffense\tDefense\tContract\tYears");
+		bw.write("Position\tFirst Name\tLast Name\tAge\tOverall\tOffense\tDefense\tContract_Amount\tContract_Years");
 		bw.newLine();
 		System.out.printf("");
-		System.out.println("Position\tFirst Name\tLast Name\tAge\tOffense\tDefense\tContract\tYears");
+		System.out.println("Position\tFirst Name\tLast Name\tAge\tOverall\tOffense\tDefense\tContract_Amount\tContract_Years");
 
 		// Display the position information
 		for (int i = 0; i < roster.length; i++) {
@@ -268,12 +269,13 @@ public class Team {
 			// roster[i].getDefenseRating(), roster[i].getContractYears(),
 			// roster[i].getContractAmount());
 
-			// Format printig player information
-			String playerInformation = String.format("%-10s\t%-15s\t%-15s\t%d\t%d\t%d\t%.1f\t\t%d\n", positionString,
-					roster[i].getFirstName(), roster[i].getLastName(), roster[i].getAge(), roster[i].getOffenseRating(),
+			// Format print player information
+			String playerInformation = String.format("%-10s\t%-15s\t%-15s\t%d\t%d\t%d\t%d\t%.1f\t\t%d", positionString,
+					roster[i].getFirstName(), roster[i].getLastName(), roster[i].getAge(), roster[i].getOverallRating(), roster[i].getOffenseRating(),
 					roster[i].getDefenseRating(), roster[i].getContractAmount(), roster[i].getContractYears());
 			bw.write(playerInformation);
-			System.out.print(playerInformation);
+			bw.newLine();
+			System.out.println(playerInformation);
 			// bw.newLine();
 		}
 
@@ -288,13 +290,13 @@ public class Team {
 
 	}
 
-//	// TODO Remove main method once testing is complete
-//	public static void main(String[] args) throws IOException {
-//
-//		Team t1 = new Team(League.getDragons().getTeamName(), League.getDragons().getRoster());
-//
-//		t1.printTeamRosters();
-//
-//	}
+	// TODO Remove main method once testing is complete
+	public static void main(String[] args) throws IOException {
+
+		Team t1 = new Team(TestMatchups.getOneHundred().getTeamName(), TestMatchups.getOneHundred().getRoster());
+
+		t1.printTeamRosters();
+
+	}
 
 }
