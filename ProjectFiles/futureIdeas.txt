@@ -1,0 +1,12 @@
+Attributes HashMap or array for athletes where each index of the array corresponds to an attribute? Make a final list
+Season / career stats for athletes
+Attributes for athletes? Determine how much they boost a stat
+Player rotation minutes
+Store season and career stats
+Store team wins and losses in Team class
+Store starters and bench players
+Have team overalls change based on who is on the floor
+Add player fatigue
+Store team stats in Team class array / HashMap
+Determine how to sub players in and out
+Generate random player names / ratings

@@ -1,0 +1,2 @@
+Check to make sure each team's score is within a certain range
+Check that each team's winning percentages are between a certain range
