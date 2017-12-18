@@ -18,7 +18,12 @@ public class Team {
 	/**
 	 * Stores the roster for the team
 	 */
-	private Athlete[] roster = new Athlete[15];
+	private Player[] roster = new Player[15];
+
+	/**
+	 * Stores the coach of the team
+	 */
+	private Coach coach;
 
 	/**
 	 * Stores team name
@@ -53,11 +58,13 @@ public class Team {
 	 * @param teamName
 	 *            The name of the team
 	 */
-	public Team(String teamName, Athlete[] roster) {
+	public Team(String teamName, Player[] roster, Coach coach) {
 
 		setTeamName(teamName);
 
 		setRoster(roster);
+
+		setCoach(coach);
 
 		generateNewTeamOffensiveRating();
 		generateNewTeamDefensiveRating();
@@ -81,8 +88,8 @@ public class Team {
 	 * @param teamName
 	 *            New team name
 	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgumentException is the new team name is 30
-	 *             characters or more
+	 *             teamName Throws an IllegalArgumentException is the new team name
+	 *             is 30 characters or more
 	 */
 	public void setTeamName(String teamName) {
 		if (teamName.length() > 30) {
@@ -96,7 +103,7 @@ public class Team {
 	 * 
 	 * @return Roster of the team
 	 */
-	public Athlete[] getRoster() {
+	public Player[] getRoster() {
 		return roster;
 	}
 
@@ -106,7 +113,7 @@ public class Team {
 	 * @param roster
 	 *            New team roster
 	 */
-	public void setRoster(Athlete[] roster) {
+	public void setRoster(Player[] roster) {
 		if (roster.length > 15) {
 			throw new IllegalArgumentException("The roster may not exceed 15 players");
 		}
@@ -127,13 +134,32 @@ public class Team {
 	 * @param player
 	 *            New replacement player
 	 */
-	public void setPlayer(int position, Athlete player) {
+	public void setPlayer(int position, Player player) {
 		roster[position] = player;
 
 		generateNewTeamOffensiveRating();
 		generateNewTeamDefensiveRating();
 		generateNewTeamOverallRating();
 		generateNewTeamSalary();
+	}
+
+	/**
+	 * Returns the coach of the team
+	 * 
+	 * @return The coach of the team
+	 */
+	public Coach getCoach() {
+		return coach;
+	}
+
+	/**
+	 * Sets the coach of the team
+	 * 
+	 * @param The
+	 *            new coach of the team
+	 */
+	public void setCoach(Coach coach) {
+		this.coach = coach;
 	}
 
 	/**
@@ -153,8 +179,8 @@ public class Team {
 	private void generateNewTeamOffensiveRating() {
 		int overall = 0;
 
-		for (Athlete a : roster) {
-			overall += a.getOffenseRating();
+		for (Player a : roster) {
+			overall += a.getOffensiveRating();
 		}
 
 		teamOffensiveRating = overall / roster.length;
@@ -177,8 +203,8 @@ public class Team {
 	public void generateNewTeamDefensiveRating() {
 		int overall = 0;
 
-		for (Athlete a : roster) {
-			overall += a.getDefenseRating();
+		for (Player a : roster) {
+			overall += a.getDefensiveRating();
 		}
 
 		teamDefensiveRating = overall / roster.length;
@@ -235,44 +261,51 @@ public class Team {
 	public void printTeamRosters() throws IOException {
 
 		String d = System.getProperty("user.home");
-		String dir = d + File.separator+"Documents"+File.separator+"Basketball-Simulation" + File.separator + "Rosters.txt";
+		String dir = d + File.separator + "Documents" + File.separator + "Basketball-Simulation" + File.separator
+				+ "Rosters.txt";
 		final File file = new File(dir);
 		file.getParentFile().mkdirs();// all directories down
-		//PrintWriter restoreNo = new PrintWriter(new FileOutputStream(new File(file, "restoreNo.txt")));
-		
+		// PrintWriter restoreNo = new PrintWriter(new FileOutputStream(new File(file,
+		// "restoreNo.txt")));
+
 		// Setup the file saving location
 		// FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\Rosters.txt", true);
-		//FileWriter fw = new FileWriter("/home/mmorth/Coding/Storage_Files/Rosters.txt", true);
+		// FileWriter fw = new
+		// FileWriter("/home/mmorth/Coding/Storage_Files/Rosters.txt", true);
 		FileWriter fw = new FileWriter(file, true);
 		BufferedWriter bw = new BufferedWriter(fw);
 
 		// Write the headers of the output
 		bw.write("Team: " + teamName);
 		bw.newLine();
-		bw.write("Position\tFirst Name\tLast Name\tAge\tOverall\tOffense\tDefense\tContract_Amount\tContract_Years");
+		bw.write(
+				"Position\tFirst_Name\tLast_Name\tOverall\tAge\tContract_Amount\tContract_Years\tInside_Scoring\tMid-Range Scoring\t3-Point_Scoring\tFree_Throw\tOffensive_Rebounding\tBall_Handling\tPassing\tPost_Defense\tPerimeter_Defense\tDefensive_Rebounding\tSteal\tBlock\tHeight\tSpeed\tStamina\tInjury\tPotential");
 		bw.newLine();
 		System.out.printf("");
-		System.out.println("Position\tFirst Name\tLast Name\tAge\tOverall\tOffense\tDefense\tContract_Amount\tContract_Years");
+		System.out.println(
+				"Position\tFirst_Name\tLast_Name\tOverall\tAge\tContract_Amount\tContract_Years\tInside_Scoring\tMid-Range Scoring\t3-Point_Scoring\tFree_Throw\tOffensive_Rebounding\tBall_Handling\tPassing\tPost_Defense\tPerimeter_Defense\tDefensive_Rebounding\tSteal\tBlock\tHeight\tSpeed\tStamina\tInjury\tPotential");
 
 		// Display the position information
 		for (int i = 0; i < roster.length; i++) {
-			String positionString = "";
-			for (int j = 0; j < roster[i].getPosition().length; j++) {
-				positionString += Integer.toString(roster[i].getPosition()[j]);
-				positionString += " ";
-			}
-
-			// String playerInformation =
-			// String.format("%-15s%-20s%-10d%-10d%-10d%-10d%.1f\n", positionString,
-			// roster[i].getName(),
-			// roster[i].getAge(), roster[i].getOffenseRating(),
-			// roster[i].getDefenseRating(), roster[i].getContractYears(),
-			// roster[i].getContractAmount());
+//			String positionString = "";
+//			for (int j = 0; j < roster[i].getPosition().length; j++) {
+//				positionString += Integer.toString(roster[i].getPosition()[j]);
+//				positionString += " ";
+//			}
 
 			// Format print player information
-			String playerInformation = String.format("%-10s\t%-15s\t%-15s\t%d\t%d\t%d\t%d\t%.1f\t\t%d", positionString,
-					roster[i].getFirstName(), roster[i].getLastName(), roster[i].getAge(), roster[i].getOverallRating(), roster[i].getOffenseRating(),
-					roster[i].getDefenseRating(), roster[i].getContractAmount(), roster[i].getContractYears());
+			String playerInformation = String.format(
+					"%d\t%-15s\t%-15s\t%d\t%d\t%.1f\t%d\t%d\t\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d",
+					roster[i].getPosition(), roster[i].getPlayerFirstName(), roster[i].getPlayerLastName(),
+					roster[i].getOverallRating(), roster[i].getOffensiveRating(), roster[i].getDefensiveRating(),
+					roster[i].getAge(), roster[i].getContractAmount(), roster[i].getContractYears(),
+					roster[i].getInsideScoring(), roster[i].getMidRangeScoring(), roster[i].getThreePointScoring(),
+					roster[i].getFreeThrow(), roster[i].getOffensiveRebounding(), roster[i].getBallHandling(),
+					roster[i].getPassing(), roster[i].getPostDefense(), roster[i].getPerimeterDefense(),
+					roster[i].getDefensiveRebounding(), roster[i].getSteal(), roster[i].getBlock(),
+					roster[i].getHeight(), roster[i].getSpeed(), roster[i].getStamina(), roster[i].getInjury(),
+					roster[i].getPotential());
+
 			bw.write(playerInformation);
 			bw.newLine();
 			System.out.println(playerInformation);
@@ -293,9 +326,9 @@ public class Team {
 	// TODO Remove main method once testing is complete
 	public static void main(String[] args) throws IOException {
 
-		Team t1 = new Team(TestMatchups.getOneHundred().getTeamName(), TestMatchups.getOneHundred().getRoster());
-
-		t1.printTeamRosters();
+//		Team t1 = new Team(TestMatchups.getOneHundred().getTeamName(), TestMatchups.getOneHundred().getRoster());
+//
+//		t1.printTeamRosters();
 
 	}
 

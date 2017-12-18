@@ -31,7 +31,7 @@ public class Coach {
 	/**
 	 * Stores coach's position, which is 0
 	 */
-	private int[] position;
+	private final int position = 0;
 
 	/**
 	 * Stores coach contract amount, in millions, per year
@@ -47,6 +47,13 @@ public class Coach {
 	 * Stores age of coach
 	 */
 	private int age;
+	
+	/**
+	 * Default constructor for coach. REMOVE IF POSSIBLE!
+	 */
+	public Coach() {
+		
+	}
 
 	/**
 	 * Creates a new basketball player with various attributes
@@ -68,8 +75,8 @@ public class Coach {
 	 * @param age
 	 *            The age of the coach
 	 */
-	public Coach(String coachFirstName, String coachLastName, int offenseRating, int defenseRating, int[] position,
-			double contractAmount, int contractYears, int age) {
+	public Coach(String coachFirstName, String coachLastName, int offenseRating, int defenseRating, int age,
+			double contractAmount, int contractYears) {
 
 		setCoachFirstName(coachFirstName);
 
@@ -78,8 +85,6 @@ public class Coach {
 		setOffenseRating(offenseRating);
 
 		setDefenseRating(defenseRating);
-
-		setPosition(position);
 
 		setContractAmount(contractAmount);
 
@@ -195,24 +200,26 @@ public class Coach {
 	}
 
 	/**
-	 * Returns the position of the coach
+	 * Returns the position of the coach, which is 0
 	 * 
 	 * @return Position of coach
 	 */
-	public int[] getPosition() {
+	public int getPosition() {
 		return position;
 	}
 
-	/**
-	 * Sets a new position for a coach The position of the coach will always be set
-	 * to 0 no matter what the user enters for the position argument to this method.
-	 * 
-	 * @param position
-	 *            The new position of the coach
-	 */
-	public void setPosition(int[] position) {
-		this.position = new int[] { 0 };
-	}
+	// /**
+	// * Sets a new position for a coach The position of the coach will always be
+	// set
+	// * to 0 no matter what the user enters for the position argument to this
+	// method.
+	// *
+	// * @param position
+	// * The new position of the coach
+	// */
+	// public void setPosition(int[] position) {
+	// this.position = new int[] { 0 };
+	// }
 
 	/**
 	 * Returns the overall rating of the coach

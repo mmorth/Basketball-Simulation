@@ -22,7 +22,7 @@ public class Player {
 	/**
 	 * Stores player position
 	 */
-	private int[] position;
+	private int position;
 
 	/**
 	 * Stores player contract amount in millions per year
@@ -130,58 +130,58 @@ public class Player {
 	 */
 	private int potential;
 
-
 	/**
 	 * Constructs a new Player object
+	 * 
 	 * @param playerFirstName
-	 * 		The first name of the player
+	 *            The first name of the player
 	 * @param playerLastName
-	 * 		The last name of the player
+	 *            The last name of the player
 	 * @param position
-	 * 		The position of the player
+	 *            The position of the player
 	 * @param contractAmount
-	 * 		The contract amount of the player
+	 *            The contract amount of the player
 	 * @param contractYears
-	 * 		The contract years of the player
+	 *            The contract years of the player
 	 * @param age
-	 * 		The age of the player
+	 *            The age of the player
 	 * @param insideScoring
-	 * 		The inside scoring rating of the player
+	 *            The inside scoring rating of the player
 	 * @param midRangeScoring
-	 * 		The mid-range scoring range of the player
+	 *            The mid-range scoring range of the player
 	 * @param threePointScoring
-	 * 		The 3-point scoring rating of the player
+	 *            The 3-point scoring rating of the player
 	 * @param freeThrow
-	 * 		The free throw rating of the player
+	 *            The free throw rating of the player
 	 * @param offensiveRebounding
-	 * 		The offensive rebounding rating of the player
+	 *            The offensive rebounding rating of the player
 	 * @param ballHandling
-	 * 		The ball handling rating of the player
+	 *            The ball handling rating of the player
 	 * @param passing
-	 * 		The passing rating of the player
+	 *            The passing rating of the player
 	 * @param postDefense
-	 * 		The post defense rating of the player
+	 *            The post defense rating of the player
 	 * @param perimeterDefense
-	 * 		The perimeter defense rating of the player
+	 *            The perimeter defense rating of the player
 	 * @param defensiveRebounding
-	 * 		The defensive rebounding rating of the player
+	 *            The defensive rebounding rating of the player
 	 * @param steal
-	 * 		The steal rating of the player
+	 *            The steal rating of the player
 	 * @param block
-	 * 		The block rating of the player
+	 *            The block rating of the player
 	 * @param height
-	 * 		The height rating of the player
+	 *            The height rating of the player
 	 * @param speed
-	 * 		The speed rating of the player
+	 *            The speed rating of the player
 	 * @param stamina
-	 * 		The stamina rating of the player
+	 *            The stamina rating of the player
 	 * @param injury
-	 * 		The injury rating of the player
+	 *            The injury rating of the player
 	 * @param potential
-	 * 		The potential rating of the player
+	 *            The potential rating of the player
 	 */
-	public Player(String playerFirstName, String playerLastName, int[] position, double contractAmount,
-			int contractYears, int age, int insideScoring, int midRangeScoring, int threePointScoring, int freeThrow,
+	public Player(int position, String playerFirstName, String playerLastName, int age, double contractAmount,
+			int contractYears, int insideScoring, int midRangeScoring, int threePointScoring, int freeThrow,
 			int offensiveRebounding, int ballHandling, int passing, int postDefense, int perimeterDefense,
 			int defensiveRebounding, int steal, int block, int height, int speed, int stamina, int injury,
 			int potential) {
@@ -267,7 +267,7 @@ public class Player {
 	 * 
 	 * @return Position of player
 	 */
-	public int[] getPosition() {
+	public int getPosition() {
 		return position;
 	}
 
@@ -280,29 +280,40 @@ public class Player {
 	 *             Throws an IllegalArgument exception if there are more than 5
 	 *             elements in position or if a position is not between 1 and 6
 	 */
-	public void setPosition(int[] position) {
-		if (position.length > 6) {
-			throw new IllegalArgumentException("All listed positions must be between 0 and 6 inclusive");
-		}
-
-		for (int i = 0; i < position.length; i++) {
-			if (position[i] < 1 || position[i] > 6) {
-				throw new IllegalArgumentException("All listed positions must be between 1 and 6 inclusive");
-			}
+	public void setPosition(int position) {
+		if (position < 1 || position > 6) {
+			throw new IllegalArgumentException("Position must be between 1 and 6 inclusive");
 		}
 
 		this.position = position;
 	}
 
-	// /**
-	// * Returns the overall rating of the player
-	// *
-	// * @return Overall rating of player
-	// */
-	// @Override
-	// public int getOverallRating() {
-	// return (offenseRating + defenseRating) / 2;
-	// }
+	/**
+	 * Returns the overallRating rating of the player
+	 * 
+	 * @return The overallRating rating of the player
+	 */
+	public int getOverallRating() {
+		return 100;
+	}
+
+	/**
+	 * Returns the offensiveRating rating of the player
+	 * 
+	 * @return The offensiveRating rating of the player
+	 */
+	public int getOffensiveRating() {
+		return 100;
+	}
+
+	/**
+	 * Returns the defensiveRating rating of the player
+	 * 
+	 * @return The defensiveRating rating of the player
+	 */
+	public int getDefensiveRating() {
+		return 100;
+	}
 
 	/**
 	 * Returns the contract amount for current player
