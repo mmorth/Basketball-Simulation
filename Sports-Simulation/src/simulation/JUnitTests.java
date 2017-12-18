@@ -28,11 +28,11 @@ public class JUnitTests {
 	Coach c1;
 
 	// Create roster
-	Athlete[] roster, roster1, roster2;
+	Player[] roster, roster1, roster2;
 
 	// Create team
 	Team t1, t2;
-	
+
 	Team OneHundred;
 	Team NinetyFive;
 	Team Ninety;
@@ -59,14 +59,40 @@ public class JUnitTests {
 		c1 = new Coach("First", "Last", 80, 60, position0, 5, 2, 25);
 
 		// Create team
-		roster = new Athlete[7];
+		int team1Rating = 50;
+		
+		roster = new Player[7];
 		roster[0] = new Coach("First", "Last", 50, 50, position0, 5, 2, 25);
-		roster[1] = new Player("First", "Last", 50, 50, position1, 5, 2, 25);
-		roster[2] = new Player("First", "Last", 50, 50, position2, 5, 2, 25);
-		roster[3] = new Player("First", "Last", 50, 50, position3, 5, 2, 25);
-		roster[4] = new Player("First", "Last", 50, 50, position4, 5, 2, 25);
-		roster[5] = new Player("First", "Last", 50, 50, position5, 5, 2, 25);
-		roster[6] = new Player("First", "Last", 50, 50, position3, 5, 2, 25);
+		roster[1] = new Player("First", "Last", position1, 5,
+				2, 25, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating);
+		roster[2] = new Player("First", "Last", position2, 5,
+				2, 25, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating);
+		roster[3] = new Player("First", "Last", position3, 5,
+				2, 25, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating);
+		roster[4] = new Player("First", "Last", position4, 5,
+				2, 25, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating);
+		roster[5] = new Player("First", "Last", position5, 5,
+				2, 25, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating);
+		roster[6] = new Player("First", "Last", position5, 5,
+				2, 25, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
+				team1Rating);
 
 		t1 = new Team("Team", roster);
 
@@ -530,13 +556,13 @@ public class JUnitTests {
 	}
 
 	// ---------------------- Helper Class -----------------
-	
+
 	@Test
 	public void helperContainsSpacesYes() {
 		String space = "Has space";
 		assertTrue(Helper.containsSpaces(space));
 	}
-	
+
 	@Test
 	public void helperContainsSpacesNo() {
 		String noSpace = "NoSpace";
@@ -544,357 +570,448 @@ public class JUnitTests {
 	}
 
 	// ---------------GameSimulation Class--------------
-	
-//	@Test
-//	public void () throws IOException {
-//		
-//		Team team1 = ;
-//		Team team2 = ;
-//		
-//		double team1LowerWinPercentage = ;
-//		double team1UpperWinPercentage = ;
-//		
-//		double team2LowerWinPercentage = ;
-//		double team2UpperWinPercentage = ;
-//		
-//		double team1LowerAverageScore = ;
-//		double team1UpperAverageScore = ;
-//		
-//		double team2LowerAverageScore = ;
-//		double team2UpperAverageScore = ;
-//		
-//		GameSimulation gs = new GameSimulation(team1, team2, 1);
-//		gs.runSimulations(numberSimulations, team1, team2);
-//		
-//		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
-//		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-//		
-//		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage) || (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage))) || (!((gs.getTeam1AverageScore() < team1UpperAverageScore && gs.getTeam1AverageScore() > team1LowerAverageScore) || (gs.getTeam2AverageScore() < team2UpperAverageScore && gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-//			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs, team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore, team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage, team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
-//			fail(failMessage);
-//		}
-//		
-//		assertTrue(true);
-//	}
-	
+
+	// @Test
+	// public void () throws IOException {
+	//
+	// Team team1 = ;
+	// Team team2 = ;
+	//
+	// double team1LowerWinPercentage = ;
+	// double team1UpperWinPercentage = ;
+	//
+	// double team2LowerWinPercentage = ;
+	// double team2UpperWinPercentage = ;
+	//
+	// double team1LowerAverageScore = ;
+	// double team1UpperAverageScore = ;
+	//
+	// double team2LowerAverageScore = ;
+	// double team2UpperAverageScore = ;
+	//
+	// GameSimulation gs = new GameSimulation(team1, team2, 1);
+	// gs.runSimulations(numberSimulations, team1, team2);
+	//
+	// double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
+	// double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
+	//
+	// if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage >
+	// team1LowerWinPercentage) || (team2WinPercentage < team2UpperWinPercentage &&
+	// team2WinPercentage > team2LowerWinPercentage))) ||
+	// (!((gs.getTeam1AverageScore() < team1UpperAverageScore &&
+	// gs.getTeam1AverageScore() > team1LowerAverageScore) ||
+	// (gs.getTeam2AverageScore() < team2UpperAverageScore &&
+	// gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+	// String failMessage = Helper.createString(team1.getTeamOverallRating(),
+	// team2.getTeamOverallRating(), gs, team1LowerWinPercentage,
+	// team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+	// team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage,
+	// team2UpperWinPercentage, team2WinPercentage, team2LowerAverageScore,
+	// team2UpperAverageScore, gs.getTeam2AverageScore());
+	// fail(failMessage);
+	// }
+	//
+	// assertTrue(true);
+	// }
+
 	@Test
 	public void OneHundredVSOneHundred() throws IOException {
-		
+
 		Team team1 = OneHundred;
 		Team team2 = OneHundred;
-		
+
 		double team1LowerWinPercentage = .45;
-		double team1UpperWinPercentage =  .55;
-		
+		double team1UpperWinPercentage = .55;
+
 		double team2LowerWinPercentage = .45;
 		double team2UpperWinPercentage = .55;
-		
+
 		double team1LowerAverageScore = 98;
 		double team1UpperAverageScore = 108;
-		
+
 		double team2LowerAverageScore = 98;
 		double team2UpperAverageScore = 108;
-		
+
 		GameSimulation gs = new GameSimulation(team1, team2, 1);
 		gs.runSimulations(numberSimulations, team1, team2);
-		
+
 		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
 		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-		
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage) || (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage))) || (!((gs.getTeam1AverageScore() < team1UpperAverageScore && gs.getTeam1AverageScore() > team1LowerAverageScore) || (gs.getTeam2AverageScore() < team2UpperAverageScore && gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs, team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore, team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage, team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+
+		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
 			fail(failMessage);
 		}
-		
+
 		assertTrue(true);
 	}
-	
+
 	@Test
 	public void OneHundredVSNinetyFive() throws IOException {
-		
+
 		Team team1 = OneHundred;
 		Team team2 = NinetyFive;
-		
+
 		double team1LowerWinPercentage = .5;
 		double team1UpperWinPercentage = .6;
-		
+
 		double team2LowerWinPercentage = .4;
 		double team2UpperWinPercentage = .5;
-		
+
 		double team1LowerAverageScore = 99;
 		double team1UpperAverageScore = 109;
-		
+
 		double team2LowerAverageScore = 97;
 		double team2UpperAverageScore = 107;
-		
+
 		GameSimulation gs = new GameSimulation(team1, team2, 1);
 		gs.runSimulations(numberSimulations, team1, team2);
-		
+
 		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
 		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-		
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage) || (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage))) || (!((gs.getTeam1AverageScore() < team1UpperAverageScore && gs.getTeam1AverageScore() > team1LowerAverageScore) || (gs.getTeam2AverageScore() < team2UpperAverageScore && gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs, team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore, team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage, team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+
+		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
 			fail(failMessage);
 		}
-		
+
 		assertTrue(true);
 	}
-	
+
 	@Test
 	public void OneHundredVSNinety() throws IOException {
-		
+
 		Team team1 = OneHundred;
 		Team team2 = Ninety;
-		
+
 		double team1LowerWinPercentage = .55;
 		double team1UpperWinPercentage = .65;
-		
+
 		double team2LowerWinPercentage = .35;
 		double team2UpperWinPercentage = .45;
-		
+
 		double team1LowerAverageScore = 100;
 		double team1UpperAverageScore = 110;
-		
+
 		double team2LowerAverageScore = 97;
 		double team2UpperAverageScore = 107;
-		
+
 		GameSimulation gs = new GameSimulation(team1, team2, 1);
 		gs.runSimulations(numberSimulations, team1, team2);
-		
+
 		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
 		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-		
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage) || (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage))) || (!((gs.getTeam1AverageScore() < team1UpperAverageScore && gs.getTeam1AverageScore() > team1LowerAverageScore) || (gs.getTeam2AverageScore() < team2UpperAverageScore && gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs, team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore, team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage, team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+
+		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
 			fail(failMessage);
 		}
-		
+
 		assertTrue(true);
 	}
-	
+
 	@Test
 	public void OneHundredVSEighty() throws IOException {
-		
+
 		Team team1 = OneHundred;
 		Team team2 = Eighty;
-		
+
 		double team1LowerWinPercentage = .65;
 		double team1UpperWinPercentage = .75;
-		
+
 		double team2LowerWinPercentage = .25;
 		double team2UpperWinPercentage = .35;
-		
+
 		double team1LowerAverageScore = 102;
 		double team1UpperAverageScore = 112;
-		
+
 		double team2LowerAverageScore = 96;
 		double team2UpperAverageScore = 106;
-		
+
 		GameSimulation gs = new GameSimulation(team1, team2, 1);
 		gs.runSimulations(numberSimulations, team1, team2);
-		
+
 		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
 		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-		
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage) || (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage))) || (!((gs.getTeam1AverageScore() < team1UpperAverageScore && gs.getTeam1AverageScore() > team1LowerAverageScore) || (gs.getTeam2AverageScore() < team2UpperAverageScore && gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs, team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore, team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage, team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+
+		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
 			fail(failMessage);
 		}
-		
+
 		assertTrue(true);
 	}
-	
+
 	@Test
 	public void OneHundredVSSeventy() throws IOException {
-		
+
 		Team team1 = OneHundred;
 		Team team2 = Seventy;
-		
+
 		double team1LowerWinPercentage = .75;
 		double team1UpperWinPercentage = .85;
-		
+
 		double team2LowerWinPercentage = .15;
 		double team2UpperWinPercentage = .25;
-		
+
 		double team1LowerAverageScore = 104;
 		double team1UpperAverageScore = 114;
-		
+
 		double team2LowerAverageScore = 95;
 		double team2UpperAverageScore = 105;
-		
+
 		GameSimulation gs = new GameSimulation(team1, team2, 1);
 		gs.runSimulations(numberSimulations, team1, team2);
-		
+
 		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
 		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-		
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage) || (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage))) || (!((gs.getTeam1AverageScore() < team1UpperAverageScore && gs.getTeam1AverageScore() > team1LowerAverageScore) || (gs.getTeam2AverageScore() < team2UpperAverageScore && gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs, team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore, team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage, team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+
+		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
 			fail(failMessage);
 		}
-		
+
 		assertTrue(true);
 	}
-	
+
 	@Test
 	public void OneHundredVSFifty() throws IOException {
-		
+
 		Team team1 = OneHundred;
 		Team team2 = Fifty;
-		
+
 		double team1LowerWinPercentage = .95;
 		double team1UpperWinPercentage = 1.05;
-		
+
 		double team2LowerWinPercentage = -.05;
 		double team2UpperWinPercentage = .05;
-		
+
 		double team1LowerAverageScore = 118;
 		double team1UpperAverageScore = 128;
-		
+
 		double team2LowerAverageScore = 88;
 		double team2UpperAverageScore = 98;
-		
+
 		GameSimulation gs = new GameSimulation(team1, team2, 1);
 		gs.runSimulations(numberSimulations, team1, team2);
-		
+
 		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
 		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-		
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage) || (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage))) || (!((gs.getTeam1AverageScore() < team1UpperAverageScore && gs.getTeam1AverageScore() > team1LowerAverageScore) || (gs.getTeam2AverageScore() < team2UpperAverageScore && gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs, team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore, team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage, team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+
+		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
 			fail(failMessage);
 		}
-		
+
 		assertTrue(true);
 	}
-	
+
 	@Test
 	public void OneHundredVSThirty() throws IOException {
-		
+
 		Team team1 = OneHundred;
 		Team team2 = Thirty;
-		
+
 		double team1LowerWinPercentage = .95;
 		double team1UpperWinPercentage = 1.05;
-		
+
 		double team2LowerWinPercentage = -.05;
 		double team2UpperWinPercentage = .05;
-		
+
 		double team1LowerAverageScore = 120;
 		double team1UpperAverageScore = 130;
-		
+
 		double team2LowerAverageScore = 91;
 		double team2UpperAverageScore = 101;
-		
+
 		GameSimulation gs = new GameSimulation(team1, team2, 1);
 		gs.runSimulations(numberSimulations, team1, team2);
-		
+
 		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
 		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-		
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage) || (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage))) || (!((gs.getTeam1AverageScore() < team1UpperAverageScore && gs.getTeam1AverageScore() > team1LowerAverageScore) || (gs.getTeam2AverageScore() < team2UpperAverageScore && gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs, team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore, team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage, team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+
+		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
 			fail(failMessage);
 		}
-		
+
 		assertTrue(true);
 	}
-	
+
 	@Test
 	public void EightyVSEighty() throws IOException {
-		
+
 		Team team1 = Eighty;
 		Team team2 = Eighty;
-		
+
 		double team1LowerWinPercentage = .45;
 		double team1UpperWinPercentage = .55;
-		
+
 		double team2LowerWinPercentage = .45;
 		double team2UpperWinPercentage = .55;
-		
+
 		double team1LowerAverageScore = 98;
 		double team1UpperAverageScore = 108;
-		
+
 		double team2LowerAverageScore = 98;
 		double team2UpperAverageScore = 108;
-		
+
 		GameSimulation gs = new GameSimulation(team1, team2, 1);
 		gs.runSimulations(numberSimulations, team1, team2);
-		
+
 		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
 		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-		
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage) || (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage))) || (!((gs.getTeam1AverageScore() < team1UpperAverageScore && gs.getTeam1AverageScore() > team1LowerAverageScore) || (gs.getTeam2AverageScore() < team2UpperAverageScore && gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs, team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore, team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage, team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+
+		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
 			fail(failMessage);
 		}
-		
+
 		assertTrue(true);
 	}
-	
+
 	@Test
 	public void ThirtyVSThirty() throws IOException {
-		
+
 		Team team1 = Thirty;
 		Team team2 = Thirty;
-		
+
 		double team1LowerWinPercentage = .45;
 		double team1UpperWinPercentage = .55;
-		
+
 		double team2LowerWinPercentage = .45;
 		double team2UpperWinPercentage = .55;
-		
+
 		double team1LowerAverageScore = 98;
 		double team1UpperAverageScore = 108;
-		
+
 		double team2LowerAverageScore = 98;
 		double team2UpperAverageScore = 108;
-		
+
 		GameSimulation gs = new GameSimulation(team1, team2, 1);
 		gs.runSimulations(numberSimulations, team1, team2);
-		
+
 		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
 		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-		
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage) || (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage))) || (!((gs.getTeam1AverageScore() < team1UpperAverageScore && gs.getTeam1AverageScore() > team1LowerAverageScore) || (gs.getTeam2AverageScore() < team2UpperAverageScore && gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs, team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore, team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage, team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+
+		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
 			fail(failMessage);
 		}
-		
+
 		assertTrue(true);
 	}
-	
+
 	@Test
 	public void EightyVSThirty() throws IOException {
-		
+
 		Team team1 = Eighty;
 		Team team2 = Thirty;
-		
+
 		double team1LowerWinPercentage = .95;
 		double team1UpperWinPercentage = 1.05;
-		
+
 		double team2LowerWinPercentage = -.05;
 		double team2UpperWinPercentage = .05;
-		
+
 		double team1LowerAverageScore = 118;
 		double team1UpperAverageScore = 128;
-		
+
 		double team2LowerAverageScore = 88;
 		double team2UpperAverageScore = 98;
-		
+
 		GameSimulation gs = new GameSimulation(team1, team2, 1);
 		gs.runSimulations(numberSimulations, team1, team2);
-		
+
 		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
 		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-		
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage) || (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage))) || (!((gs.getTeam1AverageScore() < team1UpperAverageScore && gs.getTeam1AverageScore() > team1LowerAverageScore) || (gs.getTeam2AverageScore() < team2UpperAverageScore && gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs, team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore, team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage, team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+
+		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
 			fail(failMessage);
 		}
-		
+
 		assertTrue(true);
 	}
-	
+
 }

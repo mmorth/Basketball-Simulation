@@ -6,7 +6,7 @@ package simulation;
  * @author Matthew Orth
  *
  */
-public class Coach implements Athlete {
+public class Coach {
 
 	/**
 	 * Stores coach's first name
@@ -71,9 +71,9 @@ public class Coach implements Athlete {
 	public Coach(String coachFirstName, String coachLastName, int offenseRating, int defenseRating, int[] position,
 			double contractAmount, int contractYears, int age) {
 
-		setFirstName(coachFirstName);
+		setCoachFirstName(coachFirstName);
 
-		setLastName(coachLastName);
+		setCoachLastName(coachLastName);
 
 		setOffenseRating(offenseRating);
 
@@ -94,8 +94,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return First name of the coach
 	 */
-	@Override
-	public String getFirstName() {
+	public String getCoachFirstName() {
 		return coachFirstName;
 	}
 
@@ -108,8 +107,7 @@ public class Coach implements Athlete {
 	 *             Throws an IllegalArgumentException if the name is greater than 15
 	 *             characters or contains spaces.
 	 */
-	@Override
-	public void setFirstName(String coachFirstName) {
+	public void setCoachFirstName(String coachFirstName) {
 		if (coachFirstName.length() > 15 || Helper.containsSpaces(coachFirstName)) {
 			throw new IllegalArgumentException(
 					"Coach first name must be 15 or fewer characters and may not contain any spaces.");
@@ -122,8 +120,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return Last name of coach
 	 */
-	@Override
-	public String getLastName() {
+	public String getCoachLastName() {
 		return coachLastName;
 	}
 
@@ -136,8 +133,7 @@ public class Coach implements Athlete {
 	 *             Throws an IllegalArgumentException if the name is greater than 15
 	 *             characters or contains spaces.
 	 */
-	@Override
-	public void setLastName(String coachLastName) {
+	public void setCoachLastName(String coachLastName) {
 		if (coachLastName.length() > 15 || Helper.containsSpaces(coachLastName)) {
 			throw new IllegalArgumentException(
 					"Coach last name must be 15 or fewer characters and may not contain any spaces.");
@@ -150,7 +146,6 @@ public class Coach implements Athlete {
 	 * 
 	 * @return Offensive rating of the coach
 	 */
-	@Override
 	public int getOffenseRating() {
 		return offenseRating;
 	}
@@ -164,7 +159,6 @@ public class Coach implements Athlete {
 	 *             Throws an IllegalArgument exception if offenseRating is less than
 	 *             30 or greater than 100
 	 */
-	@Override
 	public void setOffenseRating(int offenseRating) {
 		if (offenseRating < 30 || offenseRating > 100) {
 			throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
@@ -178,7 +172,6 @@ public class Coach implements Athlete {
 	 * 
 	 * @return Defensive rating of the coach
 	 */
-	@Override
 	public int getDefenseRating() {
 		return defenseRating;
 	}
@@ -192,7 +185,6 @@ public class Coach implements Athlete {
 	 *             Throws an IllegalArgument exception if defenseRating is less than
 	 *             30 or greater than 100
 	 */
-	@Override
 	public void setDefenseRating(int defenseRating) {
 		if (defenseRating < 30 || defenseRating > 100) {
 			throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
@@ -207,7 +199,6 @@ public class Coach implements Athlete {
 	 * 
 	 * @return Position of coach
 	 */
-	@Override
 	public int[] getPosition() {
 		return position;
 	}
@@ -219,7 +210,6 @@ public class Coach implements Athlete {
 	 * @param position
 	 *            The new position of the coach
 	 */
-	@Override
 	public void setPosition(int[] position) {
 		this.position = new int[] { 0 };
 	}
@@ -229,7 +219,6 @@ public class Coach implements Athlete {
 	 * 
 	 * @return Overall rating of coach
 	 */
-	@Override
 	public int getOverallRating() {
 		return (offenseRating + defenseRating) / 2;
 	}
@@ -239,7 +228,6 @@ public class Coach implements Athlete {
 	 * 
 	 * @return Contract amount for current coach
 	 */
-	@Override
 	public double getContractAmount() {
 		return contractAmount;
 	}
@@ -253,7 +241,6 @@ public class Coach implements Athlete {
 	 *             Throws an IllegalArgument exception if the contract amount is
 	 *             less than 0
 	 */
-	@Override
 	public void setContractAmount(double contractAmount) {
 		if (contractAmount < 0) {
 			throw new IllegalArgumentException("Contract amount must be greater than or equal to zero.");
@@ -268,7 +255,6 @@ public class Coach implements Athlete {
 	 * 
 	 * @return Number of years left on contract
 	 */
-	@Override
 	public int getContractYears() {
 		return contractYears;
 	}
@@ -282,7 +268,6 @@ public class Coach implements Athlete {
 	 *             Throws an IllegalArgument exception if the number of years on the
 	 *             contract is less than 0
 	 */
-	@Override
 	public void setContractYears(int contractYears) {
 		if (contractYears < 0) {
 			throw new IllegalArgumentException("Contract years must be greater than or equal to zero.");
@@ -296,7 +281,6 @@ public class Coach implements Athlete {
 	 * 
 	 * @return Age of coach
 	 */
-	@Override
 	public int getAge() {
 		return age;
 	}
@@ -309,7 +293,6 @@ public class Coach implements Athlete {
 	 * @throws IllegalArgumentException
 	 *             Throws an IllegalArgument exception if age is less than 0
 	 */
-	@Override
 	public void setAge(int age) {
 		if (age < 0) {
 			throw new IllegalArgumentException("Age of player must be greater than zero.");
