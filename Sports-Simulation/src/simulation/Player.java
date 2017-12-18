@@ -18,15 +18,15 @@ public class Player implements Athlete {
 	 */
 	private String playerLastName;
 
-	/**
-	 * Stores player offensive rating
-	 */
-	private int offenseRating;
-
-	/**
-	 * Stores player defensive rating
-	 */
-	private int defenseRating;
+//	/**
+//	 * Stores player offensive rating
+//	 */
+//	private int offenseRating;
+//
+//	/**
+//	 * Stores player defensive rating
+//	 */
+//	private int defenseRating;
 
 	/**
 	 * Stores player position
@@ -177,61 +177,61 @@ public class Player implements Athlete {
 		this.position = position;
 	}
 
-	/**
-	 * Returns the offensive rating of the player
-	 * 
-	 * @return Offensive rating of the player
-	 */
-	@Override
-	public int getOffenseRating() {
-		return offenseRating;
-	}
-
-	/**
-	 * Sets the offensive rating of the player
-	 * 
-	 * @param offenseRating
-	 *            New offensive rating of player
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if offenseRating is less than
-	 *             30 or greater than 100
-	 */
-	@Override
-	public void setOffenseRating(int offenseRating) {
-		if (offenseRating < 30 || offenseRating > 100) {
-			throw new IllegalArgumentException("Offensive rating needs to be between 0 and 100 inclusive");
-		}
-
-		this.offenseRating = offenseRating;
-	}
-
-	/**
-	 * Returns the defensive rating of the player
-	 * 
-	 * @return Defensive rating of the player
-	 */
-	@Override
-	public int getDefenseRating() {
-		return defenseRating;
-	}
-
-	/**
-	 * Sets the defensive rating of the player
-	 * 
-	 * @param defenseRating
-	 *            New defensive rating of the player
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if defenseRating is less than
-	 *             30 or greater than 100
-	 */
-	@Override
-	public void setDefenseRating(int defenseRating) {
-		if (defenseRating < 30 || defenseRating > 100) {
-			throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
-		}
-
-		this.defenseRating = defenseRating;
-	}
+//	/**
+//	 * Returns the offensive rating of the player
+//	 * 
+//	 * @return Offensive rating of the player
+//	 */
+//	@Override
+//	public int getOffenseRating() {
+//		return offenseRating;
+//	}
+//
+//	/**
+//	 * Sets the offensive rating of the player
+//	 * 
+//	 * @param offenseRating
+//	 *            New offensive rating of player
+//	 * @throws IllegalArgumentException
+//	 *             Throws an IllegalArgument exception if offenseRating is less than
+//	 *             30 or greater than 100
+//	 */
+//	@Override
+//	public void setOffenseRating(int offenseRating) {
+//		if (offenseRating < 30 || offenseRating > 100) {
+//			throw new IllegalArgumentException("Offensive rating needs to be between 0 and 100 inclusive");
+//		}
+//
+//		this.offenseRating = offenseRating;
+//	}
+//
+//	/**
+//	 * Returns the defensive rating of the player
+//	 * 
+//	 * @return Defensive rating of the player
+//	 */
+//	@Override
+//	public int getDefenseRating() {
+//		return defenseRating;
+//	}
+//
+//	/**
+//	 * Sets the defensive rating of the player
+//	 * 
+//	 * @param defenseRating
+//	 *            New defensive rating of the player
+//	 * @throws IllegalArgumentException
+//	 *             Throws an IllegalArgument exception if defenseRating is less than
+//	 *             30 or greater than 100
+//	 */
+//	@Override
+//	public void setDefenseRating(int defenseRating) {
+//		if (defenseRating < 30 || defenseRating > 100) {
+//			throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
+//		}
+//
+//		this.defenseRating = defenseRating;
+//	}
 
 	/**
 	 * Returns the overall rating of the player
@@ -310,7 +310,7 @@ public class Player implements Athlete {
 		return age;
 	}
 
-	/**
+	/*ubbbbbbbbbbbbbbbbbbbbbb*u
 	 * Sets the age of the player to a new value
 	 * 
 	 * @param age
