@@ -53,9 +53,8 @@ public class JUnitTests {
 	@Before
 	public void setUp() {
 		// Create player
-		p1 = new Player(1, "First", "Last", 25, 5, 2, 30, 35, 40, 45,
-				50, 55, 60, 65, 70, 75, 80, 85,
-				90, 95, 100, 31, 99);
+		p1 = new Player(1, "First", "Last", 25, 5, 2, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 31,
+				99);
 
 		// Create coach
 		c1 = new Coach("First", "Last", 80, 60, 25, 5, 2);
@@ -85,7 +84,7 @@ public class JUnitTests {
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 
 		t1 = new Team("Team", roster, ct1);
-		
+
 		int rating = 30;
 		int rating2 = 40;
 		int rating3 = 50;
@@ -94,84 +93,79 @@ public class JUnitTests {
 
 		// Create another team
 		roster1 = new Player[7];
-		roster1[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
-		roster1[1] = new Player(2, "First", "Last", 25, 5, 2, rating2, rating2, rating2, rating2,
-				rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2,
-				rating2, rating2, rating2, rating2, rating2);
-		roster1[2] = new Player(3, "First", "Last", 25, 5, 2, rating3, rating3, rating3, rating3,
-				rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3,
-				rating3, rating3, rating3, rating3, rating3);
-		roster1[3] = new Player(4, "First", "Last", 25, 5, 2, rating4, rating4, rating4, rating4,
-				rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4,
-				rating4, rating4, rating4, rating4, rating4);
-		roster1[4] = new Player(5, "First", "Last", 25, 5, 2, rating5, rating5, rating5, rating5,
-				rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5,
-				rating5, rating5, rating5, rating5, rating5);
+		roster1[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster1[1] = new Player(2, "First", "Last", 25, 5, 2, rating2, rating2, rating2, rating2, rating2, rating2,
+				rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2);
+		roster1[2] = new Player(3, "First", "Last", 25, 5, 2, rating3, rating3, rating3, rating3, rating3, rating3,
+				rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3);
+		roster1[3] = new Player(4, "First", "Last", 25, 5, 2, rating4, rating4, rating4, rating4, rating4, rating4,
+				rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4);
+		roster1[4] = new Player(5, "First", "Last", 25, 5, 2, rating5, rating5, rating5, rating5, rating5, rating5,
+				rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5);
 
 		t2 = new Team("Team", roster1, ct1);
 
 		// Create a large team
-		roster2 = new Player[16];
-		roster[0] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2 = new Player[20];
+		roster2[0] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[1] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[1] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[2] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[2] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[3] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[3] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[4] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[4] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[5] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[5] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[6] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[6] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[7] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[7] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[8] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[8] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[9] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[9] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[10] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[10] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[11] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[11] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[12] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[12] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[13] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[13] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[14] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[14] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[15] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[15] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[16] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[16] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[17] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[17] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[18] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[18] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
-		roster[19] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
+		roster2[19] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 
@@ -197,126 +191,121 @@ public class JUnitTests {
 
 	@Test
 	public void playerConstructor() {
-		Player player = new Player("Player", "Name", 75, 60, position1, 5, 2, 30);
-		assertEquals(player.getFirstName(), "Player");
-		assertEquals(player.getLastName(), "Name");
-		assertEquals(player.getOffenseRating(), 75);
-		assertEquals(player.getDefenseRating(), 60);
-		assertArrayEquals(position1, new int[] { 1 });
+		Player player = new Player(3, "Player", "Name", 25, 5, 2, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95,
+				100, 31, 99);
+		assertEquals(player.getPlayerFirstName(), "Player");
+		assertEquals(player.getPlayerLastName(), "Name");
+		assertEquals(player.getPosition(), 3);
 		assertEquals(player.getContractAmount(), 5, .01);
 		assertEquals(player.getContractYears(), 2);
-		assertEquals(player.getAge(), 30);
+		assertEquals(player.getAge(), 25);
+		assertEquals(player.getInsideScoring(), 30);
+		assertEquals(player.getMidRangeScoring(), 35);
+		assertEquals(player.getThreePointScoring(), 40);
+		assertEquals(player.getFreeThrow(), 45);
+		assertEquals(player.getOffensiveRebounding(), 50);
+		assertEquals(player.getBallHandling(), 55);
+		assertEquals(player.getPassing(), 60);
+		assertEquals(player.getPostDefense(), 65);
+		assertEquals(player.getPerimeterDefense(), 70);
+		assertEquals(player.getDefensiveRebounding(), 75);
+		assertEquals(player.getSteal(), 80);
+		assertEquals(player.getBlock(), 85);
+		assertEquals(player.getHeight(), 90);
+		assertEquals(player.getSpeed(), 95);
+		assertEquals(player.getStamina(), 100);
+		assertEquals(player.getInjury(), 31);
+		assertEquals(player.getPotential(), 99);
+		
+		assertEquals(player.getOffensiveRating(), 50);
+		assertEquals(player.getDefensiveRating(), 50);
+		assertEquals(player.getOverallRating(), 50);
 	}
 
 	@Test
 	public void playergetFirstName() {
-		assertEquals("First", p1.getFirstName());
+		assertEquals("First", p1.getPlayerFirstName());
 	}
 
 	@Test
 	public void playersetFirstName() {
-		p1.setFirstName("Second");
-		assertEquals("Second", p1.getFirstName());
+		p1.setPlayerFirstName("Second");
+		assertEquals("Second", p1.getPlayerFirstName());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void playersetFirstNameInvalidLength() {
-		p1.setFirstName("ThisNameIsMuchTooLong");
+		p1.setPlayerFirstName("ThisNameIsMuchTooLong");
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void playersetFirstNameInvalidSpace() {
-		p1.setFirstName("Illegal Name");
+		p1.setPlayerFirstName("Illegal Name");
 	}
 
 	@Test
 	public void playergetLastName() {
-		assertEquals("Last", p1.getLastName());
+		assertEquals("Last", p1.getPlayerLastName());
 	}
 
 	@Test
 	public void playersetLastName() {
-		p1.setLastName("Second");
-		assertEquals("Second", p1.getLastName());
+		p1.setPlayerLastName("Second");
+		assertEquals("Second", p1.getPlayerLastName());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void playersetLastNameInvalidLength() {
-		p1.setLastName("ThisNameIsMuchTooLong");
+		p1.setPlayerLastName("ThisNameIsMuchTooLong");
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void playersetLastNameInvalidSpace() {
-		p1.setLastName("Illegal Name");
+		p1.setPlayerLastName("Illegal Name");
 	}
 
 	@Test
 	public void playergetOffenseRating() {
-		assertEquals(80, p1.getOffenseRating());
+		assertEquals(50, p1.getOffensiveRating());
 	}
 
 	@Test
 	public void playergetDefenseRating() {
-		assertEquals(60, p1.getDefenseRating());
-	}
-
-	@Test
-	public void playersetOffenseRating() {
-		p1.setOffenseRating(75);
-		assertEquals(75, p1.getOffenseRating());
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void playerSetOffenseRatingInvalid1() {
-		p1.setOffenseRating(29);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void playerSetOffenseRatingInvalid2() {
-		p1.setOffenseRating(101);
-	}
-
-	@Test
-	public void playersetDefenseRating() {
-		p1.setDefenseRating(95);
-		assertEquals(95, p1.getDefenseRating());
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void playerSetDefenseRatingInvalid1() {
-		p1.setOffenseRating(-1);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void playerSetDefenseRatingInvalid2() {
-		p1.setOffenseRating(101);
+		assertEquals(50, p1.getDefensiveRating());
 	}
 
 	@Test
 	public void playergetOverallRating() {
-		assertEquals(70, p1.getOverallRating());
+		assertEquals(50, p1.getOverallRating());
 	}
 
 	@Test
 	public void playerGetPosition() {
-		assertArrayEquals(p1.getPosition(), position3);
+		assertEquals(p1.getPosition(), 1);
 	}
 
 	@Test
 	public void playerSetPosition() {
-		int[] newPosition = { 1, 2, 3, 4, 5, 6 };
-		p1.setPosition(newPosition);
-		assertArrayEquals(p1.getPosition(), newPosition);
+		p1.setPosition(1);
+		assertEquals(p1.getPosition(), 1);
+		p1.setPosition(2);
+		assertEquals(p1.getPosition(), 2);
+		p1.setPosition(3);
+		assertEquals(p1.getPosition(), 3);
+		p1.setPosition(4);
+		assertEquals(p1.getPosition(), 4);
+		p1.setPosition(5);
+		assertEquals(p1.getPosition(), 5);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void playerSetPositionInvalid1() {
-		p1.setPosition(new int[] { 1, 2, 0 });
+		p1.setPosition(0);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void playerSetPositionInvalid2() {
-		p1.setPosition(new int[] { 1, 7, 2 });
+		p1.setPosition(6);
 	}
 
 	@Test
@@ -361,17 +350,38 @@ public class JUnitTests {
 		p1.setAge(30);
 		assertEquals(30, p1.getAge());
 	}
+	
+	@Test
+	public void playerGet() {
+		assertEquals(p1(), );
+	}
+	
+	@Test
+	public void playerSet() {
+		p1(77);
+		assertEquals(p1.get(), 77);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void playerSetInvalid1() {
+		p1(29);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void playerSetInvalid2() {
+		p1(101);
+	}
 
 	// ----------------------------Coach Class---------------------------------
 
 	@Test
 	public void coachConstructor() {
-		Coach coach = new Coach("Coach", "Name", 75, 60, position0, 5, 2, 30);
-		assertEquals(coach.getFirstName(), "Coach");
-		assertEquals(coach.getLastName(), "Name");
+		Coach coach = new Coach("Coach", "Name", 75, 60, 30, 5, 2);
+		assertEquals(coach.getCoachFirstName(), "Coach");
+		assertEquals(coach.getCoachLastName(), "Name");
 		assertEquals(coach.getOffenseRating(), 75);
 		assertEquals(coach.getDefenseRating(), 60);
-		assertArrayEquals(position0, new int[] { 0 });
+		assertEquals(coach.getPosition(), 0);
 		assertEquals(coach.getContractAmount(), 5, .01);
 		assertEquals(coach.getContractYears(), 2);
 		assertEquals(coach.getAge(), 30);
@@ -379,44 +389,44 @@ public class JUnitTests {
 
 	@Test
 	public void coachgetFirstName() {
-		assertEquals("First", c1.getFirstName());
+		assertEquals("First", c1.getCoachFirstName());
 	}
 
 	@Test
 	public void coachsetFirstName() {
-		c1.setFirstName("Second");
-		assertEquals("Second", c1.getFirstName());
+		c1.setCoachFirstName("Second");
+		assertEquals("Second", c1.getCoachFirstName());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void coachsetFirstNameInvalidLength() {
-		c1.setFirstName("ThisNameIsMuchTooLong");
+		c1.setCoachFirstName("ThisNameIsMuchTooLong");
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void coachsetFirstNameInvalidSpace() {
-		c1.setFirstName("Illegal Name");
+		c1.setCoachFirstName("Illegal Name");
 	}
 
 	@Test
 	public void coachgetLastName() {
-		assertEquals("Last", c1.getLastName());
+		assertEquals("Last", c1.getCoachLastName());
 	}
 
 	@Test
 	public void coachsetLastName() {
-		c1.setLastName("Second");
-		assertEquals("Second", c1.getLastName());
+		c1.setCoachLastName("Second");
+		assertEquals("Second", c1.getCoachLastName());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void coachsetLastNameInvalidLength() {
-		c1.setLastName("ThisNameIsMuchTooLong");
+		c1.setCoachLastName("ThisNameIsMuchTooLong");
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void coachsetLastNameInvalidSpace() {
-		c1.setLastName("Illegal Name");
+		c1.setCoachLastName("Illegal Name");
 	}
 
 	@Test
@@ -463,19 +473,7 @@ public class JUnitTests {
 
 	@Test
 	public void coachGetPosition() {
-		assertArrayEquals(c1.getPosition(), position0);
-	}
-
-	@Test
-	public void coachSetPosition() {
-		c1.setPosition(position0);
-		assertArrayEquals(c1.getPosition(), position0);
-	}
-
-	@Test
-	public void coachSetPositionInvalid() {
-		c1.setPosition(position3);
-		assertArrayEquals(c1.getPosition(), position0);
+		assertEquals(c1.getPosition(), 0);
 	}
 
 	@Test
@@ -519,13 +517,13 @@ public class JUnitTests {
 
 	@Test
 	public void teamConstructor() {
-		Team team = new Team("Team Name", roster1);
+		Team team = new Team("Team Name", roster1, c1);
 		assertEquals(team.getTeamName(), "Team Name");
 		assertArrayEquals(team.getRoster(), roster1);
 		assertEquals(team.getTeamOffensiveRating(), 50);
 		assertEquals(team.getTeamDefensiveRating(), 50);
 		assertEquals(team.getTeamOverallRating(), 50);
-		assertEquals(team.getSalaryCap(), 35, .01);
+		assertEquals(team.getSalaryCap(), 25, .01);
 	}
 
 	@Test
@@ -565,7 +563,8 @@ public class JUnitTests {
 
 	@Test
 	public void teamSetPlayer() {
-		Player newPlayer = new Player("New", "Name", 30, 30, position1, 5, 2, 25);
+		Player newPlayer = new Player(3, "Player", "Name", 25, 5, 2, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95,
+				100, 31, 99);
 		t1.setPlayer(2, newPlayer);
 		assertEquals(newPlayer, t1.getRoster()[2]);
 	}
@@ -601,7 +600,7 @@ public class JUnitTests {
 
 	@Test
 	public void teamGetSalaryCap() {
-		assertEquals(35, t1.getSalaryCap(), .01);
+		assertEquals(30, t1.getSalaryCap(), .01);
 	}
 
 	// ---------------------- Helper Class -----------------
@@ -663,404 +662,404 @@ public class JUnitTests {
 	// assertTrue(true);
 	// }
 
-	@Test
-	public void OneHundredVSOneHundred() throws IOException {
-
-		Team team1 = OneHundred;
-		Team team2 = OneHundred;
-
-		double team1LowerWinPercentage = .45;
-		double team1UpperWinPercentage = .55;
-
-		double team2LowerWinPercentage = .45;
-		double team2UpperWinPercentage = .55;
-
-		double team1LowerAverageScore = 98;
-		double team1UpperAverageScore = 108;
-
-		double team2LowerAverageScore = 98;
-		double team2UpperAverageScore = 108;
-
-		GameSimulation gs = new GameSimulation(team1, team2, 1);
-		gs.runSimulations(numberSimulations, team1, team2);
-
-		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
-		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
-				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
-				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
-						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
-						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
-								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
-					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
-					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
-					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
-			fail(failMessage);
-		}
-
-		assertTrue(true);
-	}
-
-	@Test
-	public void OneHundredVSNinetyFive() throws IOException {
-
-		Team team1 = OneHundred;
-		Team team2 = NinetyFive;
-
-		double team1LowerWinPercentage = .5;
-		double team1UpperWinPercentage = .6;
-
-		double team2LowerWinPercentage = .4;
-		double team2UpperWinPercentage = .5;
-
-		double team1LowerAverageScore = 99;
-		double team1UpperAverageScore = 109;
-
-		double team2LowerAverageScore = 97;
-		double team2UpperAverageScore = 107;
-
-		GameSimulation gs = new GameSimulation(team1, team2, 1);
-		gs.runSimulations(numberSimulations, team1, team2);
-
-		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
-		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
-				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
-				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
-						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
-						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
-								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
-					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
-					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
-					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
-			fail(failMessage);
-		}
-
-		assertTrue(true);
-	}
-
-	@Test
-	public void OneHundredVSNinety() throws IOException {
-
-		Team team1 = OneHundred;
-		Team team2 = Ninety;
-
-		double team1LowerWinPercentage = .55;
-		double team1UpperWinPercentage = .65;
-
-		double team2LowerWinPercentage = .35;
-		double team2UpperWinPercentage = .45;
-
-		double team1LowerAverageScore = 100;
-		double team1UpperAverageScore = 110;
-
-		double team2LowerAverageScore = 97;
-		double team2UpperAverageScore = 107;
-
-		GameSimulation gs = new GameSimulation(team1, team2, 1);
-		gs.runSimulations(numberSimulations, team1, team2);
-
-		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
-		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
-				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
-				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
-						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
-						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
-								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
-					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
-					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
-					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
-			fail(failMessage);
-		}
-
-		assertTrue(true);
-	}
-
-	@Test
-	public void OneHundredVSEighty() throws IOException {
-
-		Team team1 = OneHundred;
-		Team team2 = Eighty;
-
-		double team1LowerWinPercentage = .65;
-		double team1UpperWinPercentage = .75;
-
-		double team2LowerWinPercentage = .25;
-		double team2UpperWinPercentage = .35;
-
-		double team1LowerAverageScore = 102;
-		double team1UpperAverageScore = 112;
-
-		double team2LowerAverageScore = 96;
-		double team2UpperAverageScore = 106;
-
-		GameSimulation gs = new GameSimulation(team1, team2, 1);
-		gs.runSimulations(numberSimulations, team1, team2);
-
-		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
-		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
-				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
-				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
-						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
-						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
-								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
-					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
-					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
-					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
-			fail(failMessage);
-		}
-
-		assertTrue(true);
-	}
-
-	@Test
-	public void OneHundredVSSeventy() throws IOException {
-
-		Team team1 = OneHundred;
-		Team team2 = Seventy;
-
-		double team1LowerWinPercentage = .75;
-		double team1UpperWinPercentage = .85;
-
-		double team2LowerWinPercentage = .15;
-		double team2UpperWinPercentage = .25;
-
-		double team1LowerAverageScore = 104;
-		double team1UpperAverageScore = 114;
-
-		double team2LowerAverageScore = 95;
-		double team2UpperAverageScore = 105;
-
-		GameSimulation gs = new GameSimulation(team1, team2, 1);
-		gs.runSimulations(numberSimulations, team1, team2);
-
-		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
-		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
-				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
-				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
-						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
-						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
-								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
-					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
-					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
-					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
-			fail(failMessage);
-		}
-
-		assertTrue(true);
-	}
-
-	@Test
-	public void OneHundredVSFifty() throws IOException {
-
-		Team team1 = OneHundred;
-		Team team2 = Fifty;
-
-		double team1LowerWinPercentage = .95;
-		double team1UpperWinPercentage = 1.05;
-
-		double team2LowerWinPercentage = -.05;
-		double team2UpperWinPercentage = .05;
-
-		double team1LowerAverageScore = 118;
-		double team1UpperAverageScore = 128;
-
-		double team2LowerAverageScore = 88;
-		double team2UpperAverageScore = 98;
-
-		GameSimulation gs = new GameSimulation(team1, team2, 1);
-		gs.runSimulations(numberSimulations, team1, team2);
-
-		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
-		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
-				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
-				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
-						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
-						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
-								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
-					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
-					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
-					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
-			fail(failMessage);
-		}
-
-		assertTrue(true);
-	}
-
-	@Test
-	public void OneHundredVSThirty() throws IOException {
-
-		Team team1 = OneHundred;
-		Team team2 = Thirty;
-
-		double team1LowerWinPercentage = .95;
-		double team1UpperWinPercentage = 1.05;
-
-		double team2LowerWinPercentage = -.05;
-		double team2UpperWinPercentage = .05;
-
-		double team1LowerAverageScore = 120;
-		double team1UpperAverageScore = 130;
-
-		double team2LowerAverageScore = 91;
-		double team2UpperAverageScore = 101;
-
-		GameSimulation gs = new GameSimulation(team1, team2, 1);
-		gs.runSimulations(numberSimulations, team1, team2);
-
-		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
-		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
-				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
-				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
-						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
-						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
-								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
-					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
-					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
-					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
-			fail(failMessage);
-		}
-
-		assertTrue(true);
-	}
-
-	@Test
-	public void EightyVSEighty() throws IOException {
-
-		Team team1 = Eighty;
-		Team team2 = Eighty;
-
-		double team1LowerWinPercentage = .45;
-		double team1UpperWinPercentage = .55;
-
-		double team2LowerWinPercentage = .45;
-		double team2UpperWinPercentage = .55;
-
-		double team1LowerAverageScore = 98;
-		double team1UpperAverageScore = 108;
-
-		double team2LowerAverageScore = 98;
-		double team2UpperAverageScore = 108;
-
-		GameSimulation gs = new GameSimulation(team1, team2, 1);
-		gs.runSimulations(numberSimulations, team1, team2);
-
-		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
-		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
-				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
-				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
-						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
-						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
-								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
-					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
-					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
-					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
-			fail(failMessage);
-		}
-
-		assertTrue(true);
-	}
-
-	@Test
-	public void ThirtyVSThirty() throws IOException {
-
-		Team team1 = Thirty;
-		Team team2 = Thirty;
-
-		double team1LowerWinPercentage = .45;
-		double team1UpperWinPercentage = .55;
-
-		double team2LowerWinPercentage = .45;
-		double team2UpperWinPercentage = .55;
-
-		double team1LowerAverageScore = 98;
-		double team1UpperAverageScore = 108;
-
-		double team2LowerAverageScore = 98;
-		double team2UpperAverageScore = 108;
-
-		GameSimulation gs = new GameSimulation(team1, team2, 1);
-		gs.runSimulations(numberSimulations, team1, team2);
-
-		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
-		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
-				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
-				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
-						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
-						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
-								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
-					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
-					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
-					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
-			fail(failMessage);
-		}
-
-		assertTrue(true);
-	}
-
-	@Test
-	public void EightyVSThirty() throws IOException {
-
-		Team team1 = Eighty;
-		Team team2 = Thirty;
-
-		double team1LowerWinPercentage = .95;
-		double team1UpperWinPercentage = 1.05;
-
-		double team2LowerWinPercentage = -.05;
-		double team2UpperWinPercentage = .05;
-
-		double team1LowerAverageScore = 118;
-		double team1UpperAverageScore = 128;
-
-		double team2LowerAverageScore = 88;
-		double team2UpperAverageScore = 98;
-
-		GameSimulation gs = new GameSimulation(team1, team2, 1);
-		gs.runSimulations(numberSimulations, team1, team2);
-
-		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
-		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
-
-		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
-				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
-				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
-						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
-						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
-								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
-			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
-					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
-					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
-					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
-			fail(failMessage);
-		}
-
-		assertTrue(true);
-	}
+//	@Test
+//	public void OneHundredVSOneHundred() throws IOException {
+//
+//		Team team1 = OneHundred;
+//		Team team2 = OneHundred;
+//
+//		double team1LowerWinPercentage = .45;
+//		double team1UpperWinPercentage = .55;
+//
+//		double team2LowerWinPercentage = .45;
+//		double team2UpperWinPercentage = .55;
+//
+//		double team1LowerAverageScore = 98;
+//		double team1UpperAverageScore = 108;
+//
+//		double team2LowerAverageScore = 98;
+//		double team2UpperAverageScore = 108;
+//
+//		GameSimulation gs = new GameSimulation(team1, team2, 1);
+//		gs.runSimulations(numberSimulations, team1, team2);
+//
+//		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
+//		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
+//
+//		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+//				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+//				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+//						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+//						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+//								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+//			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+//					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+//					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+//					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+//			fail(failMessage);
+//		}
+//
+//		assertTrue(true);
+//	}
+//
+//	@Test
+//	public void OneHundredVSNinetyFive() throws IOException {
+//
+//		Team team1 = OneHundred;
+//		Team team2 = NinetyFive;
+//
+//		double team1LowerWinPercentage = .5;
+//		double team1UpperWinPercentage = .6;
+//
+//		double team2LowerWinPercentage = .4;
+//		double team2UpperWinPercentage = .5;
+//
+//		double team1LowerAverageScore = 99;
+//		double team1UpperAverageScore = 109;
+//
+//		double team2LowerAverageScore = 97;
+//		double team2UpperAverageScore = 107;
+//
+//		GameSimulation gs = new GameSimulation(team1, team2, 1);
+//		gs.runSimulations(numberSimulations, team1, team2);
+//
+//		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
+//		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
+//
+//		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+//				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+//				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+//						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+//						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+//								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+//			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+//					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+//					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+//					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+//			fail(failMessage);
+//		}
+//
+//		assertTrue(true);
+//	}
+//
+//	@Test
+//	public void OneHundredVSNinety() throws IOException {
+//
+//		Team team1 = OneHundred;
+//		Team team2 = Ninety;
+//
+//		double team1LowerWinPercentage = .55;
+//		double team1UpperWinPercentage = .65;
+//
+//		double team2LowerWinPercentage = .35;
+//		double team2UpperWinPercentage = .45;
+//
+//		double team1LowerAverageScore = 100;
+//		double team1UpperAverageScore = 110;
+//
+//		double team2LowerAverageScore = 97;
+//		double team2UpperAverageScore = 107;
+//
+//		GameSimulation gs = new GameSimulation(team1, team2, 1);
+//		gs.runSimulations(numberSimulations, team1, team2);
+//
+//		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
+//		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
+//
+//		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+//				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+//				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+//						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+//						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+//								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+//			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+//					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+//					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+//					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+//			fail(failMessage);
+//		}
+//
+//		assertTrue(true);
+//	}
+//
+//	@Test
+//	public void OneHundredVSEighty() throws IOException {
+//
+//		Team team1 = OneHundred;
+//		Team team2 = Eighty;
+//
+//		double team1LowerWinPercentage = .65;
+//		double team1UpperWinPercentage = .75;
+//
+//		double team2LowerWinPercentage = .25;
+//		double team2UpperWinPercentage = .35;
+//
+//		double team1LowerAverageScore = 102;
+//		double team1UpperAverageScore = 112;
+//
+//		double team2LowerAverageScore = 96;
+//		double team2UpperAverageScore = 106;
+//
+//		GameSimulation gs = new GameSimulation(team1, team2, 1);
+//		gs.runSimulations(numberSimulations, team1, team2);
+//
+//		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
+//		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
+//
+//		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+//				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+//				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+//						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+//						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+//								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+//			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+//					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+//					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+//					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+//			fail(failMessage);
+//		}
+//
+//		assertTrue(true);
+//	}
+//
+//	@Test
+//	public void OneHundredVSSeventy() throws IOException {
+//
+//		Team team1 = OneHundred;
+//		Team team2 = Seventy;
+//
+//		double team1LowerWinPercentage = .75;
+//		double team1UpperWinPercentage = .85;
+//
+//		double team2LowerWinPercentage = .15;
+//		double team2UpperWinPercentage = .25;
+//
+//		double team1LowerAverageScore = 104;
+//		double team1UpperAverageScore = 114;
+//
+//		double team2LowerAverageScore = 95;
+//		double team2UpperAverageScore = 105;
+//
+//		GameSimulation gs = new GameSimulation(team1, team2, 1);
+//		gs.runSimulations(numberSimulations, team1, team2);
+//
+//		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
+//		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
+//
+//		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+//				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+//				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+//						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+//						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+//								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+//			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+//					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+//					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+//					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+//			fail(failMessage);
+//		}
+//
+//		assertTrue(true);
+//	}
+//
+//	@Test
+//	public void OneHundredVSFifty() throws IOException {
+//
+//		Team team1 = OneHundred;
+//		Team team2 = Fifty;
+//
+//		double team1LowerWinPercentage = .95;
+//		double team1UpperWinPercentage = 1.05;
+//
+//		double team2LowerWinPercentage = -.05;
+//		double team2UpperWinPercentage = .05;
+//
+//		double team1LowerAverageScore = 118;
+//		double team1UpperAverageScore = 128;
+//
+//		double team2LowerAverageScore = 88;
+//		double team2UpperAverageScore = 98;
+//
+//		GameSimulation gs = new GameSimulation(team1, team2, 1);
+//		gs.runSimulations(numberSimulations, team1, team2);
+//
+//		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
+//		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
+//
+//		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+//				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+//				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+//						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+//						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+//								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+//			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+//					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+//					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+//					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+//			fail(failMessage);
+//		}
+//
+//		assertTrue(true);
+//	}
+//
+//	@Test
+//	public void OneHundredVSThirty() throws IOException {
+//
+//		Team team1 = OneHundred;
+//		Team team2 = Thirty;
+//
+//		double team1LowerWinPercentage = .95;
+//		double team1UpperWinPercentage = 1.05;
+//
+//		double team2LowerWinPercentage = -.05;
+//		double team2UpperWinPercentage = .05;
+//
+//		double team1LowerAverageScore = 120;
+//		double team1UpperAverageScore = 130;
+//
+//		double team2LowerAverageScore = 91;
+//		double team2UpperAverageScore = 101;
+//
+//		GameSimulation gs = new GameSimulation(team1, team2, 1);
+//		gs.runSimulations(numberSimulations, team1, team2);
+//
+//		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
+//		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
+//
+//		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+//				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+//				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+//						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+//						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+//								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+//			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+//					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+//					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+//					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+//			fail(failMessage);
+//		}
+//
+//		assertTrue(true);
+//	}
+//
+//	@Test
+//	public void EightyVSEighty() throws IOException {
+//
+//		Team team1 = Eighty;
+//		Team team2 = Eighty;
+//
+//		double team1LowerWinPercentage = .45;
+//		double team1UpperWinPercentage = .55;
+//
+//		double team2LowerWinPercentage = .45;
+//		double team2UpperWinPercentage = .55;
+//
+//		double team1LowerAverageScore = 98;
+//		double team1UpperAverageScore = 108;
+//
+//		double team2LowerAverageScore = 98;
+//		double team2UpperAverageScore = 108;
+//
+//		GameSimulation gs = new GameSimulation(team1, team2, 1);
+//		gs.runSimulations(numberSimulations, team1, team2);
+//
+//		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
+//		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
+//
+//		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+//				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+//				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+//						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+//						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+//								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+//			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+//					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+//					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+//					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+//			fail(failMessage);
+//		}
+//
+//		assertTrue(true);
+//	}
+//
+//	@Test
+//	public void ThirtyVSThirty() throws IOException {
+//
+//		Team team1 = Thirty;
+//		Team team2 = Thirty;
+//
+//		double team1LowerWinPercentage = .45;
+//		double team1UpperWinPercentage = .55;
+//
+//		double team2LowerWinPercentage = .45;
+//		double team2UpperWinPercentage = .55;
+//
+//		double team1LowerAverageScore = 98;
+//		double team1UpperAverageScore = 108;
+//
+//		double team2LowerAverageScore = 98;
+//		double team2UpperAverageScore = 108;
+//
+//		GameSimulation gs = new GameSimulation(team1, team2, 1);
+//		gs.runSimulations(numberSimulations, team1, team2);
+//
+//		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
+//		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
+//
+//		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+//				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+//				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+//						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+//						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+//								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+//			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+//					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+//					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+//					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+//			fail(failMessage);
+//		}
+//
+//		assertTrue(true);
+//	}
+//
+//	@Test
+//	public void EightyVSThirty() throws IOException {
+//
+//		Team team1 = Eighty;
+//		Team team2 = Thirty;
+//
+//		double team1LowerWinPercentage = .95;
+//		double team1UpperWinPercentage = 1.05;
+//
+//		double team2LowerWinPercentage = -.05;
+//		double team2UpperWinPercentage = .05;
+//
+//		double team1LowerAverageScore = 118;
+//		double team1UpperAverageScore = 128;
+//
+//		double team2LowerAverageScore = 88;
+//		double team2UpperAverageScore = 98;
+//
+//		GameSimulation gs = new GameSimulation(team1, team2, 1);
+//		gs.runSimulations(numberSimulations, team1, team2);
+//
+//		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
+//		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
+//
+//		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+//				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+//				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+//						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+//						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+//								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+//			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+//					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+//					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+//					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+//			fail(failMessage);
+//		}
+//
+//		assertTrue(true);
+//	}
 
 }

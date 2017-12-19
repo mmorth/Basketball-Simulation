@@ -281,7 +281,7 @@ public class Player {
 	 *             elements in position or if a position is not between 1 and 6
 	 */
 	public void setPosition(int position) {
-		if (position < 1 || position > 6) {
+		if (position < 1 || position > 5) {
 			throw new IllegalArgumentException("Position must be between 1 and 6 inclusive");
 		}
 
@@ -294,7 +294,7 @@ public class Player {
 	 * @return The overallRating rating of the player
 	 */
 	public int getOverallRating() {
-		return 100;
+		return 50;
 	}
 
 	/**
@@ -303,7 +303,7 @@ public class Player {
 	 * @return The offensiveRating rating of the player
 	 */
 	public int getOffensiveRating() {
-		return 100;
+		return 50;
 	}
 
 	/**
@@ -312,7 +312,7 @@ public class Player {
 	 * @return The defensiveRating rating of the player
 	 */
 	public int getDefensiveRating() {
-		return 100;
+		return 50;
 	}
 
 	/**

@@ -178,12 +178,13 @@ public class Team {
 	 */
 	private void generateNewTeamOffensiveRating() {
 		int overall = 0;
-
-		for (Player a : roster) {
-			overall += a.getOffensiveRating();
+		int i = 0;
+		
+		for (i = 0; i < roster.length && roster[i] != null; i++) {
+			overall += roster[i].getOffensiveRating();
 		}
 
-		teamOffensiveRating = overall / roster.length;
+		teamOffensiveRating = overall / i;
 	}
 
 	/**
@@ -202,12 +203,13 @@ public class Team {
 	 */
 	public void generateNewTeamDefensiveRating() {
 		int overall = 0;
-
-		for (Player a : roster) {
-			overall += a.getDefensiveRating();
+		int i = 0;
+		
+		for (i = 0; i < roster.length && roster[i] != null; i++) {
+			overall += roster[i].getDefensiveRating();
 		}
 
-		teamDefensiveRating = overall / roster.length;
+		teamDefensiveRating = overall / i;
 	}
 
 	/**
@@ -246,7 +248,9 @@ public class Team {
 		double totalSalary = 0;
 
 		for (int i = 0; i < roster.length; i++) {
-			totalSalary += roster[i].getContractAmount();
+			if (roster[i] != null) {
+				totalSalary += roster[i].getContractAmount();
+			}
 		}
 
 		totalTeamSalary = totalSalary;
@@ -287,11 +291,11 @@ public class Team {
 
 		// Display the position information
 		for (int i = 0; i < roster.length; i++) {
-//			String positionString = "";
-//			for (int j = 0; j < roster[i].getPosition().length; j++) {
-//				positionString += Integer.toString(roster[i].getPosition()[j]);
-//				positionString += " ";
-//			}
+			// String positionString = "";
+			// for (int j = 0; j < roster[i].getPosition().length; j++) {
+			// positionString += Integer.toString(roster[i].getPosition()[j]);
+			// positionString += " ";
+			// }
 
 			// Format print player information
 			String playerInformation = String.format(
@@ -326,9 +330,10 @@ public class Team {
 	// TODO Remove main method once testing is complete
 	public static void main(String[] args) throws IOException {
 
-//		Team t1 = new Team(TestMatchups.getOneHundred().getTeamName(), TestMatchups.getOneHundred().getRoster());
-//
-//		t1.printTeamRosters();
+		// Team t1 = new Team(TestMatchups.getOneHundred().getTeamName(),
+		// TestMatchups.getOneHundred().getRoster());
+		//
+		// t1.printTeamRosters();
 
 	}
 

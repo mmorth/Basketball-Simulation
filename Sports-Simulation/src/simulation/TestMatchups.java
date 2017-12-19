@@ -4,21 +4,22 @@ public class TestMatchups {
 
 	private static Team[] teams;
 
-	private static Team OneHundred = new Team("100", createOneHundredRoster());
-	private static Team NinetyFive = new Team("95", createNinetyFiveRoster());
-	private static Team Ninety = new Team("90", createNinetyRoster());
-	private static Team EightyFive = new Team("85", createEightyFiveRoster());
-	private static Team Eighty = new Team("80", createEightyRoster());
-	private static Team SeventyFive = new Team("75", createSeventyFiveRoster());
-	private static Team Seventy = new Team("70", createSeventyRoster());
-	private static Team SixtyFive = new Team("65", createSixtyFiveRoster());
-	private static Team Sixty = new Team("60", createSixtyRoster());
-	private static Team FiftyFive = new Team("55", createFiftyFiveRoster());
-	private static Team Fifty = new Team("50", createFiftyRoster());
-	private static Team FourtyFive = new Team("45", createFourtyFiveRoster());
-	private static Team Fourty = new Team("40", createFourtyRoster());
-	private static Team ThirtyFive = new Team("35", createThirtyFiveRoster());
-	private static Team Thirty = new Team("30", createThirtyRoster());
+	static Coach genCoach = new Coach("First", "Last", 100, 100, 25, 5, 2);
+	private static Team OneHundred = new Team("100", createOneHundredRoster(), genCoach);
+	private static Team NinetyFive = new Team("95", createNinetyFiveRoster(), genCoach);
+	private static Team Ninety = new Team("90", createNinetyRoster(), genCoach);
+	private static Team EightyFive = new Team("85", createEightyFiveRoster(), genCoach);
+	private static Team Eighty = new Team("80", createEightyRoster(), genCoach);
+	private static Team SeventyFive = new Team("75", createSeventyFiveRoster(), genCoach);
+	private static Team Seventy = new Team("70", createSeventyRoster(), genCoach);
+	private static Team SixtyFive = new Team("65", createSixtyFiveRoster(), genCoach);
+	private static Team Sixty = new Team("60", createSixtyRoster(), genCoach);
+	private static Team FiftyFive = new Team("55", createFiftyFiveRoster(), genCoach);
+	private static Team Fifty = new Team("50", createFiftyRoster(), genCoach);
+	private static Team FourtyFive = new Team("45", createFourtyFiveRoster(), genCoach);
+	private static Team Fourty = new Team("40", createFourtyRoster(), genCoach);
+	private static Team ThirtyFive = new Team("35", createThirtyFiveRoster(), genCoach);
+	private static Team Thirty = new Team("30", createThirtyRoster(), genCoach);
 
 	public static void main(String[] args) {
 
