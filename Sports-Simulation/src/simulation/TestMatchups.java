@@ -24,318 +24,363 @@ public class TestMatchups {
 
 	}
 
-	public static Athlete[] createOneHundredRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 100;
-		int defensiveRating = 100;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createOneHundredRoster() {
+		Player[] roster = new Player[7];
+		int rating = 100;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
-	public static Athlete[] createNinetyFiveRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 95;
-		int defensiveRating = 95;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createNinetyFiveRoster() {
+		Player[] roster = new Player[7];
+		int rating = 95;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
-	public static Athlete[] createNinetyRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 90;
-		int defensiveRating = 90;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createNinetyRoster() {
+		Player[] roster = new Player[7];
+		int rating = 90;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
-	public static Athlete[] createEightyFiveRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 85;
-		int defensiveRating = 85;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createEightyFiveRoster() {
+		Player[] roster = new Player[7];
+		int rating = 85;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
-	public static Athlete[] createEightyRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 80;
-		int defensiveRating = 80;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createEightyRoster() {
+		Player[] roster = new Player[7];
+		int rating = 80;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
-	public static Athlete[] createSeventyFiveRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 75;
-		int defensiveRating = 75;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createSeventyFiveRoster() {
+		Player[] roster = new Player[7];
+		int rating = 75;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
-	public static Athlete[] createSeventyRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 70;
-		int defensiveRating = 70;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createSeventyRoster() {
+		Player[] roster = new Player[7];
+		int rating = 70;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
-	public static Athlete[] createSixtyFiveRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 65;
-		int defensiveRating = 65;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createSixtyFiveRoster() {
+		Player[] roster = new Player[7];
+		int rating = 65;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
-	public static Athlete[] createSixtyRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 60;
-		int defensiveRating = 60;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createSixtyRoster() {
+		Player[] roster = new Player[7];
+		int rating = 60;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
-	public static Athlete[] createFiftyFiveRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 55;
-		int defensiveRating = 55;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createFiftyFiveRoster() {
+		Player[] roster = new Player[7];
+		int rating = 55;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
-	public static Athlete[] createFiftyRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 50;
-		int defensiveRating = 50;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createFiftyRoster() {
+		Player[] roster = new Player[7];
+		int rating = 50;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
-	public static Athlete[] createFourtyFiveRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 45;
-		int defensiveRating = 45;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createFourtyFiveRoster() {
+		Player[] roster = new Player[7];
+		int rating = 45;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
-	public static Athlete[] createFourtyRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 40;
-		int defensiveRating = 40;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createFourtyRoster() {
+		Player[] roster = new Player[7];
+		int rating = 40;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
-	public static Athlete[] createThirtyFiveRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 35;
-		int defensiveRating = 35;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createThirtyFiveRoster() {
+		Player[] roster = new Player[7];
+		int rating = 35;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
-	public static Athlete[] createThirtyRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 30;
-		int defensiveRating = 30;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createThirtyRoster() {
+		Player[] roster = new Player[7];
+		int rating = 30;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
 		return roster;
 	}
 
