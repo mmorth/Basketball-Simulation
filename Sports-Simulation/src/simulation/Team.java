@@ -179,7 +179,7 @@ public class Team {
 	private void generateNewTeamOffensiveRating() {
 		int overall = 0;
 		int i = 0;
-		
+
 		for (i = 0; i < roster.length && roster[i] != null; i++) {
 			overall += roster[i].getOffensiveRating();
 		}
@@ -204,7 +204,7 @@ public class Team {
 	public void generateNewTeamDefensiveRating() {
 		int overall = 0;
 		int i = 0;
-		
+
 		for (i = 0; i < roster.length && roster[i] != null; i++) {
 			overall += roster[i].getDefensiveRating();
 		}
@@ -280,17 +280,22 @@ public class Team {
 		BufferedWriter bw = new BufferedWriter(fw);
 
 		// Write the headers of the output
-		bw.write("Team: " + teamName);
+		bw.write(teamName);
 		bw.newLine();
 		bw.write(
-				"Position\tFirst_Name\tLast_Name\tOverall\tAge\tContract_Amount\tContract_Years\tInside_Scoring\tMid-Range Scoring\t3-Point_Scoring\tFree_Throw\tOffensive_Rebounding\tBall_Handling\tPassing\tPost_Defense\tPerimeter_Defense\tDefensive_Rebounding\tSteal\tBlock\tHeight\tSpeed\tStamina\tInjury\tPotential");
+				"Position\tFirst_Name\t\tLast_Name\t\tOverall\tOffense\tDefense\tAge\tContract_Amount\tContract_Years\tInside_Scoring\tMid-Range_Scoring\t3-Point_Scoring\tFree_Throw\tOffensive_Rebounding\tBall_Handling\tPassing\tPost_Defense\tPerimeter_Defense\tDefensive_Rebounding\tSteal\tBlock\tHeight\tSpeed\tStamina\tInjury\tPotential");
 		bw.newLine();
 		System.out.printf("");
 		System.out.println(
-				"Position\tFirst_Name\tLast_Name\tOverall\tAge\tContract_Amount\tContract_Years\tInside_Scoring\tMid-Range Scoring\t3-Point_Scoring\tFree_Throw\tOffensive_Rebounding\tBall_Handling\tPassing\tPost_Defense\tPerimeter_Defense\tDefensive_Rebounding\tSteal\tBlock\tHeight\tSpeed\tStamina\tInjury\tPotential");
+				"Position\tFirst_Name\t\tLast_Name\tOverall\tOffense\tDefense\tAge\tContract_Amount\tContract_Years\tInside_Scoring\tMid-Range Scoring\t3-Point_Scoring\tFree_Throw\tOffensive_Rebounding\tBall_Handling\tPassing\tPost_Defense\tPerimeter_Defense\tDefensive_Rebounding\tSteal\tBlock\tHeight\tSpeed\tStamina\tInjury\tPotential");
 
+		String coachInformation = String.format("%d\t\t\t%-15s\t%-15s\t%d\t\t%d\t\t%d\t\t%d\t%.1f\t\t\t\t%d", coach.getPosition(), coach.getCoachFirstName(), coach.getCoachLastName(), coach.getOverallRating(), coach.getOffenseRating(), coach.getDefenseRating(), coach.getAge(), coach.getContractAmount(), coach.getContractYears());
+		
+		bw.write(coachInformation);
+		bw.newLine();
+		
 		// Display the position information
-		for (int i = 0; i < roster.length; i++) {
+		for (int i = 0; i < roster.length && roster[i] != null; i++) {
 			// String positionString = "";
 			// for (int j = 0; j < roster[i].getPosition().length; j++) {
 			// positionString += Integer.toString(roster[i].getPosition()[j]);
@@ -299,7 +304,7 @@ public class Team {
 
 			// Format print player information
 			String playerInformation = String.format(
-					"%d\t%-15s\t%-15s\t%d\t%d\t%.1f\t%d\t%d\t\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d",
+					"%d\t\t\t%-15s\t%-15s\t%d\t\t%d\t\t%d\t\t%d\t%.1f\t\t\t\t%d\t\t\t\t%d\t\t\t\t%d\t\t\t\t\t%d\t\t\t\t%d\t\t\t%d\t\t\t\t\t\t%d\t\t\t\t%d\t\t%d\t\t\t\t%d\t\t\t\t\t%d\t\t\t\t\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d",
 					roster[i].getPosition(), roster[i].getPlayerFirstName(), roster[i].getPlayerLastName(),
 					roster[i].getOverallRating(), roster[i].getOffensiveRating(), roster[i].getDefensiveRating(),
 					roster[i].getAge(), roster[i].getContractAmount(), roster[i].getContractYears(),
@@ -330,10 +335,10 @@ public class Team {
 	// TODO Remove main method once testing is complete
 	public static void main(String[] args) throws IOException {
 
-		// Team t1 = new Team(TestMatchups.getOneHundred().getTeamName(),
-		// TestMatchups.getOneHundred().getRoster());
-		//
-		// t1.printTeamRosters();
+		Coach genCoach = new Coach("First", "Last", 100, 100, 25, 5, 2);
+		Team t1 = new Team(TestMatchups.getOneHundred().getTeamName(), TestMatchups.getOneHundred().getRoster(), genCoach);
+
+		t1.printTeamRosters();
 
 	}
 

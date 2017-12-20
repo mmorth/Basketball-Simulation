@@ -24,27 +24,17 @@ public class League {
 				continue;
 			}
 			String teamName = line;
-			
+
 			Coach coach = new Coach();
-			
-			while (fileReader.hasNextLine()) {
-				String playerLine = fileReader.nextLine();
-				String[] playerInfo = playerLine.trim().split("\\s+");
-				if (playerLine.isEmpty()) {
-					break;
-				}
-				if (playerInfo[0].equals("//")) {
-					continue;
-				}
-//				String[] playerPosition = playerInfo[0].split(",");
-//				int[] playerPositionArray = new int[playerPosition.length];
-//				for (int i = 0; i < playerPosition.length; i++) {
-//					playerPositionArray[i] = Integer.parseInt(playerPosition[i]);
-//				}
-				coach = new Coach(playerInfo[0], playerInfo[1], Integer.parseInt(playerInfo[2]),
-						Integer.parseInt(playerInfo[3]), Integer.parseInt(playerInfo[8]), Double.parseDouble(playerInfo[7]),
-						Integer.parseInt(playerInfo[8]));
-			}
+
+			// String playerLine = fileReader.nextLine();
+			// String[] playerInfo = playerLine.trim().split("\\s+");
+			// if (playerLine.isEmpty()) {
+			// break;
+			// }
+			// if (playerInfo[0].equals("//") || playerInfo[0].equals("Position")) {
+			// continue;
+			// }
 
 			ArrayList<Player> roster = new ArrayList<>();
 
@@ -54,26 +44,29 @@ public class League {
 				if (playerLine.isEmpty()) {
 					break;
 				}
-				if (playerInfo[0].equals("//")) {
+				if (playerInfo[0].equals("//") || playerInfo[0].equals("Position")) {
 					continue;
 				}
-//				String[] playerPosition = playerInfo[0].split(",");
-//				int[] playerPositionArray = new int[playerPosition.length];
-//				for (int i = 0; i < playerPosition.length; i++) {
-//					playerPositionArray[i] = Integer.parseInt(playerPosition[i]);
-//				}
-				Player player = new Player(Integer.parseInt(playerInfo[0]), playerInfo[1], playerInfo[2],
-						Integer.parseInt(playerInfo[6]), Double.parseDouble(playerInfo[7]),
-						Integer.parseInt(playerInfo[8]), Integer.parseInt(playerInfo[9]),
-						Integer.parseInt(playerInfo[10]), Integer.parseInt(playerInfo[11]),
-						Integer.parseInt(playerInfo[12]), Integer.parseInt(playerInfo[13]),
-						Integer.parseInt(playerInfo[14]), Integer.parseInt(playerInfo[15]),
-						Integer.parseInt(playerInfo[16]), Integer.parseInt(playerInfo[17]),
-						Integer.parseInt(playerInfo[18]), Integer.parseInt(playerInfo[19]),
-						Integer.parseInt(playerInfo[20]), Integer.parseInt(playerInfo[21]),
-						Integer.parseInt(playerInfo[22]), Integer.parseInt(playerInfo[23]),
-						Integer.parseInt(playerInfo[24]), Integer.parseInt(playerInfo[25]));
-				roster.add(player);
+
+				if (Integer.parseInt(playerInfo[0]) == 0) {
+					coach = new Coach(playerInfo[1], playerInfo[2], Integer.parseInt(playerInfo[4]),
+							Integer.parseInt(playerInfo[5]), Integer.parseInt(playerInfo[6]),
+							Double.parseDouble(playerInfo[7]), Integer.parseInt(playerInfo[8]));
+				} else {
+
+					Player player = new Player(Integer.parseInt(playerInfo[0]), playerInfo[1], playerInfo[2],
+							Integer.parseInt(playerInfo[6]), Double.parseDouble(playerInfo[7]),
+							Integer.parseInt(playerInfo[8]), Integer.parseInt(playerInfo[9]),
+							Integer.parseInt(playerInfo[10]), Integer.parseInt(playerInfo[11]),
+							Integer.parseInt(playerInfo[12]), Integer.parseInt(playerInfo[13]),
+							Integer.parseInt(playerInfo[14]), Integer.parseInt(playerInfo[15]),
+							Integer.parseInt(playerInfo[16]), Integer.parseInt(playerInfo[17]),
+							Integer.parseInt(playerInfo[18]), Integer.parseInt(playerInfo[19]),
+							Integer.parseInt(playerInfo[20]), Integer.parseInt(playerInfo[21]),
+							Integer.parseInt(playerInfo[22]), Integer.parseInt(playerInfo[23]),
+							Integer.parseInt(playerInfo[24]), Integer.parseInt(playerInfo[25]));
+					roster.add(player);
+				}
 			}
 
 			Team team = new Team(teamName, roster.toArray(new Player[roster.size()]), coach);
@@ -85,7 +78,7 @@ public class League {
 	}
 
 	public static void main(String args[]) throws FileNotFoundException, IOException {
-		File file = new File("C:\\Users\\Owner\\Dropbox\\Data.txt");
+		File file = new File("/home/mmorth/Coding/Storage_Files/Data.txt");
 		League league = new League(file);
 
 		for (int i = 0; i < league.leagueTeams.size(); i++) {
