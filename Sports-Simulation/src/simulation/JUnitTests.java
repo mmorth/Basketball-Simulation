@@ -14,7 +14,7 @@ import org.junit.Test;
 public class JUnitTests {
 
 	// Create player
-	Player p1;
+	Player p1, ct1;
 
 	// Various positions
 	int[] position0 = { 0 };
@@ -61,9 +61,12 @@ public class JUnitTests {
 
 		// Create team
 		int team1Rating = 50;
+		int noCoachRating = 30;
 
 		roster = new Player[7];
-		Coach ct1 = new Coach("First", "Last", 50, 50, 5, 2, 25);
+		Player ct1 = new Player(1, "First", "Last", 25, 5, 2, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
+				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
+				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating);
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
@@ -169,22 +172,22 @@ public class JUnitTests {
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 
-		Coach genCoach = new Coach("First", "Last", 100, 100, 25, 5, 2);
-		OneHundred = new Team("100", TestMatchups.createOneHundredRoster(), genCoach);
-		NinetyFive = new Team("95", TestMatchups.createNinetyFiveRoster(), genCoach);
-		Ninety = new Team("90", TestMatchups.createNinetyRoster(), genCoach);
-		EightyFive = new Team("85", TestMatchups.createEightyFiveRoster(), genCoach);
-		Eighty = new Team("80", TestMatchups.createEightyRoster(), genCoach);
-		SeventyFive = new Team("75", TestMatchups.createSeventyFiveRoster(), genCoach);
-		Seventy = new Team("70", TestMatchups.createSeventyRoster(), genCoach);
-		SixtyFive = new Team("65", TestMatchups.createSixtyFiveRoster(), genCoach);
-		Sixty = new Team("60", TestMatchups.createSixtyRoster(), genCoach);
-		FiftyFive = new Team("55", TestMatchups.createFiftyFiveRoster(), genCoach);
-		Fifty = new Team("50", TestMatchups.createFiftyRoster(), genCoach);
-		FourtyFive = new Team("45", TestMatchups.createFourtyFiveRoster(), genCoach);
-		Fourty = new Team("40", TestMatchups.createFourtyRoster(), genCoach);
-		ThirtyFive = new Team("35", TestMatchups.createThirtyFiveRoster(), genCoach);
-		Thirty = new Team("30", TestMatchups.createThirtyRoster(), genCoach);
+//		Coach genCoach = new Coach("First", "Last", 100, 100, 25, 5, 2);
+		OneHundred = new Team("100", TestMatchups.createOneHundredRoster(), ct1);
+		NinetyFive = new Team("95", TestMatchups.createNinetyFiveRoster(), ct1);
+		Ninety = new Team("90", TestMatchups.createNinetyRoster(), ct1);
+		EightyFive = new Team("85", TestMatchups.createEightyFiveRoster(), ct1);
+		Eighty = new Team("80", TestMatchups.createEightyRoster(), ct1);
+		SeventyFive = new Team("75", TestMatchups.createSeventyFiveRoster(), ct1);
+		Seventy = new Team("70", TestMatchups.createSeventyRoster(), ct1);
+		SixtyFive = new Team("65", TestMatchups.createSixtyFiveRoster(), ct1);
+		Sixty = new Team("60", TestMatchups.createSixtyRoster(), ct1);
+		FiftyFive = new Team("55", TestMatchups.createFiftyFiveRoster(), ct1);
+		Fifty = new Team("50", TestMatchups.createFiftyRoster(), ct1);
+		FourtyFive = new Team("45", TestMatchups.createFourtyFiveRoster(), ct1);
+		Fourty = new Team("40", TestMatchups.createFourtyRoster(), ct1);
+		ThirtyFive = new Team("35", TestMatchups.createThirtyFiveRoster(), ct1);
+		Thirty = new Team("30", TestMatchups.createThirtyRoster(), ct1);
 	}
 
 	// -------------------------Player Class-----------------------
@@ -853,7 +856,7 @@ public class JUnitTests {
 
 	@Test
 	public void teamConstructor() {
-		Team team = new Team("Team Name", roster1, c1);
+		Team team = new Team("Team Name", roster1, ct1);
 		assertEquals(team.getTeamName(), "Team Name");
 		assertArrayEquals(team.getRoster(), roster1);
 		assertEquals(team.getTeamOffensiveRating(), 50);

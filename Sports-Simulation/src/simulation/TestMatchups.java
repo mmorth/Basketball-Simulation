@@ -4,23 +4,32 @@ public class TestMatchups {
 
 	private static Team[] teams;
 
-	static Coach genCoach = new Coach("First", "Last", 100, 100, 25, 5, 2);
-	private static Team OneHundred = new Team("100", createOneHundredRoster(), genCoach);
-	private static Team NinetyFive = new Team("95", createNinetyFiveRoster(), genCoach);
-	private static Team Ninety = new Team("90", createNinetyRoster(), genCoach);
-	private static Team EightyFive = new Team("85", createEightyFiveRoster(), genCoach);
-	private static Team Eighty = new Team("80", createEightyRoster(), genCoach);
-	private static Team SeventyFive = new Team("75", createSeventyFiveRoster(), genCoach);
-	private static Team Seventy = new Team("70", createSeventyRoster(), genCoach);
-	private static Team SixtyFive = new Team("65", createSixtyFiveRoster(), genCoach);
-	private static Team Sixty = new Team("60", createSixtyRoster(), genCoach);
-	private static Team FiftyFive = new Team("55", createFiftyFiveRoster(), genCoach);
-	private static Team Fifty = new Team("50", createFiftyRoster(), genCoach);
-	private static Team FourtyFive = new Team("45", createFourtyFiveRoster(), genCoach);
-	private static Team Fourty = new Team("40", createFourtyRoster(), genCoach);
-	private static Team ThirtyFive = new Team("35", createThirtyFiveRoster(), genCoach);
-	private static Team Thirty = new Team("30", createThirtyRoster(), genCoach);
+	int noCoachRating = 30;
+	
+	Player ct1 = new Player(1, "First", "Last", 25, 5, 2, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
+			noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
+			noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating);
+	
+	private Team OneHundred = new Team("100", createOneHundredRoster(), ct1);
+	private Team NinetyFive = new Team("95", createNinetyFiveRoster(), ct1);
+	private Team Ninety = new Team("90", createNinetyRoster(), ct1);
+	private Team EightyFive = new Team("85", createEightyFiveRoster(), ct1);
+	private Team Eighty = new Team("80", createEightyRoster(), ct1);
+	private Team SeventyFive = new Team("75", createSeventyFiveRoster(), ct1);
+	private Team Seventy = new Team("70", createSeventyRoster(), ct1);
+	private Team SixtyFive = new Team("65", createSixtyFiveRoster(), ct1);
+	private Team Sixty = new Team("60", createSixtyRoster(), ct1);
+	private Team FiftyFive = new Team("55", createFiftyFiveRoster(), ct1);
+	private Team Fifty = new Team("50", createFiftyRoster(), ct1);
+	private Team FourtyFive = new Team("45", createFourtyFiveRoster(), ct1);
+	private Team Fourty = new Team("40", createFourtyRoster(), ct1);
+	private Team ThirtyFive = new Team("35", createThirtyFiveRoster(), ct1);
+	private Team Thirty = new Team("30", createThirtyRoster(), ct1);
 
+	public TestMatchups() {
+		
+	}
+	
 	public static void main(String[] args) {
 
 	}
@@ -385,123 +394,123 @@ public class TestMatchups {
 		return roster;
 	}
 
-	public static Team getOneHundred() {
+	public Team getOneHundred() {
 		return OneHundred;
 	}
 
-	public static void setOneHundred(Team oneHundred) {
+	public void setOneHundred(Team oneHundred) {
 		OneHundred = oneHundred;
 	}
 
-	public static Team getNinetyFive() {
+	public Team getNinetyFive() {
 		return NinetyFive;
 	}
 
-	public static void setNinetyFive(Team ninetyFive) {
+	public void setNinetyFive(Team ninetyFive) {
 		NinetyFive = ninetyFive;
 	}
 
-	public static Team getNinety() {
+	public Team getNinety() {
 		return Ninety;
 	}
 
-	public static void setNinety(Team ninety) {
+	public void setNinety(Team ninety) {
 		Ninety = ninety;
 	}
 
-	public static Team getEightyFive() {
+	public Team getEightyFive() {
 		return EightyFive;
 	}
 
-	public static void setEightyFive(Team eightyFive) {
+	public void setEightyFive(Team eightyFive) {
 		EightyFive = eightyFive;
 	}
 
-	public static Team getEighty() {
+	public Team getEighty() {
 		return Eighty;
 	}
 
-	public static void setEighty(Team eighty) {
+	public void setEighty(Team eighty) {
 		Eighty = eighty;
 	}
 
-	public static Team getSeventyFive() {
+	public Team getSeventyFive() {
 		return SeventyFive;
 	}
 
-	public static void setSeventyFive(Team seventyFive) {
+	public void setSeventyFive(Team seventyFive) {
 		SeventyFive = seventyFive;
 	}
 
-	public static Team getSeventy() {
+	public Team getSeventy() {
 		return Seventy;
 	}
 
-	public static void setSeventy(Team seventy) {
+	public void setSeventy(Team seventy) {
 		Seventy = seventy;
 	}
 
-	public static Team getSixtyFive() {
+	public Team getSixtyFive() {
 		return SixtyFive;
 	}
 
-	public static void setSixtyFive(Team sixtyFive) {
+	public void setSixtyFive(Team sixtyFive) {
 		SixtyFive = sixtyFive;
 	}
 
-	public static Team getSixty() {
+	public Team getSixty() {
 		return Sixty;
 	}
 
-	public static void setSixty(Team sixty) {
+	public void setSixty(Team sixty) {
 		Sixty = sixty;
 	}
 
-	public static Team getFiftyFive() {
+	public Team getFiftyFive() {
 		return FiftyFive;
 	}
 
-	public static void setFiftyFive(Team fiftyFive) {
+	public void setFiftyFive(Team fiftyFive) {
 		FiftyFive = fiftyFive;
 	}
 
-	public static Team getFifty() {
+	public Team getFifty() {
 		return Fifty;
 	}
 
-	public static void setFifty(Team fifty) {
+	public void setFifty(Team fifty) {
 		Fifty = fifty;
 	}
 
-	public static Team getFourtyFive() {
+	public Team getFourtyFive() {
 		return FourtyFive;
 	}
 
-	public static void setFourtyFive(Team fourtyFive) {
+	public void setFourtyFive(Team fourtyFive) {
 		FourtyFive = fourtyFive;
 	}
 
-	public static Team getFourty() {
+	public Team getFourty() {
 		return Fourty;
 	}
 
-	public static void setFourty(Team fourty) {
+	public void setFourty(Team fourty) {
 		Fourty = fourty;
 	}
 
-	public static Team getThirtyFive() {
+	public Team getThirtyFive() {
 		return ThirtyFive;
 	}
 
-	public static void setThirtyFive(Team thirtyFive) {
+	public void setThirtyFive(Team thirtyFive) {
 		ThirtyFive = thirtyFive;
 	}
 
-	public static Team getThirty() {
+	public Team getThirty() {
 		return Thirty;
 	}
 
-	public static void setThirty(Team thirty) {
+	public void setThirty(Team thirty) {
 		Thirty = thirty;
 	}
 	

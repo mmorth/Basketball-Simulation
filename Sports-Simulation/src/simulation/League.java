@@ -25,16 +25,7 @@ public class League {
 			}
 			String teamName = line;
 
-			Coach coach = new Coach();
-
-			// String playerLine = fileReader.nextLine();
-			// String[] playerInfo = playerLine.trim().split("\\s+");
-			// if (playerLine.isEmpty()) {
-			// break;
-			// }
-			// if (playerInfo[0].equals("//") || playerInfo[0].equals("Position")) {
-			// continue;
-			// }
+			Player coach = new Player();
 
 			ArrayList<Player> roster = new ArrayList<>();
 
@@ -49,9 +40,17 @@ public class League {
 				}
 
 				if (Integer.parseInt(playerInfo[0]) == 0) {
-					coach = new Coach(playerInfo[1], playerInfo[2], Integer.parseInt(playerInfo[4]),
-							Integer.parseInt(playerInfo[5]), Integer.parseInt(playerInfo[6]),
-							Double.parseDouble(playerInfo[7]), Integer.parseInt(playerInfo[8]));
+					coach = new Player(Integer.parseInt(playerInfo[0]), playerInfo[1], playerInfo[2],
+							Integer.parseInt(playerInfo[6]), Double.parseDouble(playerInfo[7]),
+							Integer.parseInt(playerInfo[8]), Integer.parseInt(playerInfo[9]),
+							Integer.parseInt(playerInfo[10]), Integer.parseInt(playerInfo[11]),
+							Integer.parseInt(playerInfo[12]), Integer.parseInt(playerInfo[13]),
+							Integer.parseInt(playerInfo[14]), Integer.parseInt(playerInfo[15]),
+							Integer.parseInt(playerInfo[16]), Integer.parseInt(playerInfo[17]),
+							Integer.parseInt(playerInfo[18]), Integer.parseInt(playerInfo[19]),
+							Integer.parseInt(playerInfo[20]), Integer.parseInt(playerInfo[21]),
+							Integer.parseInt(playerInfo[22]), Integer.parseInt(playerInfo[23]),
+							Integer.parseInt(playerInfo[24]), Integer.parseInt(playerInfo[25]));
 				} else {
 
 					Player player = new Player(Integer.parseInt(playerInfo[0]), playerInfo[1], playerInfo[2],

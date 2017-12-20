@@ -131,6 +131,13 @@ public class Player {
 	private int potential;
 
 	/**
+	 * Default Constructor: Remove after testing!
+	 */
+	public Player() {
+
+	}
+
+	/**
 	 * Constructs a new Player object
 	 * 
 	 * @param playerFirstName
@@ -409,10 +416,13 @@ public class Player {
 	 *            new insideScoring rating of the player
 	 */
 	public void setInsideScoring(int insideScoring) {
-		if (insideScoring < 30 || insideScoring > 100) {
-			throw new IllegalArgumentException("Inside Scoring needs to be between 0 and 100 inclusive");
+		if (insideScoring < 30) {
+			this.insideScoring = 30;
+		} else if (insideScoring > 100) {
+			this.insideScoring = 100;
+		} else {
+			this.insideScoring = insideScoring;
 		}
-		this.insideScoring = insideScoring;
 	}
 
 	/**
@@ -431,10 +441,13 @@ public class Player {
 	 *            new midRangeScoring rating of the player
 	 */
 	public void setMidRangeScoring(int midRangeScoring) {
-		if (midRangeScoring < 30 || midRangeScoring > 100) {
-			throw new IllegalArgumentException("Mid-range Scoring needs to be between 0 and 100 inclusive");
+		if (midRangeScoring < 30) {
+			this.midRangeScoring = 30;
+		} else if (midRangeScoring > 100) {
+			this.midRangeScoring = 100;
+		} else {
+			this.midRangeScoring = midRangeScoring;
 		}
-		this.midRangeScoring = midRangeScoring;
 	}
 
 	/**
@@ -453,10 +466,13 @@ public class Player {
 	 *            new threePointScoring rating of the player
 	 */
 	public void setThreePointScoring(int threePointScoring) {
-		if (threePointScoring < 30 || threePointScoring > 100) {
-			throw new IllegalArgumentException("3-point scoring needs to be between 0 and 100 inclusive");
+		if (threePointScoring < 30) {
+			this.threePointScoring = 30;
+		} else if (threePointScoring > 100) {
+			this.threePointScoring = 100;
+		} else {
+			this.threePointScoring = threePointScoring;
 		}
-		this.threePointScoring = threePointScoring;
 	}
 
 	/**
@@ -475,10 +491,13 @@ public class Player {
 	 *            new freeThrow rating of the player
 	 */
 	public void setFreeThrow(int freeThrow) {
-		if (freeThrow < 30 || freeThrow > 100) {
-			throw new IllegalArgumentException("Free Throw needs to be between 0 and 100 inclusive");
+		if (freeThrow < 30) {
+			this.freeThrow = 30;
+		} else if (freeThrow > 100) {
+			this.freeThrow = 100;
+		} else {
+			this.freeThrow = freeThrow;
 		}
-		this.freeThrow = freeThrow;
 	}
 
 	/**
@@ -497,10 +516,13 @@ public class Player {
 	 *            new offensiveRebounding rating of the player
 	 */
 	public void setOffensiveRebounding(int offensiveRebounding) {
-		if (offensiveRebounding < 30 || offensiveRebounding > 100) {
-			throw new IllegalArgumentException("Offensive Rebounding needs to be between 0 and 100 inclusive");
+		if (offensiveRebounding < 30) {
+			this.offensiveRebounding = 30;
+		} else if (offensiveRebounding > 100) {
+			this.offensiveRebounding = 100;
+		} else {
+			this.offensiveRebounding = offensiveRebounding;
 		}
-		this.offensiveRebounding = offensiveRebounding;
 	}
 
 	/**
@@ -519,10 +541,13 @@ public class Player {
 	 *            new ballHandling rating of the player
 	 */
 	public void setBallHandling(int ballHandling) {
-		if (ballHandling < 30 || ballHandling > 100) {
-			throw new IllegalArgumentException("Ball Handling needs to be between 0 and 100 inclusive");
+		if (ballHandling < 30) {
+			this.ballHandling = 30;
+		} else if (ballHandling > 100) {
+			this.ballHandling = 100;
+		} else {
+			this.ballHandling = ballHandling;
 		}
-		this.ballHandling = ballHandling;
 	}
 
 	/**
@@ -541,10 +566,13 @@ public class Player {
 	 *            new passing rating of the player
 	 */
 	public void setPassing(int passing) {
-		if (passing < 30 || passing > 100) {
-			throw new IllegalArgumentException("Passing needs to be between 0 and 100 inclusive");
+		if (passing < 30) {
+			this.passing = 30;
+		} else if (passing > 100) {
+			this.passing = 100;
+		} else {
+			this.passing = passing;
 		}
-		this.passing = passing;
 	}
 
 	/**
@@ -563,10 +591,13 @@ public class Player {
 	 *            new postDefense rating of the player
 	 */
 	public void setPostDefense(int postDefense) {
-		if (postDefense < 30 || postDefense > 100) {
-			throw new IllegalArgumentException("Post Defense needs to be between 0 and 100 inclusive");
+		if (postDefense < 30) {
+			this.postDefense = 30;
+		} else if (postDefense > 100) {
+			this.postDefense = 100;
+		} else {
+			this.postDefense = postDefense;
 		}
-		this.postDefense = postDefense;
 	}
 
 	/**
@@ -585,10 +616,13 @@ public class Player {
 	 *            new perimeterDefense rating of the player
 	 */
 	public void setPerimeterDefense(int perimeterDefense) {
-		if (perimeterDefense < 30 || perimeterDefense > 100) {
-			throw new IllegalArgumentException("Perimeter Defense needs to be between 0 and 100 inclusive");
+		if (perimeterDefense < 30) {
+			this.perimeterDefense = 30;
+		} else if (perimeterDefense > 100) {
+			this.perimeterDefense = 100;
+		} else {
+			this.perimeterDefense = perimeterDefense;
 		}
-		this.perimeterDefense = perimeterDefense;
 	}
 
 	/**
@@ -607,10 +641,13 @@ public class Player {
 	 *            new defensiveRebounding rating of the player
 	 */
 	public void setDefensiveRebounding(int defensiveRebounding) {
-		if (defensiveRebounding < 30 || defensiveRebounding > 100) {
-			throw new IllegalArgumentException("Defensive Rebounding needs to be between 0 and 100 inclusive");
+		if (defensiveRebounding < 30) {
+			this.defensiveRebounding = 30;
+		} else if (defensiveRebounding > 100) {
+			this.defensiveRebounding = 100;
+		} else {
+			this.defensiveRebounding = defensiveRebounding;
 		}
-		this.defensiveRebounding = defensiveRebounding;
 	}
 
 	/**
@@ -629,10 +666,13 @@ public class Player {
 	 *            new steal rating of the player
 	 */
 	public void setSteal(int steal) {
-		if (steal < 30 || steal > 100) {
-			throw new IllegalArgumentException("Steal needs to be between 0 and 100 inclusive");
+		if (steal < 30) {
+			this.steal = 30;
+		} else if (steal > 100) {
+			this.steal = 100;
+		} else {
+			this.steal = steal;
 		}
-		this.steal = steal;
 	}
 
 	/**
@@ -651,10 +691,13 @@ public class Player {
 	 *            new block rating of the player
 	 */
 	public void setBlock(int block) {
-		if (block < 30 || block > 100) {
-			throw new IllegalArgumentException("Block needs to be between 0 and 100 inclusive");
+		if (block < 30) {
+			this.block = 30;
+		} else if (block > 100) {
+			this.block = 100;
+		} else {
+			this.block = block;
 		}
-		this.block = block;
 	}
 
 	/**
@@ -673,10 +716,13 @@ public class Player {
 	 *            new height rating of the player
 	 */
 	public void setHeight(int height) {
-		if (height < 30 || height > 100) {
-			throw new IllegalArgumentException("Height needs to be between 0 and 100 inclusive");
+		if (height < 30) {
+			this.height = 30;
+		} else if (height > 100) {
+			this.height = 100;
+		} else {
+			this.height = height;
 		}
-		this.height = height;
 	}
 
 	/**
@@ -695,10 +741,13 @@ public class Player {
 	 *            new speed rating of the player
 	 */
 	public void setSpeed(int speed) {
-		if (speed < 30 || speed > 100) {
-			throw new IllegalArgumentException("Speed needs to be between 0 and 100 inclusive");
+		if (speed < 30) {
+			this.speed = 30;
+		} else if (speed > 100) {
+			this.speed = 100;
+		} else {
+			this.speed = speed;
 		}
-		this.speed = speed;
 	}
 
 	/**
@@ -717,10 +766,13 @@ public class Player {
 	 *            new stamina rating of the player
 	 */
 	public void setStamina(int stamina) {
-		if (stamina < 30 || stamina > 100) {
-			throw new IllegalArgumentException("Stamina needs to be between 0 and 100 inclusive");
+		if (stamina < 30) {
+			this.stamina = 30;
+		} else if (stamina > 100) {
+			this.stamina = 100;
+		} else {
+			this.stamina = stamina;
 		}
-		this.stamina = stamina;
 	}
 
 	/**
@@ -739,10 +791,13 @@ public class Player {
 	 *            new injury rating of the player
 	 */
 	public void setInjury(int injury) {
-		if (injury < 30 || injury > 100) {
-			throw new IllegalArgumentException("Injury needs to be between 0 and 100 inclusive");
+		if (injury < 30) {
+			this.injury = 30;
+		} else if (injury > 100) {
+			this.injury = 100;
+		} else {
+			this.injury = injury;
 		}
-		this.injury = injury;
 	}
 
 	/**
@@ -761,10 +816,407 @@ public class Player {
 	 *            new potential rating of the player
 	 */
 	public void setPotential(int potential) {
-		if (potential < 30 || potential > 100) {
-			throw new IllegalArgumentException("Potential needs to be between 0 and 100 inclusive");
+		if (potential < 30) {
+			this.potential = 30;
+		} else if (potential > 100) {
+			this.potential = 100;
+		} else {
+			this.potential = potential;
 		}
-		this.potential = potential;
 	}
+
+	// /**
+	// * Returns the insideScoring rating of the player
+	// *
+	// * @return The insideScoring rating of the player
+	// */
+	// public int getInsideScoring() {
+	// return insideScoring;
+	// }
+	//
+	// /**
+	// * Sets the insideScoring rating of the player
+	// *
+	// * @param The
+	// * new insideScoring rating of the player
+	// */
+	// public void setInsideScoring(int insideScoring) {
+	// if (insideScoring < 30) {
+	//
+	// }
+	// if (insideScoring < 30 || insideScoring > 100) {
+	// throw new IllegalArgumentException("Inside Scoring needs to be between 0 and
+	// 100 inclusive");
+	// }
+	// this.insideScoring = insideScoring;
+	// }
+	//
+	// /**
+	// * Returns the midRangeScoring rating of the player
+	// *
+	// * @return The midRangeScoring rating of the player
+	// */
+	// public int getMidRangeScoring() {
+	// return midRangeScoring;
+	// }
+	//
+	// /**
+	// * Sets the midRangeScoring rating of the player
+	// *
+	// * @param The
+	// * new midRangeScoring rating of the player
+	// */
+	// public void setMidRangeScoring(int midRangeScoring) {
+	// if (midRangeScoring < 30 || midRangeScoring > 100) {
+	// throw new IllegalArgumentException("Mid-range Scoring needs to be between 0
+	// and 100 inclusive");
+	// }
+	// this.midRangeScoring = midRangeScoring;
+	// }
+	//
+	// /**
+	// * Returns the threePointScoring rating of the player
+	// *
+	// * @return The threePointScoring rating of the player
+	// */
+	// public int getThreePointScoring() {
+	// return threePointScoring;
+	// }
+	//
+	// /**
+	// * Sets the threePointScoring rating of the player
+	// *
+	// * @param The
+	// * new threePointScoring rating of the player
+	// */
+	// public void setThreePointScoring(int threePointScoring) {
+	// if (threePointScoring < 30 || threePointScoring > 100) {
+	// throw new IllegalArgumentException("3-point scoring needs to be between 0 and
+	// 100 inclusive");
+	// }
+	// this.threePointScoring = threePointScoring;
+	// }
+	//
+	// /**
+	// * Returns the freeThrow rating of the player
+	// *
+	// * @return The freeThrow rating of the player
+	// */
+	// public int getFreeThrow() {
+	// return freeThrow;
+	// }
+	//
+	// /**
+	// * Sets the freeThrow rating of the player
+	// *
+	// * @param The
+	// * new freeThrow rating of the player
+	// */
+	// public void setFreeThrow(int freeThrow) {
+	// if (freeThrow < 30 || freeThrow > 100) {
+	// throw new IllegalArgumentException("Free Throw needs to be between 0 and 100
+	// inclusive");
+	// }
+	// this.freeThrow = freeThrow;
+	// }
+	//
+	// /**
+	// * Returns the offensiveRebounding rating of the player
+	// *
+	// * @return The offensiveRebounding rating of the player
+	// */
+	// public int getOffensiveRebounding() {
+	// return offensiveRebounding;
+	// }
+	//
+	// /**
+	// * Sets the offensiveRebounding rating of the player
+	// *
+	// * @param The
+	// * new offensiveRebounding rating of the player
+	// */
+	// public void setOffensiveRebounding(int offensiveRebounding) {
+	// if (offensiveRebounding < 30 || offensiveRebounding > 100) {
+	// throw new IllegalArgumentException("Offensive Rebounding needs to be between
+	// 0 and 100 inclusive");
+	// }
+	// this.offensiveRebounding = offensiveRebounding;
+	// }
+	//
+	// /**
+	// * Returns the ballHandling rating of the player
+	// *
+	// * @return The ballHandling rating of the player
+	// */
+	// public int getBallHandling() {
+	// return ballHandling;
+	// }
+	//
+	// /**
+	// * Sets the ballHandling rating of the player
+	// *
+	// * @param The
+	// * new ballHandling rating of the player
+	// */
+	// public void setBallHandling(int ballHandling) {
+	// if (ballHandling < 30 || ballHandling > 100) {
+	// throw new IllegalArgumentException("Ball Handling needs to be between 0 and
+	// 100 inclusive");
+	// }
+	// this.ballHandling = ballHandling;
+	// }
+	//
+	// /**
+	// * Returns the passing rating of the player
+	// *
+	// * @return The passing rating of the player
+	// */
+	// public int getPassing() {
+	// return passing;
+	// }
+	//
+	// /**
+	// * Sets the passing rating of the player
+	// *
+	// * @param The
+	// * new passing rating of the player
+	// */
+	// public void setPassing(int passing) {
+	// if (passing < 30 || passing > 100) {
+	// throw new IllegalArgumentException("Passing needs to be between 0 and 100
+	// inclusive");
+	// }
+	// this.passing = passing;
+	// }
+	//
+	// /**
+	// * Returns the postDefense rating of the player
+	// *
+	// * @return The postDefense rating of the player
+	// */
+	// public int getPostDefense() {
+	// return postDefense;
+	// }
+	//
+	// /**
+	// * Sets the postDefense rating of the player
+	// *
+	// * @param The
+	// * new postDefense rating of the player
+	// */
+	// public void setPostDefense(int postDefense) {
+	// if (postDefense < 30 || postDefense > 100) {
+	// throw new IllegalArgumentException("Post Defense needs to be between 0 and
+	// 100 inclusive");
+	// }
+	// this.postDefense = postDefense;
+	// }
+	//
+	// /**
+	// * Returns the perimeterDefense rating of the player
+	// *
+	// * @return The perimeterDefense rating of the player
+	// */
+	// public int getPerimeterDefense() {
+	// return perimeterDefense;
+	// }
+	//
+	// /**
+	// * Sets the perimeterDefense rating of the player
+	// *
+	// * @param The
+	// * new perimeterDefense rating of the player
+	// */
+	// public void setPerimeterDefense(int perimeterDefense) {
+	// if (perimeterDefense < 30 || perimeterDefense > 100) {
+	// throw new IllegalArgumentException("Perimeter Defense needs to be between 0
+	// and 100 inclusive");
+	// }
+	// this.perimeterDefense = perimeterDefense;
+	// }
+	//
+	// /**
+	// * Returns the defensiveRebounding rating of the player
+	// *
+	// * @return The defensiveRebounding rating of the player
+	// */
+	// public int getDefensiveRebounding() {
+	// return defensiveRebounding;
+	// }
+	//
+	// /**
+	// * Sets the defensiveRebounding rating of the player
+	// *
+	// * @param The
+	// * new defensiveRebounding rating of the player
+	// */
+	// public void setDefensiveRebounding(int defensiveRebounding) {
+	// if (defensiveRebounding < 30 || defensiveRebounding > 100) {
+	// throw new IllegalArgumentException("Defensive Rebounding needs to be between
+	// 0 and 100 inclusive");
+	// }
+	// this.defensiveRebounding = defensiveRebounding;
+	// }
+	//
+	// /**
+	// * Returns the steal rating of the player
+	// *
+	// * @return The steal rating of the player
+	// */
+	// public int getSteal() {
+	// return steal;
+	// }
+	//
+	// /**
+	// * Sets the steal rating of the player
+	// *
+	// * @param The
+	// * new steal rating of the player
+	// */
+	// public void setSteal(int steal) {
+	// if (steal < 30 || steal > 100) {
+	// throw new IllegalArgumentException("Steal needs to be between 0 and 100
+	// inclusive");
+	// }
+	// this.steal = steal;
+	// }
+	//
+	// /**
+	// * Returns the block rating of the player
+	// *
+	// * @return The block rating of the player
+	// */
+	// public int getBlock() {
+	// return block;
+	// }
+	//
+	// /**
+	// * Sets the block rating of the player
+	// *
+	// * @param The
+	// * new block rating of the player
+	// */
+	// public void setBlock(int block) {
+	// if (block < 30 || block > 100) {
+	// throw new IllegalArgumentException("Block needs to be between 0 and 100
+	// inclusive");
+	// }
+	// this.block = block;
+	// }
+	//
+	// /**
+	// * Returns the height rating of the player
+	// *
+	// * @return The height rating of the player
+	// */
+	// public int getHeight() {
+	// return height;
+	// }
+	//
+	// /**
+	// * Sets the height rating of the player
+	// *
+	// * @param The
+	// * new height rating of the player
+	// */
+	// public void setHeight(int height) {
+	// if (height < 30 || height > 100) {
+	// throw new IllegalArgumentException("Height needs to be between 0 and 100
+	// inclusive");
+	// }
+	// this.height = height;
+	// }
+	//
+	// /**
+	// * Returns the speed rating of the player
+	// *
+	// * @return The speed rating of the player
+	// */
+	// public int getSpeed() {
+	// return speed;
+	// }
+	//
+	// /**
+	// * Sets the speed rating of the player
+	// *
+	// * @param The
+	// * new speed rating of the player
+	// */
+	// public void setSpeed(int speed) {
+	// if (speed < 30 || speed > 100) {
+	// throw new IllegalArgumentException("Speed needs to be between 0 and 100
+	// inclusive");
+	// }
+	// this.speed = speed;
+	// }
+	//
+	// /**
+	// * Returns the stamina rating of the player
+	// *
+	// * @return The stamina rating of the player
+	// */
+	// public int getStamina() {
+	// return stamina;
+	// }
+	//
+	// /**
+	// * Sets the stamina rating of the player
+	// *
+	// * @param The
+	// * new stamina rating of the player
+	// */
+	// public void setStamina(int stamina) {
+	// if (stamina < 30 || stamina > 100) {
+	// throw new IllegalArgumentException("Stamina needs to be between 0 and 100
+	// inclusive");
+	// }
+	// this.stamina = stamina;
+	// }
+	//
+	// /**
+	// * Returns the injury rating of the player
+	// *
+	// * @return The injury rating of the player
+	// */
+	// public int getInjury() {
+	// return injury;
+	// }
+	//
+	// /**
+	// * Sets the injury rating of the player
+	// *
+	// * @param The
+	// * new injury rating of the player
+	// */
+	// public void setInjury(int injury) {
+	// if (injury < 30 || injury > 100) {
+	// throw new IllegalArgumentException("Injury needs to be between 0 and 100
+	// inclusive");
+	// }
+	// this.injury = injury;
+	// }
+	//
+	// /**
+	// * Returns the potential rating of the player
+	// *
+	// * @return The potential rating of the player
+	// */
+	// public int getPotential() {
+	// return potential;
+	// }
+	//
+	// /**
+	// * Sets the potential rating of the player
+	// *
+	// * @param The
+	// * new potential rating of the player
+	// */
+	// public void setPotential(int potential) {
+	// if (potential < 30 || potential > 100) {
+	// throw new IllegalArgumentException("Potential needs to be between 0 and 100
+	// inclusive");
+	// }
+	// this.potential = potential;
+	// }
 
 }

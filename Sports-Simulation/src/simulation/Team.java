@@ -23,7 +23,7 @@ public class Team {
 	/**
 	 * Stores the coach of the team
 	 */
-	private Coach coach;
+	private Player coach;
 
 	/**
 	 * Stores team name
@@ -51,6 +51,24 @@ public class Team {
 	private int teamOverallRating;
 
 	/**
+	 * Stores the boost to the offensive ratings of the players based on the coach's
+	 * offensive rating
+	 */
+	long coachOffensiveBoost;
+
+	/**
+	 * Stores the boost to the defensive ratings of the players based on the coach's
+	 * defensive rating
+	 */
+	long coachDefensiveBoost;
+
+	/**
+	 * Stores the boost to the both ratings of the players based on the overall
+	 * rating of the coach
+	 */
+	long coachOverallBoost;
+
+	/**
 	 * Constructs a new Team object
 	 * 
 	 * @param roster
@@ -58,7 +76,7 @@ public class Team {
 	 * @param teamName
 	 *            The name of the team
 	 */
-	public Team(String teamName, Player[] roster, Coach coach) {
+	public Team(String teamName, Player[] roster, Player coach) {
 
 		setTeamName(teamName);
 
@@ -66,6 +84,9 @@ public class Team {
 
 		setCoach(coach);
 
+		setCoachOffensiveBoost();
+		setCoachDefensiveBoost();
+		setCoachOverallBoost();
 		generateNewTeamOffensiveRating();
 		generateNewTeamDefensiveRating();
 		generateNewTeamOverallRating();
@@ -148,7 +169,7 @@ public class Team {
 	 * 
 	 * @return The coach of the team
 	 */
-	public Coach getCoach() {
+	public Player getCoach() {
 		return coach;
 	}
 
@@ -158,8 +179,19 @@ public class Team {
 	 * @param The
 	 *            new coach of the team
 	 */
-	public void setCoach(Coach coach) {
+	public void setCoach(Player coach) {
+
+		if (this.coach != null) {
+			removeCoachRatingsBoost();
+		}
+
 		this.coach = coach;
+
+		setCoachOffensiveBoost();
+		setCoachDefensiveBoost();
+		setCoachOverallBoost();
+
+		coachBoostPlayerRatings();
 	}
 
 	/**
@@ -257,6 +289,125 @@ public class Team {
 	}
 
 	/**
+	 * Returns the coachOffensiveBoost rating for the team
+	 * 
+	 * @return The coachOffensiveBoost rating for the team
+	 */
+	public long getCoachOffensiveBoost() {
+		return coachOffensiveBoost;
+	}
+
+	/**
+	 * Sets the coachOffensiveBoost rating for the team
+	 * 
+	 * @param The
+	 *            new coachOffensiveBoost rating for the team
+	 */
+	public void setCoachOffensiveBoost() {
+		coachOffensiveBoost = Math.round(coach.getOffensiveRating() / 20.0);
+	}
+
+	/**
+	 * Returns the coachDefensiveBoost rating for the team
+	 * 
+	 * @return The coachDefensiveBoost rating for the team
+	 */
+	public long getCoachDefensiveBoost() {
+		return coachDefensiveBoost;
+	}
+
+	/**
+	 * Sets the coachDefensiveBoost rating for the team
+	 * 
+	 * @param The
+	 *            new coachDefensiveBoost rating for the team
+	 */
+	public void setCoachDefensiveBoost() {
+		coachDefensiveBoost = Math.round(coach.getOffensiveRating() / 20.0);
+	}
+
+	/**
+	 * Returns the coachOverallBoost rating for the team
+	 * 
+	 * @return The coachOverallBoost rating for the team
+	 */
+	public long getCoachOverallBoost() {
+		return coachOverallBoost;
+	}
+
+	/**
+	 * Sets the coachOverallBoost rating for the team
+	 * 
+	 * @param The
+	 *            new coachOverallBoost rating for the team
+	 */
+	public void setCoachOverallBoost() {
+		coachOverallBoost = Math.round(coach.getOffensiveRating() / 20.0);
+	}
+
+	/**
+	 * Updates the player ratings based on the coach's overall rating in categories
+	 */
+	public void coachBoostPlayerRatings() {
+		for (int i = 0; i < roster.length && roster[i] != null; i++) {
+
+			// Offensive Boosts
+			roster[i].setInsideScoring(roster[i].getInsideScoring() + (int) coachOffensiveBoost);
+			roster[i].setMidRangeScoring(roster[i].getMidRangeScoring() + (int) coachOffensiveBoost);
+			roster[i].setThreePointScoring(roster[i].getThreePointScoring() + (int) coachOffensiveBoost);
+			roster[i].setFreeThrow(roster[i].getFreeThrow() + (int) coachOffensiveBoost);
+			roster[i].setOffensiveRebounding(roster[i].getOffensiveRating() + (int) coachOffensiveBoost);
+			roster[i].setBallHandling(roster[i].getBallHandling() + (int) coachOffensiveBoost);
+			roster[i].setPassing(roster[i].getPassing() + (int) coachOffensiveBoost);
+
+			// Defensive Boosts
+			roster[i].setPostDefense(roster[i].getPostDefense() + (int) coachDefensiveBoost);
+			roster[i].setPerimeterDefense(roster[i].getPerimeterDefense() + (int) coachDefensiveBoost);
+			roster[i].setDefensiveRebounding(roster[i].getDefensiveRebounding() + (int) coachDefensiveBoost);
+			roster[i].setSteal(roster[i].getSteal() + (int) coachDefensiveBoost);
+			roster[i].setBlock(roster[i].getBlock() + (int) coachDefensiveBoost);
+
+			// General Boosts
+			// roster[i].setHeight(roster[i].getHeight() + (int) coachOverallBoost);
+			roster[i].setSpeed(roster[i].getSpeed() + (int) coachOverallBoost);
+			roster[i].setStamina(roster[i].getStamina() + (int) coachOverallBoost);
+			roster[i].setInjury(roster[i].getInjury() + (int) coachOverallBoost);
+			roster[i].setPotential(roster[i].getPotential() + (int) coachOverallBoost);
+		}
+	}
+
+	/**
+	 * Updates the player ratings based on the coach's overall rating in categories
+	 */
+	public void removeCoachRatingsBoost() {
+		for (int i = 0; i < roster.length && roster[i] != null; i++) {
+
+			// Offensive Boosts
+			roster[i].setInsideScoring(roster[i].getInsideScoring() - (int) coachOffensiveBoost);
+			roster[i].setMidRangeScoring(roster[i].getMidRangeScoring() - (int) coachOffensiveBoost);
+			roster[i].setThreePointScoring(roster[i].getThreePointScoring() - (int) coachOffensiveBoost);
+			roster[i].setFreeThrow(roster[i].getFreeThrow() - (int) coachOffensiveBoost);
+			roster[i].setOffensiveRebounding(roster[i].getOffensiveRating() - (int) coachOffensiveBoost);
+			roster[i].setBallHandling(roster[i].getBallHandling() - (int) coachOffensiveBoost);
+			roster[i].setPassing(roster[i].getPassing() - (int) coachOffensiveBoost);
+
+			// Defensive Boosts
+			roster[i].setPostDefense(roster[i].getPostDefense() - (int) coachDefensiveBoost);
+			roster[i].setPerimeterDefense(roster[i].getPerimeterDefense() - (int) coachDefensiveBoost);
+			roster[i].setDefensiveRebounding(roster[i].getDefensiveRebounding() - (int) coachDefensiveBoost);
+			roster[i].setSteal(roster[i].getSteal() - (int) coachDefensiveBoost);
+			roster[i].setBlock(roster[i].getBlock() - (int) coachDefensiveBoost);
+
+			// General Boosts
+			// roster[i].setHeight(roster[i].getHeight() - (int) coachOverallBoost);
+			roster[i].setSpeed(roster[i].getSpeed() - (int) coachOverallBoost);
+			roster[i].setStamina(roster[i].getStamina() - (int) coachOverallBoost);
+			roster[i].setInjury(roster[i].getInjury() - (int) coachOverallBoost);
+			roster[i].setPotential(roster[i].getPotential() - (int) coachOverallBoost);
+		}
+	}
+
+	/**
 	 * Prints the team rosters to the console
 	 * 
 	 * @throws IOException
@@ -289,11 +440,14 @@ public class Team {
 		System.out.println(
 				"Position\tFirst_Name\t\tLast_Name\tOverall\tOffense\tDefense\tAge\tContract_Amount\tContract_Years\tInside_Scoring\tMid-Range Scoring\t3-Point_Scoring\tFree_Throw\tOffensive_Rebounding\tBall_Handling\tPassing\tPost_Defense\tPerimeter_Defense\tDefensive_Rebounding\tSteal\tBlock\tHeight\tSpeed\tStamina\tInjury\tPotential");
 
-		String coachInformation = String.format("%d\t\t\t%-15s\t%-15s\t%d\t\t%d\t\t%d\t\t%d\t%.1f\t\t\t\t%d", coach.getPosition(), coach.getCoachFirstName(), coach.getCoachLastName(), coach.getOverallRating(), coach.getOffenseRating(), coach.getDefenseRating(), coach.getAge(), coach.getContractAmount(), coach.getContractYears());
-		
+		String coachInformation = String.format("%d\t\t\t%-15s\t%-15s\t%d\t\t%d\t\t%d\t\t%d\t%.1f\t\t\t\t%d",
+				coach.getPosition(), coach.getPlayerFirstName(), coach.getPlayerLastName(), coach.getOverallRating(),
+				coach.getOffensiveRating(), coach.getDefensiveRating(), coach.getAge(), coach.getContractAmount(),
+				coach.getContractYears());
+
 		bw.write(coachInformation);
 		bw.newLine();
-		
+
 		// Display the position information
 		for (int i = 0; i < roster.length && roster[i] != null; i++) {
 			// String positionString = "";
@@ -335,8 +489,15 @@ public class Team {
 	// TODO Remove main method once testing is complete
 	public static void main(String[] args) throws IOException {
 
-		Coach genCoach = new Coach("First", "Last", 100, 100, 25, 5, 2);
-		Team t1 = new Team(TestMatchups.getOneHundred().getTeamName(), TestMatchups.getOneHundred().getRoster(), genCoach);
+		TestMatchups tm = new TestMatchups();
+
+		int noCoachRating = 30;
+
+		Player ct1 = new Player(1, "First", "Last", 25, 5, 2, noCoachRating, noCoachRating, noCoachRating,
+				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
+				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
+				noCoachRating);
+		Team t1 = new Team(tm.getOneHundred().getTeamName(), tm.getOneHundred().getRoster(), ct1);
 
 		t1.printTeamRosters();
 
