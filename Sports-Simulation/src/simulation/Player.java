@@ -38,6 +38,21 @@ public class Player {
 	 * Stores age of player
 	 */
 	private int age;
+	
+	/**
+	 * Stores the overall rating of the player
+	 */
+	private int overallRating;
+	
+	/**
+	 * Stores the offensive rating of the player
+	 */
+	private int offensiveRating;
+	
+	/**
+	 * Stores the defensive rating of the player
+	 */
+	private int defensiveRating;
 
 	// Offense Ratings:
 
@@ -301,7 +316,7 @@ public class Player {
 	 * @return The overallRating rating of the player
 	 */
 	public int getOverallRating() {
-		return 50;
+		return overallRating;
 	}
 
 	/**
@@ -310,7 +325,7 @@ public class Player {
 	 * @return The offensiveRating rating of the player
 	 */
 	public int getOffensiveRating() {
-		return 50;
+		return offensiveRating;
 	}
 
 	/**
@@ -319,7 +334,7 @@ public class Player {
 	 * @return The defensiveRating rating of the player
 	 */
 	public int getDefensiveRating() {
-		return 50;
+		return defensiveRating;
 	}
 
 	/**
@@ -825,398 +840,115 @@ public class Player {
 		}
 	}
 
-	// /**
-	// * Returns the insideScoring rating of the player
-	// *
-	// * @return The insideScoring rating of the player
-	// */
-	// public int getInsideScoring() {
-	// return insideScoring;
-	// }
-	//
-	// /**
-	// * Sets the insideScoring rating of the player
-	// *
-	// * @param The
-	// * new insideScoring rating of the player
-	// */
-	// public void setInsideScoring(int insideScoring) {
-	// if (insideScoring < 30) {
-	//
-	// }
-	// if (insideScoring < 30 || insideScoring > 100) {
-	// throw new IllegalArgumentException("Inside Scoring needs to be between 0 and
-	// 100 inclusive");
-	// }
-	// this.insideScoring = insideScoring;
-	// }
-	//
-	// /**
-	// * Returns the midRangeScoring rating of the player
-	// *
-	// * @return The midRangeScoring rating of the player
-	// */
-	// public int getMidRangeScoring() {
-	// return midRangeScoring;
-	// }
-	//
-	// /**
-	// * Sets the midRangeScoring rating of the player
-	// *
-	// * @param The
-	// * new midRangeScoring rating of the player
-	// */
-	// public void setMidRangeScoring(int midRangeScoring) {
-	// if (midRangeScoring < 30 || midRangeScoring > 100) {
-	// throw new IllegalArgumentException("Mid-range Scoring needs to be between 0
-	// and 100 inclusive");
-	// }
-	// this.midRangeScoring = midRangeScoring;
-	// }
-	//
-	// /**
-	// * Returns the threePointScoring rating of the player
-	// *
-	// * @return The threePointScoring rating of the player
-	// */
-	// public int getThreePointScoring() {
-	// return threePointScoring;
-	// }
-	//
-	// /**
-	// * Sets the threePointScoring rating of the player
-	// *
-	// * @param The
-	// * new threePointScoring rating of the player
-	// */
-	// public void setThreePointScoring(int threePointScoring) {
-	// if (threePointScoring < 30 || threePointScoring > 100) {
-	// throw new IllegalArgumentException("3-point scoring needs to be between 0 and
-	// 100 inclusive");
-	// }
-	// this.threePointScoring = threePointScoring;
-	// }
-	//
-	// /**
-	// * Returns the freeThrow rating of the player
-	// *
-	// * @return The freeThrow rating of the player
-	// */
-	// public int getFreeThrow() {
-	// return freeThrow;
-	// }
-	//
-	// /**
-	// * Sets the freeThrow rating of the player
-	// *
-	// * @param The
-	// * new freeThrow rating of the player
-	// */
-	// public void setFreeThrow(int freeThrow) {
-	// if (freeThrow < 30 || freeThrow > 100) {
-	// throw new IllegalArgumentException("Free Throw needs to be between 0 and 100
-	// inclusive");
-	// }
-	// this.freeThrow = freeThrow;
-	// }
-	//
-	// /**
-	// * Returns the offensiveRebounding rating of the player
-	// *
-	// * @return The offensiveRebounding rating of the player
-	// */
-	// public int getOffensiveRebounding() {
-	// return offensiveRebounding;
-	// }
-	//
-	// /**
-	// * Sets the offensiveRebounding rating of the player
-	// *
-	// * @param The
-	// * new offensiveRebounding rating of the player
-	// */
-	// public void setOffensiveRebounding(int offensiveRebounding) {
-	// if (offensiveRebounding < 30 || offensiveRebounding > 100) {
-	// throw new IllegalArgumentException("Offensive Rebounding needs to be between
-	// 0 and 100 inclusive");
-	// }
-	// this.offensiveRebounding = offensiveRebounding;
-	// }
-	//
-	// /**
-	// * Returns the ballHandling rating of the player
-	// *
-	// * @return The ballHandling rating of the player
-	// */
-	// public int getBallHandling() {
-	// return ballHandling;
-	// }
-	//
-	// /**
-	// * Sets the ballHandling rating of the player
-	// *
-	// * @param The
-	// * new ballHandling rating of the player
-	// */
-	// public void setBallHandling(int ballHandling) {
-	// if (ballHandling < 30 || ballHandling > 100) {
-	// throw new IllegalArgumentException("Ball Handling needs to be between 0 and
-	// 100 inclusive");
-	// }
-	// this.ballHandling = ballHandling;
-	// }
-	//
-	// /**
-	// * Returns the passing rating of the player
-	// *
-	// * @return The passing rating of the player
-	// */
-	// public int getPassing() {
-	// return passing;
-	// }
-	//
-	// /**
-	// * Sets the passing rating of the player
-	// *
-	// * @param The
-	// * new passing rating of the player
-	// */
-	// public void setPassing(int passing) {
-	// if (passing < 30 || passing > 100) {
-	// throw new IllegalArgumentException("Passing needs to be between 0 and 100
-	// inclusive");
-	// }
-	// this.passing = passing;
-	// }
-	//
-	// /**
-	// * Returns the postDefense rating of the player
-	// *
-	// * @return The postDefense rating of the player
-	// */
-	// public int getPostDefense() {
-	// return postDefense;
-	// }
-	//
-	// /**
-	// * Sets the postDefense rating of the player
-	// *
-	// * @param The
-	// * new postDefense rating of the player
-	// */
-	// public void setPostDefense(int postDefense) {
-	// if (postDefense < 30 || postDefense > 100) {
-	// throw new IllegalArgumentException("Post Defense needs to be between 0 and
-	// 100 inclusive");
-	// }
-	// this.postDefense = postDefense;
-	// }
-	//
-	// /**
-	// * Returns the perimeterDefense rating of the player
-	// *
-	// * @return The perimeterDefense rating of the player
-	// */
-	// public int getPerimeterDefense() {
-	// return perimeterDefense;
-	// }
-	//
-	// /**
-	// * Sets the perimeterDefense rating of the player
-	// *
-	// * @param The
-	// * new perimeterDefense rating of the player
-	// */
-	// public void setPerimeterDefense(int perimeterDefense) {
-	// if (perimeterDefense < 30 || perimeterDefense > 100) {
-	// throw new IllegalArgumentException("Perimeter Defense needs to be between 0
-	// and 100 inclusive");
-	// }
-	// this.perimeterDefense = perimeterDefense;
-	// }
-	//
-	// /**
-	// * Returns the defensiveRebounding rating of the player
-	// *
-	// * @return The defensiveRebounding rating of the player
-	// */
-	// public int getDefensiveRebounding() {
-	// return defensiveRebounding;
-	// }
-	//
-	// /**
-	// * Sets the defensiveRebounding rating of the player
-	// *
-	// * @param The
-	// * new defensiveRebounding rating of the player
-	// */
-	// public void setDefensiveRebounding(int defensiveRebounding) {
-	// if (defensiveRebounding < 30 || defensiveRebounding > 100) {
-	// throw new IllegalArgumentException("Defensive Rebounding needs to be between
-	// 0 and 100 inclusive");
-	// }
-	// this.defensiveRebounding = defensiveRebounding;
-	// }
-	//
-	// /**
-	// * Returns the steal rating of the player
-	// *
-	// * @return The steal rating of the player
-	// */
-	// public int getSteal() {
-	// return steal;
-	// }
-	//
-	// /**
-	// * Sets the steal rating of the player
-	// *
-	// * @param The
-	// * new steal rating of the player
-	// */
-	// public void setSteal(int steal) {
-	// if (steal < 30 || steal > 100) {
-	// throw new IllegalArgumentException("Steal needs to be between 0 and 100
-	// inclusive");
-	// }
-	// this.steal = steal;
-	// }
-	//
-	// /**
-	// * Returns the block rating of the player
-	// *
-	// * @return The block rating of the player
-	// */
-	// public int getBlock() {
-	// return block;
-	// }
-	//
-	// /**
-	// * Sets the block rating of the player
-	// *
-	// * @param The
-	// * new block rating of the player
-	// */
-	// public void setBlock(int block) {
-	// if (block < 30 || block > 100) {
-	// throw new IllegalArgumentException("Block needs to be between 0 and 100
-	// inclusive");
-	// }
-	// this.block = block;
-	// }
-	//
-	// /**
-	// * Returns the height rating of the player
-	// *
-	// * @return The height rating of the player
-	// */
-	// public int getHeight() {
-	// return height;
-	// }
-	//
-	// /**
-	// * Sets the height rating of the player
-	// *
-	// * @param The
-	// * new height rating of the player
-	// */
-	// public void setHeight(int height) {
-	// if (height < 30 || height > 100) {
-	// throw new IllegalArgumentException("Height needs to be between 0 and 100
-	// inclusive");
-	// }
-	// this.height = height;
-	// }
-	//
-	// /**
-	// * Returns the speed rating of the player
-	// *
-	// * @return The speed rating of the player
-	// */
-	// public int getSpeed() {
-	// return speed;
-	// }
-	//
-	// /**
-	// * Sets the speed rating of the player
-	// *
-	// * @param The
-	// * new speed rating of the player
-	// */
-	// public void setSpeed(int speed) {
-	// if (speed < 30 || speed > 100) {
-	// throw new IllegalArgumentException("Speed needs to be between 0 and 100
-	// inclusive");
-	// }
-	// this.speed = speed;
-	// }
-	//
-	// /**
-	// * Returns the stamina rating of the player
-	// *
-	// * @return The stamina rating of the player
-	// */
-	// public int getStamina() {
-	// return stamina;
-	// }
-	//
-	// /**
-	// * Sets the stamina rating of the player
-	// *
-	// * @param The
-	// * new stamina rating of the player
-	// */
-	// public void setStamina(int stamina) {
-	// if (stamina < 30 || stamina > 100) {
-	// throw new IllegalArgumentException("Stamina needs to be between 0 and 100
-	// inclusive");
-	// }
-	// this.stamina = stamina;
-	// }
-	//
-	// /**
-	// * Returns the injury rating of the player
-	// *
-	// * @return The injury rating of the player
-	// */
-	// public int getInjury() {
-	// return injury;
-	// }
-	//
-	// /**
-	// * Sets the injury rating of the player
-	// *
-	// * @param The
-	// * new injury rating of the player
-	// */
-	// public void setInjury(int injury) {
-	// if (injury < 30 || injury > 100) {
-	// throw new IllegalArgumentException("Injury needs to be between 0 and 100
-	// inclusive");
-	// }
-	// this.injury = injury;
-	// }
-	//
-	// /**
-	// * Returns the potential rating of the player
-	// *
-	// * @return The potential rating of the player
-	// */
-	// public int getPotential() {
-	// return potential;
-	// }
-	//
-	// /**
-	// * Sets the potential rating of the player
-	// *
-	// * @param The
-	// * new potential rating of the player
-	// */
-	// public void setPotential(int potential) {
-	// if (potential < 30 || potential > 100) {
-	// throw new IllegalArgumentException("Potential needs to be between 0 and 100
-	// inclusive");
-	// }
-	// this.potential = potential;
-	// }
-
+	/**
+	 * Calculates the overall, offensive, and defensive ratings of the coach
+	 */
+	public void calculateCoachRatings() {
+		offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) + ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) + ()*(ballHandling) + ()*(passing) + ()*(speed)) / 7;
+		defensiveRating = (()*(postDefense) + ()*(perimeterDefense) + ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed)) / 6;
+		overallRating = (offensiveRating + defensiveRating) / 2;
+		position = 0;
+	}
+	
+	/**
+	 * Calculates the overall, offensive, and defensive ratings of the point guard
+	 */
+	public void calculatePointGuardRating() {
+		offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) + ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) + ()*(ballHandling) + ()*(passing) + ()*(speed)) / 7;
+		defensiveRating = (()*(postDefense) + ()*(perimeterDefense) + ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed)) / 6;
+		overallRating = (offensiveRating + defensiveRating) / 2;
+		position = 1;
+	}
+	
+	/**
+	 * Calculates the overall, offensive, and defensive ratings of the shooting guard
+	 */
+	public void calculateShootingGuardRating() {
+		offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) + ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) + ()*(ballHandling) + ()*(passing) + ()*(speed)) / 7;
+		defensiveRating = (()*(postDefense) + ()*(perimeterDefense) + ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed)) / 6;
+		overallRating = (offensiveRating + defensiveRating) / 2;
+		position = 2;
+	}
+	
+	/**
+	 * Calculates the overall, offensive, and defensive ratings of the small forward
+	 */
+	public void calculateSmallForwardRating() {
+		offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) + ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) + ()*(ballHandling) + ()*(passing) + ()*(speed)) / 7;
+		defensiveRating = (()*(postDefense) + ()*(perimeterDefense) + ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed)) / 6;
+		overallRating = (offensiveRating + defensiveRating) / 2;
+		position = 3;
+	}
+	
+	/**
+	 * Calculates the overall, offensive, and defensive ratings of the power forward
+	 */
+	public void calculatePowerForwardRating() {
+		offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) + ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) + ()*(ballHandling) + ()*(passing) + ()*(speed)) / 7;
+		defensiveRating = (()*(postDefense) + ()*(perimeterDefense) + ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed)) / 6;
+		overallRating = (offensiveRating + defensiveRating) / 2;
+		position = 4;
+	}
+	
+	/**
+	 * Calculates the overall, offensive, and defensive ratings of the center
+	 */
+	public void calculateCenterRating() {
+		offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) + ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) + ()*(ballHandling) + ()*(passing) + ()*(speed)) / 7;
+		defensiveRating = (()*(postDefense) + ()*(perimeterDefense) + ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed)) / 6;
+		overallRating = (offensiveRating + defensiveRating) / 2;
+		position = 5;
+	}
+	
+	/**
+	 * Determines the best position for a player to play based on their ratings
+	 */
+	public void determineBestPosition() {
+		int maxRating = 0;
+		int maxPosition = 0;
+		
+		calculatePointGuardRating();
+		if (overallRating > maxRating) {
+			maxRating = overallRating;
+			maxPosition = 1;
+		}
+		
+		calculateShootingGuardRating();
+		if (overallRating > maxRating) {
+			maxRating = overallRating;
+			maxPosition = 0;
+		}
+		
+		calculateSmallForwardRating();
+		if (overallRating > maxRating) {
+			maxRating = overallRating;
+			maxPosition = 0;
+		}
+		
+		calculatePowerForwardRating();
+		if (overallRating > maxRating) {
+			maxRating = overallRating;
+			maxPosition = 0;
+		}
+		
+		calculateCenterRating();
+		if (overallRating > maxRating) {
+			maxRating = overallRating;
+			maxPosition = 0;
+		}
+		
+		if (maxPosition == 1) {
+			calculatePointGuardRating();
+		} else if (maxPosition == 2) {
+			calculateShootingGuardRating();
+		} else if (maxPosition == 3) {
+			calculateSmallForwardRating();
+		} else if (maxPosition == 4) {
+			calculatePowerForwardRating();
+		} else {
+			calculateCenterRating();
+		}
+		
+	}
+	
 }

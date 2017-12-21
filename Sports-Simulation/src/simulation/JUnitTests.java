@@ -64,7 +64,7 @@ public class JUnitTests {
 		int noCoachRating = 30;
 
 		roster = new Player[7];
-		Player ct1 = new Player(1, "First", "Last", 25, 5, 2, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
+		ct1 = new Player(1, "First", "Last", 25, 5, 2, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
 				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
 				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating);
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
@@ -365,14 +365,16 @@ public class JUnitTests {
 		assertEquals(p1.getInsideScoring(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetInsideScoringInvalid1() {
 		p1.setInsideScoring(29);
+		assertEquals(p1.getInsideScoring(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetInsideScoringInvalid2() {
 		p1.setInsideScoring(101);
+		assertEquals(p1.getInsideScoring(), 100);
 	}
 
 	@Test
@@ -386,14 +388,16 @@ public class JUnitTests {
 		assertEquals(p1.getMidRangeScoring(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetMidRangeScoringInvalid1() {
 		p1.setMidRangeScoring(29);
+		assertEquals(p1.getMidRangeScoring(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetMidRangeScoringInvalid2() {
 		p1.setMidRangeScoring(101);
+		assertEquals(p1.getMidRangeScoring(), 100);
 	}
 
 	@Test
@@ -407,14 +411,16 @@ public class JUnitTests {
 		assertEquals(p1.getThreePointScoring(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetThreePointScoringInvalid1() {
 		p1.setThreePointScoring(29);
+		assertEquals(p1.getThreePointScoring(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetThreePointScoringInvalid2() {
 		p1.setThreePointScoring(101);
+		assertEquals(p1.getThreePointScoring(), 100);
 	}
 
 	@Test
@@ -428,14 +434,16 @@ public class JUnitTests {
 		assertEquals(p1.getFreeThrow(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetFreeThrowInvalid1() {
 		p1.setFreeThrow(29);
+		assertEquals(p1.getFreeThrow(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetFreeThrowInvalid2() {
 		p1.setFreeThrow(101);
+		assertEquals(p1.getFreeThrow(), 100);
 	}
 
 	@Test
@@ -449,14 +457,16 @@ public class JUnitTests {
 		assertEquals(p1.getOffensiveRebounding(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetOffensiveReboundingInvalid1() {
 		p1.setOffensiveRebounding(29);
+		assertEquals(p1.getOffensiveRebounding(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetOffensiveReboundingInvalid2() {
 		p1.setOffensiveRebounding(101);
+		assertEquals(p1.getOffensiveRebounding(), 100);
 	}
 
 	@Test
@@ -470,14 +480,16 @@ public class JUnitTests {
 		assertEquals(p1.getBallHandling(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetBallHandlingInvalid1() {
 		p1.setBallHandling(29);
+		assertEquals(p1.getBallHandling(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetInvalid2() {
 		p1.setBallHandling(101);
+		assertEquals(p1.getBallHandling(), 100);
 	}
 
 	@Test
@@ -491,14 +503,16 @@ public class JUnitTests {
 		assertEquals(p1.getPassing(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetPassingInvalid1() {
 		p1.setPassing(29);
+		assertEquals(p1.getPassing(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetPassingInvalid2() {
 		p1.setPassing(101);
+		assertEquals(p1.getPassing(), 100);
 	}
 
 	@Test
@@ -512,14 +526,16 @@ public class JUnitTests {
 		assertEquals(p1.getPostDefense(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetPostDefenseInvalid1() {
 		p1.setPostDefense(29);
+		assertEquals(p1.getPostDefense(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetPostDefenseInvalid2() {
 		p1.setPostDefense(101);
+		assertEquals(p1.getPostDefense(), 100);
 	}
 
 	@Test
@@ -533,14 +549,16 @@ public class JUnitTests {
 		assertEquals(p1.getPerimeterDefense(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetPerimeterDefenseInvalid1() {
 		p1.setPerimeterDefense(29);
+		assertEquals(p1.getPerimeterDefense(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetPerimeterDefenseInvalid2() {
 		p1.setPerimeterDefense(101);
+		assertEquals(p1.getPerimeterDefense(), 100);
 	}
 
 	@Test
@@ -554,14 +572,16 @@ public class JUnitTests {
 		assertEquals(p1.getDefensiveRebounding(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetDefensiveReboundingInvalid1() {
 		p1.setDefensiveRebounding(29);
+		assertEquals(p1.getDefensiveRebounding(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetDefensiveReboundingInvalid2() {
 		p1.setDefensiveRebounding(101);
+		assertEquals(p1.getDefensiveRebounding(), 100);
 	}
 
 	@Test
@@ -575,14 +595,16 @@ public class JUnitTests {
 		assertEquals(p1.getSteal(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetStealInvalid1() {
 		p1.setSteal(29);
+		assertEquals(p1.getSteal(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetStealInvalid2() {
 		p1.setSteal(101);
+		assertEquals(p1.getSteal(), 100);
 	}
 
 	@Test
@@ -596,14 +618,16 @@ public class JUnitTests {
 		assertEquals(p1.getBlock(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetBlockInvalid1() {
 		p1.setBlock(29);
+		assertEquals(p1.getBlock(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetBlockInvalid2() {
 		p1.setBlock(101);
+		assertEquals(p1.getBlock(), 100);
 	}
 
 	@Test
@@ -617,14 +641,16 @@ public class JUnitTests {
 		assertEquals(p1.getHeight(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetHeightInvalid1() {
 		p1.setHeight(29);
+		assertEquals(p1.getHeight(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetHeightInvalid2() {
 		p1.setHeight(101);
+		assertEquals(p1.getHeight(), 100);
 	}
 
 	@Test
@@ -638,14 +664,16 @@ public class JUnitTests {
 		assertEquals(p1.getSpeed(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetSpeedInvalid1() {
 		p1.setSpeed(29);
+		assertEquals(p1.getSpeed(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetSpeedInvalid2() {
 		p1.setSpeed(101);
+		assertEquals(p1.getSpeed(), 100);
 	}
 
 	@Test
@@ -659,14 +687,16 @@ public class JUnitTests {
 		assertEquals(p1.getStamina(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetStaminaInvalid1() {
 		p1.setStamina(29);
+		assertEquals(p1.getStamina(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetStaminaInvalid2() {
 		p1.setStamina(101);
+		assertEquals(p1.getStamina(), 100);
 	}
 
 	@Test
@@ -680,14 +710,16 @@ public class JUnitTests {
 		assertEquals(p1.getInjury(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetInjuryInvalid1() {
 		p1.setInjury(29);
+		assertEquals(p1.getInjury(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetInjuryInvalid2() {
 		p1.setInjury(101);
+		assertEquals(p1.getInjury(), 100);
 	}
 
 	@Test
@@ -701,14 +733,16 @@ public class JUnitTests {
 		assertEquals(p1.getPotential(), 77);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetPotentialInvalid1() {
 		p1.setPotential(29);
+		assertEquals(p1.getPotential(), 30);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetPotentialInvalid2() {
 		p1.setPotential(101);
+		assertEquals(p1.getPotential(), 100);
 	}
 
 	// ----------------------------Coach Class---------------------------------
@@ -859,6 +893,9 @@ public class JUnitTests {
 		Team team = new Team("Team Name", roster1, ct1);
 		assertEquals(team.getTeamName(), "Team Name");
 		assertArrayEquals(team.getRoster(), roster1);
+		assertEquals(team.getCoachOffensiveBoost(), 3);
+		assertEquals(team.getCoachDefensiveBoost(), 3);
+		assertEquals(team.getCoachOverallBoost(), 3);
 		assertEquals(team.getTeamOffensiveRating(), 50);
 		assertEquals(team.getTeamDefensiveRating(), 50);
 		assertEquals(team.getTeamOverallRating(), 50);
