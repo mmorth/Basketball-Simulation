@@ -1,12 +1,9 @@
 package simulation;
 
-import simulation.TestMatchups;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-
-import java.io.IOException;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -53,7 +50,7 @@ public class JUnitTests {
 	@Before
 	public void setUp() {
 		// Create player
-		p1 = new Player(1, "First", "Last", 25, 5, 2, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 31,
+		p1 = new Player(1, "First", "Last", 25, 5, 2, 30, 35, 40, 45, 50, 57, 60, 65, 70, 75, 80, 85, 90, 95, 100, 31,
 				99);
 
 		// Create coach
@@ -182,7 +179,7 @@ public class JUnitTests {
 		Seventy = new Team("70", TestMatchups.createSeventyRoster(), ct1);
 		SixtyFive = new Team("65", TestMatchups.createSixtyFiveRoster(), ct1);
 		Sixty = new Team("60", TestMatchups.createSixtyRoster(), ct1);
-		FiftyFive = new Team("55", TestMatchups.createFiftyFiveRoster(), ct1);
+		FiftyFive = new Team("57", TestMatchups.createFiftyFiveRoster(), ct1);
 		Fifty = new Team("50", TestMatchups.createFiftyRoster(), ct1);
 		FourtyFive = new Team("45", TestMatchups.createFourtyFiveRoster(), ct1);
 		Fourty = new Team("40", TestMatchups.createFourtyRoster(), ct1);
@@ -194,7 +191,7 @@ public class JUnitTests {
 
 	@Test
 	public void playerConstructor() {
-		Player player = new Player(3, "Player", "Name", 25, 5, 2, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90,
+		Player player = new Player(3, "Player", "Name", 25, 5, 2, 30, 35, 40, 45, 50, 57, 60, 65, 70, 75, 80, 85, 90,
 				95, 100, 31, 99);
 		assertEquals(player.getPlayerFirstName(), "Player");
 		assertEquals(player.getPlayerLastName(), "Name");
@@ -207,7 +204,7 @@ public class JUnitTests {
 		assertEquals(player.getThreePointScoring(), 40);
 		assertEquals(player.getFreeThrow(), 45);
 		assertEquals(player.getOffensiveRebounding(), 50);
-		assertEquals(player.getBallHandling(), 55);
+		assertEquals(player.getBallHandling(), 57);
 		assertEquals(player.getPassing(), 60);
 		assertEquals(player.getPostDefense(), 65);
 		assertEquals(player.getPerimeterDefense(), 70);
@@ -220,9 +217,9 @@ public class JUnitTests {
 		assertEquals(player.getInjury(), 31);
 		assertEquals(player.getPotential(), 99);
 
-		assertEquals(player.getOffensiveRating(), 50);
-		assertEquals(player.getDefensiveRating(), 50);
-		assertEquals(player.getOverallRating(), 50);
+		assertEquals(player.getOffensiveRating(), 0);
+		assertEquals(player.getDefensiveRating(), 0);
+		assertEquals(player.getOverallRating(), 0);
 	}
 
 	@Test
@@ -269,17 +266,17 @@ public class JUnitTests {
 
 	@Test
 	public void playergetOffenseRating() {
-		assertEquals(50, p1.getOffensiveRating());
+		assertEquals(0, p1.getOffensiveRating());
 	}
 
 	@Test
 	public void playergetDefenseRating() {
-		assertEquals(50, p1.getDefensiveRating());
+		assertEquals(0, p1.getDefensiveRating());
 	}
 
 	@Test
 	public void playergetOverallRating() {
-		assertEquals(50, p1.getOverallRating());
+		assertEquals(0, p1.getOverallRating());
 	}
 
 	@Test
@@ -471,7 +468,7 @@ public class JUnitTests {
 
 	@Test
 	public void playerGetBallHandling() {
-		assertEquals(p1.getBallHandling(), 55);
+		assertEquals(p1.getBallHandling(), 57);
 	}
 
 	@Test
@@ -744,6 +741,39 @@ public class JUnitTests {
 		p1.setPotential(101);
 		assertEquals(p1.getPotential(), 100);
 	}
+	
+	@Before
+	public void playerPositionRatings() {
+		p1.setPosition(0);
+		assertEquals(p1.getOverallRating(), );
+		assertEquals(p1.getOffensiveRating(), );
+		assertEquals(p1.getDefensiveRating(), );
+		p1.setPosition(1);
+		assertEquals(p1.getOverallRating(), );
+		assertEquals(p1.getOffensiveRating(), );
+		assertEquals(p1.getDefensiveRating(), );
+		p1.setPosition(2);
+		assertEquals(p1.getOverallRating(), );
+		assertEquals(p1.getOffensiveRating(), );
+		assertEquals(p1.getDefensiveRating(), );
+		p1.setPosition(3);
+		assertEquals(p1.getOverallRating(), );
+		assertEquals(p1.getOffensiveRating(), );
+		assertEquals(p1.getDefensiveRating(), );
+		p1.setPosition(4);
+		assertEquals(p1.getOverallRating(), );
+		assertEquals(p1.getOffensiveRating(), );
+		assertEquals(p1.getDefensiveRating(), );
+		p1.setPosition(5);
+		assertEquals(p1.getOverallRating(), );
+		assertEquals(p1.getOffensiveRating(), );
+		assertEquals(p1.getDefensiveRating(), );
+		
+		p1.calculateBestPosition();
+		assertEquals(p1.getOverallRating(), );
+		assertEquals(p1.getOffensiveRating(), );
+		assertEquals(p1.getDefensiveRating(), );
+	}
 
 	// ----------------------------Coach Class---------------------------------
 
@@ -893,12 +923,9 @@ public class JUnitTests {
 		Team team = new Team("Team Name", roster1, ct1);
 		assertEquals(team.getTeamName(), "Team Name");
 		assertArrayEquals(team.getRoster(), roster1);
-		assertEquals(team.getCoachOffensiveBoost(), 3);
-		assertEquals(team.getCoachDefensiveBoost(), 3);
-		assertEquals(team.getCoachOverallBoost(), 3);
-		assertEquals(team.getTeamOffensiveRating(), 50);
-		assertEquals(team.getTeamDefensiveRating(), 50);
-		assertEquals(team.getTeamOverallRating(), 50);
+		assertEquals(team.getTeamOffensiveRating(), 0);
+		assertEquals(team.getTeamDefensiveRating(), 0);
+		assertEquals(team.getTeamOverallRating(), 0);
 		assertEquals(team.getSalaryCap(), 25, .01);
 	}
 
@@ -939,7 +966,7 @@ public class JUnitTests {
 
 	@Test
 	public void teamSetPlayer() {
-		Player newPlayer = new Player(3, "Player", "Name", 25, 5, 2, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90,
+		Player newPlayer = new Player(3, "Player", "Name", 25, 5, 2, 30, 35, 40, 45, 50, 57, 60, 65, 70, 75, 80, 85, 90,
 				95, 100, 31, 99);
 		t1.setPlayer(2, newPlayer);
 		assertEquals(newPlayer, t1.getRoster()[2]);
@@ -947,36 +974,120 @@ public class JUnitTests {
 
 	@Test
 	public void teamGetTeamOffensiveRating() {
-		assertEquals(50, t2.getTeamOffensiveRating());
+		assertEquals(0, t2.getTeamOffensiveRating());
 	}
 
 	@Test
 	public void teamGetTeamDefensiveRating() {
-		assertEquals(50, t2.getTeamDefensiveRating());
+		assertEquals(0, t2.getTeamDefensiveRating());
 	}
 
 	@Test
 	public void teamGetTeamOverallRating() {
-		assertEquals(50, t2.getTeamOverallRating());
+		assertEquals(0, t2.getTeamOverallRating());
 	}
-
-	// @Test
-	// public void teamUpdatePlayers() {
-	// assertEquals(t1.getRoster()[1].getOffenseRating(), 45);
-	// assertEquals(t1.getRoster()[1].getDefenseRating(), 45);
-	// assertEquals(t1.getRoster()[2].getOffenseRating(), 50);
-	// assertEquals(t1.getRoster()[2].getDefenseRating(), 50);
-	// assertEquals(t1.getRoster()[3].getOffenseRating(), 50);
-	// assertEquals(t1.getRoster()[3].getDefenseRating(), 50);
-	// assertEquals(t1.getRoster()[4].getOffenseRating(), 45);
-	// assertEquals(t1.getRoster()[4].getDefenseRating(), 45);
-	// assertEquals(t1.getRoster()[5].getOffenseRating(), 45);
-	// assertEquals(t1.getRoster()[5].getDefenseRating(), 45);
-	// }
 
 	@Test
 	public void teamGetSalaryCap() {
 		assertEquals(30, t1.getSalaryCap(), .01);
+	}
+	
+	@Test
+	public void teamCoachRatingsBoost() {
+
+		int rating = 30;
+		
+		Player coach1 = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating);
+		
+		Team boost = new Team("Boost", roster, coach1);
+		
+		for (rating = 30; rating <= 100; rating++) {
+			Player coach = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
+					rating, rating, rating, rating, rating, rating, rating, rating,
+					rating, rating, rating, rating, rating);
+			
+			boost.setCoach(coach);
+			
+			for (int i = 0; i < roster.length && roster[i] != null; i++) {
+				if (rating < 50) {
+					assertEquals(roster[i].getInsideScoring(), 54);
+					assertEquals(roster[i].getMidRangeScoring(), 54);
+					assertEquals(roster[i].getThreePointScoring(), 54);
+					assertEquals(roster[i].getFreeThrow(), 54);
+					assertEquals(roster[i].getOffensiveRebounding(), 54);
+					assertEquals(roster[i].getBallHandling(), 54);
+					assertEquals(roster[i].getPassing(), 54);
+					assertEquals(roster[i].getPostDefense(), 54);
+					assertEquals(roster[i].getPerimeterDefense(), 54);
+					assertEquals(roster[i].getDefensiveRebounding(), 54);
+					assertEquals(roster[i].getSteal(), 54);
+					assertEquals(roster[i].getBlock(), 54);
+					assertEquals(roster[i].getSpeed(), 54);
+					assertEquals(roster[i].getStamina(), 54);
+					assertEquals(roster[i].getInjury(), 54);
+					assertEquals(roster[i].getPotential(), 54);
+					assertEquals(roster[i].getHeight(), 50);
+				} else if (rating < 70) {
+					assertEquals(roster[i].getInsideScoring(), 55);
+					assertEquals(roster[i].getMidRangeScoring(), 55);
+					assertEquals(roster[i].getThreePointScoring(), 55);
+					assertEquals(roster[i].getFreeThrow(), 55);
+					assertEquals(roster[i].getOffensiveRebounding(), 55);
+					assertEquals(roster[i].getBallHandling(), 55);
+					assertEquals(roster[i].getPassing(), 55);
+					assertEquals(roster[i].getPostDefense(), 55);
+					assertEquals(roster[i].getPerimeterDefense(), 55);
+					assertEquals(roster[i].getDefensiveRebounding(), 55);
+					assertEquals(roster[i].getSteal(), 55);
+					assertEquals(roster[i].getBlock(), 55);
+					assertEquals(roster[i].getSpeed(), 55);
+					assertEquals(roster[i].getStamina(), 55);
+					assertEquals(roster[i].getInjury(), 55);
+					assertEquals(roster[i].getPotential(), 55);
+					assertEquals(roster[i].getHeight(), 50);
+				} else if (rating < 90) {
+					assertEquals(roster[i].getInsideScoring(), 56);
+					assertEquals(roster[i].getMidRangeScoring(), 56);
+					assertEquals(roster[i].getThreePointScoring(), 56);
+					assertEquals(roster[i].getFreeThrow(), 56);
+					assertEquals(roster[i].getOffensiveRebounding(), 56);
+					assertEquals(roster[i].getBallHandling(), 56);
+					assertEquals(roster[i].getPassing(), 56);
+					assertEquals(roster[i].getPostDefense(), 56);
+					assertEquals(roster[i].getPerimeterDefense(), 56);
+					assertEquals(roster[i].getDefensiveRebounding(), 56);
+					assertEquals(roster[i].getSteal(), 56);
+					assertEquals(roster[i].getBlock(), 56);
+					assertEquals(roster[i].getSpeed(), 56);
+					assertEquals(roster[i].getStamina(), 56);
+					assertEquals(roster[i].getInjury(), 56);
+					assertEquals(roster[i].getPotential(), 56);
+					assertEquals(roster[i].getHeight(), 50);
+				} else {
+					assertEquals(roster[i].getInsideScoring(), 57);
+					assertEquals(roster[i].getMidRangeScoring(), 57);
+					assertEquals(roster[i].getThreePointScoring(), 57);
+					assertEquals(roster[i].getFreeThrow(), 57);
+					assertEquals(roster[i].getOffensiveRebounding(), 57);
+					assertEquals(roster[i].getBallHandling(), 57);
+					assertEquals(roster[i].getPassing(), 57);
+					assertEquals(roster[i].getPostDefense(), 57);
+					assertEquals(roster[i].getPerimeterDefense(), 57);
+					assertEquals(roster[i].getDefensiveRebounding(), 57);
+					assertEquals(roster[i].getSteal(), 57);
+					assertEquals(roster[i].getBlock(), 57);
+					assertEquals(roster[i].getSpeed(), 57);
+					assertEquals(roster[i].getStamina(), 57);
+					assertEquals(roster[i].getInjury(), 57);
+					assertEquals(roster[i].getPotential(), 57);
+					assertEquals(roster[i].getHeight(), 50);
+				}
+			}
+			
+		}
+		
 	}
 
 	// ---------------------- Helper Class -----------------
@@ -1045,10 +1156,10 @@ public class JUnitTests {
 	// Team team2 = OneHundred;
 	//
 	// double team1LowerWinPercentage = .45;
-	// double team1UpperWinPercentage = .55;
+	// double team1UpperWinPercentage = .57;
 	//
 	// double team2LowerWinPercentage = .45;
-	// double team2UpperWinPercentage = .55;
+	// double team2UpperWinPercentage = .57;
 	//
 	// double team1LowerAverageScore = 98;
 	// double team1UpperAverageScore = 108;
@@ -1136,7 +1247,7 @@ public class JUnitTests {
 	// Team team1 = OneHundred;
 	// Team team2 = Ninety;
 	//
-	// double team1LowerWinPercentage = .55;
+	// double team1LowerWinPercentage = .57;
 	// double team1UpperWinPercentage = .65;
 	//
 	// double team2LowerWinPercentage = .35;
@@ -1367,10 +1478,10 @@ public class JUnitTests {
 	// Team team2 = Eighty;
 	//
 	// double team1LowerWinPercentage = .45;
-	// double team1UpperWinPercentage = .55;
+	// double team1UpperWinPercentage = .57;
 	//
 	// double team2LowerWinPercentage = .45;
-	// double team2UpperWinPercentage = .55;
+	// double team2UpperWinPercentage = .57;
 	//
 	// double team1LowerAverageScore = 98;
 	// double team1UpperAverageScore = 108;
@@ -1413,10 +1524,10 @@ public class JUnitTests {
 	// Team team2 = Thirty;
 	//
 	// double team1LowerWinPercentage = .45;
-	// double team1UpperWinPercentage = .55;
+	// double team1UpperWinPercentage = .57;
 	//
 	// double team2LowerWinPercentage = .45;
-	// double team2UpperWinPercentage = .55;
+	// double team2UpperWinPercentage = .57;
 	//
 	// double team1LowerAverageScore = 98;
 	// double team1UpperAverageScore = 108;

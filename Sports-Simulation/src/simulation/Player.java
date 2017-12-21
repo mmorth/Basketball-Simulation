@@ -38,17 +38,17 @@ public class Player {
 	 * Stores age of player
 	 */
 	private int age;
-	
+
 	/**
 	 * Stores the overall rating of the player
 	 */
 	private int overallRating;
-	
+
 	/**
 	 * Stores the offensive rating of the player
 	 */
 	private int offensiveRating;
-	
+
 	/**
 	 * Stores the defensive rating of the player
 	 */
@@ -144,6 +144,11 @@ public class Player {
 	 * Stores the potential rating of the player
 	 */
 	private int potential;
+	
+	/**
+	 * Stores the rotation minutes for a player
+	 */
+	private int rotationMinutes;
 
 	/**
 	 * Default Constructor: Remove after testing!
@@ -230,6 +235,9 @@ public class Player {
 		setStamina(stamina);
 		setInjury(injury);
 		setPotential(potential);
+
+		// calculateBestPosition();
+
 	}
 
 	/**
@@ -308,6 +316,9 @@ public class Player {
 		}
 
 		this.position = position;
+		
+		//calculatePositionRating();
+
 	}
 
 	/**
@@ -840,115 +851,160 @@ public class Player {
 		}
 	}
 
-	/**
-	 * Calculates the overall, offensive, and defensive ratings of the coach
-	 */
-	public void calculateCoachRatings() {
-		offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) + ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) + ()*(ballHandling) + ()*(passing) + ()*(speed)) / 7;
-		defensiveRating = (()*(postDefense) + ()*(perimeterDefense) + ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed)) / 6;
-		overallRating = (offensiveRating + defensiveRating) / 2;
-		position = 0;
-	}
-	
-	/**
-	 * Calculates the overall, offensive, and defensive ratings of the point guard
-	 */
-	public void calculatePointGuardRating() {
-		offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) + ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) + ()*(ballHandling) + ()*(passing) + ()*(speed)) / 7;
-		defensiveRating = (()*(postDefense) + ()*(perimeterDefense) + ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed)) / 6;
-		overallRating = (offensiveRating + defensiveRating) / 2;
-		position = 1;
-	}
-	
-	/**
-	 * Calculates the overall, offensive, and defensive ratings of the shooting guard
-	 */
-	public void calculateShootingGuardRating() {
-		offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) + ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) + ()*(ballHandling) + ()*(passing) + ()*(speed)) / 7;
-		defensiveRating = (()*(postDefense) + ()*(perimeterDefense) + ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed)) / 6;
-		overallRating = (offensiveRating + defensiveRating) / 2;
-		position = 2;
-	}
-	
-	/**
-	 * Calculates the overall, offensive, and defensive ratings of the small forward
-	 */
-	public void calculateSmallForwardRating() {
-		offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) + ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) + ()*(ballHandling) + ()*(passing) + ()*(speed)) / 7;
-		defensiveRating = (()*(postDefense) + ()*(perimeterDefense) + ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed)) / 6;
-		overallRating = (offensiveRating + defensiveRating) / 2;
-		position = 3;
-	}
-	
-	/**
-	 * Calculates the overall, offensive, and defensive ratings of the power forward
-	 */
-	public void calculatePowerForwardRating() {
-		offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) + ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) + ()*(ballHandling) + ()*(passing) + ()*(speed)) / 7;
-		defensiveRating = (()*(postDefense) + ()*(perimeterDefense) + ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed)) / 6;
-		overallRating = (offensiveRating + defensiveRating) / 2;
-		position = 4;
-	}
-	
-	/**
-	 * Calculates the overall, offensive, and defensive ratings of the center
-	 */
-	public void calculateCenterRating() {
-		offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) + ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) + ()*(ballHandling) + ()*(passing) + ()*(speed)) / 7;
-		defensiveRating = (()*(postDefense) + ()*(perimeterDefense) + ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed)) / 6;
-		overallRating = (offensiveRating + defensiveRating) / 2;
-		position = 5;
-	}
-	
-	/**
-	 * Determines the best position for a player to play based on their ratings
-	 */
-	public void determineBestPosition() {
-		int maxRating = 0;
-		int maxPosition = 0;
-		
-		calculatePointGuardRating();
-		if (overallRating > maxRating) {
-			maxRating = overallRating;
-			maxPosition = 1;
-		}
-		
-		calculateShootingGuardRating();
-		if (overallRating > maxRating) {
-			maxRating = overallRating;
-			maxPosition = 0;
-		}
-		
-		calculateSmallForwardRating();
-		if (overallRating > maxRating) {
-			maxRating = overallRating;
-			maxPosition = 0;
-		}
-		
-		calculatePowerForwardRating();
-		if (overallRating > maxRating) {
-			maxRating = overallRating;
-			maxPosition = 0;
-		}
-		
-		calculateCenterRating();
-		if (overallRating > maxRating) {
-			maxRating = overallRating;
-			maxPosition = 0;
-		}
-		
-		if (maxPosition == 1) {
-			calculatePointGuardRating();
-		} else if (maxPosition == 2) {
-			calculateShootingGuardRating();
-		} else if (maxPosition == 3) {
-			calculateSmallForwardRating();
-		} else if (maxPosition == 4) {
-			calculatePowerForwardRating();
-		} else {
-			calculateCenterRating();
-		}
-		
-	}
-	
+	// /**
+	// * Determines and stores the rating of the player in a given position
+	// *
+	// */
+	// public void calculatePositionRating() {
+	// if (position == 1) {
+	// calculatePointGuardRating();
+	// } else if (position == 2) {
+	// calculateShootingGuardRating();
+	// } else if (position == 3) {
+	// calculateSmallForwardRating();
+	// } else if (position == 4) {
+	// calculatePowerForwardRating();
+	// } else {
+	// calculateCenterRating();
+	// }
+	// }
+	//
+	// /**
+	// * Calculates the overall, offensive, and defensive ratings of the coach
+	// */
+	// public void calculateCoachRatings() {
+	// offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) +
+	// ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) +
+	// ()*(ballHandling) + ()*(passing) + ()*(speed) + ()*(height)) / 9;
+	// defensiveRating = (()*(postDefense) + ()*(perimeterDefense) +
+	// ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed) +
+	// ()*(height)) / 7;
+	// overallRating = (offensiveRating + defensiveRating) / 2;
+	// position = 0;
+	// }
+	//
+	// /**
+	// * Calculates the overall, offensive, and defensive ratings of the point guard
+	// */
+	// public void calculatePointGuardRating() {
+	// offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) +
+	// ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) +
+	// ()*(ballHandling) + ()*(passing) + ()*(speed) + ()*(height)) / 9;
+	// defensiveRating = (()*(postDefense) + ()*(perimeterDefense) +
+	// ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed) +
+	// ()*(height)) / 7;
+	// overallRating = (offensiveRating + defensiveRating) / 2;
+	// position = 1;
+	// }
+	//
+	// /**
+	// * Calculates the overall, offensive, and defensive ratings of the shooting
+	// guard
+	// */
+	// public void calculateShootingGuardRating() {
+	// offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) +
+	// ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) +
+	// ()*(ballHandling) + ()*(passing) + ()*(speed) + ()*(height)) / 9;
+	// defensiveRating = (()*(postDefense) + ()*(perimeterDefense) +
+	// ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed) +
+	// ()*(height)) / 7;
+	// overallRating = (offensiveRating + defensiveRating) / 2;
+	// position = 2;
+	// }
+	//
+	// /**
+	// * Calculates the overall, offensive, and defensive ratings of the small
+	// forward
+	// */
+	// public void calculateSmallForwardRating() {
+	// offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) +
+	// ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) +
+	// ()*(ballHandling) + ()*(passing) + ()*(speed) + ()*(height)) / 9;
+	// defensiveRating = (()*(postDefense) + ()*(perimeterDefense) +
+	// ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed) +
+	// ()*(height)) / 7;
+	// overallRating = (offensiveRating + defensiveRating) / 2;
+	// position = 3;
+	// }
+	//
+	// /**
+	// * Calculates the overall, offensive, and defensive ratings of the power
+	// forward
+	// */
+	// public void calculatePowerForwardRating() {
+	// offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) +
+	// ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) +
+	// ()*(ballHandling) + ()*(passing) + ()*(speed) + ()*(height)) / 9;
+	// defensiveRating = (()*(postDefense) + ()*(perimeterDefense) +
+	// ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed) +
+	// ()*(height)) / 7;
+	// overallRating = (offensiveRating + defensiveRating) / 2;
+	// position = 4;
+	// }
+	//
+	// /**
+	// * Calculates the overall, offensive, and defensive ratings of the center
+	// */
+	// public void calculateCenterRating() {
+	// offensiveRating = (()*(insideScoring) + ()*(midRangeScoring) +
+	// ()*(threePointScoring) + ()*(freeThrow) + ()*(offensiveRebounding) +
+	// ()*(ballHandling) + ()*(passing) + ()*(speed) + ()*(height)) / 9;
+	// defensiveRating = (()*(postDefense) + ()*(perimeterDefense) +
+	// ()*(defensiveRebounding) + ()*(steal) + ()*(block) + ()*(speed) +
+	// ()*(height)) / 7;
+	// overallRating = (offensiveRating + defensiveRating) / 2;
+	// position = 5;
+	// }
+	//
+	// /**
+	// * Determines the best position for a player to play based on their ratings
+	// */
+	// public void determineBestPosition() {
+	// int maxRating = 0;
+	// int maxPosition = 0;
+	//
+	// calculatePointGuardRating();
+	// if (overallRating > maxRating) {
+	// maxRating = overallRating;
+	// maxPosition = 1;
+	// }
+	//
+	// calculateShootingGuardRating();
+	// if (overallRating > maxRating) {
+	// maxRating = overallRating;
+	// maxPosition = 0;
+	// }
+	//
+	// calculateSmallForwardRating();
+	// if (overallRating > maxRating) {
+	// maxRating = overallRating;
+	// maxPosition = 0;
+	// }
+	//
+	// calculatePowerForwardRating();
+	// if (overallRating > maxRating) {
+	// maxRating = overallRating;
+	// maxPosition = 0;
+	// }
+	//
+	// calculateCenterRating();
+	// if (overallRating > maxRating) {
+	// maxRating = overallRating;
+	// maxPosition = 0;
+	// }
+	//
+	// if (maxPosition == 1) {
+	// calculatePointGuardRating();
+	// } else if (maxPosition == 2) {
+	// calculateShootingGuardRating();
+	// } else if (maxPosition == 3) {
+	// calculateSmallForwardRating();
+	// } else if (maxPosition == 4) {
+	// calculatePowerForwardRating();
+	// } else {
+	// calculateCenterRating();
+	// }
+	//
+	// }
+
 }

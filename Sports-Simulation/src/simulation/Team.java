@@ -274,7 +274,7 @@ public class Team {
 			roster[i].setMidRangeScoring(roster[i].getMidRangeScoring() + (int) Math.round(coach.getMidRangeScoring()/20.0));
 			roster[i].setThreePointScoring(roster[i].getThreePointScoring() + (int) Math.round(coach.getThreePointScoring()/20.0));
 			roster[i].setFreeThrow(roster[i].getFreeThrow() + (int) Math.round(coach.getFreeThrow()/20.0));
-			roster[i].setOffensiveRebounding(roster[i].getOffensiveRating() + (int) Math.round(coach.getDefensiveRebounding()/20.0));
+			roster[i].setOffensiveRebounding(roster[i].getOffensiveRebounding() + (int) Math.round(coach.getDefensiveRebounding()/20.0));
 			roster[i].setBallHandling(roster[i].getBallHandling() + (int) Math.round(coach.getBallHandling()/20.0));
 			roster[i].setPassing(roster[i].getPassing() + (int) Math.round(coach.getPassing()/20.0));
 
@@ -305,7 +305,7 @@ public class Team {
 			roster[i].setMidRangeScoring(roster[i].getMidRangeScoring() - (int) Math.round(coach.getMidRangeScoring()/20.0));
 			roster[i].setThreePointScoring(roster[i].getThreePointScoring() - (int) Math.round(coach.getThreePointScoring()/20.0));
 			roster[i].setFreeThrow(roster[i].getFreeThrow() - (int) Math.round(coach.getFreeThrow()/20.0));
-			roster[i].setOffensiveRebounding(roster[i].getOffensiveRating() - (int) Math.round(coach.getDefensiveRebounding()/20.0));
+			roster[i].setOffensiveRebounding(roster[i].getOffensiveRebounding() - (int) Math.round(coach.getDefensiveRebounding()/20.0));
 			roster[i].setBallHandling(roster[i].getBallHandling() - (int) Math.round(coach.getBallHandling()/20.0));
 			roster[i].setPassing(roster[i].getPassing() - (int) Math.round(coach.getPassing()/20.0));
 
