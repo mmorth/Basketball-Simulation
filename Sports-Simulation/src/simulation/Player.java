@@ -146,9 +146,19 @@ public class Player {
 	private int potential;
 	
 	/**
-	 * Stores the rotation minutes for a player
+	 * Stores the number of possessions remaining that the player will be on the court for
 	 */
-	private int rotationMinutes;
+	private int rotationPossessionsRemaining;
+	
+	/**
+	 * Stores the initial number of possessions that a player plays in a game
+	 */
+	private int initialRotationPossessions;
+	
+	/**
+	 * Stores the decrease in stamina for every possession for the player
+	 */
+	private int staminaDecrease;
 
 	/**
 	 * Default Constructor: Remove after testing!
@@ -211,7 +221,7 @@ public class Player {
 			int contractYears, int insideScoring, int midRangeScoring, int threePointScoring, int freeThrow,
 			int offensiveRebounding, int ballHandling, int passing, int postDefense, int perimeterDefense,
 			int defensiveRebounding, int steal, int block, int height, int speed, int stamina, int injury,
-			int potential) {
+			int potential, int rotationPossessions) {
 		setPlayerFirstName(playerFirstName);
 		setPlayerLastName(playerLastName);
 		setPosition(position);
@@ -235,6 +245,8 @@ public class Player {
 		setStamina(stamina);
 		setInjury(injury);
 		setPotential(potential);
+		setInitialRotationPossessions(rotationPossessions);
+		setRotationPossessionsRemaining(rotationPossessions);
 
 		// calculateBestPosition();
 
@@ -852,26 +864,74 @@ public class Player {
 	}
 
 	/**
-	 * Returns the rotationMinutes rating of the player
+	 * Returns the rotationPossessionsRemaining rating of the player
 	 * @return 
-	 *		The rotationMinutes rating of the player
+	 *		The rotationPossessionsRemaining rating of the player
 	 */
-	public int getRotationMinutes() {
-		return rotationMinutes;
+	public int getRotationPossessionsRemaining() {
+		return rotationPossessionsRemaining;
 	}
 
 	/**
-	 * Sets the rotationMinutes rating of the player
+	 * Sets the rotationPossessionsRemaining rating of the player
 	 * @param 
-	 * 		The new rotationMinutes rating of the player
+	 * 		The new rotationPossessionsRemaining rating of the player
 	 */
-	public void setRotationMinutes(int rotationMinutes) {
-		if (rotationMinutes < 0) {
-			this.rotationMinutes = 30;
-		} else if (rotationMinutes > 200) {
-			this.rotationMinutes = 200;
+	public void setRotationPossessionsRemaining(int rotationPossessionsRemaining) {
+		if (rotationPossessionsRemaining < 0) {
+			this.rotationPossessionsRemaining = 0;
+		} else if (rotationPossessionsRemaining > 200) {
+			this.rotationPossessionsRemaining = 200;
 		} else {
-			this.rotationMinutes = rotationMinutes;
+			this.rotationPossessionsRemaining = rotationPossessionsRemaining;
+		}
+	}
+
+	/**
+	 * Returns the initialRotationPossessions rating of the player
+	 * @return 
+	 *		The initialRotationPossessions rating of the player
+	 */
+	public int getInitialRotationPossessions() {
+		return initialRotationPossessions;
+	}
+
+	/**
+	 * Sets the initialRotationPossessions rating of the player
+	 * @param 
+	 * 		The new initialRotationPossessions rating of the player
+	 */
+	public void setInitialRotationPossessions(int initialRotationPossessions) {
+		if (rotationPossessionsRemaining < 0) {
+			this.initialRotationPossessions = 0;
+		} else if (rotationPossessionsRemaining > 200) {
+			this.initialRotationPossessions = 200;
+		} else {
+			this.initialRotationPossessions = initialRotationPossessions;
+		}
+	}
+
+	/**
+	 * Returns the staminaDecrease rating of the player
+	 * @return 
+	 *		The staminaDecrease rating of the player
+	 */
+	public int getStaminaDecrease() {
+		return staminaDecrease;
+	}
+
+	/**
+	 * Sets the staminaDecrease rating of the player
+	 * @param 
+	 * 		The new staminaDecrease rating of the player
+	 */
+	public void setStaminaDecrease(int staminaDecrease) {
+		if (staminaDecrease < 0) {
+			this.staminaDecrease = 1;
+		} else if (staminaDecrease > 100) {
+			this.staminaDecrease = 100;
+		} else {
+			this.staminaDecrease = staminaDecrease;
 		}
 	}
 	

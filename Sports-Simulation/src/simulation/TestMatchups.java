@@ -8,7 +8,7 @@ public class TestMatchups {
 	
 	Player ct1 = new Player(1, "First", "Last", 25, 5, 2, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
 			noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
-			noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating);
+			noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating);
 	
 	private Team OneHundred = new Team("100", createOneHundredRoster(), ct1);
 	private Team NinetyFive = new Team("95", createNinetyFiveRoster(), ct1);
@@ -39,22 +39,22 @@ public class TestMatchups {
 		int rating = 100;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
@@ -63,22 +63,22 @@ public class TestMatchups {
 		int rating = 95;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
@@ -87,22 +87,22 @@ public class TestMatchups {
 		int rating = 90;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
@@ -111,22 +111,22 @@ public class TestMatchups {
 		int rating = 85;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
@@ -135,22 +135,22 @@ public class TestMatchups {
 		int rating = 80;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
@@ -159,22 +159,22 @@ public class TestMatchups {
 		int rating = 75;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
@@ -183,22 +183,22 @@ public class TestMatchups {
 		int rating = 70;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
@@ -207,22 +207,22 @@ public class TestMatchups {
 		int rating = 65;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
@@ -231,22 +231,22 @@ public class TestMatchups {
 		int rating = 60;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
@@ -255,22 +255,22 @@ public class TestMatchups {
 		int rating = 55;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
@@ -279,22 +279,22 @@ public class TestMatchups {
 		int rating = 50;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
@@ -303,22 +303,22 @@ public class TestMatchups {
 		int rating = 45;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
@@ -327,22 +327,22 @@ public class TestMatchups {
 		int rating = 40;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
@@ -351,22 +351,22 @@ public class TestMatchups {
 		int rating = 35;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 	
@@ -375,22 +375,22 @@ public class TestMatchups {
 		int rating = 30;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 
