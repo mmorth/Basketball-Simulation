@@ -19,6 +19,16 @@ public class Team {
 	 * Stores the roster for the team
 	 */
 	private Player[] roster = new Player[15];
+	
+	/**
+	 * Stores the players currently on the court
+	 */
+	private Player[] onCourt = new Player[5];
+	
+	/**
+	 * Stores the players currently on the bench
+	 */
+	private Player[] onBench = new Player[10];
 
 	/**
 	 * Stores the coach of the team
@@ -324,6 +334,91 @@ public class Team {
 			roster[i].setPotential(roster[i].getPotential() - (int) Math.round(coach.getPotential()/20.0));
 			
 		}
+	}
+	
+	/**
+	 * Substitutes a player on the bench with a player on the court if necessary
+	 * @param possessions
+	 * 		The number of possessions remaining in the game
+	 */
+	public void substitutePlayers(int possessions) {
+		
+		// Check sub for Point Guard
+		if (onCourt[0].getStamina() <= 25 || onCourt[0].getRotationMinutes() <= 0) {
+			int sub = selectPlayer(possessions);
+			Player temp = onCourt[0];
+			onCourt[0] = onBench[sub];
+			onBench[sub] = temp;
+		}
+		
+		// Check sub for Shooting Guard
+		if (onCourt[1].getStamina() <= 25 || onCourt[1].getRotationMinutes() <= 0) {
+			int sub = selectPlayer(possessions);
+			Player temp = onCourt[1];
+			onCourt[1] = onBench[sub];
+			onBench[sub] = temp;
+		}
+		
+		// Check sub for Small Forward
+		if (onCourt[2].getStamina() <= 25 || onCourt[2].getRotationMinutes() <= 0) {
+			int sub = selectPlayer(possessions);
+			Player temp = onCourt[2];
+			onCourt[2] = onBench[sub];
+			onBench[sub] = temp;
+		}
+		
+		// Check sub for Power Forward
+		if (onCourt[3].getStamina() <= 25 || onCourt[3].getRotationMinutes() <= 0) {
+			int sub = selectPlayer(possessions);
+			Player temp = onCourt[3];
+			onCourt[3] = onBench[sub];
+			onBench[sub] = temp;
+		}
+		
+		// Check sub for Center
+		if (onCourt[4].getStamina() <= 25 || onCourt[4].getRotationMinutes() <= 0) {
+			int sub = selectPlayer(possessions);
+			Player temp = onCourt[4];
+			onCourt[4] = onBench[sub];
+			onBench[sub] = temp;
+		}
+		
+	}
+	
+	/**
+	 * Selects the player to sub into the game
+	 * @param possessions
+	 * 		The number of possessions remaining in the game
+	 * @return
+	 * 		The player on the bench to sub into the game
+	 */
+	public int selectPlayer(int possessions) {
+		
+		int subPlayer = -1; 
+		int maxMinutes = 0;
+		
+		for(int i = 0; i < onBench.length; i++) {
+			if (onBench[i].getRotationMinutes() >= possessions) {
+				subPlayer = i;
+				break;
+			}
+			if (onBench[i].getRotationMinutes() > maxMinutes && onBench[i].getStamina() > 75) {
+				subPlayer = i;
+			}
+		}
+		
+		// If no sub has been found, select the bench player with the most rotation minutes remaining
+		if (subPlayer == -1) {
+			for(int i = 0; i < onBench.length; i++) {
+				if (onBench[i].getRotationMinutes() >= maxMinutes) {
+					subPlayer = i;
+					maxMinutes = onBench[i].getRotationMinutes();
+					break;
+				}
+			}
+		}
+		
+		return subPlayer;
 	}
 
 	/**

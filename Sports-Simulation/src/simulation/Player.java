@@ -851,6 +851,32 @@ public class Player {
 		}
 	}
 
+	/**
+	 * Returns the rotationMinutes rating of the player
+	 * @return 
+	 *		The rotationMinutes rating of the player
+	 */
+	public int getRotationMinutes() {
+		return rotationMinutes;
+	}
+
+	/**
+	 * Sets the rotationMinutes rating of the player
+	 * @param 
+	 * 		The new rotationMinutes rating of the player
+	 */
+	public void setRotationMinutes(int rotationMinutes) {
+		if (rotationMinutes < 0) {
+			this.rotationMinutes = 30;
+		} else if (rotationMinutes > 200) {
+			this.rotationMinutes = 200;
+		} else {
+			this.rotationMinutes = rotationMinutes;
+		}
+	}
+	
+	
+
 	// /**
 	// * Determines and stores the rating of the player in a given position
 	// *

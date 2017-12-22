@@ -376,6 +376,8 @@ public class GameSimulation {
 		if (team2Boost * rng.nextDouble() * team2RelativeRating > ((team2RelativeRating / 2.5) + 5) * shotMultiplier) {
 			team2Score += team2Shot;
 		}
+		
+		// Decrease player stamina and rotation minutes left
 
 	}
 
