@@ -243,6 +243,7 @@ public class Player {
 		setHeight(height);
 		setSpeed(speed);
 		setStamina(stamina);
+		setStaminaDecrease(stamina/25);
 		setInjury(injury);
 		setPotential(potential);
 		setInitialRotationPossessions(rotationPossessions);
@@ -902,9 +903,9 @@ public class Player {
 	 * 		The new initialRotationPossessions rating of the player
 	 */
 	public void setInitialRotationPossessions(int initialRotationPossessions) {
-		if (rotationPossessionsRemaining < 0) {
+		if (initialRotationPossessions < 0) {
 			this.initialRotationPossessions = 0;
-		} else if (rotationPossessionsRemaining > 200) {
+		} else if (initialRotationPossessions > 200) {
 			this.initialRotationPossessions = 200;
 		} else {
 			this.initialRotationPossessions = initialRotationPossessions;
@@ -926,7 +927,7 @@ public class Player {
 	 * 		The new staminaDecrease rating of the player
 	 */
 	public void setStaminaDecrease(int staminaDecrease) {
-		if (staminaDecrease < 0) {
+		if (staminaDecrease < 1) {
 			this.staminaDecrease = 1;
 		} else if (staminaDecrease > 100) {
 			this.staminaDecrease = 100;

@@ -738,8 +738,77 @@ public class JUnitTests {
 
 	@Test
 	public void playerSetPotentialInvalid2() {
-		p1.setPotential(101);
+		p1.setPotential(201);
 		assertEquals(p1.getPotential(), 100);
+	}
+	
+	@Test
+	public void playerGetRotationPossessionsRemaining() {
+		assertEquals(p1.getRotationPossessionsRemaining(), 32);
+	}
+
+	@Test
+	public void playerSetRotationPossessionsRemaining() {
+		p1.setRotationPossessionsRemaining(77);
+		assertEquals(p1.getRotationPossessionsRemaining(), 77);
+	}
+
+	@Test
+	public void playerSetRotationPossessionsRemainingInvalid1() {
+		p1.setRotationPossessionsRemaining(-1);
+		assertEquals(p1.getRotationPossessionsRemaining(), 0);
+	}
+
+	@Test
+	public void playerSetRotationPossessionsRemainingInvalid2() {
+		p1.setRotationPossessionsRemaining(201);
+		assertEquals(p1.getRotationPossessionsRemaining(), 200);
+	}
+	
+	@Test
+	public void playerGetInitialRotationPossessionsRemaining() {
+		assertEquals(p1.getInitialRotationPossessions(), 32);
+	}
+
+	@Test
+	public void playerSetInitialRotationPossessionsRemaining() {
+		p1.setInitialRotationPossessions(77);
+		assertEquals(p1.getInitialRotationPossessions(), 77);
+	}
+
+	@Test
+	public void playerSetInitialRotationPossessionsInvalid1() {
+		p1.setInitialRotationPossessions(-1);
+		assertEquals(p1.getInitialRotationPossessions(), 0);
+	}
+
+	@Test
+	public void playerSetInitialRotationPossessionsInvalid2() {
+		p1.setInitialRotationPossessions(201);
+		assertEquals(p1.getInitialRotationPossessions(), 200);
+	}
+	
+	@Test
+	public void playerGetStaminaDecrease() {
+		assertEquals(p1.getStaminaDecrease(), 4);
+	}
+
+	@Test
+	public void playerSetStaminaDecrease() {
+		p1.setStaminaDecrease(77);
+		assertEquals(p1.getStaminaDecrease(), 77);
+	}
+
+	@Test
+	public void playerSetStaminaDecreaseInvalid1() {
+		p1.setStaminaDecrease(0);
+		assertEquals(p1.getStaminaDecrease(), 1);
+	}
+
+	@Test
+	public void playerSetStaminaDecreaseInvalid2() {
+		p1.setStaminaDecrease(101);
+		assertEquals(p1.getStaminaDecrease(), 100);
 	}
 	
 //	@Before
