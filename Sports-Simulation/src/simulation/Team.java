@@ -19,12 +19,12 @@ public class Team {
 	 * Stores the roster for the team
 	 */
 	private Player[] roster = new Player[15];
-	
+
 	/**
 	 * Stores the players currently on the court
 	 */
 	private Player[] onCourt = new Player[5];
-	
+
 	/**
 	 * Stores the players currently on the bench
 	 */
@@ -274,33 +274,77 @@ public class Team {
 	}
 
 	/**
+	 * Returns the onCourt rating of the player
+	 * 
+	 * @return The onCourt rating of the player
+	 */
+	public Player[] getOnCourt() {
+		return onCourt;
+	}
+
+	/**
+	 * Sets the onCourt rating of the player
+	 * 
+	 * @param The
+	 *            new onCourt rating of the player
+	 */
+	public void setOnCourt(Player[] onCourt) {
+		this.onCourt = onCourt;
+	}
+
+	/**
+	 * Returns the onBench rating of the player
+	 * 
+	 * @return The onBench rating of the player
+	 */
+	public Player[] getOnBench() {
+		return onBench;
+	}
+
+	/**
+	 * Sets the onBench rating of the player
+	 * 
+	 * @param The
+	 *            new onBench rating of the player
+	 */
+	public void setOnBench(Player[] onBench) {
+		this.onBench = onBench;
+	}
+
+	/**
 	 * Updates the player ratings based on the coach's overall rating in categories
 	 */
 	public void coachBoostPlayerRatings() {
 		for (int i = 0; i < roster.length && roster[i] != null; i++) {
 
 			// Offensive Boosts
-			roster[i].setInsideScoring(roster[i].getInsideScoring() + (int) Math.round(coach.getInsideScoring()/20.0));
-			roster[i].setMidRangeScoring(roster[i].getMidRangeScoring() + (int) Math.round(coach.getMidRangeScoring()/20.0));
-			roster[i].setThreePointScoring(roster[i].getThreePointScoring() + (int) Math.round(coach.getThreePointScoring()/20.0));
-			roster[i].setFreeThrow(roster[i].getFreeThrow() + (int) Math.round(coach.getFreeThrow()/20.0));
-			roster[i].setOffensiveRebounding(roster[i].getOffensiveRebounding() + (int) Math.round(coach.getDefensiveRebounding()/20.0));
-			roster[i].setBallHandling(roster[i].getBallHandling() + (int) Math.round(coach.getBallHandling()/20.0));
-			roster[i].setPassing(roster[i].getPassing() + (int) Math.round(coach.getPassing()/20.0));
+			roster[i]
+					.setInsideScoring(roster[i].getInsideScoring() + (int) Math.round(coach.getInsideScoring() / 20.0));
+			roster[i].setMidRangeScoring(
+					roster[i].getMidRangeScoring() + (int) Math.round(coach.getMidRangeScoring() / 20.0));
+			roster[i].setThreePointScoring(
+					roster[i].getThreePointScoring() + (int) Math.round(coach.getThreePointScoring() / 20.0));
+			roster[i].setFreeThrow(roster[i].getFreeThrow() + (int) Math.round(coach.getFreeThrow() / 20.0));
+			roster[i].setOffensiveRebounding(
+					roster[i].getOffensiveRebounding() + (int) Math.round(coach.getDefensiveRebounding() / 20.0));
+			roster[i].setBallHandling(roster[i].getBallHandling() + (int) Math.round(coach.getBallHandling() / 20.0));
+			roster[i].setPassing(roster[i].getPassing() + (int) Math.round(coach.getPassing() / 20.0));
 
 			// Defensive Boosts
-			roster[i].setPostDefense(roster[i].getPostDefense() + (int) Math.round(coach.getPostDefense()/20.0));
-			roster[i].setPerimeterDefense(roster[i].getPerimeterDefense() + (int) Math.round(coach.getPerimeterDefense()/20.0));
-			roster[i].setDefensiveRebounding(roster[i].getDefensiveRebounding() + (int) Math.round(coach.getDefensiveRebounding()/20.0));
-			roster[i].setSteal(roster[i].getSteal() + (int) Math.round(coach.getSteal()/20.0));
-			roster[i].setBlock(roster[i].getBlock() + (int) Math.round(coach.getBlock()/20.0));
+			roster[i].setPostDefense(roster[i].getPostDefense() + (int) Math.round(coach.getPostDefense() / 20.0));
+			roster[i].setPerimeterDefense(
+					roster[i].getPerimeterDefense() + (int) Math.round(coach.getPerimeterDefense() / 20.0));
+			roster[i].setDefensiveRebounding(
+					roster[i].getDefensiveRebounding() + (int) Math.round(coach.getDefensiveRebounding() / 20.0));
+			roster[i].setSteal(roster[i].getSteal() + (int) Math.round(coach.getSteal() / 20.0));
+			roster[i].setBlock(roster[i].getBlock() + (int) Math.round(coach.getBlock() / 20.0));
 
 			// General Boosts
 			// roster[i].setHeight(roster[i].getHeight() + (int) coachOverallBoost);
-			roster[i].setSpeed(roster[i].getSpeed() + (int) Math.round(coach.getSpeed()/20.0));
-			roster[i].setStamina(roster[i].getStamina() + (int) Math.round(coach.getStamina()/20.0));
-			roster[i].setInjury(roster[i].getInjury() + (int) Math.round(coach.getInjury()/20.0));
-			roster[i].setPotential(roster[i].getPotential() + (int) Math.round(coach.getPotential()/20.0));
+			roster[i].setSpeed(roster[i].getSpeed() + (int) Math.round(coach.getSpeed() / 20.0));
+			roster[i].setStamina(roster[i].getStamina() + (int) Math.round(coach.getStamina() / 20.0));
+			roster[i].setInjury(roster[i].getInjury() + (int) Math.round(coach.getInjury() / 20.0));
+			roster[i].setPotential(roster[i].getPotential() + (int) Math.round(coach.getPotential() / 20.0));
 		}
 	}
 
@@ -311,38 +355,45 @@ public class Team {
 		for (int i = 0; i < roster.length && roster[i] != null; i++) {
 
 			// Offensive Boosts
-			roster[i].setInsideScoring(roster[i].getInsideScoring() - (int) Math.round(coach.getInsideScoring()/20.0));
-			roster[i].setMidRangeScoring(roster[i].getMidRangeScoring() - (int) Math.round(coach.getMidRangeScoring()/20.0));
-			roster[i].setThreePointScoring(roster[i].getThreePointScoring() - (int) Math.round(coach.getThreePointScoring()/20.0));
-			roster[i].setFreeThrow(roster[i].getFreeThrow() - (int) Math.round(coach.getFreeThrow()/20.0));
-			roster[i].setOffensiveRebounding(roster[i].getOffensiveRebounding() - (int) Math.round(coach.getDefensiveRebounding()/20.0));
-			roster[i].setBallHandling(roster[i].getBallHandling() - (int) Math.round(coach.getBallHandling()/20.0));
-			roster[i].setPassing(roster[i].getPassing() - (int) Math.round(coach.getPassing()/20.0));
+			roster[i]
+					.setInsideScoring(roster[i].getInsideScoring() - (int) Math.round(coach.getInsideScoring() / 20.0));
+			roster[i].setMidRangeScoring(
+					roster[i].getMidRangeScoring() - (int) Math.round(coach.getMidRangeScoring() / 20.0));
+			roster[i].setThreePointScoring(
+					roster[i].getThreePointScoring() - (int) Math.round(coach.getThreePointScoring() / 20.0));
+			roster[i].setFreeThrow(roster[i].getFreeThrow() - (int) Math.round(coach.getFreeThrow() / 20.0));
+			roster[i].setOffensiveRebounding(
+					roster[i].getOffensiveRebounding() - (int) Math.round(coach.getDefensiveRebounding() / 20.0));
+			roster[i].setBallHandling(roster[i].getBallHandling() - (int) Math.round(coach.getBallHandling() / 20.0));
+			roster[i].setPassing(roster[i].getPassing() - (int) Math.round(coach.getPassing() / 20.0));
 
 			// Defensive Boosts
-			roster[i].setPostDefense(roster[i].getPostDefense() - (int) Math.round(coach.getPostDefense()/20.0));
-			roster[i].setPerimeterDefense(roster[i].getPerimeterDefense() - (int) Math.round(coach.getPerimeterDefense()/20.0));
-			roster[i].setDefensiveRebounding(roster[i].getDefensiveRebounding() - (int) Math.round(coach.getDefensiveRebounding()/20.0));
-			roster[i].setSteal(roster[i].getSteal() - (int) Math.round(coach.getSteal()/20.0));
-			roster[i].setBlock(roster[i].getBlock() - (int) Math.round(coach.getBlock()/20.0));
+			roster[i].setPostDefense(roster[i].getPostDefense() - (int) Math.round(coach.getPostDefense() / 20.0));
+			roster[i].setPerimeterDefense(
+					roster[i].getPerimeterDefense() - (int) Math.round(coach.getPerimeterDefense() / 20.0));
+			roster[i].setDefensiveRebounding(
+					roster[i].getDefensiveRebounding() - (int) Math.round(coach.getDefensiveRebounding() / 20.0));
+			roster[i].setSteal(roster[i].getSteal() - (int) Math.round(coach.getSteal() / 20.0));
+			roster[i].setBlock(roster[i].getBlock() - (int) Math.round(coach.getBlock() / 20.0));
 
 			// General Boosts
 			// roster[i].setHeight(roster[i].getHeight() + (int) coachOverallBoost);
-			roster[i].setSpeed(roster[i].getSpeed() - (int) Math.round(coach.getSpeed()/20.0));
-			roster[i].setStamina(roster[i].getStamina() - (int) Math.round(coach.getStamina()/20.0));
-			roster[i].setInjury(roster[i].getInjury() - (int) Math.round(coach.getInjury()/20.0));
-			roster[i].setPotential(roster[i].getPotential() - (int) Math.round(coach.getPotential()/20.0));
-			
+			roster[i].setSpeed(roster[i].getSpeed() - (int) Math.round(coach.getSpeed() / 20.0));
+			roster[i].setStamina(roster[i].getStamina() - (int) Math.round(coach.getStamina() / 20.0));
+			roster[i].setInjury(roster[i].getInjury() - (int) Math.round(coach.getInjury() / 20.0));
+			roster[i].setPotential(roster[i].getPotential() - (int) Math.round(coach.getPotential() / 20.0));
+
 		}
 	}
-	
+
 	/**
 	 * Substitutes a player on the bench with a player on the court if necessary
+	 * 
 	 * @param possessions
-	 * 		The number of possessions remaining in the game
+	 *            The number of possessions remaining in the game
 	 */
 	public void substitutePlayers(int possessions) {
-		
+
 		// Check sub for Point Guard
 		if (onCourt[0].getStamina() <= 25 || onCourt[0].getRotationPossessionsRemaining() <= 0) {
 			int sub = selectPlayer(possessions);
@@ -350,7 +401,7 @@ public class Team {
 			onCourt[0] = onBench[sub];
 			onBench[sub] = temp;
 		}
-		
+
 		// Check sub for Shooting Guard
 		if (onCourt[1].getStamina() <= 25 || onCourt[1].getRotationPossessionsRemaining() <= 0) {
 			int sub = selectPlayer(possessions);
@@ -358,7 +409,7 @@ public class Team {
 			onCourt[1] = onBench[sub];
 			onBench[sub] = temp;
 		}
-		
+
 		// Check sub for Small Forward
 		if (onCourt[2].getStamina() <= 25 || onCourt[2].getRotationPossessionsRemaining() <= 0) {
 			int sub = selectPlayer(possessions);
@@ -366,7 +417,7 @@ public class Team {
 			onCourt[2] = onBench[sub];
 			onBench[sub] = temp;
 		}
-		
+
 		// Check sub for Power Forward
 		if (onCourt[3].getStamina() <= 25 || onCourt[3].getRotationPossessionsRemaining() <= 0) {
 			int sub = selectPlayer(possessions);
@@ -374,7 +425,7 @@ public class Team {
 			onCourt[3] = onBench[sub];
 			onBench[sub] = temp;
 		}
-		
+
 		// Check sub for Center
 		if (onCourt[4].getStamina() <= 25 || onCourt[4].getRotationPossessionsRemaining() <= 0) {
 			int sub = selectPlayer(possessions);
@@ -382,22 +433,22 @@ public class Team {
 			onCourt[4] = onBench[sub];
 			onBench[sub] = temp;
 		}
-		
+
 	}
-	
+
 	/**
 	 * Selects the player to sub into the game
+	 * 
 	 * @param possessions
-	 * 		The number of possessions remaining in the game
-	 * @return
-	 * 		The player on the bench to sub into the game
+	 *            The number of possessions remaining in the game
+	 * @return The player on the bench to sub into the game
 	 */
 	public int selectPlayer(int possessions) {
-		
-		int subPlayer = -1; 
+
+		int subPlayer = -1;
 		int maxMinutes = 0;
-		
-		for(int i = 0; i < onBench.length; i++) {
+
+		for (int i = 0; i < onBench.length; i++) {
 			if (onBench[i].getRotationPossessionsRemaining() >= possessions) {
 				subPlayer = i;
 				break;
@@ -406,10 +457,11 @@ public class Team {
 				subPlayer = i;
 			}
 		}
-		
-		// If no sub has been found, select the bench player with the most rotation minutes remaining
+
+		// If no sub has been found, select the bench player with the most rotation
+		// minutes remaining
 		if (subPlayer == -1) {
-			for(int i = 0; i < onBench.length; i++) {
+			for (int i = 0; i < onBench.length; i++) {
 				if (onBench[i].getRotationPossessionsRemaining() >= maxMinutes) {
 					subPlayer = i;
 					maxMinutes = onBench[i].getRotationPossessionsRemaining();
@@ -417,7 +469,7 @@ public class Team {
 				}
 			}
 		}
-		
+
 		return subPlayer;
 	}
 
@@ -509,8 +561,8 @@ public class Team {
 
 		Player ct1 = new Player(1, "First", "Last", 25, 5, 2, noCoachRating, noCoachRating, noCoachRating,
 				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
-				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
-				noCoachRating, noCoachRating);
+				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
+				noCoachRating);
 		Team t1 = new Team(tm.getOneHundred().getTeamName(), tm.getOneHundred().getRoster(), ct1);
 
 		t1.printTeamRosters();

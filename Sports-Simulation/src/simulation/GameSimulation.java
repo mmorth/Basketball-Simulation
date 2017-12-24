@@ -238,7 +238,7 @@ public class GameSimulation {
 
 				// Simulate based on user's choice
 				if (choice == 'p') {
-					simulatePossession();
+					simulatePossession(possessions);
 				} else if (choice == 'q') {
 					possessions = simulatePossessionsQuarter(possessions);
 				} else if (choice == 'g') {
@@ -292,7 +292,7 @@ public class GameSimulation {
 					}
 
 					if (choice == 'p') {
-						simulatePossession();
+						simulatePossession(possessions);
 						
 						//TODO Remove after testing
 						if (DEBUG == 0) {
@@ -333,51 +333,66 @@ public class GameSimulation {
 	 *            Current defensive team
 	 * @return Points scored by offensive team on current possession
 	 */
-	public void simulatePossession() {
+	public void simulatePossession(int possessions) {
 
-		Random rng = new Random();
-
-		double shotMultiplier = 0;
-
-		// Team1 scoring calculations
-		double team1ShotSelection = rng.nextDouble();
-		int team1Shot = 0;
-
-		if (team1ShotSelection <= .1) {
-			shotMultiplier = .5;
-			team1Shot = 1;
-		} else if (team1ShotSelection <= .7) {
-			shotMultiplier = 1;
-			team1Shot = 2;
-		} else {
-			shotMultiplier = 1.2;
-			team1Shot = 3;
-		}
-
-		if (team1Boost * rng.nextDouble() * team1RelativeRating > ((team1RelativeRating / 2.5) + 5) * shotMultiplier) {
-			team1Score += team1Shot;
-		}
-
-		// Team2 scoring calculations
-		double team2ShotSelection = rng.nextDouble();
-		int team2Shot = 0;
-
-		if (team2ShotSelection <= .1) {
-			shotMultiplier = .5;
-			team2Shot = 1;
-		} else if (team2ShotSelection <= .7) {
-			shotMultiplier = 1;
-			team2Shot = 2;
-		} else {
-			shotMultiplier = 1.2;
-			team2Shot = 3;
-		}
-
-		if (team2Boost * rng.nextDouble() * team2RelativeRating > ((team2RelativeRating / 2.5) + 5) * shotMultiplier) {
-			team2Score += team2Shot;
+//		Random rng = new Random();
+//
+//		double shotMultiplier = 0;
+//
+//		// Team1 scoring calculations
+//		double team1ShotSelection = rng.nextDouble();
+//		int team1Shot = 0;
+//
+//		if (team1ShotSelection <= .1) {
+//			shotMultiplier = .5;
+//			team1Shot = 1;
+//		} else if (team1ShotSelection <= .7) {
+//			shotMultiplier = 1;
+//			team1Shot = 2;
+//		} else {
+//			shotMultiplier = 1.2;
+//			team1Shot = 3;
+//		}
+//
+//		if (team1Boost * rng.nextDouble() * team1RelativeRating > ((team1RelativeRating / 2.5) + 5) * shotMultiplier) {
+//			team1Score += team1Shot;
+//		}
+//
+//		// Team2 scoring calculations
+//		double team2ShotSelection = rng.nextDouble();
+//		int team2Shot = 0;
+//
+//		if (team2ShotSelection <= .1) {
+//			shotMultiplier = .5;
+//			team2Shot = 1;
+//		} else if (team2ShotSelection <= .7) {
+//			shotMultiplier = 1;
+//			team2Shot = 2;
+//		} else {
+//			shotMultiplier = 1.2;
+//			team2Shot = 3;
+//		}
+//
+//		if (team2Boost * rng.nextDouble() * team2RelativeRating > ((team2RelativeRating / 2.5) + 5) * shotMultiplier) {
+//			team2Score += team2Shot;
+//		}
+		
+		for (int i = 0; i < team1.getOnCourt().length; i++) {
+			team1.getOnCourt()[i].setStamina(team1.getOnCourt()[i].getStaminaDecrease());
+			team1.getOnCourt()[i].setRotationPossessionsRemaining(team1.getOnCourt()[i].getRotationPossessionsRemaining()-1);
+			team2.getOnCourt()[i].setStamina(team2.getOnCourt()[i].getStaminaDecrease());
+			team2.getOnCourt()[i].setRotationPossessionsRemaining(team2.getOnCourt()[i].getRotationPossessionsRemaining()-1); 
 		}
 		
-		// Decrease player stamina and rotation minutes left
+		team1.substitutePlayers(possessions);
+		team2.substitutePlayers(possessions);
+
+		// Determine what player ratings go into determining if the team scores
+		
+		// Have a random number generator determine who will shoot the ball with weight going toward players with higher shooting ratings
+		// Have random number generator determine who passed the ball to the player who will shoot with weight toward players with higher passing ratings
+		// Compare the pass and ball handling and steal ratings of the two players who passed the ball and who scored to see if ball was turnover
+		// Use the different player ratings for offense and defense to determine if the player scored the ball
 
 	}
 
@@ -496,27 +511,27 @@ public class GameSimulation {
 	public int simulatePossessionsQuarter(int possessions) {
 		if (possessions <= 25) {
 			for (int i = possessions; i <= 25; i++) {
-				simulatePossession();
+				simulatePossession(possessions);
 			}
 			possessions = 25;
 		} else if (possessions <= 50) {
 			for (int i = possessions; i <= 50; i++) {
-				simulatePossession();
+				simulatePossession(possessions);
 			}
 			possessions = 50;
 		} else if (possessions <= 75) {
 			for (int i = possessions; i <= 75; i++) {
-				simulatePossession();
+				simulatePossession(possessions);
 			}
 			possessions = 75;
 		} else if (possessions <= 100) {
 			for (int i = possessions; i <= 100; i++) {
-				simulatePossession();
+				simulatePossession(possessions);
 			}
 			possessions = 100;
 		} else {
 			for (int i = possessions; i <= 110; i++) {
-				simulatePossession();
+				simulatePossession(possessions);
 			}
 			possessions = 110;
 		}
