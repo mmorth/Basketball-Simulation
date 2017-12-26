@@ -599,4 +599,19 @@ public class Team {
 		return totalPassingRating;
 	}
 
+	/**
+	 * Calculates and returns the total rebounding rating of the players currently in the game
+	 * @return
+	 * 		The total rebounding rating of the player currently in the game
+	 */
+	public int getTotalReboundingRating() {
+		int totalReboundingRating = 0;
+		
+		for (int i = 0; i < onCourt.length; i++) {
+			totalReboundingRating += onCourt[i].getOffensiveRebounding() + onCourt[i].getDefensiveRebounding();
+		}
+		
+		return totalReboundingRating / 2;
+	}
+
 }
