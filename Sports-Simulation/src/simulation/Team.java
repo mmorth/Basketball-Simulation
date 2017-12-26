@@ -569,4 +569,34 @@ public class Team {
 
 	}
 
+	/**
+	 * Calculates and returns the total shooting rating of the players currently in the game
+	 * @return
+	 * 		The total shooting rating of the players currently in the game
+	 */
+	public int calculateTotalShootingRating() {
+		int totalShootingRating = 0;
+		
+		for (int i = 0; i < onCourt.length; i++) {
+			totalShootingRating += onCourt[i].getAverageShootingRating();
+		}
+		
+		return totalShootingRating;
+	}
+
+	/**
+	 * Calculates and returns the total passing rating of the players currently in the game
+	 * @return
+	 * 		The total passing rating of the players currently in the game
+	 */
+	public int calculateTotalPassingRating() {
+		int totalPassingRating = 0;
+		
+		for (int i = 0; i < onCourt.length; i++) {
+			totalPassingRating += onCourt[i].getPassing();
+		}
+		
+		return totalPassingRating;
+	}
+
 }

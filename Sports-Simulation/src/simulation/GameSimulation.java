@@ -386,22 +386,91 @@ public class GameSimulation {
 
 		Random rand = new Random();
 
+		// Determine which team has the ball and calculate their score
 		if (possessionArrow == 0) {
 
-			team1.calculateTotalShootingRating();
+			Player shooter = new Player();
+			Player shotDefender = new Player();
+			double playerShootSelector = rand.nextDouble();
+			int team1TotalShootingRating = team1.calculateTotalShootingRating();
+			double team1PointGuardShootRange = team1.getOnCourt()[0].getAverageShootingRating() / team1TotalShootingRating;
+			double team1ShootingGuardShootRange = team1.getOnCourt()[1].getAverageShootingRating()
+					/ team1TotalShootingRating;
+			double team1SmallForwardShootRange = team1.getOnCourt()[2].getAverageShootingRating()
+					/ team1TotalShootingRating;
+			double team1PowerForwardShootRange = team1.getOnCourt()[3].getAverageShootingRating()
+					/ team1TotalShootingRating;
+			double team1CenterShootRange = team1.getOnCourt()[4].getAverageShootingRating() / team1TotalShootingRating;
 
-			double team1TotalShootingRating = team1.calculateTotalShootingRating();
+			if (playerShootSelector < team1PointGuardShootRange) {
+				shooter = team1.getOnCourt()[0];
+				shotDefender = team1.getOnCourt()[0];
+			} else if (playerShootSelector < team1ShootingGuardShootRange + team1PointGuardShootRange) {
+				shooter = team1.getOnCourt()[1];
+				shotDefender = team1.getOnCourt()[1];
+			} else if (playerShootSelector < team1SmallForwardShootRange + team1ShootingGuardShootRange
+					+ team1PointGuardShootRange) {
+				shooter = team1.getOnCourt()[2];
+				shotDefender = team1.getOnCourt()[2];
+			} else if (playerShootSelector < team1PowerForwardShootRange + team1SmallForwardShootRange
+					+ team1ShootingGuardShootRange + team1PointGuardShootRange) {
+				shooter = team1.getOnCourt()[3];
+				shotDefender = team1.getOnCourt()[3];
+			} else {
+				shooter = team1.getOnCourt()[4];
+				shotDefender = team1.getOnCourt()[4];
+			}
+
+			Player passer = new Player();
+			Player passDefender = new Player();
+
+			do {
+				double playerPassSelector = rand.nextDouble();
+				int team1TotalPassingRating = team1.calculateTotalPassingRating();
+				double team1PointGuardPassRange = team1.getOnCourt()[0].getPassing()
+						/ team1TotalPassingRating;
+				double team1PassingGuardPassRange = team1.getOnCourt()[1].getPassing()
+						/ team1TotalPassingRating;
+				double team1SmallForwardPassRange = team1.getOnCourt()[2].getPassing()
+						/ team1TotalPassingRating;
+				double team1PowerForwardPassRange = team1.getOnCourt()[3].getPassing()
+						/ team1TotalPassingRating;
+				double team1CenterPassRange = team1.getOnCourt()[4].getPassing() / team1TotalPassingRating;
+
+				if (playerPassSelector < team1PointGuardPassRange) {
+					passer = team1.getOnCourt()[0];
+					passDefender = team2.getOnCourt()[0];
+				} else if (playerPassSelector < team1PassingGuardPassRange + team1PointGuardPassRange) {
+					passer = team1.getOnCourt()[1];
+					passDefender = team2.getOnCourt()[1];
+				} else if (playerPassSelector < team1SmallForwardPassRange + team1PassingGuardPassRange
+						+ team1PointGuardPassRange) {
+					passer = team1.getOnCourt()[2];
+					passDefender = team2.getOnCourt()[2];
+				} else if (playerPassSelector < team1PowerForwardPassRange + team1SmallForwardPassRange
+						+ team1PassingGuardPassRange + team1PointGuardPassRange) {
+					passer = team1.getOnCourt()[3];
+					passDefender = team2.getOnCourt()[3];
+				} else {
+					passer = team1.getOnCourt()[4];
+					passDefender = team2.getOnCourt()[4];
+				}
+
+			} while (passer == shooter);
 			
+			double weight = .8;
+			int successfulPass = determinePassOutcome(passer, passDefender);
+
 			possessionArrow = 1;
 
 		} else {
-			
-			
-			
-			possessionArrow = 0;
-			
-		}
 
+			possessionArrow = 0;
+
+		}
+		
+		
+		// Decrease rotation minutes remaining and player stamina
 		for (int i = 0; i < team1.getOnCourt().length; i++) {
 			team1.getOnCourt()[i].setStamina(team1.getOnCourt()[i].getStaminaDecrease());
 			team1.getOnCourt()[i]
@@ -411,6 +480,7 @@ public class GameSimulation {
 					.setRotationPossessionsRemaining(team2.getOnCourt()[i].getRotationPossessionsRemaining() - 1);
 		}
 
+		// Substitute players into game if necessary
 		team1.substitutePlayers(possessions);
 		team2.substitutePlayers(possessions);
 
@@ -601,6 +671,69 @@ public class GameSimulation {
 			team2Boost = .9 + .1 * ratio;
 		}
 
+	}
+	
+	/**
+	 * Determines whether the pass is successful
+	 * @param offensivePlayer
+	 * 		The offensive player attempting the pass
+	 * @param defensivePlayer
+	 * 		The defensive player attempting the pass
+	 * @param location
+	 * 		The location of the pass
+	 * @return
+	 * 		Returns 1 if the pass was successful. Returns 0 otherwise.
+	 */
+	public int determinePassOutcome(Player offensivePlayer, Player defensivePlayer, int location) {
+		Random rand = new Random();
+		double weight = .8;
+		int defenseRating = 0;
+		if (location == 3 || location == 2) {
+			defenseRating = defensivePlayer.getPerimeterDefense();
+		} else {
+			defenseRating = defensivePlayer.getPostDefense();
+		}
+		double passValue = (weight*(.25*offensivePlayer.getBallHandling()+.75*offensivePlayer.getPassing()) + (1-weight)*rand.nextDouble()) - (weight*(.8*defenseRating+.2*defensivePlayer.getSteal() + (1-weight)*rand.nextDouble()));
+		
+		if (passValue > 0) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	
+	/**
+	 * Determines whether the attempted shot was made or missed
+	 * @param offensivePlayer
+	 * 		The offensive player attempting the shot
+	 * @param defensivePlayer
+	 * 		The defender on the player attempting the shot
+	 * @return
+	 * 		Returns the value of the shot made or 0 if the shot was missed
+	 */
+	public int determineShootOutcome(Player offensivePlayer, Player defensivePlayer) {
+		
+	}
+	
+	/**
+	 * Determines who rebounds the ball after a miss
+	 * @param offensivePlayer
+	 * 		The offensive player attempting the rebounding
+	 * @param defensivePlayer
+	 * 		The defensive player attempting the reoubnding
+	 * @return
+	 * 		Returns 1 if the offensive player rebounds the ball. Returns 0 otherwise
+	 */
+	public int determineReboundOutcome(Player offensivePlayer, Player defensivePlayer) {
+		Random rand = new Random();
+		double weight = .8;
+		double reboundValue = (weight*(.8*offensivePlayer.getOffensiveRebounding()+.2*offensivePlayer.getHeight()) + (1-weight)*rand.nextDouble()) - (weight*(.8*defensivePlayer.getDefensiveRebounding()+.2*defensivePlayer.getHeight() + (1-weight)*rand.nextDouble()));
+		
+		if (reboundValue > 0) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 
 	// TODO: Remove below methods after testing is complete

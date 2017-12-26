@@ -935,8 +935,15 @@ public class Player {
 			this.staminaDecrease = staminaDecrease;
 		}
 	}
-	
-	
+
+	/**
+	 * Calculates the average overall shooting rating of the player
+	 * @return
+	 * 		The average overall shooting rating of the player
+	 */
+	public double getAverageShootingRating() {
+		return (insideScoring + midRangeScoring + threePointScoring) / 3;
+	}
 
 	// /**
 	// * Determines and stores the rating of the player in a given position
