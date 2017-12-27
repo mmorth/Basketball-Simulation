@@ -187,8 +187,8 @@ public class GameSimulation {
 		team1RelativeRating = (team1.getTeamOffensiveRating() - team2.getTeamDefensiveRating() + 100) / 2;
 		team2RelativeRating = (team2.getTeamOffensiveRating() - team1.getTeamDefensiveRating() + 100) / 2;
 
-		team1BoostCalculation();
-		team2BoostCalculation();
+		// team1BoostCalculation();
+		// team2BoostCalculation();
 
 		DEBUG = debug;
 
@@ -457,7 +457,7 @@ public class GameSimulation {
 					}
 
 				} while (passer == shooter);
-				
+
 				Player rebounder = new Player();
 				Player reboundDefender = new Player();
 				double playerReboundSelector = rand.nextDouble();
@@ -507,10 +507,10 @@ public class GameSimulation {
 
 				if (successfulPass == 1) {
 					int team1ScoreIncrease = determineShotOutcome(shooter, shotDefender, passer);
-					
+
 					if (team1ScoreIncrease == 0) {
 						int reboundPossession = determineReboundOutcome(rebounder, reboundDefender);
-						
+
 						if (reboundPossession == 1) {
 							possessionArrow = 0;
 						} else {
@@ -529,31 +529,33 @@ public class GameSimulation {
 
 		}
 
-		// Decrease rotation minutes remaining and player stamina
-		for (int i = 0; i < team1.getOnCourt().length; i++) {
+		// Decrease rotation minutes remaining and player stamina for team 1
+		for (int i = 0; i < team1.getOnCourt().length && team1.getOnCourt()[i] != null; i++) {
 			team1.getOnCourt()[i].setStamina(team1.getOnCourt()[i].getStaminaDecrease());
 			team1.getOnCourt()[i]
 					.setRotationPossessionsRemaining(team1.getOnCourt()[i].getRotationPossessionsRemaining() - 1);
+		}
+
+		// Decrease rotation minutes remaining and player stamina for team 1
+		for (int i = 0; i < team2.getOnCourt().length && team2.getOnCourt()[i] != null; i++) {
 			team2.getOnCourt()[i].setStamina(team2.getOnCourt()[i].getStaminaDecrease());
 			team2.getOnCourt()[i]
 					.setRotationPossessionsRemaining(team2.getOnCourt()[i].getRotationPossessionsRemaining() - 1);
 		}
 
+		// Increase stamina for players currently on the bench for team 1
+		for (int i = 0; i < team1.getOnBench().length && team1.getOnBench()[i] != null; i++) {
+			team1.getOnBench()[i].setStamina(team1.getOnBench()[i].getStamina() + 5);
+		}
+
+		// Increase stamina for players currently on the bench for team 2
+		for (int i = 0; i < team2.getOnBench().length && team1.getOnBench()[i] != null; i++) {
+			team2.getOnBench()[i].setStamina(team2.getOnBench()[i].getStamina() + 5);
+		}
+
 		// Substitute players into game if necessary
 		team1.substitutePlayers(possessions);
 		team2.substitutePlayers(possessions);
-
-		// Determine what player ratings go into determining if the team scores
-
-		// Have a random number generator determine who will shoot the ball with weight
-		// going toward players with higher shooting ratings
-		// Have random number generator determine who passed the ball to the player who
-		// will shoot with weight toward players with higher passing ratings
-		// Compare the pass and ball handling and steal ratings of the two players who
-		// passed the ball and who scored to see if ball was turnover
-		// Use the different player ratings for offense and defense to determine if the
-		// player scored the ball
-		// Add the chance that a player gets fouled
 
 	}
 
@@ -700,37 +702,39 @@ public class GameSimulation {
 		return possessions;
 	}
 
-	/**
-	 * Calculates how much increase in chance that team1 scores on this possession
-	 */
-	public void team1BoostCalculation() {
-		double ratio = team1.getTeamOffensiveRating() / team2.getTeamDefensiveRating();
-
-		if (ratio >= 2) {
-			team1Boost = 1.1 + .2 * ratio;
-		} else if (ratio < 1) {
-			team1Boost = 1;
-		} else {
-			team1Boost = .9 + .1 * ratio;
-		}
-
-	}
-
-	/**
-	 * Calculates how much increase in change that team2 scores on this possession
-	 */
-	public void team2BoostCalculation() {
-		double ratio = team2.getTeamOffensiveRating() / team1.getTeamDefensiveRating();
-
-		if (ratio >= 2) {
-			team2Boost = 1.1 + .2 * ratio;
-		} else if (ratio <= 1) {
-			team2Boost = 1;
-		} else {
-			team2Boost = .9 + .1 * ratio;
-		}
-
-	}
+	// /**
+	// * Calculates how much increase in chance that team1 scores on this possession
+	// */
+	// public void team1BoostCalculation() {
+	// double ratio = team1.getTeamOffensiveRating() /
+	// team2.getTeamDefensiveRating();
+	//
+	// if (ratio >= 2) {
+	// team1Boost = 1.1 + .2 * ratio;
+	// } else if (ratio < 1) {
+	// team1Boost = 1;
+	// } else {
+	// team1Boost = .9 + .1 * ratio;
+	// }
+	//
+	// }
+	//
+	// /**
+	// * Calculates how much increase in change that team2 scores on this possession
+	// */
+	// public void team2BoostCalculation() {
+	// double ratio = team2.getTeamOffensiveRating() /
+	// team1.getTeamDefensiveRating();
+	//
+	// if (ratio >= 2) {
+	// team2Boost = 1.1 + .2 * ratio;
+	// } else if (ratio <= 1) {
+	// team2Boost = 1;
+	// } else {
+	// team2Boost = .9 + .1 * ratio;
+	// }
+	//
+	// }
 
 	/**
 	 * Determines whether the pass is successful

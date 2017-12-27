@@ -2,10 +2,8 @@ package simulation;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * Represents a basketball team. Stores name and rating.
@@ -28,7 +26,7 @@ public class Team {
 	/**
 	 * Stores the players currently on the bench
 	 */
-	private Player[] onBench = new Player[10];
+	private Player[] onBench = new Player[15];
 
 	/**
 	 * Stores the coach of the team
@@ -73,6 +71,8 @@ public class Team {
 		setTeamName(teamName);
 
 		setRoster(roster);
+		setOnCourt(roster);
+		setOnBench(roster);
 
 		setCoach(coach);
 
@@ -289,6 +289,14 @@ public class Team {
 	 *            new onCourt rating of the player
 	 */
 	public void setOnCourt(Player[] onCourt) {
+		// if (onCourt.length > 5) {
+		// throw new IllegalArgumentException("There can be no more than 5 player on the
+		// court at a time.");
+		// }
+		for (int i = 0; i < 5; i++) {
+			onCourt[i] = roster[i];
+		}
+
 		this.onCourt = onCourt;
 	}
 
@@ -308,6 +316,14 @@ public class Team {
 	 *            new onBench rating of the player
 	 */
 	public void setOnBench(Player[] onBench) {
+		// if (onBench.length > 15) {
+		// throw new IllegalArgumentException("There can be no more than 15 players on
+		// the bench at a time.");
+		// }
+		for (int i = 5; i < roster.length; i++) {
+			onBench[i] = roster[i];
+		}
+
 		this.onBench = onBench;
 	}
 
@@ -570,47 +586,50 @@ public class Team {
 	}
 
 	/**
-	 * Calculates and returns the total shooting rating of the players currently in the game
-	 * @return
-	 * 		The total shooting rating of the players currently in the game
+	 * Calculates and returns the total shooting rating of the players currently in
+	 * the game
+	 * 
+	 * @return The total shooting rating of the players currently in the game
 	 */
 	public int calculateTotalShootingRating() {
 		int totalShootingRating = 0;
-		
-		for (int i = 0; i < onCourt.length; i++) {
+
+		for (int i = 0; i < onCourt.length && onCourt[i] != null; i++) {
 			totalShootingRating += onCourt[i].getAverageShootingRating();
 		}
-		
+
 		return totalShootingRating;
 	}
 
 	/**
-	 * Calculates and returns the total passing rating of the players currently in the game
-	 * @return
-	 * 		The total passing rating of the players currently in the game
+	 * Calculates and returns the total passing rating of the players currently in
+	 * the game
+	 * 
+	 * @return The total passing rating of the players currently in the game
 	 */
 	public int calculateTotalPassingRating() {
 		int totalPassingRating = 0;
-		
-		for (int i = 0; i < onCourt.length; i++) {
+
+		for (int i = 0; i < onCourt.length && onCourt[i] != null; i++) {
 			totalPassingRating += onCourt[i].getPassing();
 		}
-		
+
 		return totalPassingRating;
 	}
 
 	/**
-	 * Calculates and returns the total rebounding rating of the players currently in the game
-	 * @return
-	 * 		The total rebounding rating of the player currently in the game
+	 * Calculates and returns the total rebounding rating of the players currently
+	 * in the game
+	 * 
+	 * @return The total rebounding rating of the player currently in the game
 	 */
 	public int getTotalReboundingRating() {
 		int totalReboundingRating = 0;
-		
-		for (int i = 0; i < onCourt.length; i++) {
+
+		for (int i = 0; i < onCourt.length && onCourt[i] != null; i++) {
 			totalReboundingRating += onCourt[i].getOffensiveRebounding() + onCourt[i].getDefensiveRebounding();
 		}
-		
+
 		return totalReboundingRating / 2;
 	}
 

@@ -161,6 +161,38 @@ public class Player {
 	 */
 	private int staminaDecrease;
 
+	// Player Game Statistics
+
+	/**
+	 * Stores the player's points during a game
+	 */
+	private int pointsGame;
+
+	/**
+	 * Stores the player's rebounds during a game
+	 */
+	private int reboundsGame;
+
+	/**
+	 * Stores the player's assists during a game
+	 */
+	private int assistsGame;
+
+	/**
+	 * Stores the player's blocks during a game
+	 */
+	private int blocksGame;
+
+	/**
+	 * Stores the player's steals during a game
+	 */
+	private int stealsGame;
+
+	/**
+	 * Stores the player's turnovers during a game
+	 */
+	private int turnoversGame;
+
 	/**
 	 * Default Constructor: Remove after testing!
 	 */
@@ -222,7 +254,8 @@ public class Player {
 			int contractYears, int insideScoring, int midRangeScoring, int threePointScoring, int freeThrow,
 			int offensiveRebounding, int ballHandling, int passing, int postDefense, int perimeterDefense,
 			int defensiveRebounding, int steal, int block, int height, int speed, int stamina, int injury,
-			int potential, int rotationPossessions) {
+			int potential, int rotationPossessions, int pointsGame, int reboundsGame, int assistsGame, int blocksGame,
+			int stealsGame, int turnoversGame) {
 		setPlayerFirstName(playerFirstName);
 		setPlayerLastName(playerLastName);
 		setPosition(position);
@@ -249,8 +282,13 @@ public class Player {
 		setPotential(potential);
 		setInitialRotationPossessions(rotationPossessions);
 		setRotationPossessionsRemaining(rotationPossessions);
-
-		// calculateBestPosition();
+		determineBestPosition();
+		setPointsGame(pointsGame);
+		setReboundsGame(reboundsGame);
+		setAssistsGame(assistsGame);
+		setBlocksGame(blocksGame);
+		setStealsGame(stealsGame);
+		setTurnoversGame(turnoversGame);
 
 	}
 
@@ -282,7 +320,7 @@ public class Player {
 
 	/**
 	 * Returns the last name of the player
-	 * 
+	 *
 	 * @return Last name of player
 	 */
 	public String getPlayerLastName() {
@@ -947,6 +985,140 @@ public class Player {
 	 */
 	public double getAverageShootingRating() {
 		return (insideScoring + midRangeScoring + threePointScoring) / 3;
+	}
+	
+	
+
+	/**
+	 * Returns the pointsGame rating of the player
+	 * @return 
+	 *		The pointsGame rating of the player
+	 */
+	public int getPointsGame() {
+		return pointsGame;
+	}
+
+	/**
+	 * Sets the pointsGame rating of the player
+	 * @param 
+	 * 		The new pointsGame rating of the player
+	 */
+	public void setPointsGame(int pointsGame) {
+		if (pointsGame < 0) {
+			this.pointsGame = 0;
+		} else {
+			this.pointsGame = pointsGame;
+		}
+	}
+
+	/**
+	 * Returns the reboundsGame rating of the player
+	 * @return 
+	 *		The reboundsGame rating of the player
+	 */
+	public int getReboundsGame() {
+		return reboundsGame;
+	}
+
+	/**
+	 * Sets the reboundsGame rating of the player
+	 * @param 
+	 * 		The new reboundsGame rating of the player
+	 */
+	public void setReboundsGame(int reboundsGame) {
+		if (reboundsGame < 0) {
+			this.reboundsGame = 0;
+		} else {
+			this.reboundsGame = reboundsGame;
+		}
+	}
+
+	/**
+	 * Returns the assistsGame rating of the player
+	 * @return 
+	 *		The assistsGame rating of the player
+	 */
+	public int getAssistsGame() {
+		return assistsGame;
+	}
+
+	/**
+	 * Sets the assistsGame rating of the player
+	 * @param 
+	 * 		The new assistsGame rating of the player
+	 */
+	public void setAssistsGame(int assistsGame) {
+		if (assistsGame < 0) {
+			this.assistsGame = 0;
+		} else {
+			this.assistsGame = assistsGame;
+		}
+	}
+
+	/**
+	 * Returns the blocksGame rating of the player
+	 * @return 
+	 *		The blocksGame rating of the player
+	 */
+	public int getBlocksGame() {
+		return blocksGame;
+	}
+
+	/**
+	 * Sets the blocksGame rating of the player
+	 * @param 
+	 * 		The new blocksGame rating of the player
+	 */
+	public void setBlocksGame(int blocksGame) {
+		if (blocksGame < 0) {
+			this.blocksGame = 0;
+		} else {
+			this.blocksGame = blocksGame;
+		}
+	}
+
+	/**
+	 * Returns the stealsGame rating of the player
+	 * @return 
+	 *		The stealsGame rating of the player
+	 */
+	public int getStealsGame() {
+		return stealsGame;
+	}
+
+	/**
+	 * Sets the stealsGame rating of the player
+	 * @param 
+	 * 		The new stealsGame rating of the player
+	 */
+	public void setStealsGame(int stealsGame) {
+		if (stealsGame < 0) {
+			this.stealsGame = 0;
+		} else {
+			this.stealsGame = stealsGame;
+		}
+	}
+
+	/**
+	 * Returns the turnoversGame rating of the player
+	 * @return 
+	 *		The turnoversGame rating of the player
+	 */
+	public int getTurnoversGame() {
+		return turnoversGame;
+	}
+
+	/**
+	 * Sets the turnoversGame rating of the player
+	 * @param 
+	 * 		The new turnoversGame rating of the player
+	 */
+	public void setTurnoversGame(int turnoversGame) {
+		if (turnoversGame < 0) {
+			this.turnoversGame = 0;
+		} else {
+			this.turnoversGame = turnoversGame;
+		}
 	}
 
 	/**
