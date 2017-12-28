@@ -225,7 +225,7 @@ public class GameSimulation {
 		char choice = ' ';
 
 		// Continues the simulation process for 100 possessions for each team
-		for (int possessions = 1; possessions <= 100; possessions++) {
+		for (int possessions = 1; possessions <= 200; possessions++) {
 			// If the user choose to simulate the game, then simulate the game by quarters
 			if (choice != 'g') {
 
@@ -259,16 +259,16 @@ public class GameSimulation {
 			}
 
 			// Calculate the number of points scored by the team during the quarter
-			if (possessions == 25) {
+			if (possessions == 50) {
 				team1FirstQuarterScore = team1Score;
 				team2FirstQuarterScore = team2Score;
-			} else if (possessions == 50) {
+			} else if (possessions == 100) {
 				team1SecondQuarterScore = team1Score - team1FirstQuarterScore;
 				team2SecondQuarterScore = team2Score - team2FirstQuarterScore;
-			} else if (possessions == 75) {
+			} else if (possessions == 150) {
 				team1ThirdQuarterScore = team1Score - team1SecondQuarterScore - team1FirstQuarterScore;
 				team2ThirdQuarterScore = team2Score - team2SecondQuarterScore - team2FirstQuarterScore;
-			} else if (possessions == 100) {
+			} else if (possessions == 200) {
 				team1FourthQuarterScore = team1Score - team1SecondQuarterScore - team1ThirdQuarterScore
 						- team1FirstQuarterScore;
 				team2FourthQuarterScore = team2Score - team2SecondQuarterScore - team2ThirdQuarterScore
@@ -282,7 +282,7 @@ public class GameSimulation {
 			// Overtime simulation. Only happens when the two team's scores are tied at the
 			// end of the game
 			while (team1Score == team2Score) {
-				for (int possessions = 101; possessions <= 110; possessions++) {
+				for (int possessions = 201; possessions <= 210; possessions++) {
 
 					// TODO Remove after testing
 					if (DEBUG == 0) {
@@ -773,31 +773,31 @@ public class GameSimulation {
 	 * @return The number of possessions remaining in the game
 	 */
 	public int simulatePossessionsQuarter(int possessions) {
-		if (possessions <= 25) {
-			for (int i = possessions; i <= 25; i++) {
-				simulatePossession(possessions);
-			}
-			possessions = 25;
-		} else if (possessions <= 50) {
+		if (possessions <= 50) {
 			for (int i = possessions; i <= 50; i++) {
 				simulatePossession(possessions);
 			}
 			possessions = 50;
-		} else if (possessions <= 75) {
-			for (int i = possessions; i <= 75; i++) {
-				simulatePossession(possessions);
-			}
-			possessions = 75;
 		} else if (possessions <= 100) {
 			for (int i = possessions; i <= 100; i++) {
 				simulatePossession(possessions);
 			}
 			possessions = 100;
-		} else {
-			for (int i = possessions; i <= 110; i++) {
+		} else if (possessions <= 150) {
+			for (int i = possessions; i <= 150; i++) {
 				simulatePossession(possessions);
 			}
-			possessions = 110;
+			possessions = 150;
+		} else if (possessions <= 200) {
+			for (int i = possessions; i <= 200; i++) {
+				simulatePossession(possessions);
+			}
+			possessions = 200;
+		} else {
+			for (int i = possessions; i <= 210; i++) {
+				simulatePossession(possessions);
+			}
+			possessions = 210;
 		}
 
 		return possessions;
@@ -864,6 +864,8 @@ public class GameSimulation {
 		if (passValue > 0) {
 			return 1;
 		} else {
+			offensivePlayer.setTurnoversGame(offensivePlayer.getTurnoversGame() + 1);
+			defensivePlayer.setStealsGame(defensivePlayer.getStealsGame() + 1);
 			return 0;
 		}
 	}
@@ -959,6 +961,7 @@ public class GameSimulation {
 
 		if (reboundValue > 0) {
 			offensivePlayer.setReboundsGame(offensivePlayer.getReboundsGame() + 1);
+			defensivePlayer.setBlocksGame(defensivePlayer.getBlocksGame() + 1);
 			return 1;
 		} else {
 			defensivePlayer.setReboundsGame(defensivePlayer.getReboundsGame() + 1);

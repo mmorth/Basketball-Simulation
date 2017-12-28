@@ -197,8 +197,8 @@ public class Team {
 		int overall = 0;
 		int i = 0;
 
-		for (i = 0; i < roster.length && roster[i] != null; i++) {
-			overall += roster[i].getOffensiveRating();
+		for (i = 0; i < onCourt.length && onCourt[i] != null; i++) {
+			overall += onCourt[i].getOffensiveRating();
 		}
 
 		teamOffensiveRating = overall / i;
@@ -222,8 +222,8 @@ public class Team {
 		int overall = 0;
 		int i = 0;
 
-		for (i = 0; i < roster.length && roster[i] != null; i++) {
-			overall += roster[i].getDefensiveRating();
+		for (i = 0; i < onCourt.length && onCourt[i] != null; i++) {
+			overall += onCourt[i].getDefensiveRating();
 		}
 
 		teamDefensiveRating = overall / i;
@@ -449,6 +449,10 @@ public class Team {
 			onCourt[4] = onBench[sub];
 			onBench[sub] = temp;
 		}
+		
+		generateNewTeamOffensiveRating();
+		generateNewTeamDefensiveRating();
+		generateNewTeamOverallRating();
 
 	}
 
