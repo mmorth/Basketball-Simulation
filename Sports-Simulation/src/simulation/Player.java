@@ -249,13 +249,15 @@ public class Player implements Athlete {
 	 *            The injury rating of the player
 	 * @param potential
 	 *            The potential rating of the player
+	 * @param rotationPossessions
+	 *            The number of possessions for the player in the rotation
+	 * 
 	 */
 	public Player(int position, String playerFirstName, String playerLastName, int age, double contractAmount,
 			int contractYears, int insideScoring, int midRangeScoring, int threePointScoring, int freeThrow,
 			int offensiveRebounding, int ballHandling, int passing, int postDefense, int perimeterDefense,
 			int defensiveRebounding, int steal, int block, int height, int speed, int stamina, int injury,
-			int potential, int rotationPossessions, int pointsGame, int reboundsGame, int assistsGame, int blocksGame,
-			int stealsGame, int turnoversGame) {
+			int potential, int rotationPossessions) {
 		setFirstName(playerFirstName);
 		setLastName(playerLastName);
 		setPosition(position);
@@ -289,6 +291,13 @@ public class Player implements Athlete {
 		setBlocksGame(blocksGame);
 		setStealsGame(stealsGame);
 		setTurnoversGame(turnoversGame);
+		
+		pointsGame = 0;
+		reboundsGame = 0;
+		assistsGame = 0;
+		blocksGame = 0;
+		stealsGame = 0;
+		turnoversGame = 0;
 
 	}
 
@@ -1034,13 +1043,11 @@ public class Player implements Athlete {
 	public double getAverageShootingRating() {
 		return (insideScoring + midRangeScoring + threePointScoring) / 3;
 	}
-	
-	
 
 	/**
 	 * Returns the pointsGame rating of the player
-	 * @return 
-	 *		The pointsGame rating of the player
+	 * 
+	 * @return The pointsGame rating of the player
 	 */
 	public int getPointsGame() {
 		return pointsGame;
@@ -1048,8 +1055,9 @@ public class Player implements Athlete {
 
 	/**
 	 * Sets the pointsGame rating of the player
-	 * @param 
-	 * 		The new pointsGame rating of the player
+	 * 
+	 * @param The
+	 *            new pointsGame rating of the player
 	 */
 	public void setPointsGame(int pointsGame) {
 		if (pointsGame < 0) {
@@ -1061,8 +1069,8 @@ public class Player implements Athlete {
 
 	/**
 	 * Returns the reboundsGame rating of the player
-	 * @return 
-	 *		The reboundsGame rating of the player
+	 * 
+	 * @return The reboundsGame rating of the player
 	 */
 	public int getReboundsGame() {
 		return reboundsGame;
@@ -1070,8 +1078,9 @@ public class Player implements Athlete {
 
 	/**
 	 * Sets the reboundsGame rating of the player
-	 * @param 
-	 * 		The new reboundsGame rating of the player
+	 * 
+	 * @param The
+	 *            new reboundsGame rating of the player
 	 */
 	public void setReboundsGame(int reboundsGame) {
 		if (reboundsGame < 0) {
@@ -1083,8 +1092,8 @@ public class Player implements Athlete {
 
 	/**
 	 * Returns the assistsGame rating of the player
-	 * @return 
-	 *		The assistsGame rating of the player
+	 * 
+	 * @return The assistsGame rating of the player
 	 */
 	public int getAssistsGame() {
 		return assistsGame;
@@ -1092,8 +1101,9 @@ public class Player implements Athlete {
 
 	/**
 	 * Sets the assistsGame rating of the player
-	 * @param 
-	 * 		The new assistsGame rating of the player
+	 * 
+	 * @param The
+	 *            new assistsGame rating of the player
 	 */
 	public void setAssistsGame(int assistsGame) {
 		if (assistsGame < 0) {
@@ -1105,8 +1115,8 @@ public class Player implements Athlete {
 
 	/**
 	 * Returns the blocksGame rating of the player
-	 * @return 
-	 *		The blocksGame rating of the player
+	 * 
+	 * @return The blocksGame rating of the player
 	 */
 	public int getBlocksGame() {
 		return blocksGame;
@@ -1114,8 +1124,9 @@ public class Player implements Athlete {
 
 	/**
 	 * Sets the blocksGame rating of the player
-	 * @param 
-	 * 		The new blocksGame rating of the player
+	 * 
+	 * @param The
+	 *            new blocksGame rating of the player
 	 */
 	public void setBlocksGame(int blocksGame) {
 		if (blocksGame < 0) {
@@ -1127,8 +1138,8 @@ public class Player implements Athlete {
 
 	/**
 	 * Returns the stealsGame rating of the player
-	 * @return 
-	 *		The stealsGame rating of the player
+	 * 
+	 * @return The stealsGame rating of the player
 	 */
 	public int getStealsGame() {
 		return stealsGame;
@@ -1136,8 +1147,9 @@ public class Player implements Athlete {
 
 	/**
 	 * Sets the stealsGame rating of the player
-	 * @param 
-	 * 		The new stealsGame rating of the player
+	 * 
+	 * @param The
+	 *            new stealsGame rating of the player
 	 */
 	public void setStealsGame(int stealsGame) {
 		if (stealsGame < 0) {
@@ -1149,8 +1161,8 @@ public class Player implements Athlete {
 
 	/**
 	 * Returns the turnoversGame rating of the player
-	 * @return 
-	 *		The turnoversGame rating of the player
+	 * 
+	 * @return The turnoversGame rating of the player
 	 */
 	public int getTurnoversGame() {
 		return turnoversGame;
@@ -1158,8 +1170,9 @@ public class Player implements Athlete {
 
 	/**
 	 * Sets the turnoversGame rating of the player
-	 * @param 
-	 * 		The new turnoversGame rating of the player
+	 * 
+	 * @param The
+	 *            new turnoversGame rating of the player
 	 */
 	public void setTurnoversGame(int turnoversGame) {
 		if (turnoversGame < 0) {
@@ -1185,23 +1198,6 @@ public class Player implements Athlete {
 		} else {
 			calculateCenterRating();
 		}
-	}
-
-	/**
-	 * Calculates the overall, offensive, and defensive ratings of the coach
-	 */
-	public void calculateCoachRatings() {
-		double offensiveWeight = .125;
-		double defensiveWeight = .167;
-		offensiveRating = (int) Math.round(((offensiveWeight) * (insideScoring) + (offensiveWeight) * (midRangeScoring)
-				+ (offensiveWeight) * (threePointScoring) + (offensiveWeight) * (freeThrow)
-				+ (offensiveWeight) * (offensiveRebounding) + (offensiveWeight) * (ballHandling)
-				+ (offensiveWeight) * (passing) + (offensiveWeight) * (speed) + (offensiveWeight) * (height)) / 9);
-		defensiveRating = (int) Math.round(((defensiveWeight) * (postDefense) + (defensiveWeight) * (perimeterDefense)
-				+ (defensiveWeight) * (defensiveRebounding) + (defensiveWeight) * (steal) + (defensiveWeight) * (block)
-				+ (defensiveWeight) * (speed) + (defensiveWeight) * (height)) / 7);
-		overallRating = (offensiveRating + defensiveRating) / 2;
-		position = 0;
 	}
 
 	/**

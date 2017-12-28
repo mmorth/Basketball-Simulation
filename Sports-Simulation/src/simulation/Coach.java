@@ -21,7 +21,7 @@ public class Coach implements Athlete {
 	/**
 	 * Stores coach position
 	 */
-	private int position;
+	private int position = 0;
 
 	/**
 	 * Stores coach contract amount in millions per year
@@ -295,7 +295,7 @@ public class Coach implements Athlete {
 	 */
 	@Override
 	public int getPosition() {
-		return 0;
+		return position;
 	}
 
 	/**
@@ -364,10 +364,10 @@ public class Coach implements Athlete {
 	@Override
 	public void setContractAmount(double contractAmount) {
 		if (contractAmount < 0) {
-			throw new IllegalArgumentException("Contract amount must be greater than or equal to zero.");
+			this.contractAmount = 0;
+		} else {
+			this.contractAmount = contractAmount;
 		}
-
-		this.contractAmount = contractAmount;
 
 	}
 
@@ -393,10 +393,11 @@ public class Coach implements Athlete {
 	@Override
 	public void setContractYears(int contractYears) {
 		if (contractYears < 0) {
-			throw new IllegalArgumentException("Contract years must be greater than or equal to zero.");
+			this.contractYears = 0;
+		} else {
+			this.contractYears = contractYears;
 		}
 
-		this.contractYears = contractYears;
 	}
 
 	/**
@@ -883,6 +884,23 @@ public class Coach implements Athlete {
 		} else {
 			this.potential = potential;
 		}
+	}
+	
+	/**
+	 * Calculates the overall, offensive, and defensive ratings of the coach
+	 */
+	public void calculateCoachRatings() {
+		double offensiveWeight = .125;
+		double defensiveWeight = .167;
+		offensiveRating = (int) Math.round(((offensiveWeight) * (insideScoring) + (offensiveWeight) * (midRangeScoring)
+				+ (offensiveWeight) * (threePointScoring) + (offensiveWeight) * (freeThrow)
+				+ (offensiveWeight) * (offensiveRebounding) + (offensiveWeight) * (ballHandling)
+				+ (offensiveWeight) * (passing) + (offensiveWeight) * (speed) + (offensiveWeight) * (height)) / 9);
+		defensiveRating = (int) Math.round(((defensiveWeight) * (postDefense) + (defensiveWeight) * (perimeterDefense)
+				+ (defensiveWeight) * (defensiveRebounding) + (defensiveWeight) * (steal) + (defensiveWeight) * (block)
+				+ (defensiveWeight) * (speed) + (defensiveWeight) * (height)) / 7);
+		overallRating = (offensiveRating + defensiveRating) / 2;
+		position = 0;
 	}
 
 }

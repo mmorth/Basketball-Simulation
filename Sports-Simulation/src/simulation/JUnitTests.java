@@ -54,7 +54,7 @@ public class JUnitTests {
 	public void setUp() {
 		// Create player
 		p1 = new Player(1, "First", "Last", 25, 5, 2, 30, 35, 40, 45, 50, 57, 60, 65, 70, 75, 80, 85, 90, 95, 100, 31,
-				99, 32, 0, 0, 0, 0, 0, 0);
+				99, 32);
 
 		// Create coach
 		c1 = new Coach(1, "First", "Last", 25, 5, 2, 30, 35, 40, 45, 50, 57, 60, 65, 70, 75, 80, 85, 90, 95, 100, 31,
@@ -70,22 +70,22 @@ public class JUnitTests {
 				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating);
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster[1] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster[2] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster[3] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster[4] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster[5] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 
 		t1 = new Team("Team", roster, ct1);
 
@@ -98,19 +98,19 @@ public class JUnitTests {
 		// Create another team
 		roster1 = new Player[7];
 		roster1[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, 0, 0, 0, 0, 0, 0);
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
 		roster1[1] = new Player(2, "First", "Last", 25, 5, 2, rating2, rating2, rating2, rating2, rating2, rating2,
 				rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2,
-				rating2, 0, 0, 0, 0, 0, 0);
+				rating2);
 		roster1[2] = new Player(3, "First", "Last", 25, 5, 2, rating3, rating3, rating3, rating3, rating3, rating3,
 				rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3,
-				rating3, 0, 0, 0, 0, 0, 0);
+				rating3);
 		roster1[3] = new Player(4, "First", "Last", 25, 5, 2, rating4, rating4, rating4, rating4, rating4, rating4,
 				rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4,
-				rating4, 0, 0, 0, 0, 0, 0);
+				rating4);
 		roster1[4] = new Player(5, "First", "Last", 25, 5, 2, rating5, rating5, rating5, rating5, rating5, rating5,
 				rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5,
-				rating5, 0, 0, 0, 0, 0, 0);
+				rating5);
 
 		t2 = new Team("Team", roster1, ct1);
 
@@ -118,64 +118,64 @@ public class JUnitTests {
 		roster2 = new Player[20];
 		roster2[0] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[1] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[2] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[3] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[4] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[5] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[6] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[7] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[8] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[9] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[10] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[11] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[12] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[13] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[14] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[15] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[16] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[17] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[18] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 		roster2[19] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 
 		// Coach genCoach = new Coach("First", "Last", 100, 100, 25, 5, 2);
 		OneHundred = new Team("100", TestMatchups.createOneHundredRoster(), ct1);
@@ -200,7 +200,7 @@ public class JUnitTests {
 	@Test
 	public void playerConstructor() {
 		Player player = new Player(3, "Player", "Name", 25, 5, 2, 30, 35, 40, 45, 50, 57, 60, 65, 70, 75, 80, 85, 90,
-				95, 100, 31, 99, 32, 0, 0, 0, 0, 0, 0);
+				95, 100, 31, 99, 32);
 		assertEquals(player.getFirstName(), "Player");
 		assertEquals(player.getLastName(), "Name");
 		assertEquals(player.getPosition(), 3);
@@ -946,21 +946,21 @@ public class JUnitTests {
 
 	@Test
 	public void coachGetPosition() {
-		assertEquals(c1.getPosition(), 1);
+		assertEquals(c1.getPosition(), 0);
 	}
 
 	@Test
 	public void coachSetPosition() {
 		c1.setPosition(1);
-		assertEquals(c1.getPosition(), 1);
+		assertEquals(c1.getPosition(), 0);
 		c1.setPosition(2);
-		assertEquals(c1.getPosition(), 2);
+		assertEquals(c1.getPosition(), 0);
 		c1.setPosition(3);
-		assertEquals(c1.getPosition(), 3);
+		assertEquals(c1.getPosition(), 0);
 		c1.setPosition(4);
-		assertEquals(c1.getPosition(), 4);
+		assertEquals(c1.getPosition(), 0);
 		c1.setPosition(5);
-		assertEquals(c1.getPosition(), 5);
+		assertEquals(c1.getPosition(), 0);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
@@ -984,9 +984,10 @@ public class JUnitTests {
 		assertEquals(c1.getContractAmount(), 7.25, .01);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void coachSetContractAmountInvalid() {
 		c1.setContractAmount(-.1);
+		assertEquals(c1.getContractAmount(), 0, .01);
 	}
 
 	@Test
@@ -1000,9 +1001,10 @@ public class JUnitTests {
 		assertEquals(c1.getContractYears(), 4);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void coachSetContractYearsInvalid() {
 		c1.setContractYears(-1);
+		assertEquals(c1.getContractYears(), 0);
 	}
 
 	@Test
@@ -1458,7 +1460,7 @@ public class JUnitTests {
 	@Test
 	public void teamSetPlayer() {
 		Player newPlayer = new Player(3, "Player", "Name", 25, 5, 2, 30, 35, 40, 45, 50, 57, 60, 65, 70, 75, 80, 85, 90,
-				95, 100, 31, 99, 32, 0, 0, 0, 0, 0, 0);
+				95, 100, 31, 99, 32);
 		t1.setPlayer(2, newPlayer);
 		assertEquals(newPlayer, t1.getRoster()[2]);
 	}

@@ -318,7 +318,7 @@ public class GameSimulation {
 
 			// TODO Remove after testing
 			if (DEBUG == 0) {
-				printFinalScores(team1FirstQuarterScore, team1SecondQuarterScore, team1ThirdQuarterScore,
+				printBoxScore(team1FirstQuarterScore, team1SecondQuarterScore, team1ThirdQuarterScore,
 						team1FourthQuarterScore, team1OvertimeScore, team2FirstQuarterScore, team2SecondQuarterScore,
 						team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore);
 			}
@@ -638,6 +638,107 @@ public class GameSimulation {
 	}
 
 	/**
+	 * Print the final box score for each team at the end of the simulation game.
+	 * 
+	 * @param team1FirstQuarterScore
+	 *            The number of points scored by team 1 in the first quarter
+	 * @param team1SecondQuarterScore
+	 *            The number of points scored by team 1 in the second quarter
+	 * @param team1ThirdQuarterScore
+	 *            The number of points scored by team 1 in the third quarter
+	 * @param team1FourthQuarterScore
+	 *            The number of points scored by team 1 in the fourth quarter
+	 * @param team1OvertimeScore
+	 *            The number of points scored by team 1 in overtime
+	 * @param team2FirstQuarterScore
+	 *            The number of points scored by team 2 in the first quarter
+	 * @param team2SecondQuarterScore
+	 *            The number of points scored by team 2 in the second quarter
+	 * @param team2ThirdQuarterScore
+	 *            The number of points scored by team 2 in the third quarter
+	 * @param team2FourthQuarterScore
+	 *            The number of points scored by team 2 in the fourth quarter
+	 * @param team2OvertimeScore
+	 *            The number of points scored by team 2 in overtime
+	 * @throws IOException
+	 *             Throws an IOException if the specified file does not exist
+	 */
+	public void printBoxScore(int team1FirstQuarterScore, int team1SecondQuarterScore, int team1ThirdQuarterScore,
+			int team1FourthQuarterScore, int team1OvertimeScore, int team2FirstQuarterScore,
+			int team2SecondQuarterScore, int team2ThirdQuarterScore, int team2FourthQuarterScore,
+			int team2OvertimeScore) throws IOException {
+
+		// Print team scores
+		String scoreHeader = String.format("\nTeam\t\tQ1\tQ2\tQ3\tQ4\tOT\tFinal");
+		String team1Results = String.format("%s\t\t%d\t%d\t%d\t%d\t%d\t%d", team1.getTeamName(), team1FirstQuarterScore,
+				team1SecondQuarterScore, team1ThirdQuarterScore, team1FourthQuarterScore, team1OvertimeScore,
+				team1Score);
+		String team2Results = String.format("%s\t\t%d\t%d\t%d\t%d\t%d\t%d", team2.getTeamName(), team2FirstQuarterScore,
+				team2SecondQuarterScore, team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore,
+				team2Score);
+
+		// FileWriter fw = new
+		// FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\GameResults.txt", true);
+		FileWriter fw = new FileWriter("/home/mmorth/Coding/Storage_Files/GameResults.txt", true);
+		BufferedWriter bw = new BufferedWriter(fw);
+
+		bw.write(scoreHeader);
+		bw.newLine();
+		bw.write(team1Results);
+		bw.newLine();
+		bw.write(team2Results);
+		bw.newLine();
+
+		bw.write(team1.getTeamName());
+		bw.newLine();
+		String team1PlayerStatsHeader = String.format("Player\t\t\tPoints\tRebounds\tAssists\tBlocks\tSteals\tTurnovers");
+
+		bw.write(team1PlayerStatsHeader);
+		bw.newLine();
+
+		for (int i = 0; i < team1.getRoster().length; i++) {
+			String playerStats = String.format("%s %s\t\t\t%d\t%d\t%d\t%d\t%d\t%d", team1.getRoster()[i].getFirstName(),
+					team1.getRoster()[i].getLastName(), team1.getRoster()[i].getPointsGame(),
+					team1.getRoster()[i].getReboundsGame(), team1.getRoster()[i].getAssistsGame(),
+					team1.getRoster()[i].getBlocksGame(), team1.getRoster()[i].getStealsGame(),
+					team1.getRoster()[i].getTurnoversGame());
+
+			bw.write(playerStats);
+			bw.newLine();
+		}
+		
+		bw.newLine();
+		
+		bw.write(team2.getTeamName());
+		bw.newLine();
+		String team2PlayerStatsHeader = String.format("Player\t\t\tPoints\tRebounds\tAssists\tBlocks\tSteals\tTurnovers");
+
+		bw.write(team2PlayerStatsHeader);
+		bw.newLine();
+
+		for (int i = 0; i < team2.getRoster().length; i++) {
+			String playerStats = String.format("%s %s\t\t\t%d\t%d\t%d\t%d\t%d\t%d", team2.getRoster()[i].getFirstName(),
+					team2.getRoster()[i].getLastName(), team2.getRoster()[i].getPointsGame(),
+					team2.getRoster()[i].getReboundsGame(), team2.getRoster()[i].getAssistsGame(),
+					team2.getRoster()[i].getBlocksGame(), team2.getRoster()[i].getStealsGame(),
+					team2.getRoster()[i].getTurnoversGame());
+
+			bw.write(playerStats);
+			bw.newLine();
+		}
+		
+		bw.newLine();
+
+		bw.newLine();
+		bw.newLine();
+
+		bw.flush();
+		fw.close();
+		bw.close();
+
+	}
+
+	/**
 	 * Print the options menu for the user to choose from
 	 * 
 	 * @param remainingPossessions
@@ -816,12 +917,20 @@ public class GameSimulation {
 						+ (1 - weight) * rand.nextDouble());
 
 		if (shotValue > 0 && shotLocation == 3) {
+			offensivePlayer.setPointsGame(offensivePlayer.getPointsGame() + 3);
+			passer.setAssistsGame(passer.getAssistsGame() + 1);
 			return 3;
 		} else if (shotValue > 0 && shotLocation == 2) {
+			offensivePlayer.setPointsGame(offensivePlayer.getPointsGame() + 2);
+			passer.setAssistsGame(passer.getAssistsGame() + 1);
 			return 2;
 		} else if (shotValue > 0 && shotLocation == 1) {
+			offensivePlayer.setPointsGame(offensivePlayer.getPointsGame() + 2);
+			passer.setAssistsGame(passer.getAssistsGame() + 1);
 			return 2;
 		} else if (shotValue > 0 && shotLocation == 0) {
+			offensivePlayer.setPointsGame(offensivePlayer.getPointsGame() + 1);
+			passer.setAssistsGame(passer.getAssistsGame() + 1);
 			return 1;
 		} else {
 			return 0;
@@ -849,8 +958,10 @@ public class GameSimulation {
 						+ (1 - weight) * rand.nextDouble()));
 
 		if (reboundValue > 0) {
+			offensivePlayer.setReboundsGame(offensivePlayer.getReboundsGame() + 1);
 			return 1;
 		} else {
+			defensivePlayer.setReboundsGame(defensivePlayer.getReboundsGame() + 1);
 			return 0;
 		}
 	}

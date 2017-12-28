@@ -64,7 +64,7 @@ public class League {
 							Integer.parseInt(playerInfo[20]), Integer.parseInt(playerInfo[21]),
 							Integer.parseInt(playerInfo[22]), Integer.parseInt(playerInfo[23]),
 							Integer.parseInt(playerInfo[24]), Integer.parseInt(playerInfo[25]),
-							Integer.parseInt(playerInfo[26]), 0, 0, 0, 0, 0, 0);
+							Integer.parseInt(playerInfo[26]));
 					roster.add(player);
 				}
 			}
