@@ -205,8 +205,7 @@ public class Coach implements Athlete {
 			int contractYears, int insideScoring, int midRangeScoring, int threePointScoring, int freeThrow,
 			int offensiveRebounding, int ballHandling, int passing, int postDefense, int perimeterDefense,
 			int defensiveRebounding, int steal, int block, int height, int speed, int stamina, int injury,
-			int potential, int rotationPossessions, int pointsGame, int reboundsGame, int assistsGame, int blocksGame,
-			int stealsGame, int turnoversGame) {
+			int potential) {
 		setFirstName(coachFirstName);
 		setLastName(coachLastName);
 		setPosition(position);
@@ -238,6 +237,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return Name of the coach
 	 */
+	@Override
 	public String getFirstName() {
 		return coachFirstName;
 	}
@@ -251,6 +251,7 @@ public class Coach implements Athlete {
 	 *             Throws an IllegalArgumentException if the name is greater than 15
 	 *             characters or contains spaces.
 	 */
+	@Override
 	public void setFirstName(String coachFirstName) {
 		if (coachFirstName.length() > 15 || Helper.containsSpaces(coachFirstName)) {
 			throw new IllegalArgumentException(
@@ -264,6 +265,7 @@ public class Coach implements Athlete {
 	 *
 	 * @return Last name of coach
 	 */
+	@Override
 	public String getLastName() {
 		return coachLastName;
 	}
@@ -277,6 +279,7 @@ public class Coach implements Athlete {
 	 *             Throws an IllegalArgumentException if the name is greater than 15
 	 *             characters or contains spaces.
 	 */
+	@Override
 	public void setLastName(String coachLastName) {
 		if (coachLastName.length() > 15 || Helper.containsSpaces(coachLastName)) {
 			throw new IllegalArgumentException(
@@ -290,8 +293,9 @@ public class Coach implements Athlete {
 	 * 
 	 * @return Position of coach
 	 */
+	@Override
 	public int getPosition() {
-		return position;
+		return 0;
 	}
 
 	/**
@@ -303,15 +307,9 @@ public class Coach implements Athlete {
 	 *             Throws an IllegalArgument exception if there are more than 5
 	 *             elements in position or if a position is not between 1 and 6
 	 */
+	@Override
 	public void setPosition(int position) {
-		if (position < 1 || position > 5) {
-			throw new IllegalArgumentException("Position must be between 1 and 6 inclusive");
-		}
-
-		this.position = position;
-
-		// calculatePositionRating();
-
+		this.position = 0;
 	}
 
 	/**
@@ -319,6 +317,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The overallRating rating of the coach
 	 */
+	@Override
 	public int getOverallRating() {
 		return overallRating;
 	}
@@ -328,6 +327,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The offensiveRating rating of the coach
 	 */
+	@Override
 	public int getOffensiveRating() {
 		return offensiveRating;
 	}
@@ -337,6 +337,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The defensiveRating rating of the coach
 	 */
+	@Override
 	public int getDefensiveRating() {
 		return defensiveRating;
 	}
@@ -346,6 +347,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return Contract amount for current coach
 	 */
+	@Override
 	public double getContractAmount() {
 		return contractAmount;
 	}
@@ -359,6 +361,7 @@ public class Coach implements Athlete {
 	 *             Throws an IllegalArgument exception if contractAmount is less
 	 *             than 0
 	 */
+	@Override
 	public void setContractAmount(double contractAmount) {
 		if (contractAmount < 0) {
 			throw new IllegalArgumentException("Contract amount must be greater than or equal to zero.");
@@ -373,6 +376,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return Number of years left on contract
 	 */
+	@Override
 	public int getContractYears() {
 		return contractYears;
 	}
@@ -386,6 +390,7 @@ public class Coach implements Athlete {
 	 *             Throws an IllegalArgument exception if contractYears is less than
 	 *             0
 	 */
+	@Override
 	public void setContractYears(int contractYears) {
 		if (contractYears < 0) {
 			throw new IllegalArgumentException("Contract years must be greater than or equal to zero.");
@@ -399,6 +404,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return Age of coach
 	 */
+	@Override
 	public int getAge() {
 		return age;
 	}
@@ -411,6 +417,7 @@ public class Coach implements Athlete {
 	 * @throws IllegalArgumentException
 	 *             Throws an IllegalArgument exception if age is less than 0
 	 */
+	@Override
 	public void setAge(int age) {
 		if (age < 0) {
 			throw new IllegalArgumentException("Age of coach must be greater than zero.");
@@ -424,6 +431,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The insideScoring rating of the coach
 	 */
+	@Override
 	public int getInsideScoring() {
 		return insideScoring;
 	}
@@ -434,6 +442,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new insideScoring rating of the coach
 	 */
+	@Override
 	public void setInsideScoring(int insideScoring) {
 		if (insideScoring < 30) {
 			this.insideScoring = 30;
@@ -449,6 +458,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The midRangeScoring rating of the coach
 	 */
+	@Override
 	public int getMidRangeScoring() {
 		return midRangeScoring;
 	}
@@ -459,6 +469,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new midRangeScoring rating of the coach
 	 */
+	@Override
 	public void setMidRangeScoring(int midRangeScoring) {
 		if (midRangeScoring < 30) {
 			this.midRangeScoring = 30;
@@ -474,6 +485,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The threePointScoring rating of the coach
 	 */
+	@Override
 	public int getThreePointScoring() {
 		return threePointScoring;
 	}
@@ -484,6 +496,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new threePointScoring rating of the coach
 	 */
+	@Override
 	public void setThreePointScoring(int threePointScoring) {
 		if (threePointScoring < 30) {
 			this.threePointScoring = 30;
@@ -499,6 +512,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The freeThrow rating of the coach
 	 */
+	@Override
 	public int getFreeThrow() {
 		return freeThrow;
 	}
@@ -509,6 +523,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new freeThrow rating of the coach
 	 */
+	@Override
 	public void setFreeThrow(int freeThrow) {
 		if (freeThrow < 30) {
 			this.freeThrow = 30;
@@ -524,6 +539,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The offensiveRebounding rating of the coach
 	 */
+	@Override
 	public int getOffensiveRebounding() {
 		return offensiveRebounding;
 	}
@@ -534,6 +550,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new offensiveRebounding rating of the coach
 	 */
+	@Override
 	public void setOffensiveRebounding(int offensiveRebounding) {
 		if (offensiveRebounding < 30) {
 			this.offensiveRebounding = 30;
@@ -549,6 +566,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The ballHandling rating of the coach
 	 */
+	@Override
 	public int getBallHandling() {
 		return ballHandling;
 	}
@@ -559,6 +577,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new ballHandling rating of the coach
 	 */
+	@Override
 	public void setBallHandling(int ballHandling) {
 		if (ballHandling < 30) {
 			this.ballHandling = 30;
@@ -574,6 +593,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The passing rating of the coach
 	 */
+	@Override
 	public int getPassing() {
 		return passing;
 	}
@@ -584,6 +604,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new passing rating of the coach
 	 */
+	@Override
 	public void setPassing(int passing) {
 		if (passing < 30) {
 			this.passing = 30;
@@ -599,6 +620,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The postDefense rating of the coach
 	 */
+	@Override
 	public int getPostDefense() {
 		return postDefense;
 	}
@@ -609,6 +631,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new postDefense rating of the coach
 	 */
+	@Override
 	public void setPostDefense(int postDefense) {
 		if (postDefense < 30) {
 			this.postDefense = 30;
@@ -624,6 +647,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The perimeterDefense rating of the coach
 	 */
+	@Override
 	public int getPerimeterDefense() {
 		return perimeterDefense;
 	}
@@ -634,6 +658,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new perimeterDefense rating of the coach
 	 */
+	@Override
 	public void setPerimeterDefense(int perimeterDefense) {
 		if (perimeterDefense < 30) {
 			this.perimeterDefense = 30;
@@ -649,6 +674,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The defensiveRebounding rating of the coach
 	 */
+	@Override
 	public int getDefensiveRebounding() {
 		return defensiveRebounding;
 	}
@@ -659,6 +685,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new defensiveRebounding rating of the coach
 	 */
+	@Override
 	public void setDefensiveRebounding(int defensiveRebounding) {
 		if (defensiveRebounding < 30) {
 			this.defensiveRebounding = 30;
@@ -674,6 +701,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The steal rating of the coach
 	 */
+	@Override
 	public int getSteal() {
 		return steal;
 	}
@@ -684,6 +712,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new steal rating of the coach
 	 */
+	@Override
 	public void setSteal(int steal) {
 		if (steal < 30) {
 			this.steal = 30;
@@ -699,6 +728,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The block rating of the coach
 	 */
+	@Override
 	public int getBlock() {
 		return block;
 	}
@@ -709,6 +739,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new block rating of the coach
 	 */
+	@Override
 	public void setBlock(int block) {
 		if (block < 30) {
 			this.block = 30;
@@ -724,6 +755,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The height rating of the coach
 	 */
+	@Override
 	public int getHeight() {
 		return height;
 	}
@@ -734,6 +766,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new height rating of the coach
 	 */
+	@Override
 	public void setHeight(int height) {
 		if (height < 30) {
 			this.height = 30;
@@ -749,6 +782,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The speed rating of the coach
 	 */
+	@Override
 	public int getSpeed() {
 		return speed;
 	}
@@ -759,6 +793,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new speed rating of the coach
 	 */
+	@Override
 	public void setSpeed(int speed) {
 		if (speed < 30) {
 			this.speed = 30;
@@ -774,6 +809,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The stamina rating of the coach
 	 */
+	@Override
 	public int getStamina() {
 		return stamina;
 	}
@@ -784,6 +820,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new stamina rating of the coach
 	 */
+	@Override
 	public void setStamina(int stamina) {
 		if (stamina < 30) {
 			this.stamina = 30;
@@ -799,6 +836,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The injury rating of the coach
 	 */
+	@Override
 	public int getInjury() {
 		return injury;
 	}
@@ -809,6 +847,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new injury rating of the coach
 	 */
+	@Override
 	public void setInjury(int injury) {
 		if (injury < 30) {
 			this.injury = 30;
@@ -824,6 +863,7 @@ public class Coach implements Athlete {
 	 * 
 	 * @return The potential rating of the coach
 	 */
+	@Override
 	public int getPotential() {
 		return potential;
 	}
@@ -834,6 +874,7 @@ public class Coach implements Athlete {
 	 * @param The
 	 *            new potential rating of the coach
 	 */
+	@Override
 	public void setPotential(int potential) {
 		if (potential < 30) {
 			this.potential = 30;

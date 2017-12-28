@@ -14,7 +14,7 @@ import org.junit.Test;
 public class JUnitTests {
 
 	// Create player
-	Player p1, ct1;
+	Player p1;
 
 	// Various positions
 	int[] position0 = { 0 };
@@ -25,7 +25,7 @@ public class JUnitTests {
 	int[] position5 = { 4, 5 };
 
 	// Create coach
-	Coach c1;
+	Coach c1, ct1;
 
 	// Create roster
 	Player[] roster, roster1, roster2;
@@ -54,38 +54,38 @@ public class JUnitTests {
 	public void setUp() {
 		// Create player
 		p1 = new Player(1, "First", "Last", 25, 5, 2, 30, 35, 40, 45, 50, 57, 60, 65, 70, 75, 80, 85, 90, 95, 100, 31,
-				99, 32);
+				99, 32, 0, 0, 0, 0, 0, 0);
 
 		// Create coach
-		c1 = new Coach("First", "Last", 80, 60, 25, 5, 2);
+		c1 = new Coach(1, "First", "Last", 25, 5, 2, 30, 35, 40, 45, 50, 57, 60, 65, 70, 75, 80, 85, 90, 95, 100, 31,
+				99);
 
 		// Create team
 		int team1Rating = 50;
 		int noCoachRating = 30;
 
 		roster = new Player[7];
-		ct1 = new Player(1, "First", "Last", 25, 5, 2, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
+		Coach ct1 = new Coach(1, "First", "Last", 25, 5, 2, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
 				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
-				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
-				noCoachRating);
+				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating);
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster[1] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster[2] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster[3] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster[4] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster[5] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 
 		t1 = new Team("Team", roster, ct1);
 
@@ -98,19 +98,19 @@ public class JUnitTests {
 		// Create another team
 		roster1 = new Player[7];
 		roster1[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, 0, 0, 0, 0, 0, 0);
 		roster1[1] = new Player(2, "First", "Last", 25, 5, 2, rating2, rating2, rating2, rating2, rating2, rating2,
 				rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2,
-				rating2);
+				rating2, 0, 0, 0, 0, 0, 0);
 		roster1[2] = new Player(3, "First", "Last", 25, 5, 2, rating3, rating3, rating3, rating3, rating3, rating3,
 				rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3,
-				rating3);
+				rating3, 0, 0, 0, 0, 0, 0);
 		roster1[3] = new Player(4, "First", "Last", 25, 5, 2, rating4, rating4, rating4, rating4, rating4, rating4,
 				rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4,
-				rating4);
+				rating4, 0, 0, 0, 0, 0, 0);
 		roster1[4] = new Player(5, "First", "Last", 25, 5, 2, rating5, rating5, rating5, rating5, rating5, rating5,
 				rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5,
-				rating5);
+				rating5, 0, 0, 0, 0, 0, 0);
 
 		t2 = new Team("Team", roster1, ct1);
 
@@ -118,64 +118,64 @@ public class JUnitTests {
 		roster2 = new Player[20];
 		roster2[0] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[1] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[2] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[3] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[4] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[5] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[6] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[7] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[8] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[9] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[10] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[11] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[12] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[13] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[14] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[15] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[16] = new Player(2, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[17] = new Player(3, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[18] = new Player(4, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 		roster2[19] = new Player(5, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating,
-				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
+				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, 0, 0, 0, 0, 0, 0);
 
 		// Coach genCoach = new Coach("First", "Last", 100, 100, 25, 5, 2);
 		OneHundred = new Team("100", TestMatchups.createOneHundredRoster(), ct1);
@@ -200,9 +200,9 @@ public class JUnitTests {
 	@Test
 	public void playerConstructor() {
 		Player player = new Player(3, "Player", "Name", 25, 5, 2, 30, 35, 40, 45, 50, 57, 60, 65, 70, 75, 80, 85, 90,
-				95, 100, 31, 99, 32);
-		assertEquals(player.getPlayerFirstName(), "Player");
-		assertEquals(player.getPlayerLastName(), "Name");
+				95, 100, 31, 99, 32, 0, 0, 0, 0, 0, 0);
+		assertEquals(player.getFirstName(), "Player");
+		assertEquals(player.getLastName(), "Name");
 		assertEquals(player.getPosition(), 3);
 		assertEquals(player.getContractAmount(), 5, .01);
 		assertEquals(player.getContractYears(), 2);
@@ -231,45 +231,45 @@ public class JUnitTests {
 	}
 
 	@Test
-	public void playergetFirstName() {
-		assertEquals("First", p1.getPlayerFirstName());
+	public void playerGetFirstName() {
+		assertEquals("First", p1.getFirstName());
 	}
 
 	@Test
-	public void playersetFirstName() {
-		p1.setPlayerFirstName("Second");
-		assertEquals("Second", p1.getPlayerFirstName());
+	public void playerSetFirstName() {
+		p1.setFirstName("Second");
+		assertEquals("Second", p1.getFirstName());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void playersetFirstNameInvalidLength() {
-		p1.setPlayerFirstName("ThisNameIsMuchTooLong");
+	public void playerSetFirstNameInvalidLength() {
+		p1.setFirstName("ThisNameIsMuchTooLong");
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void playersetFirstNameInvalidSpace() {
-		p1.setPlayerFirstName("Illegal Name");
+	public void playerSetFirstNameInvalidSpace() {
+		p1.setFirstName("Illegal Name");
 	}
 
 	@Test
-	public void playergetLastName() {
-		assertEquals("Last", p1.getPlayerLastName());
+	public void playerGetLastName() {
+		assertEquals("Last", p1.getLastName());
 	}
 
 	@Test
-	public void playersetLastName() {
-		p1.setPlayerLastName("Second");
-		assertEquals("Second", p1.getPlayerLastName());
+	public void playerSetLastName() {
+		p1.setLastName("Second");
+		assertEquals("Second", p1.getLastName());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void playersetLastNameInvalidLength() {
-		p1.setPlayerLastName("ThisNameIsMuchTooLong");
+	public void playerSetLastNameInvalidLength() {
+		p1.setLastName("ThisNameIsMuchTooLong");
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void playersetLastNameInvalidSpace() {
-		p1.setPlayerLastName("Illegal Name");
+	public void playerSetLastNameInvalidSpace() {
+		p1.setLastName("Illegal Name");
 	}
 
 	@Test
@@ -856,104 +856,121 @@ public class JUnitTests {
 
 	@Test
 	public void coachConstructor() {
-		Coach coach = new Coach("Coach", "Name", 75, 60, 30, 5, 2);
-		assertEquals(coach.getCoachFirstName(), "Coach");
-		assertEquals(coach.getCoachLastName(), "Name");
-		assertEquals(coach.getOffenseRating(), 75);
-		assertEquals(coach.getDefenseRating(), 60);
-		assertEquals(coach.getPosition(), 0);
+		Coach coach = new Coach(3, "coach", "Name", 25, 5, 2, 30, 35, 40, 45, 50, 57, 60, 65, 70, 75, 80, 85, 90,
+				95, 100, 31, 99);
+		assertEquals(coach.getFirstName(), "coach");
+		assertEquals(coach.getLastName(), "Name");
+		assertEquals(coach.getPosition(), 3);
 		assertEquals(coach.getContractAmount(), 5, .01);
 		assertEquals(coach.getContractYears(), 2);
-		assertEquals(coach.getAge(), 30);
+		assertEquals(coach.getAge(), 25);
+		assertEquals(coach.getInsideScoring(), 30);
+		assertEquals(coach.getMidRangeScoring(), 35);
+		assertEquals(coach.getThreePointScoring(), 40);
+		assertEquals(coach.getFreeThrow(), 45);
+		assertEquals(coach.getOffensiveRebounding(), 50);
+		assertEquals(coach.getBallHandling(), 57);
+		assertEquals(coach.getPassing(), 60);
+		assertEquals(coach.getPostDefense(), 65);
+		assertEquals(coach.getPerimeterDefense(), 70);
+		assertEquals(coach.getDefensiveRebounding(), 75);
+		assertEquals(coach.getSteal(), 80);
+		assertEquals(coach.getBlock(), 85);
+		assertEquals(coach.getHeight(), 90);
+		assertEquals(coach.getSpeed(), 95);
+		assertEquals(coach.getStamina(), 100);
+		assertEquals(coach.getInjury(), 31);
+		assertEquals(coach.getPotential(), 99);
+
+		assertEquals(coach.getOffensiveRating(), 0);
+		assertEquals(coach.getDefensiveRating(), 0);
+		assertEquals(coach.getOverallRating(), 0);
 	}
 
 	@Test
-	public void coachgetFirstName() {
-		assertEquals("First", c1.getCoachFirstName());
+	public void coachGetFirstName() {
+		assertEquals("First", c1.getFirstName());
 	}
 
 	@Test
-	public void coachsetFirstName() {
-		c1.setCoachFirstName("Second");
-		assertEquals("Second", c1.getCoachFirstName());
+	public void coachSetFirstName() {
+		c1.setFirstName("Second");
+		assertEquals("Second", c1.getFirstName());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void coachsetFirstNameInvalidLength() {
-		c1.setCoachFirstName("ThisNameIsMuchTooLong");
+	public void coachGetFirstNameInvalidLength() {
+		c1.setFirstName("ThisNameIsMuchTooLong");
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void coachsetFirstNameInvalidSpace() {
-		c1.setCoachFirstName("Illegal Name");
+	public void coachSetFirstNameInvalidSpace() {
+		c1.setFirstName("Illegal Name");
 	}
 
 	@Test
-	public void coachgetLastName() {
-		assertEquals("Last", c1.getCoachLastName());
+	public void coachSetLastName() {
+		assertEquals("Last", c1.getLastName());
 	}
 
 	@Test
-	public void coachsetLastName() {
-		c1.setCoachLastName("Second");
-		assertEquals("Second", c1.getCoachLastName());
+	public void coachGetLastName() {
+		c1.setLastName("Second");
+		assertEquals("Second", c1.getLastName());
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void coachsetLastNameInvalidLength() {
-		c1.setCoachLastName("ThisNameIsMuchTooLong");
+	public void coachSetLastNameInvalidLength() {
+		c1.setLastName("ThisNameIsMuchTooLong");
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void coachsetLastNameInvalidSpace() {
-		c1.setCoachLastName("Illegal Name");
+	public void coachSetLastNameInvalidSpace() {
+		c1.setLastName("Illegal Name");
 	}
 
 	@Test
-	public void coachgetOffenseRating() {
-		assertEquals(80, c1.getOffenseRating());
+	public void coachGetOffenseRating() {
+		assertEquals(0, c1.getOffensiveRating());
 	}
 
 	@Test
 	public void coachgetDefenseRating() {
-		assertEquals(60, c1.getDefenseRating());
+		assertEquals(0, c1.getDefensiveRating());
 	}
 
 	@Test
-	public void coachsetOffenseRating() {
-		c1.setOffenseRating(75);
-		assertEquals(75, c1.getOffenseRating());
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void coachSetOffenseRatingInvalid1() {
-		c1.setOffenseRating(-1);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void coachSetOffenseRatingInvalid2() {
-		c1.setOffenseRating(101);
-	}
-
-	@Test
-	public void coachsetDefenseRating() {
-		c1.setDefenseRating(95);
-		assertEquals(95, c1.getDefenseRating());
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void coachSetDefenseRatingInvalid1() {
-		c1.setOffenseRating(29);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void coachSetDefenseRatingInvalid2() {
-		c1.setOffenseRating(101);
+	public void coachgetOverallRating() {
+		assertEquals(0, c1.getOverallRating());
 	}
 
 	@Test
 	public void coachGetPosition() {
-		assertEquals(c1.getPosition(), 0);
+		assertEquals(c1.getPosition(), 1);
+	}
+
+	@Test
+	public void coachSetPosition() {
+		c1.setPosition(1);
+		assertEquals(c1.getPosition(), 1);
+		c1.setPosition(2);
+		assertEquals(c1.getPosition(), 2);
+		c1.setPosition(3);
+		assertEquals(c1.getPosition(), 3);
+		c1.setPosition(4);
+		assertEquals(c1.getPosition(), 4);
+		c1.setPosition(5);
+		assertEquals(c1.getPosition(), 5);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void coachSetPositionInvalid1() {
+		c1.setPosition(0);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void coachSetPositionInvalid2() {
+		c1.setPosition(6);
 	}
 
 	@Test
@@ -989,8 +1006,405 @@ public class JUnitTests {
 	}
 
 	@Test
-	public void coachgetOverallRating() {
-		assertEquals(70, c1.getOverallRating());
+	public void coachGetAge() {
+		assertEquals(25, c1.getAge());
+	}
+
+	@Test
+	public void coachSetAge() {
+		c1.setAge(30);
+		assertEquals(30, c1.getAge());
+	}
+
+	@Test
+	public void coachGetInsideScoring() {
+		assertEquals(c1.getInsideScoring(), 30);
+	}
+
+	@Test
+	public void coachSetInsideScoring() {
+		c1.setInsideScoring(77);
+		assertEquals(c1.getInsideScoring(), 77);
+	}
+
+	@Test
+	public void coachSetInsideScoringInvalid1() {
+		c1.setInsideScoring(29);
+		assertEquals(c1.getInsideScoring(), 30);
+	}
+
+	@Test
+	public void coachSetInsideScoringInvalid2() {
+		c1.setInsideScoring(101);
+		assertEquals(c1.getInsideScoring(), 100);
+	}
+
+	@Test
+	public void coachGetMidRangeScoring() {
+		assertEquals(c1.getMidRangeScoring(), 35);
+	}
+
+	@Test
+	public void coachSetMidRangeScoring() {
+		c1.setMidRangeScoring(77);
+		assertEquals(c1.getMidRangeScoring(), 77);
+	}
+
+	@Test
+	public void coachSetMidRangeScoringInvalid1() {
+		c1.setMidRangeScoring(29);
+		assertEquals(c1.getMidRangeScoring(), 30);
+	}
+
+	@Test
+	public void coachSetMidRangeScoringInvalid2() {
+		c1.setMidRangeScoring(101);
+		assertEquals(c1.getMidRangeScoring(), 100);
+	}
+
+	@Test
+	public void coachGetThreePointScoring() {
+		assertEquals(c1.getThreePointScoring(), 40);
+	}
+
+	@Test
+	public void coachSetThreePointScoring() {
+		c1.setThreePointScoring(77);
+		assertEquals(c1.getThreePointScoring(), 77);
+	}
+
+	@Test
+	public void coachSetThreePointScoringInvalid1() {
+		c1.setThreePointScoring(29);
+		assertEquals(c1.getThreePointScoring(), 30);
+	}
+
+	@Test
+	public void coachSetThreePointScoringInvalid2() {
+		c1.setThreePointScoring(101);
+		assertEquals(c1.getThreePointScoring(), 100);
+	}
+
+	@Test
+	public void coachGetFreeThrow() {
+		assertEquals(c1.getFreeThrow(), 45);
+	}
+
+	@Test
+	public void coachSetFreeThrow() {
+		c1.setFreeThrow(77);
+		assertEquals(c1.getFreeThrow(), 77);
+	}
+
+	@Test
+	public void coachSetFreeThrowInvalid1() {
+		c1.setFreeThrow(29);
+		assertEquals(c1.getFreeThrow(), 30);
+	}
+
+	@Test
+	public void coachSetFreeThrowInvalid2() {
+		c1.setFreeThrow(101);
+		assertEquals(c1.getFreeThrow(), 100);
+	}
+
+	@Test
+	public void coachGetOffensiveRebounding() {
+		assertEquals(c1.getOffensiveRebounding(), 50);
+	}
+
+	@Test
+	public void coachSetOffensiveRebounding() {
+		c1.setOffensiveRebounding(77);
+		assertEquals(c1.getOffensiveRebounding(), 77);
+	}
+
+	@Test
+	public void coachSetOffensiveReboundingInvalid1() {
+		c1.setOffensiveRebounding(29);
+		assertEquals(c1.getOffensiveRebounding(), 30);
+	}
+
+	@Test
+	public void coachSetOffensiveReboundingInvalid2() {
+		c1.setOffensiveRebounding(101);
+		assertEquals(c1.getOffensiveRebounding(), 100);
+	}
+
+	@Test
+	public void coachGetBallHandling() {
+		assertEquals(c1.getBallHandling(), 57);
+	}
+
+	@Test
+	public void coachSetBallHandling() {
+		c1.setBallHandling(77);
+		assertEquals(c1.getBallHandling(), 77);
+	}
+
+	@Test
+	public void coachSetBallHandlingInvalid1() {
+		c1.setBallHandling(29);
+		assertEquals(c1.getBallHandling(), 30);
+	}
+
+	@Test
+	public void coachSetInvalid2() {
+		c1.setBallHandling(101);
+		assertEquals(c1.getBallHandling(), 100);
+	}
+
+	@Test
+	public void coachGetPassing() {
+		assertEquals(c1.getPassing(), 60);
+	}
+
+	@Test
+	public void coachSetPassing() {
+		c1.setPassing(77);
+		assertEquals(c1.getPassing(), 77);
+	}
+
+	@Test
+	public void coachSetPassingInvalid1() {
+		c1.setPassing(29);
+		assertEquals(c1.getPassing(), 30);
+	}
+
+	@Test
+	public void coachSetPassingInvalid2() {
+		c1.setPassing(101);
+		assertEquals(c1.getPassing(), 100);
+	}
+
+	@Test
+	public void coachGetPostDefense() {
+		assertEquals(c1.getPostDefense(), 65);
+	}
+
+	@Test
+	public void coachSetPostDefense() {
+		c1.setPostDefense(77);
+		assertEquals(c1.getPostDefense(), 77);
+	}
+
+	@Test
+	public void coachSetPostDefenseInvalid1() {
+		c1.setPostDefense(29);
+		assertEquals(c1.getPostDefense(), 30);
+	}
+
+	@Test
+	public void coachSetPostDefenseInvalid2() {
+		c1.setPostDefense(101);
+		assertEquals(c1.getPostDefense(), 100);
+	}
+
+	@Test
+	public void coachGetPerimeterDefense() {
+		assertEquals(c1.getPerimeterDefense(), 70);
+	}
+
+	@Test
+	public void coachSetPerimeterDefense() {
+		c1.setPerimeterDefense(77);
+		assertEquals(c1.getPerimeterDefense(), 77);
+	}
+
+	@Test
+	public void coachSetPerimeterDefenseInvalid1() {
+		c1.setPerimeterDefense(29);
+		assertEquals(c1.getPerimeterDefense(), 30);
+	}
+
+	@Test
+	public void coachSetPerimeterDefenseInvalid2() {
+		c1.setPerimeterDefense(101);
+		assertEquals(c1.getPerimeterDefense(), 100);
+	}
+
+	@Test
+	public void coachGetDefensiveRebounding() {
+		assertEquals(c1.getDefensiveRebounding(), 75);
+	}
+
+	@Test
+	public void coachSetDefensiveRebounding() {
+		c1.setDefensiveRebounding(77);
+		assertEquals(c1.getDefensiveRebounding(), 77);
+	}
+
+	@Test
+	public void coachSetDefensiveReboundingInvalid1() {
+		c1.setDefensiveRebounding(29);
+		assertEquals(c1.getDefensiveRebounding(), 30);
+	}
+
+	@Test
+	public void coachSetDefensiveReboundingInvalid2() {
+		c1.setDefensiveRebounding(101);
+		assertEquals(c1.getDefensiveRebounding(), 100);
+	}
+
+	@Test
+	public void coachGetSteal() {
+		assertEquals(c1.getSteal(), 80);
+	}
+
+	@Test
+	public void coachSetSteal() {
+		c1.setSteal(77);
+		assertEquals(c1.getSteal(), 77);
+	}
+
+	@Test
+	public void coachSetStealInvalid1() {
+		c1.setSteal(29);
+		assertEquals(c1.getSteal(), 30);
+	}
+
+	@Test
+	public void coachSetStealInvalid2() {
+		c1.setSteal(101);
+		assertEquals(c1.getSteal(), 100);
+	}
+
+	@Test
+	public void coachGetBlock() {
+		assertEquals(c1.getBlock(), 85);
+	}
+
+	@Test
+	public void coachSetBlock() {
+		c1.setBlock(77);
+		assertEquals(c1.getBlock(), 77);
+	}
+
+	@Test
+	public void coachSetBlockInvalid1() {
+		c1.setBlock(29);
+		assertEquals(c1.getBlock(), 30);
+	}
+
+	@Test
+	public void coachSetBlockInvalid2() {
+		c1.setBlock(101);
+		assertEquals(c1.getBlock(), 100);
+	}
+
+	@Test
+	public void coachGetHeight() {
+		assertEquals(c1.getHeight(), 90);
+	}
+
+	@Test
+	public void coachSetHeight() {
+		c1.setHeight(77);
+		assertEquals(c1.getHeight(), 77);
+	}
+
+	@Test
+	public void coachSetHeightInvalid1() {
+		c1.setHeight(29);
+		assertEquals(c1.getHeight(), 30);
+	}
+
+	@Test
+	public void coachSetHeightInvalid2() {
+		c1.setHeight(101);
+		assertEquals(c1.getHeight(), 100);
+	}
+
+	@Test
+	public void coachGetSpeed() {
+		assertEquals(c1.getSpeed(), 95);
+	}
+
+	@Test
+	public void coachSetSpeed() {
+		c1.setSpeed(77);
+		assertEquals(c1.getSpeed(), 77);
+	}
+
+	@Test
+	public void coachSetSpeedInvalid1() {
+		c1.setSpeed(29);
+		assertEquals(c1.getSpeed(), 30);
+	}
+
+	@Test
+	public void coachSetSpeedInvalid2() {
+		c1.setSpeed(101);
+		assertEquals(c1.getSpeed(), 100);
+	}
+
+	@Test
+	public void coachGetStamina() {
+		assertEquals(c1.getStamina(), 100);
+	}
+
+	@Test
+	public void coachSetStamina() {
+		c1.setStamina(77);
+		assertEquals(c1.getStamina(), 77);
+	}
+
+	@Test
+	public void coachSetStaminaInvalid1() {
+		c1.setStamina(29);
+		assertEquals(c1.getStamina(), 30);
+	}
+
+	@Test
+	public void coachSetStaminaInvalid2() {
+		c1.setStamina(101);
+		assertEquals(c1.getStamina(), 100);
+	}
+
+	@Test
+	public void coachGetInjury() {
+		assertEquals(c1.getInjury(), 31);
+	}
+
+	@Test
+	public void coachSetInjury() {
+		c1.setInjury(77);
+		assertEquals(c1.getInjury(), 77);
+	}
+
+	@Test
+	public void coachSetInjuryInvalid1() {
+		c1.setInjury(29);
+		assertEquals(c1.getInjury(), 30);
+	}
+
+	@Test
+	public void coachSetInjuryInvalid2() {
+		c1.setInjury(101);
+		assertEquals(c1.getInjury(), 100);
+	}
+
+	@Test
+	public void coachGetPotential() {
+		assertEquals(c1.getPotential(), 99);
+	}
+
+	@Test
+	public void coachSetPotential() {
+		c1.setPotential(77);
+		assertEquals(c1.getPotential(), 77);
+	}
+
+	@Test
+	public void coachSetPotentialInvalid1() {
+		c1.setPotential(29);
+		assertEquals(c1.getPotential(), 30);
+	}
+
+	@Test
+	public void coachSetPotentialInvalid2() {
+		c1.setPotential(201);
+		assertEquals(c1.getPotential(), 100);
 	}
 
 	// ------------------------------Team Class----------------------------------
@@ -1044,7 +1458,7 @@ public class JUnitTests {
 	@Test
 	public void teamSetPlayer() {
 		Player newPlayer = new Player(3, "Player", "Name", 25, 5, 2, 30, 35, 40, 45, 50, 57, 60, 65, 70, 75, 80, 85, 90,
-				95, 100, 31, 99, 32);
+				95, 100, 31, 99, 32, 0, 0, 0, 0, 0, 0);
 		t1.setPlayer(2, newPlayer);
 		assertEquals(newPlayer, t1.getRoster()[2]);
 	}
@@ -1074,14 +1488,14 @@ public class JUnitTests {
 
 		int rating = 30;
 
-		Player coach1 = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		Coach coach1 = new Coach(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
 
 		Team boost = new Team("Boost", roster, coach1);
 
 		for (rating = 30; rating <= 100; rating++) {
-			Player coach = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating,
-					rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+			Coach coach = new Coach(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating,
+					rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
 
 			boost.setCoach(coach);
 

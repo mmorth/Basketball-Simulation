@@ -25,7 +25,7 @@ public class League {
 			}
 			String teamName = line;
 
-			Player coach = new Player();
+			Coach coach = new Coach();
 
 			ArrayList<Player> roster = new ArrayList<>();
 
@@ -40,7 +40,7 @@ public class League {
 				}
 
 				if (Integer.parseInt(playerInfo[0]) == 0) {
-					coach = new Player(Integer.parseInt(playerInfo[0]), playerInfo[1], playerInfo[2],
+					coach = new Coach(Integer.parseInt(playerInfo[0]), playerInfo[1], playerInfo[2],
 							Integer.parseInt(playerInfo[6]), Double.parseDouble(playerInfo[7]),
 							Integer.parseInt(playerInfo[8]), Integer.parseInt(playerInfo[9]),
 							Integer.parseInt(playerInfo[10]), Integer.parseInt(playerInfo[11]),
@@ -50,7 +50,7 @@ public class League {
 							Integer.parseInt(playerInfo[18]), Integer.parseInt(playerInfo[19]),
 							Integer.parseInt(playerInfo[20]), Integer.parseInt(playerInfo[21]),
 							Integer.parseInt(playerInfo[22]), Integer.parseInt(playerInfo[23]),
-							Integer.parseInt(playerInfo[24]), Integer.parseInt(playerInfo[25]), 200);
+							Integer.parseInt(playerInfo[24]), Integer.parseInt(playerInfo[25]));
 				} else {
 
 					Player player = new Player(Integer.parseInt(playerInfo[0]), playerInfo[1], playerInfo[2],
@@ -63,7 +63,8 @@ public class League {
 							Integer.parseInt(playerInfo[18]), Integer.parseInt(playerInfo[19]),
 							Integer.parseInt(playerInfo[20]), Integer.parseInt(playerInfo[21]),
 							Integer.parseInt(playerInfo[22]), Integer.parseInt(playerInfo[23]),
-							Integer.parseInt(playerInfo[24]), Integer.parseInt(playerInfo[25]), Integer.parseInt(playerInfo[26]));
+							Integer.parseInt(playerInfo[24]), Integer.parseInt(playerInfo[25]),
+							Integer.parseInt(playerInfo[26]), 0, 0, 0, 0, 0, 0);
 					roster.add(player);
 				}
 			}

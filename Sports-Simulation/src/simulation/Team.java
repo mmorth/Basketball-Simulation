@@ -31,7 +31,7 @@ public class Team {
 	/**
 	 * Stores the coach of the team
 	 */
-	private Player coach;
+	private Coach coach;
 
 	/**
 	 * Stores team name
@@ -66,7 +66,7 @@ public class Team {
 	 * @param teamName
 	 *            The name of the team
 	 */
-	public Team(String teamName, Player[] roster, Player coach) {
+	public Team(String teamName, Player[] roster, Coach coach) {
 
 		setTeamName(teamName);
 
@@ -158,7 +158,7 @@ public class Team {
 	 * 
 	 * @return The coach of the team
 	 */
-	public Player getCoach() {
+	public Coach getCoach() {
 		return coach;
 	}
 
@@ -168,7 +168,7 @@ public class Team {
 	 * @param The
 	 *            new coach of the team
 	 */
-	public void setCoach(Player coach) {
+	public void setCoach(Coach coach) {
 
 		if (this.coach != null) {
 			removeCoachRatingsBoost();
@@ -523,7 +523,7 @@ public class Team {
 				"Position\tFirst_Name\t\tLast_Name\tOverall\tOffense\tDefense\tAge\tContract_Amount\tContract_Years\tInside_Scoring\tMid-Range Scoring\t3-Point_Scoring\tFree_Throw\tOffensive_Rebounding\tBall_Handling\tPassing\tPost_Defense\tPerimeter_Defense\tDefensive_Rebounding\tSteal\tBlock\tHeight\tSpeed\tStamina\tInjury\tPotential");
 
 		String coachInformation = String.format("%d\t\t\t%-15s\t%-15s\t%d\t\t%d\t\t%d\t\t%d\t%.1f\t\t\t\t%d",
-				coach.getPosition(), coach.getPlayerFirstName(), coach.getPlayerLastName(), coach.getOverallRating(),
+				coach.getPosition(), coach.getFirstName(), coach.getLastName(), coach.getOverallRating(),
 				coach.getOffensiveRating(), coach.getDefensiveRating(), coach.getAge(), coach.getContractAmount(),
 				coach.getContractYears());
 
@@ -541,7 +541,7 @@ public class Team {
 			// Format print player information
 			String playerInformation = String.format(
 					"%d\t\t\t%-15s\t%-15s\t%d\t\t%d\t\t%d\t\t%d\t%.1f\t\t\t\t%d\t\t\t\t%d\t\t\t\t%d\t\t\t\t\t%d\t\t\t\t%d\t\t\t%d\t\t\t\t\t\t%d\t\t\t\t%d\t\t%d\t\t\t\t%d\t\t\t\t\t%d\t\t\t\t\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d",
-					roster[i].getPosition(), roster[i].getPlayerFirstName(), roster[i].getPlayerLastName(),
+					roster[i].getPosition(), roster[i].getFirstName(), roster[i].getLastName(),
 					roster[i].getOverallRating(), roster[i].getOffensiveRating(), roster[i].getDefensiveRating(),
 					roster[i].getAge(), roster[i].getContractAmount(), roster[i].getContractYears(),
 					roster[i].getInsideScoring(), roster[i].getMidRangeScoring(), roster[i].getThreePointScoring(),
@@ -575,10 +575,9 @@ public class Team {
 
 		int noCoachRating = 30;
 
-		Player ct1 = new Player(1, "First", "Last", 25, 5, 2, noCoachRating, noCoachRating, noCoachRating,
+		Coach ct1 = new Coach(1, "First", "Last", 25, 5, 2, noCoachRating, noCoachRating, noCoachRating,
 				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
-				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
-				noCoachRating);
+				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating);
 		Team t1 = new Team(tm.getOneHundred().getTeamName(), tm.getOneHundred().getRoster(), ct1);
 
 		t1.printTeamRosters();

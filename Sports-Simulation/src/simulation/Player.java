@@ -297,6 +297,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return Name of the player
 	 */
+	@Override
 	public String getFirstName() {
 		return playerFirstName;
 	}
@@ -310,6 +311,7 @@ public class Player implements Athlete {
 	 *             Throws an IllegalArgumentException if the name is greater than 15
 	 *             characters or contains spaces.
 	 */
+	@Override
 	public void setFirstName(String playerFirstName) {
 		if (playerFirstName.length() > 15 || Helper.containsSpaces(playerFirstName)) {
 			throw new IllegalArgumentException(
@@ -323,6 +325,7 @@ public class Player implements Athlete {
 	 *
 	 * @return Last name of player
 	 */
+	@Override
 	public String getLastName() {
 		return playerLastName;
 	}
@@ -336,6 +339,7 @@ public class Player implements Athlete {
 	 *             Throws an IllegalArgumentException if the name is greater than 15
 	 *             characters or contains spaces.
 	 */
+	@Override
 	public void setLastName(String playerLastName) {
 		if (playerLastName.length() > 15 || Helper.containsSpaces(playerLastName)) {
 			throw new IllegalArgumentException(
@@ -349,6 +353,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return Position of player
 	 */
+	@Override
 	public int getPosition() {
 		return position;
 	}
@@ -362,6 +367,7 @@ public class Player implements Athlete {
 	 *             Throws an IllegalArgument exception if there are more than 5
 	 *             elements in position or if a position is not between 1 and 6
 	 */
+	@Override
 	public void setPosition(int position) {
 		if (position < 1 || position > 5) {
 			throw new IllegalArgumentException("Position must be between 1 and 6 inclusive");
@@ -378,6 +384,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The overallRating rating of the player
 	 */
+	@Override
 	public int getOverallRating() {
 		return overallRating;
 	}
@@ -387,6 +394,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The offensiveRating rating of the player
 	 */
+	@Override
 	public int getOffensiveRating() {
 		return offensiveRating;
 	}
@@ -396,6 +404,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The defensiveRating rating of the player
 	 */
+	@Override
 	public int getDefensiveRating() {
 		return defensiveRating;
 	}
@@ -405,6 +414,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return Contract amount for current player
 	 */
+	@Override
 	public double getContractAmount() {
 		return contractAmount;
 	}
@@ -418,6 +428,7 @@ public class Player implements Athlete {
 	 *             Throws an IllegalArgument exception if contractAmount is less
 	 *             than 0
 	 */
+	@Override
 	public void setContractAmount(double contractAmount) {
 		if (contractAmount < 0) {
 			throw new IllegalArgumentException("Contract amount must be greater than or equal to zero.");
@@ -432,6 +443,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return Number of years left on contract
 	 */
+	@Override
 	public int getContractYears() {
 		return contractYears;
 	}
@@ -445,6 +457,7 @@ public class Player implements Athlete {
 	 *             Throws an IllegalArgument exception if contractYears is less than
 	 *             0
 	 */
+	@Override
 	public void setContractYears(int contractYears) {
 		if (contractYears < 0) {
 			throw new IllegalArgumentException("Contract years must be greater than or equal to zero.");
@@ -458,6 +471,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return Age of player
 	 */
+	@Override
 	public int getAge() {
 		return age;
 	}
@@ -470,6 +484,7 @@ public class Player implements Athlete {
 	 * @throws IllegalArgumentException
 	 *             Throws an IllegalArgument exception if age is less than 0
 	 */
+	@Override
 	public void setAge(int age) {
 		if (age < 0) {
 			throw new IllegalArgumentException("Age of player must be greater than zero.");
@@ -483,6 +498,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The insideScoring rating of the player
 	 */
+	@Override
 	public int getInsideScoring() {
 		return insideScoring;
 	}
@@ -493,6 +509,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new insideScoring rating of the player
 	 */
+	@Override
 	public void setInsideScoring(int insideScoring) {
 		if (insideScoring < 30) {
 			this.insideScoring = 30;
@@ -508,6 +525,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The midRangeScoring rating of the player
 	 */
+	@Override
 	public int getMidRangeScoring() {
 		return midRangeScoring;
 	}
@@ -518,6 +536,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new midRangeScoring rating of the player
 	 */
+	@Override
 	public void setMidRangeScoring(int midRangeScoring) {
 		if (midRangeScoring < 30) {
 			this.midRangeScoring = 30;
@@ -533,6 +552,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The threePointScoring rating of the player
 	 */
+	@Override
 	public int getThreePointScoring() {
 		return threePointScoring;
 	}
@@ -543,6 +563,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new threePointScoring rating of the player
 	 */
+	@Override
 	public void setThreePointScoring(int threePointScoring) {
 		if (threePointScoring < 30) {
 			this.threePointScoring = 30;
@@ -558,6 +579,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The freeThrow rating of the player
 	 */
+	@Override
 	public int getFreeThrow() {
 		return freeThrow;
 	}
@@ -568,6 +590,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new freeThrow rating of the player
 	 */
+	@Override
 	public void setFreeThrow(int freeThrow) {
 		if (freeThrow < 30) {
 			this.freeThrow = 30;
@@ -583,6 +606,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The offensiveRebounding rating of the player
 	 */
+	@Override
 	public int getOffensiveRebounding() {
 		return offensiveRebounding;
 	}
@@ -593,6 +617,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new offensiveRebounding rating of the player
 	 */
+	@Override
 	public void setOffensiveRebounding(int offensiveRebounding) {
 		if (offensiveRebounding < 30) {
 			this.offensiveRebounding = 30;
@@ -608,6 +633,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The ballHandling rating of the player
 	 */
+	@Override
 	public int getBallHandling() {
 		return ballHandling;
 	}
@@ -618,6 +644,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new ballHandling rating of the player
 	 */
+	@Override
 	public void setBallHandling(int ballHandling) {
 		if (ballHandling < 30) {
 			this.ballHandling = 30;
@@ -633,6 +660,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The passing rating of the player
 	 */
+	@Override
 	public int getPassing() {
 		return passing;
 	}
@@ -658,6 +686,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The postDefense rating of the player
 	 */
+	@Override
 	public int getPostDefense() {
 		return postDefense;
 	}
@@ -668,6 +697,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new postDefense rating of the player
 	 */
+	@Override
 	public void setPostDefense(int postDefense) {
 		if (postDefense < 30) {
 			this.postDefense = 30;
@@ -683,6 +713,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The perimeterDefense rating of the player
 	 */
+	@Override
 	public int getPerimeterDefense() {
 		return perimeterDefense;
 	}
@@ -693,6 +724,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new perimeterDefense rating of the player
 	 */
+	@Override
 	public void setPerimeterDefense(int perimeterDefense) {
 		if (perimeterDefense < 30) {
 			this.perimeterDefense = 30;
@@ -708,6 +740,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The defensiveRebounding rating of the player
 	 */
+	@Override
 	public int getDefensiveRebounding() {
 		return defensiveRebounding;
 	}
@@ -718,6 +751,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new defensiveRebounding rating of the player
 	 */
+	@Override
 	public void setDefensiveRebounding(int defensiveRebounding) {
 		if (defensiveRebounding < 30) {
 			this.defensiveRebounding = 30;
@@ -733,6 +767,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The steal rating of the player
 	 */
+	@Override
 	public int getSteal() {
 		return steal;
 	}
@@ -743,6 +778,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new steal rating of the player
 	 */
+	@Override
 	public void setSteal(int steal) {
 		if (steal < 30) {
 			this.steal = 30;
@@ -758,6 +794,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The block rating of the player
 	 */
+	@Override
 	public int getBlock() {
 		return block;
 	}
@@ -768,6 +805,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new block rating of the player
 	 */
+	@Override
 	public void setBlock(int block) {
 		if (block < 30) {
 			this.block = 30;
@@ -783,6 +821,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The height rating of the player
 	 */
+	@Override
 	public int getHeight() {
 		return height;
 	}
@@ -793,6 +832,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new height rating of the player
 	 */
+	@Override
 	public void setHeight(int height) {
 		if (height < 30) {
 			this.height = 30;
@@ -808,6 +848,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The speed rating of the player
 	 */
+	@Override
 	public int getSpeed() {
 		return speed;
 	}
@@ -818,6 +859,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new speed rating of the player
 	 */
+	@Override
 	public void setSpeed(int speed) {
 		if (speed < 30) {
 			this.speed = 30;
@@ -833,6 +875,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The stamina rating of the player
 	 */
+	@Override
 	public int getStamina() {
 		return stamina;
 	}
@@ -843,6 +886,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new stamina rating of the player
 	 */
+	@Override
 	public void setStamina(int stamina) {
 		if (stamina < 30) {
 			this.stamina = 30;
@@ -858,6 +902,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The injury rating of the player
 	 */
+	@Override
 	public int getInjury() {
 		return injury;
 	}
@@ -868,6 +913,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new injury rating of the player
 	 */
+	@Override
 	public void setInjury(int injury) {
 		if (injury < 30) {
 			this.injury = 30;
@@ -883,6 +929,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The potential rating of the player
 	 */
+	@Override
 	public int getPotential() {
 		return potential;
 	}
@@ -893,6 +940,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new potential rating of the player
 	 */
+	@Override
 	public void setPotential(int potential) {
 		if (potential < 30) {
 			this.potential = 30;
