@@ -7,7 +7,7 @@ package simulation;
  *
  */
 
-public class Player {
+public class Player implements Athlete {
 
 	/**
 	 * Stores player's first name
@@ -256,8 +256,8 @@ public class Player {
 			int defensiveRebounding, int steal, int block, int height, int speed, int stamina, int injury,
 			int potential, int rotationPossessions, int pointsGame, int reboundsGame, int assistsGame, int blocksGame,
 			int stealsGame, int turnoversGame) {
-		setPlayerFirstName(playerFirstName);
-		setPlayerLastName(playerLastName);
+		setFirstName(playerFirstName);
+		setLastName(playerLastName);
 		setPosition(position);
 		setContractAmount(contractAmount);
 		setContractYears(contractYears);
@@ -297,7 +297,7 @@ public class Player {
 	 * 
 	 * @return Name of the player
 	 */
-	public String getPlayerFirstName() {
+	public String getFirstName() {
 		return playerFirstName;
 	}
 
@@ -310,7 +310,7 @@ public class Player {
 	 *             Throws an IllegalArgumentException if the name is greater than 15
 	 *             characters or contains spaces.
 	 */
-	public void setPlayerFirstName(String playerFirstName) {
+	public void setFirstName(String playerFirstName) {
 		if (playerFirstName.length() > 15 || Helper.containsSpaces(playerFirstName)) {
 			throw new IllegalArgumentException(
 					"Player first name must be 15 or fewer characters and may not contain any spaces.");
@@ -323,7 +323,7 @@ public class Player {
 	 *
 	 * @return Last name of player
 	 */
-	public String getPlayerLastName() {
+	public String getLastName() {
 		return playerLastName;
 	}
 
@@ -336,7 +336,7 @@ public class Player {
 	 *             Throws an IllegalArgumentException if the name is greater than 15
 	 *             characters or contains spaces.
 	 */
-	public void setPlayerLastName(String playerLastName) {
+	public void setLastName(String playerLastName) {
 		if (playerLastName.length() > 15 || Helper.containsSpaces(playerLastName)) {
 			throw new IllegalArgumentException(
 					"Player last name must be 15 or fewer characters and may not contain any spaces.");

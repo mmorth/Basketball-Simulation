@@ -6,7 +6,7 @@ package simulation;
  * @author Matthew Orth
  *
  */
-public class Coach {
+public class Coach implements Athlete {
 
 	/**
 	 * Stores coach's first name
@@ -19,22 +19,12 @@ public class Coach {
 	private String coachLastName;
 
 	/**
-	 * Stores offensive rating of coach
+	 * Stores coach position
 	 */
-	private int offenseRating;
+	private int position;
 
 	/**
-	 * Stores defensive rating of coach
-	 */
-	private int defenseRating;
-
-	/**
-	 * Stores coach's position, which is 0
-	 */
-	private final int position = 0;
-
-	/**
-	 * Stores coach contract amount, in millions, per year
+	 * Stores coach contract amount in millions per year
 	 */
 	private double contractAmount;
 
@@ -47,59 +37,208 @@ public class Coach {
 	 * Stores age of coach
 	 */
 	private int age;
-	
+
 	/**
-	 * Default constructor for coach. REMOVE IF POSSIBLE!
+	 * Stores the overall rating of the coach
+	 */
+	private int overallRating;
+
+	/**
+	 * Stores the offensive rating of the coach
+	 */
+	private int offensiveRating;
+
+	/**
+	 * Stores the defensive rating of the coach
+	 */
+	private int defensiveRating;
+
+	// Offense Ratings:
+
+	/**
+	 * Stores the insideScoring rating of the coach
+	 */
+	private int insideScoring;
+
+	/**
+	 * Stores the midRangeScoring rating of the coach
+	 */
+	private int midRangeScoring;
+
+	/**
+	 * Stores the threePointScoring rating of the coach
+	 */
+	private int threePointScoring;
+
+	/**
+	 * Stores the freeThrow rating of the coach
+	 */
+	private int freeThrow;
+
+	/**
+	 * Stores the offensiveRebounding rating of the coach
+	 */
+	private int offensiveRebounding;
+
+	/**
+	 * Stores the ballHandling rating of the coach
+	 */
+	private int ballHandling;
+
+	/**
+	 * Stores the passing rating of the coach
+	 */
+	private int passing;
+
+	// Defense Ratings:
+
+	/**
+	 * Stores the postDefense rating of the coach
+	 */
+	private int postDefense;
+
+	/**
+	 * Stores the perimeterDefense rating of the coach
+	 */
+	private int perimeterDefense;
+
+	/**
+	 * Stores the defensiveRebounding rating of the coach
+	 */
+	private int defensiveRebounding;
+
+	/**
+	 * Stores the steal rating of the coach
+	 */
+	private int steal;
+
+	/**
+	 * Stores the block rating of the coach
+	 */
+	private int block;
+
+	// General Ratings:
+
+	/**
+	 * Stores the height rating of the coach
+	 */
+	private int height;
+
+	/**
+	 * Stores the speed rating of the coach
+	 */
+	private int speed;
+
+	/**
+	 * Stores the stamina rating of the coach
+	 */
+	private int stamina;
+
+	/**
+	 * Stores the injury rating of the coach
+	 */
+	private int injury;
+
+	/**
+	 * Stores the potential rating of the coach
+	 */
+	private int potential;
+
+	/**
+	 * Default Constructor: Remove after testing!
 	 */
 	public Coach() {
-		
+
 	}
 
 	/**
-	 * Creates a new basketball player with various attributes
+	 * Constructs a new coach object
 	 * 
 	 * @param coachFirstName
-	 *            First name of the coach
+	 *            The first name of the coach
 	 * @param coachLastName
-	 *            Last name of the coach
-	 * @param offenseRating
-	 *            The offensive rating of the coach
-	 * @param defenseRating
-	 *            The defensive rating of the coach
+	 *            The last name of the coach
 	 * @param position
-	 *            The position(s) of the coach
+	 *            The position of the coach
 	 * @param contractAmount
-	 *            The yearly salary of the coach
+	 *            The contract amount of the coach
 	 * @param contractYears
-	 *            The number of years left on the coach's contract
+	 *            The contract years of the coach
 	 * @param age
 	 *            The age of the coach
+	 * @param insideScoring
+	 *            The inside scoring rating of the coach
+	 * @param midRangeScoring
+	 *            The mid-range scoring range of the coach
+	 * @param threePointScoring
+	 *            The 3-point scoring rating of the coach
+	 * @param freeThrow
+	 *            The free throw rating of the coach
+	 * @param offensiveRebounding
+	 *            The offensive rebounding rating of the coach
+	 * @param ballHandling
+	 *            The ball handling rating of the coach
+	 * @param passing
+	 *            The passing rating of the coach
+	 * @param postDefense
+	 *            The post defense rating of the coach
+	 * @param perimeterDefense
+	 *            The perimeter defense rating of the coach
+	 * @param defensiveRebounding
+	 *            The defensive rebounding rating of the coach
+	 * @param steal
+	 *            The steal rating of the coach
+	 * @param block
+	 *            The block rating of the coach
+	 * @param height
+	 *            The height rating of the coach
+	 * @param speed
+	 *            The speed rating of the coach
+	 * @param stamina
+	 *            The stamina rating of the coach
+	 * @param injury
+	 *            The injury rating of the coach
+	 * @param potential
+	 *            The potential rating of the coach
 	 */
-	public Coach(String coachFirstName, String coachLastName, int offenseRating, int defenseRating, int age,
-			double contractAmount, int contractYears) {
-
-		setCoachFirstName(coachFirstName);
-
-		setCoachLastName(coachLastName);
-
-		setOffenseRating(offenseRating);
-
-		setDefenseRating(defenseRating);
-
+	public Coach(int position, String coachFirstName, String coachLastName, int age, double contractAmount,
+			int contractYears, int insideScoring, int midRangeScoring, int threePointScoring, int freeThrow,
+			int offensiveRebounding, int ballHandling, int passing, int postDefense, int perimeterDefense,
+			int defensiveRebounding, int steal, int block, int height, int speed, int stamina, int injury,
+			int potential, int rotationPossessions, int pointsGame, int reboundsGame, int assistsGame, int blocksGame,
+			int stealsGame, int turnoversGame) {
+		setFirstName(coachFirstName);
+		setLastName(coachLastName);
+		setPosition(position);
 		setContractAmount(contractAmount);
-
 		setContractYears(contractYears);
-
 		setAge(age);
+		setInsideScoring(insideScoring);
+		setMidRangeScoring(midRangeScoring);
+		setThreePointScoring(threePointScoring);
+		setFreeThrow(freeThrow);
+		setOffensiveRebounding(offensiveRebounding);
+		setBallHandling(ballHandling);
+		setPassing(passing);
+		setPostDefense(postDefense);
+		setPerimeterDefense(perimeterDefense);
+		setDefensiveRebounding(defensiveRebounding);
+		setSteal(steal);
+		setBlock(block);
+		setHeight(height);
+		setSpeed(speed);
+		setStamina(stamina);
+		setInjury(injury);
+		setPotential(potential);
 
 	}
 
 	/**
 	 * Returns the first name of the coach
 	 * 
-	 * @return First name of the coach
+	 * @return Name of the coach
 	 */
-	public String getCoachFirstName() {
+	public String getFirstName() {
 		return coachFirstName;
 	}
 
@@ -112,20 +251,20 @@ public class Coach {
 	 *             Throws an IllegalArgumentException if the name is greater than 15
 	 *             characters or contains spaces.
 	 */
-	public void setCoachFirstName(String coachFirstName) {
+	public void setFirstName(String coachFirstName) {
 		if (coachFirstName.length() > 15 || Helper.containsSpaces(coachFirstName)) {
 			throw new IllegalArgumentException(
-					"Coach first name must be 15 or fewer characters and may not contain any spaces.");
+					"coach first name must be 15 or fewer characters and may not contain any spaces.");
 		}
 		this.coachFirstName = coachFirstName;
 	}
 
 	/**
 	 * Returns the last name of the coach
-	 * 
+	 *
 	 * @return Last name of coach
 	 */
-	public String getCoachLastName() {
+	public String getLastName() {
 		return coachLastName;
 	}
 
@@ -138,69 +277,16 @@ public class Coach {
 	 *             Throws an IllegalArgumentException if the name is greater than 15
 	 *             characters or contains spaces.
 	 */
-	public void setCoachLastName(String coachLastName) {
+	public void setLastName(String coachLastName) {
 		if (coachLastName.length() > 15 || Helper.containsSpaces(coachLastName)) {
 			throw new IllegalArgumentException(
-					"Coach last name must be 15 or fewer characters and may not contain any spaces.");
+					"coach last name must be 15 or fewer characters and may not contain any spaces.");
 		}
 		this.coachLastName = coachLastName;
 	}
 
 	/**
-	 * Returns the offensive rating of the coach
-	 * 
-	 * @return Offensive rating of the coach
-	 */
-	public int getOffenseRating() {
-		return offenseRating;
-	}
-
-	/**
-	 * Sets the offensive rating of the coach
-	 * 
-	 * @param offenseRating
-	 *            New offensive rating of coach
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if offenseRating is less than
-	 *             30 or greater than 100
-	 */
-	public void setOffenseRating(int offenseRating) {
-		if (offenseRating < 30 || offenseRating > 100) {
-			throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
-		}
-
-		this.offenseRating = offenseRating;
-	}
-
-	/**
-	 * Returns the defensive rating of the coach
-	 * 
-	 * @return Defensive rating of the coach
-	 */
-	public int getDefenseRating() {
-		return defenseRating;
-	}
-
-	/**
-	 * Sets the defensive rating of the coach
-	 * 
-	 * @param defenseRating
-	 *            New defensive rating of the coach
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if defenseRating is less than
-	 *             30 or greater than 100
-	 */
-	public void setDefenseRating(int defenseRating) {
-		if (defenseRating < 30 || defenseRating > 100) {
-			throw new IllegalArgumentException("Defensive rating needs to be between 0 and 100 inclusive");
-		}
-
-		this.defenseRating = defenseRating;
-
-	}
-
-	/**
-	 * Returns the position of the coach, which is 0
+	 * Returns the position of the coach
 	 * 
 	 * @return Position of coach
 	 */
@@ -208,26 +294,51 @@ public class Coach {
 		return position;
 	}
 
-	// /**
-	// * Sets a new position for a coach The position of the coach will always be
-	// set
-	// * to 0 no matter what the user enters for the position argument to this
-	// method.
-	// *
-	// * @param position
-	// * The new position of the coach
-	// */
-	// public void setPosition(int[] position) {
-	// this.position = new int[] { 0 };
-	// }
+	/**
+	 * Sets a new position for a coach
+	 * 
+	 * @param position
+	 *            The new position of the coach
+	 * @throws IllegalArgumentException
+	 *             Throws an IllegalArgument exception if there are more than 5
+	 *             elements in position or if a position is not between 1 and 6
+	 */
+	public void setPosition(int position) {
+		if (position < 1 || position > 5) {
+			throw new IllegalArgumentException("Position must be between 1 and 6 inclusive");
+		}
+
+		this.position = position;
+
+		// calculatePositionRating();
+
+	}
 
 	/**
-	 * Returns the overall rating of the coach
+	 * Returns the overallRating rating of the coach
 	 * 
-	 * @return Overall rating of coach
+	 * @return The overallRating rating of the coach
 	 */
 	public int getOverallRating() {
-		return (offenseRating + defenseRating) / 2;
+		return overallRating;
+	}
+
+	/**
+	 * Returns the offensiveRating rating of the coach
+	 * 
+	 * @return The offensiveRating rating of the coach
+	 */
+	public int getOffensiveRating() {
+		return offensiveRating;
+	}
+
+	/**
+	 * Returns the defensiveRating rating of the coach
+	 * 
+	 * @return The defensiveRating rating of the coach
+	 */
+	public int getDefensiveRating() {
+		return defensiveRating;
 	}
 
 	/**
@@ -245,8 +356,8 @@ public class Coach {
 	 * @param contractAmount
 	 *            New contract amount
 	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if the contract amount is
-	 *             less than 0
+	 *             Throws an IllegalArgument exception if contractAmount is less
+	 *             than 0
 	 */
 	public void setContractAmount(double contractAmount) {
 		if (contractAmount < 0) {
@@ -272,8 +383,8 @@ public class Coach {
 	 * @param contractYears
 	 *            New number of years left on contract
 	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if the number of years on the
-	 *             contract is less than 0
+	 *             Throws an IllegalArgument exception if contractYears is less than
+	 *             0
 	 */
 	public void setContractYears(int contractYears) {
 		if (contractYears < 0) {
@@ -302,10 +413,435 @@ public class Coach {
 	 */
 	public void setAge(int age) {
 		if (age < 0) {
-			throw new IllegalArgumentException("Age of player must be greater than zero.");
+			throw new IllegalArgumentException("Age of coach must be greater than zero.");
 		}
 
 		this.age = age;
+	}
+
+	/**
+	 * Returns the insideScoring rating of the coach
+	 * 
+	 * @return The insideScoring rating of the coach
+	 */
+	public int getInsideScoring() {
+		return insideScoring;
+	}
+
+	/**
+	 * Sets the insideScoring rating of the coach
+	 * 
+	 * @param The
+	 *            new insideScoring rating of the coach
+	 */
+	public void setInsideScoring(int insideScoring) {
+		if (insideScoring < 30) {
+			this.insideScoring = 30;
+		} else if (insideScoring > 100) {
+			this.insideScoring = 100;
+		} else {
+			this.insideScoring = insideScoring;
+		}
+	}
+
+	/**
+	 * Returns the midRangeScoring rating of the coach
+	 * 
+	 * @return The midRangeScoring rating of the coach
+	 */
+	public int getMidRangeScoring() {
+		return midRangeScoring;
+	}
+
+	/**
+	 * Sets the midRangeScoring rating of the coach
+	 * 
+	 * @param The
+	 *            new midRangeScoring rating of the coach
+	 */
+	public void setMidRangeScoring(int midRangeScoring) {
+		if (midRangeScoring < 30) {
+			this.midRangeScoring = 30;
+		} else if (midRangeScoring > 100) {
+			this.midRangeScoring = 100;
+		} else {
+			this.midRangeScoring = midRangeScoring;
+		}
+	}
+
+	/**
+	 * Returns the threePointScoring rating of the coach
+	 * 
+	 * @return The threePointScoring rating of the coach
+	 */
+	public int getThreePointScoring() {
+		return threePointScoring;
+	}
+
+	/**
+	 * Sets the threePointScoring rating of the coach
+	 * 
+	 * @param The
+	 *            new threePointScoring rating of the coach
+	 */
+	public void setThreePointScoring(int threePointScoring) {
+		if (threePointScoring < 30) {
+			this.threePointScoring = 30;
+		} else if (threePointScoring > 100) {
+			this.threePointScoring = 100;
+		} else {
+			this.threePointScoring = threePointScoring;
+		}
+	}
+
+	/**
+	 * Returns the freeThrow rating of the coach
+	 * 
+	 * @return The freeThrow rating of the coach
+	 */
+	public int getFreeThrow() {
+		return freeThrow;
+	}
+
+	/**
+	 * Sets the freeThrow rating of the coach
+	 * 
+	 * @param The
+	 *            new freeThrow rating of the coach
+	 */
+	public void setFreeThrow(int freeThrow) {
+		if (freeThrow < 30) {
+			this.freeThrow = 30;
+		} else if (freeThrow > 100) {
+			this.freeThrow = 100;
+		} else {
+			this.freeThrow = freeThrow;
+		}
+	}
+
+	/**
+	 * Returns the offensiveRebounding rating of the coach
+	 * 
+	 * @return The offensiveRebounding rating of the coach
+	 */
+	public int getOffensiveRebounding() {
+		return offensiveRebounding;
+	}
+
+	/**
+	 * Sets the offensiveRebounding rating of the coach
+	 * 
+	 * @param The
+	 *            new offensiveRebounding rating of the coach
+	 */
+	public void setOffensiveRebounding(int offensiveRebounding) {
+		if (offensiveRebounding < 30) {
+			this.offensiveRebounding = 30;
+		} else if (offensiveRebounding > 100) {
+			this.offensiveRebounding = 100;
+		} else {
+			this.offensiveRebounding = offensiveRebounding;
+		}
+	}
+
+	/**
+	 * Returns the ballHandling rating of the coach
+	 * 
+	 * @return The ballHandling rating of the coach
+	 */
+	public int getBallHandling() {
+		return ballHandling;
+	}
+
+	/**
+	 * Sets the ballHandling rating of the coach
+	 * 
+	 * @param The
+	 *            new ballHandling rating of the coach
+	 */
+	public void setBallHandling(int ballHandling) {
+		if (ballHandling < 30) {
+			this.ballHandling = 30;
+		} else if (ballHandling > 100) {
+			this.ballHandling = 100;
+		} else {
+			this.ballHandling = ballHandling;
+		}
+	}
+
+	/**
+	 * Returns the passing rating of the coach
+	 * 
+	 * @return The passing rating of the coach
+	 */
+	public int getPassing() {
+		return passing;
+	}
+
+	/**
+	 * Sets the passing rating of the coach
+	 * 
+	 * @param The
+	 *            new passing rating of the coach
+	 */
+	public void setPassing(int passing) {
+		if (passing < 30) {
+			this.passing = 30;
+		} else if (passing > 100) {
+			this.passing = 100;
+		} else {
+			this.passing = passing;
+		}
+	}
+
+	/**
+	 * Returns the postDefense rating of the coach
+	 * 
+	 * @return The postDefense rating of the coach
+	 */
+	public int getPostDefense() {
+		return postDefense;
+	}
+
+	/**
+	 * Sets the postDefense rating of the coach
+	 * 
+	 * @param The
+	 *            new postDefense rating of the coach
+	 */
+	public void setPostDefense(int postDefense) {
+		if (postDefense < 30) {
+			this.postDefense = 30;
+		} else if (postDefense > 100) {
+			this.postDefense = 100;
+		} else {
+			this.postDefense = postDefense;
+		}
+	}
+
+	/**
+	 * Returns the perimeterDefense rating of the coach
+	 * 
+	 * @return The perimeterDefense rating of the coach
+	 */
+	public int getPerimeterDefense() {
+		return perimeterDefense;
+	}
+
+	/**
+	 * Sets the perimeterDefense rating of the coach
+	 * 
+	 * @param The
+	 *            new perimeterDefense rating of the coach
+	 */
+	public void setPerimeterDefense(int perimeterDefense) {
+		if (perimeterDefense < 30) {
+			this.perimeterDefense = 30;
+		} else if (perimeterDefense > 100) {
+			this.perimeterDefense = 100;
+		} else {
+			this.perimeterDefense = perimeterDefense;
+		}
+	}
+
+	/**
+	 * Returns the defensiveRebounding rating of the coach
+	 * 
+	 * @return The defensiveRebounding rating of the coach
+	 */
+	public int getDefensiveRebounding() {
+		return defensiveRebounding;
+	}
+
+	/**
+	 * Sets the defensiveRebounding rating of the coach
+	 * 
+	 * @param The
+	 *            new defensiveRebounding rating of the coach
+	 */
+	public void setDefensiveRebounding(int defensiveRebounding) {
+		if (defensiveRebounding < 30) {
+			this.defensiveRebounding = 30;
+		} else if (defensiveRebounding > 100) {
+			this.defensiveRebounding = 100;
+		} else {
+			this.defensiveRebounding = defensiveRebounding;
+		}
+	}
+
+	/**
+	 * Returns the steal rating of the coach
+	 * 
+	 * @return The steal rating of the coach
+	 */
+	public int getSteal() {
+		return steal;
+	}
+
+	/**
+	 * Sets the steal rating of the coach
+	 * 
+	 * @param The
+	 *            new steal rating of the coach
+	 */
+	public void setSteal(int steal) {
+		if (steal < 30) {
+			this.steal = 30;
+		} else if (steal > 100) {
+			this.steal = 100;
+		} else {
+			this.steal = steal;
+		}
+	}
+
+	/**
+	 * Returns the block rating of the coach
+	 * 
+	 * @return The block rating of the coach
+	 */
+	public int getBlock() {
+		return block;
+	}
+
+	/**
+	 * Sets the block rating of the coach
+	 * 
+	 * @param The
+	 *            new block rating of the coach
+	 */
+	public void setBlock(int block) {
+		if (block < 30) {
+			this.block = 30;
+		} else if (block > 100) {
+			this.block = 100;
+		} else {
+			this.block = block;
+		}
+	}
+
+	/**
+	 * Returns the height rating of the coach
+	 * 
+	 * @return The height rating of the coach
+	 */
+	public int getHeight() {
+		return height;
+	}
+
+	/**
+	 * Sets the height rating of the coach
+	 * 
+	 * @param The
+	 *            new height rating of the coach
+	 */
+	public void setHeight(int height) {
+		if (height < 30) {
+			this.height = 30;
+		} else if (height > 100) {
+			this.height = 100;
+		} else {
+			this.height = height;
+		}
+	}
+
+	/**
+	 * Returns the speed rating of the coach
+	 * 
+	 * @return The speed rating of the coach
+	 */
+	public int getSpeed() {
+		return speed;
+	}
+
+	/**
+	 * Sets the speed rating of the coach
+	 * 
+	 * @param The
+	 *            new speed rating of the coach
+	 */
+	public void setSpeed(int speed) {
+		if (speed < 30) {
+			this.speed = 30;
+		} else if (speed > 100) {
+			this.speed = 100;
+		} else {
+			this.speed = speed;
+		}
+	}
+
+	/**
+	 * Returns the stamina rating of the coach
+	 * 
+	 * @return The stamina rating of the coach
+	 */
+	public int getStamina() {
+		return stamina;
+	}
+
+	/**
+	 * Sets the stamina rating of the coach
+	 * 
+	 * @param The
+	 *            new stamina rating of the coach
+	 */
+	public void setStamina(int stamina) {
+		if (stamina < 30) {
+			this.stamina = 30;
+		} else if (stamina > 100) {
+			this.stamina = 100;
+		} else {
+			this.stamina = stamina;
+		}
+	}
+
+	/**
+	 * Returns the injury rating of the coach
+	 * 
+	 * @return The injury rating of the coach
+	 */
+	public int getInjury() {
+		return injury;
+	}
+
+	/**
+	 * Sets the injury rating of the coach
+	 * 
+	 * @param The
+	 *            new injury rating of the coach
+	 */
+	public void setInjury(int injury) {
+		if (injury < 30) {
+			this.injury = 30;
+		} else if (injury > 100) {
+			this.injury = 100;
+		} else {
+			this.injury = injury;
+		}
+	}
+
+	/**
+	 * Returns the potential rating of the coach
+	 * 
+	 * @return The potential rating of the coach
+	 */
+	public int getPotential() {
+		return potential;
+	}
+
+	/**
+	 * Sets the potential rating of the coach
+	 * 
+	 * @param The
+	 *            new potential rating of the coach
+	 */
+	public void setPotential(int potential) {
+		if (potential < 30) {
+			this.potential = 30;
+		} else if (potential > 100) {
+			this.potential = 100;
+		} else {
+			this.potential = potential;
+		}
 	}
 
 }
