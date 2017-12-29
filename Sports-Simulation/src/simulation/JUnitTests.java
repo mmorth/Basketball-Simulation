@@ -58,22 +58,22 @@ public class JUnitTests {
 
 		int rating = 50;
 
-		p2 = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+//		p2 = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating, rating,
+//				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
 
 		// Create coach
 		c1 = new Coach(1, "First", "Last", 25, 5, 2, 30, 35, 40, 45, 50, 57, 60, 65, 70, 75, 80, 85, 90, 95, 100, 31,
 				99);
 
-		c1 = new Coach(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating, rating, rating, rating, rating);
+//		c1 = new Coach(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating, rating,
+//				rating, rating, rating, rating, rating, rating, rating, rating, rating);
 
 		// Create team
 		int team1Rating = 50;
 		int noCoachRating = 30;
 
 		roster = new Player[7];
-		Coach ct1 = new Coach(1, "First", "Last", 25, 5, 2, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
+		ct1 = new Coach(1, "First", "Last", 25, 5, 2, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
 				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
 				noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating);
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, team1Rating, team1Rating, team1Rating, team1Rating,
@@ -829,28 +829,28 @@ public class JUnitTests {
 
 	@Test
 	public void playerPositionRatings() {
-		p2.calculatePointGuardRating();
+		p1.calculatePointGuardRating();
 		assertEquals(p1.getOverallRating(), 69);
 		assertEquals(p1.getOffensiveRating(), 57);
 		assertEquals(p1.getDefensiveRating(), 81);
-		p2.calculateShootingGuardRating();
+		p1.calculateShootingGuardRating();
 		assertEquals(p1.getOverallRating(), 68);
 		assertEquals(p1.getOffensiveRating(), 55);
 		assertEquals(p1.getDefensiveRating(), 80);
-		p2.calculateSmallForwardRating();
+		p1.calculateSmallForwardRating();
 		assertEquals(p1.getOverallRating(), 69);
 		assertEquals(p1.getOffensiveRating(), 58);
 		assertEquals(p1.getDefensiveRating(), 81);
-		p2.calculatePowerForwardRating();
+		p1.calculatePowerForwardRating();
 		assertEquals(p1.getOverallRating(), 69);
 		assertEquals(p1.getOffensiveRating(), 57);
 		assertEquals(p1.getDefensiveRating(), 81);
-		p2.calculateCenterRating();
+		p1.calculateCenterRating();
 		assertEquals(p1.getOverallRating(), 68);
 		assertEquals(p1.getOffensiveRating(), 57);
 		assertEquals(p1.getDefensiveRating(), 79);
 
-		p2.determineBestPosition();
+		p1.determineBestPosition();
 		assertEquals(p1.getOverallRating(), 69);
 		assertEquals(p1.getOffensiveRating(), 57);
 		assertEquals(p1.getDefensiveRating(), 81);
@@ -972,7 +972,7 @@ public class JUnitTests {
 				100, 31, 99);
 		assertEquals(coach.getFirstName(), "coach");
 		assertEquals(coach.getLastName(), "Name");
-		assertEquals(coach.getPosition(), 3);
+		assertEquals(coach.getPosition(), 0);
 		assertEquals(coach.getContractAmount(), 5, .01);
 		assertEquals(coach.getContractYears(), 2);
 		assertEquals(coach.getAge(), 25);
@@ -1075,14 +1075,16 @@ public class JUnitTests {
 		assertEquals(c1.getPosition(), 0);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void coachSetPositionInvalid1() {
 		c1.setPosition(0);
+		assertEquals(c1.getPosition(), 0);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void coachSetPositionInvalid2() {
 		c1.setPosition(6);
+		assertEquals(c1.getPosition(), 0);
 	}
 
 	@Test

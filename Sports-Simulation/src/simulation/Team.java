@@ -57,6 +57,16 @@ public class Team {
 	 * Stores the team's overall rating
 	 */
 	private int teamOverallRating;
+	
+	/**
+	 * Stores the maximum team size
+	 */
+	private int maximumTeamSize = 15;
+	
+	/**
+	 * Stores the maximum number of players on the court at a time per team
+	 */
+	private int numPlayersOnCourt = 5;
 
 	/**
 	 * Constructs a new Team object
@@ -69,11 +79,7 @@ public class Team {
 	public Team(String teamName, Player[] roster, Coach coach) {
 
 		setTeamName(teamName);
-
 		setRoster(roster);
-		setOnCourt(roster);
-		setOnBench(roster);
-
 		setCoach(coach);
 
 		generateNewTeamOffensiveRating();
@@ -129,7 +135,9 @@ public class Team {
 		}
 
 		this.roster = roster;
-
+		
+		setOnCourt();
+		setOnBench();
 		generateNewTeamOffensiveRating();
 		generateNewTeamDefensiveRating();
 		generateNewTeamOverallRating();
@@ -288,16 +296,13 @@ public class Team {
 	 * @param The
 	 *            new onCourt rating of the player
 	 */
-	public void setOnCourt(Player[] onCourt) {
-		// if (onCourt.length > 5) {
-		// throw new IllegalArgumentException("There can be no more than 5 player on the
-		// court at a time.");
-		// }
-		for (int i = 0; i < 5; i++) {
+	public void setOnCourt() {
+		onCourt = new Player[numPlayersOnCourt];
+		
+		for (int i = 0; i < numPlayersOnCourt; i++) {
 			onCourt[i] = roster[i];
 		}
 
-		this.onCourt = onCourt;
 	}
 
 	/**
@@ -315,16 +320,14 @@ public class Team {
 	 * @param The
 	 *            new onBench rating of the player
 	 */
-	public void setOnBench(Player[] onBench) {
-		// if (onBench.length > 15) {
-		// throw new IllegalArgumentException("There can be no more than 15 players on
-		// the bench at a time.");
-		// }
-		for (int i = 5; i < roster.length; i++) {
+	public void setOnBench() {
+		onBench = new Player[maximumTeamSize - numPlayersOnCourt];
+		
+		for (int i = numPlayersOnCourt; i < (maximumTeamSize - numPlayersOnCourt) && roster[i] != null; i++) {
 			onBench[i] = roster[i];
 		}
 
-		this.onBench = onBench;
+		
 	}
 
 	/**

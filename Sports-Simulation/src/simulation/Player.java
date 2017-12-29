@@ -284,7 +284,7 @@ public class Player implements Athlete {
 		setPotential(potential);
 		setInitialRotationPossessions(rotationPossessions);
 		setRotationPossessionsRemaining(rotationPossessions);
-		determineBestPosition();
+		setPosition(position);
 		setPointsGame(pointsGame);
 		setReboundsGame(reboundsGame);
 		setAssistsGame(assistsGame);
@@ -382,9 +382,17 @@ public class Player implements Athlete {
 			throw new IllegalArgumentException("Position must be between 1 and 6 inclusive");
 		}
 
-		this.position = position;
+		if (position < 1) {
+			position = 1;
+		} else if (position > 5) {
+			position = 5;
+		} else if (position == 6) {
+			determineBestPosition();
+		} else {
+			this.position = position;
+		}
 
-		// calculatePositionRating();
+		calculatePositionRating();
 
 	}
 
