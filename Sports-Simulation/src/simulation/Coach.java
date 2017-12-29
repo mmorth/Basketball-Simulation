@@ -229,6 +229,7 @@ public class Coach implements Athlete {
 		setStamina(stamina);
 		setInjury(injury);
 		setPotential(potential);
+		calculateCoachRatings();
 
 	}
 
@@ -892,13 +893,13 @@ public class Coach implements Athlete {
 	public void calculateCoachRatings() {
 		double offensiveWeight = .125;
 		double defensiveWeight = .167;
-		offensiveRating = (int) Math.round(((offensiveWeight) * (insideScoring) + (offensiveWeight) * (midRangeScoring)
+		offensiveRating = (int) Math.round((offensiveWeight) * (insideScoring) + (offensiveWeight) * (midRangeScoring)
 				+ (offensiveWeight) * (threePointScoring) + (offensiveWeight) * (freeThrow)
 				+ (offensiveWeight) * (offensiveRebounding) + (offensiveWeight) * (ballHandling)
-				+ (offensiveWeight) * (passing) + (offensiveWeight) * (speed) + (offensiveWeight) * (height)) / 9);
-		defensiveRating = (int) Math.round(((defensiveWeight) * (postDefense) + (defensiveWeight) * (perimeterDefense)
+				+ (offensiveWeight) * (passing) + (offensiveWeight) * (speed));
+		defensiveRating = (int) Math.round((defensiveWeight) * (postDefense) + (defensiveWeight) * (perimeterDefense)
 				+ (defensiveWeight) * (defensiveRebounding) + (defensiveWeight) * (steal) + (defensiveWeight) * (block)
-				+ (defensiveWeight) * (speed) + (defensiveWeight) * (height)) / 7);
+				+ (defensiveWeight) * (speed));
 		overallRating = (offensiveRating + defensiveRating) / 2;
 		position = 0;
 	}

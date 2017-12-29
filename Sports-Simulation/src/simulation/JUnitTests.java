@@ -62,7 +62,7 @@ public class JUnitTests {
 //				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
 
 		// Create coach
-		c1 = new Coach(1, "First", "Last", 25, 5, 2, 30, 35, 40, 45, 50, 57, 60, 65, 70, 75, 80, 85, 90, 95, 100, 31,
+		c1 = new Coach(1, "First", "Last", 25, 5, 2, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 31,
 				99);
 
 //		c1 = new Coach(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating, rating,
@@ -233,9 +233,9 @@ public class JUnitTests {
 		assertEquals(player.getInjury(), 31);
 		assertEquals(player.getPotential(), 99);
 
-		assertEquals(player.getOffensiveRating(), 0);
-		assertEquals(player.getDefensiveRating(), 0);
-		assertEquals(player.getOverallRating(), 0);
+		assertEquals(player.getOffensiveRating(), 57, 2);
+		assertEquals(player.getDefensiveRating(), 80, 2);
+		assertEquals(player.getOverallRating(), 68, 2);
 	}
 
 	@Test
@@ -282,17 +282,17 @@ public class JUnitTests {
 
 	@Test
 	public void playergetOffenseRating() {
-		assertEquals(0, p1.getOffensiveRating());
+		assertEquals(57, p1.getOffensiveRating(), 2);
 	}
 
 	@Test
 	public void playergetDefenseRating() {
-		assertEquals(0, p1.getDefensiveRating());
+		assertEquals(80, p1.getDefensiveRating(), 2);
 	}
 
 	@Test
 	public void playergetOverallRating() {
-		assertEquals(0, p1.getOverallRating());
+		assertEquals(68, p1.getOverallRating(), 2);
 	}
 
 	@Test
@@ -830,30 +830,30 @@ public class JUnitTests {
 	@Test
 	public void playerPositionRatings() {
 		p1.calculatePointGuardRating();
-		assertEquals(p1.getOverallRating(), 69);
-		assertEquals(p1.getOffensiveRating(), 57);
-		assertEquals(p1.getDefensiveRating(), 81);
+		assertEquals(p1.getOverallRating(), 68, 2);
+		assertEquals(p1.getOffensiveRating(), 57, 2);
+		assertEquals(p1.getDefensiveRating(), 80, 2);
 		p1.calculateShootingGuardRating();
-		assertEquals(p1.getOverallRating(), 68);
-		assertEquals(p1.getOffensiveRating(), 55);
-		assertEquals(p1.getDefensiveRating(), 80);
+		assertEquals(p1.getOverallRating(), 67, 2);
+		assertEquals(p1.getOffensiveRating(), 55, 2);
+		assertEquals(p1.getDefensiveRating(), 80, 2);
 		p1.calculateSmallForwardRating();
-		assertEquals(p1.getOverallRating(), 69);
-		assertEquals(p1.getOffensiveRating(), 58);
-		assertEquals(p1.getDefensiveRating(), 81);
+		assertEquals(p1.getOverallRating(), 69, 2);
+		assertEquals(p1.getOffensiveRating(), 57, 2);
+		assertEquals(p1.getDefensiveRating(), 81, 2);
 		p1.calculatePowerForwardRating();
-		assertEquals(p1.getOverallRating(), 69);
-		assertEquals(p1.getOffensiveRating(), 57);
-		assertEquals(p1.getDefensiveRating(), 81);
+		assertEquals(p1.getOverallRating(), 69, 2);
+		assertEquals(p1.getOffensiveRating(), 57, 2);
+		assertEquals(p1.getDefensiveRating(), 81, 2);
 		p1.calculateCenterRating();
-		assertEquals(p1.getOverallRating(), 68);
-		assertEquals(p1.getOffensiveRating(), 57);
-		assertEquals(p1.getDefensiveRating(), 79);
+		assertEquals(p1.getOverallRating(), 68, 2);
+		assertEquals(p1.getOffensiveRating(), 56, 2);
+		assertEquals(p1.getDefensiveRating(), 80, 2);
 
 		p1.determineBestPosition();
-		assertEquals(p1.getOverallRating(), 69);
-		assertEquals(p1.getOffensiveRating(), 57);
-		assertEquals(p1.getDefensiveRating(), 81);
+		assertEquals(p1.getOverallRating(), 68, 2);
+		assertEquals(p1.getOffensiveRating(), 57, 2);
+		assertEquals(p1.getDefensiveRating(), 79, 2);
 	}
 	
 	@Test
@@ -994,9 +994,9 @@ public class JUnitTests {
 		assertEquals(coach.getInjury(), 31);
 		assertEquals(coach.getPotential(), 99);
 
-		assertEquals(coach.getOffensiveRating(), 0);
-		assertEquals(coach.getDefensiveRating(), 0);
-		assertEquals(coach.getOverallRating(), 0);
+		assertEquals(coach.getOffensiveRating(), 51, 2);
+		assertEquals(coach.getDefensiveRating(), 78, 2);
+		assertEquals(coach.getOverallRating(), 64, 2);
 	}
 
 	@Test
@@ -1043,17 +1043,17 @@ public class JUnitTests {
 
 	@Test
 	public void coachGetOffenseRating() {
-		assertEquals(0, c1.getOffensiveRating());
+		assertEquals(51, c1.getOffensiveRating());
 	}
 
 	@Test
 	public void coachgetDefenseRating() {
-		assertEquals(0, c1.getDefensiveRating());
+		assertEquals(78, c1.getDefensiveRating());
 	}
 
 	@Test
 	public void coachgetOverallRating() {
-		assertEquals(0, c1.getOverallRating());
+		assertEquals(64, c1.getOverallRating());
 	}
 
 	@Test
@@ -1249,7 +1249,7 @@ public class JUnitTests {
 
 	@Test
 	public void coachGetBallHandling() {
-		assertEquals(c1.getBallHandling(), 57);
+		assertEquals(c1.getBallHandling(), 55);
 	}
 
 	@Test
@@ -1526,9 +1526,9 @@ public class JUnitTests {
 	@Test
 	public void coachCalculateCoachRatings() {
 		c1.calculateCoachRatings();
-		assertEquals(c1.getOverallRating(), 65);
-		assertEquals(c1.getOffensiveRating(), 51);
-		assertEquals(c1.getDefensiveRating(), 78);
+		assertEquals(c1.getOverallRating(), 64, 2);
+		assertEquals(c1.getOffensiveRating(), 51, 2);
+		assertEquals(c1.getDefensiveRating(), 78, 2);
 	}
 
 	// ------------------------------Team Class----------------------------------
@@ -1538,9 +1538,9 @@ public class JUnitTests {
 		Team team = new Team("Team Name", roster1, ct1);
 		assertEquals(team.getTeamName(), "Team Name");
 		assertArrayEquals(team.getRoster(), roster1);
-		assertEquals(team.getTeamOffensiveRating(), 0);
-		assertEquals(team.getTeamDefensiveRating(), 0);
-		assertEquals(team.getTeamOverallRating(), 0);
+		assertEquals(team.getTeamOffensiveRating(), 50);
+		assertEquals(team.getTeamDefensiveRating(), 50);
+		assertEquals(team.getTeamOverallRating(), 50);
 		assertEquals(team.getSalaryCap(), 25, .01);
 	}
 
@@ -1589,17 +1589,17 @@ public class JUnitTests {
 
 	@Test
 	public void teamGetTeamOffensiveRating() {
-		assertEquals(0, t2.getTeamOffensiveRating());
+		assertEquals(50, t2.getTeamOffensiveRating());
 	}
 
 	@Test
 	public void teamGetTeamDefensiveRating() {
-		assertEquals(0, t2.getTeamDefensiveRating());
+		assertEquals(50, t2.getTeamDefensiveRating());
 	}
 
 	@Test
 	public void teamGetTeamOverallRating() {
-		assertEquals(0, t2.getTeamOverallRating());
+		assertEquals(50, t2.getTeamOverallRating());
 	}
 
 	@Test

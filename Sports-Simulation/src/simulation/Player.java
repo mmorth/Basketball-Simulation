@@ -1212,12 +1212,12 @@ public class Player implements Athlete {
 	 * Calculates the overall, offensive, and defensive ratings of the point guard
 	 */
 	public void calculatePointGuardRating() {
-		offensiveRating = (int) Math.round(((.06) * (insideScoring) + (.08) * (midRangeScoring)
+		offensiveRating = (int) Math.round((.06) * (insideScoring) + (.08) * (midRangeScoring)
 				+ (.12) * (threePointScoring) + (.1) * (freeThrow) + (.02) * (offensiveRebounding)
-				+ (.24) * (ballHandling) + (.2) * (passing) + (.15) * (speed) + (.03) * (height)) / 9);
+				+ (.24) * (ballHandling) + (.2) * (passing) + (.15) * (speed) + (.03) * (height));
 		defensiveRating = (int) Math
-				.round(((.07) * (postDefense) + (.3) * (perimeterDefense) + (.08) * (defensiveRebounding)
-						+ (.15) * (steal) + (.05) * (block) + (.3) * (speed) + (.05) * (height)) / 7);
+				.round((.07) * (postDefense) + (.3) * (perimeterDefense) + (.08) * (defensiveRebounding)
+						+ (.15) * (steal) + (.05) * (block) + (.3) * (speed) + (.05) * (height));
 		overallRating = (offensiveRating + defensiveRating) / 2;
 		position = 1;
 	}
@@ -1227,12 +1227,12 @@ public class Player implements Athlete {
 	 * guard
 	 */
 	public void calculateShootingGuardRating() {
-		offensiveRating = (int) Math.round(((.1) * (insideScoring) + (.1) * (midRangeScoring)
+		offensiveRating = (int) Math.round((.1) * (insideScoring) + (.1) * (midRangeScoring)
 				+ (.15) * (threePointScoring) + (.1) * (freeThrow) + (.05) * (offensiveRebounding)
-				+ (.18) * (ballHandling) + (.12) * (passing) + (.12) * (speed) + (.08) * (height)) / 9);
+				+ (.18) * (ballHandling) + (.12) * (passing) + (.12) * (speed) + (.08) * (height));
 		defensiveRating = (int) Math
-				.round(((.1) * (postDefense) + (.28) * (perimeterDefense) + (.1) * (defensiveRebounding)
-						+ (.1) * (steal) + (.07) * (block) + (.25) * (speed) + (.1) * (height)) / 7);
+				.round((.1) * (postDefense) + (.28) * (perimeterDefense) + (.1) * (defensiveRebounding)
+						+ (.1) * (steal) + (.07) * (block) + (.25) * (speed) + (.1) * (height));
 		overallRating = (offensiveRating + defensiveRating) / 2;
 		position = 2;
 	}
@@ -1241,12 +1241,12 @@ public class Player implements Athlete {
 	 * Calculates the overall, offensive, and defensive ratings of the small forward
 	 */
 	public void calculateSmallForwardRating() {
-		offensiveRating = (int) Math.round(((.12) * (insideScoring) + (.12) * (midRangeScoring)
+		offensiveRating = (int) Math.round((.12) * (insideScoring) + (.12) * (midRangeScoring)
 				+ (.12) * (threePointScoring) + (.08) * (freeThrow) + (.08) * (offensiveRebounding)
-				+ (.1) * (ballHandling) + (.1) * (passing) + (.15) * (speed) + (.13) * (height)) / 9);
+				+ (.1) * (ballHandling) + (.1) * (passing) + (.15) * (speed) + (.13) * (height));
 		defensiveRating = (int) Math
-				.round(((.12) * (postDefense) + (.15) * (perimeterDefense) + (.15) * (defensiveRebounding)
-						+ (.1) * (steal) + (.12) * (block) + (.21) * (speed) + (.15) * (height)) / 7);
+				.round((.12) * (postDefense) + (.15) * (perimeterDefense) + (.15) * (defensiveRebounding)
+						+ (.1) * (steal) + (.12) * (block) + (.21) * (speed) + (.15) * (height));
 		overallRating = (offensiveRating + defensiveRating) / 2;
 		position = 3;
 	}
@@ -1255,12 +1255,12 @@ public class Player implements Athlete {
 	 * Calculates the overall, offensive, and defensive ratings of the power forward
 	 */
 	public void calculatePowerForwardRating() {
-		offensiveRating = (int) Math.round(((.15) * (insideScoring) + (.1) * (midRangeScoring)
+		offensiveRating = (int) Math.round((.15) * (insideScoring) + (.1) * (midRangeScoring)
 				+ (.11) * (threePointScoring) + (.07) * (freeThrow) + (.12) * (offensiveRebounding)
-				+ (.09) * (ballHandling) + (.09) * (passing) + (.12) * (speed) + (.15) * (height)) / 9);
+				+ (.09) * (ballHandling) + (.09) * (passing) + (.12) * (speed) + (.15) * (height));
 		defensiveRating = (int) Math
-				.round(((.15) * (postDefense) + (.12) * (perimeterDefense) + (.17) * (defensiveRebounding)
-						+ (.08) * (steal) + (.15) * (block) + (.15) * (speed) + (.18) * (height)) / 7);
+				.round((.15) * (postDefense) + (.12) * (perimeterDefense) + (.17) * (defensiveRebounding)
+						+ (.08) * (steal) + (.15) * (block) + (.15) * (speed) + (.18) * (height));
 		overallRating = (offensiveRating + defensiveRating) / 2;
 		position = 4;
 	}
@@ -1269,12 +1269,12 @@ public class Player implements Athlete {
 	 * Calculates the overall, offensive, and defensive ratings of the center
 	 */
 	public void calculateCenterRating() {
-		offensiveRating = (int) Math.round(((.18) * (insideScoring) + (.12) * (midRangeScoring)
+		offensiveRating = (int) Math.round((.18) * (insideScoring) + (.12) * (midRangeScoring)
 				+ (.08) * (threePointScoring) + (.06) * (freeThrow) + (.2) * (offensiveRebounding)
-				+ (.03) * (ballHandling) + (.06) * (passing) + (.1) * (speed) + (.17) * (height)) / 9);
+				+ (.03) * (ballHandling) + (.06) * (passing) + (.1) * (speed) + (.17) * (height));
 		defensiveRating = (int) Math
-				.round(((.18) * (postDefense) + (.08) * (perimeterDefense) + (.26) * (defensiveRebounding)
-						+ (.03) * (steal) + (.15) * (block) + (.1) * (speed) + (.2) * (height)) / 7);
+				.round((.18) * (postDefense) + (.08) * (perimeterDefense) + (.26) * (defensiveRebounding)
+						+ (.03) * (steal) + (.15) * (block) + (.1) * (speed) + (.2) * (height));
 		overallRating = (offensiveRating + defensiveRating) / 2;
 		position = 5;
 	}
