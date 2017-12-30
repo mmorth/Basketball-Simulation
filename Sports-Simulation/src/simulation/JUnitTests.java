@@ -858,7 +858,7 @@ public class JUnitTests {
 	
 	@Test
 	public void playerGetAverageShootingRating() {
-		assertEquals(p1.getAverageShootingRating(), 35, .01);
+		assertEquals(p1.getAverageShootingRating(), 105, .01);
 	}
 	
 	@Test
@@ -1705,7 +1705,7 @@ public class JUnitTests {
 	
 	@Test
 	public void teamCalculateTotalShootingRating() {
-		assertEquals(t1.calculateTotalShootingRating(), 260);
+		assertEquals(t1.calculateTotalShootingRating(), 780);
 	}
 	
 	@Test

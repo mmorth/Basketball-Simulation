@@ -1,6 +1,7 @@
 package simulation;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -256,7 +257,7 @@ public class GameSimulation {
 					possessions--;
 				}
 
-			} else if (choice == 'g' && possessions < 100) {
+			} else if (choice == 'g' && possessions < 200) {
 				possessions = simulatePossessionsQuarter(possessions);
 			}
 
@@ -318,12 +319,19 @@ public class GameSimulation {
 						- team2ThirdQuarterScore - team2FirstQuarterScore;
 			}
 
-			// TODO Remove after testing
-			if (DEBUG == 0) {
+			
 				printBoxScore(team1FirstQuarterScore, team1SecondQuarterScore, team1ThirdQuarterScore,
 						team1FourthQuarterScore, team1OvertimeScore, team2FirstQuarterScore, team2SecondQuarterScore,
 						team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore);
-			}
+				
+				// Reset the player's game statistics for each team
+				for (int i = 0; i < team1.getRoster().length && team1.getRoster()[i] != null; i++) {
+					team1.getRoster()[i].resetGameStats();
+				}
+				
+				for (int i = 0; i < team2.getRoster().length && team2.getRoster()[i] != null; i++) {
+					team2.getRoster()[i].resetGameStats();
+				}
 
 		} else {
 			System.out.println("Game ended. Draw.");
@@ -839,11 +847,20 @@ public class GameSimulation {
 		String team2Results = String.format("%s\t\t%d\t%d\t%d\t%d\t%d\t%d", team2.getTeamName(), team2FirstQuarterScore,
 				team2SecondQuarterScore, team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore,
 				team2Score);
+		
+		String d = System.getProperty("user.home");
+		String dir = d + File.separator + "Documents" + File.separator + "Basketball-Simulation" + File.separator
+				+ "Game_Results.txt";
+		final File file = new File(dir);
+		file.getParentFile().mkdirs();// all directories down
+
+		FileWriter fw = new FileWriter(file, true);
+		BufferedWriter bw = new BufferedWriter(fw);
 
 		// FileWriter fw = new
 		// FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\GameResults.txt", true);
-		FileWriter fw = new FileWriter("/home/mmorth/Coding/Storage_Files/GameResults.txt", true);
-		BufferedWriter bw = new BufferedWriter(fw);
+//		FileWriter fw = new FileWriter("/home/mmorth/Coding/Storage_Files/GameResults.txt", true);
+//		BufferedWriter bw = new BufferedWriter(fw);
 
 		bw.write(scoreHeader);
 		bw.newLine();
@@ -860,8 +877,8 @@ public class GameSimulation {
 		bw.write(team1PlayerStatsHeader);
 		bw.newLine();
 
-		for (int i = 0; i < team1.getRoster().length; i++) {
-			String playerStats = String.format("%s %s\t\t\t%d\t%d\t%d\t%d\t%d\t%d", team1.getRoster()[i].getFirstName(),
+		for (int i = 0; i < team1.getRoster().length && team1.getRoster()[i] != null; i++) {
+			String playerStats = String.format("%s %s\t\t%d\t%d\t\t%d\t%d\t%d\t%d", team1.getRoster()[i].getFirstName(),
 					team1.getRoster()[i].getLastName(), team1.getRoster()[i].getPointsGame(),
 					team1.getRoster()[i].getReboundsGame(), team1.getRoster()[i].getAssistsGame(),
 					team1.getRoster()[i].getBlocksGame(), team1.getRoster()[i].getStealsGame(),
@@ -881,8 +898,8 @@ public class GameSimulation {
 		bw.write(team2PlayerStatsHeader);
 		bw.newLine();
 
-		for (int i = 0; i < team2.getRoster().length; i++) {
-			String playerStats = String.format("%s %s\t\t\t%d\t%d\t%d\t%d\t%d\t%d", team2.getRoster()[i].getFirstName(),
+		for (int i = 0; i < team2.getRoster().length && team2.getRoster()[i] != null; i++) {
+			String playerStats = String.format("%s %s\t\t%d\t%d\t\t%d\t%d\t%d\t%d", team2.getRoster()[i].getFirstName(),
 					team2.getRoster()[i].getLastName(), team2.getRoster()[i].getPointsGame(),
 					team2.getRoster()[i].getReboundsGame(), team2.getRoster()[i].getAssistsGame(),
 					team2.getRoster()[i].getBlocksGame(), team2.getRoster()[i].getStealsGame(),
@@ -897,6 +914,7 @@ public class GameSimulation {
 		bw.newLine();
 		bw.newLine();
 
+		fw.flush();
 		bw.flush();
 		fw.close();
 		bw.close();

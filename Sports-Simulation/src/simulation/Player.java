@@ -1049,7 +1049,7 @@ public class Player implements Athlete {
 	 * @return The average overall shooting rating of the player
 	 */
 	public double getAverageShootingRating() {
-		return (insideScoring + midRangeScoring + threePointScoring) / 3;
+		return insideScoring + midRangeScoring + threePointScoring;
 	}
 
 	/**
@@ -1188,6 +1188,18 @@ public class Player implements Athlete {
 		} else {
 			this.turnoversGame = turnoversGame;
 		}
+	}
+	
+	/**
+	 * Resets the player's game statistics after a game has ended
+	 */
+	public void resetGameStats() {
+		pointsGame = 0;
+		assistsGame = 0;
+		reboundsGame = 0;
+		blocksGame = 0;
+		stealsGame = 0;
+		turnoversGame = 0;
 	}
 
 	/**
