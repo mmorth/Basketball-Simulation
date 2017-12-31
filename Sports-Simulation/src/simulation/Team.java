@@ -86,6 +86,8 @@ public class Team {
 		generateNewTeamDefensiveRating();
 		generateNewTeamOverallRating();
 		generateNewTeamSalary();
+		
+//		checkValidRotationPossessions();
 
 	}
 
@@ -142,6 +144,8 @@ public class Team {
 		generateNewTeamDefensiveRating();
 		generateNewTeamOverallRating();
 		generateNewTeamSalary();
+		
+//		checkValidRotationPossessions();
 	}
 
 	/**
@@ -159,6 +163,8 @@ public class Team {
 		generateNewTeamDefensiveRating();
 		generateNewTeamOverallRating();
 		generateNewTeamSalary();
+		
+//		checkValidRotationPossessions();
 	}
 
 	/**
@@ -171,7 +177,7 @@ public class Team {
 	}
 
 	/**
-	 * Sets the coach of the team
+	 * Sets the coach of the team. It also resets the coach boost ratings of the players on the team.
 	 * 
 	 * @param The
 	 *            new coach of the team
@@ -323,15 +329,16 @@ public class Team {
 	public void setOnBench() {
 		onBench = new Player[maximumTeamSize - numPlayersOnCourt];
 		int benchLocation = 0;
-		
-		for (int i = numPlayersOnCourt; i < (maximumTeamSize - numPlayersOnCourt) && roster[i] != null; i++, benchLocation++) {
+
+		for (int i = numPlayersOnCourt; i < (maximumTeamSize - numPlayersOnCourt)
+				&& roster[i] != null; i++, benchLocation++) {
 			onBench[benchLocation] = roster[i];
 		}
 
 	}
 
 	/**
-	 * Updates the player ratings based on the coach's overall rating in categories
+	 * Updates the player ratings on the team based on the coach's overall rating in categories. Used when a coach is added to the team.
 	 */
 	public void coachBoostPlayerRatings() {
 		for (int i = 0; i < roster.length && roster[i] != null; i++) {
@@ -368,7 +375,7 @@ public class Team {
 	}
 
 	/**
-	 * Updates the player ratings based on the coach's overall rating in categories
+	 * Updates the player ratings on the team based on the coach's overall rating in categories. Used when a coach is removed from the team.
 	 */
 	public void removeCoachRatingsBoost() {
 		for (int i = 0; i < roster.length && roster[i] != null; i++) {
@@ -470,29 +477,25 @@ public class Team {
 	}
 
 	/**
-	 * Selects the player to sub into the game
+	 * Selects the player to sub into the game based on their stamina and rotations possessions remaining
 	 * 
 	 * @param possessions
 	 *            The number of possessions remaining in the game
 	 * @return The player on the bench to sub into the game
 	 */
 	public int selectPlayer(Player subOut, int possessions) {
-		
+
 		boolean needSubPlayer = true;
 		boolean isEmptyBench = true;
-		
+
 		for (int i = 0; i < onBench.length && onBench[i] != null; i++) {
 			if (onBench[i] != null && !(onBench[i].equals(new Player()))) {
 				isEmptyBench = false;
 			}
 		}
-		
-		if (isEmptyBench == true) {
+
+		if (isEmptyBench == true && subOut.getRotationPossessionsRemaining() > 0) {
 			return -1;
-		}
-		
-		if (subOut.getRotationPossessionsRemaining() > 0 && subOut.getStamina() >= 25) {
-			needSubPlayer = false;
 		}
 
 		if (needSubPlayer == true) {
@@ -505,19 +508,21 @@ public class Team {
 					subPlayer = i;
 					break;
 				}
-//				if (onBench[i].getRotationPossessionsRemaining() > maxMinutes && onBench[i].getStamina() > 75) {
-//					subPlayer = i;
-//				}
+				// if (onBench[i].getRotationPossessionsRemaining() > maxMinutes &&
+				// onBench[i].getStamina() > 75) {
+				// subPlayer = i;
+				// }
 			}
 
 			// If no sub has been found, select the bench player with the most rotation
 			// minutes remaining
 			if (subPlayer == -1) {
 				for (int i = 0; i < onBench.length; i++) {
-					if (onBench[i].getRotationPossessionsRemaining() >= maxMinutes) {
-						subPlayer = i;
-						maxMinutes = onBench[i].getRotationPossessionsRemaining();
-						break;
+					if (onBench[i] != null) {
+						if (onBench[i].getRotationPossessionsRemaining() >= maxMinutes) {
+							subPlayer = i;
+							maxMinutes = onBench[i].getRotationPossessionsRemaining();
+						}
 					}
 				}
 			}
@@ -539,24 +544,21 @@ public class Team {
 	 */
 	public void printTeamRosters() throws IOException {
 
+		// Setup file saving location
 		String d = System.getProperty("user.home");
 		String dir = d + File.separator + "Documents" + File.separator + "Basketball-Simulation" + File.separator
 				+ "Rosters.txt";
 		final File file = new File(dir);
 		file.getParentFile().mkdirs();// all directories down
-		// PrintWriter restoreNo = new PrintWriter(new FileOutputStream(new File(file,
-		// "restoreNo.txt")));
 
-		// Setup the file saving location
-		// FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\Rosters.txt", true);
-		// FileWriter fw = new
-		// FileWriter("/home/mmorth/Coding/Storage_Files/Rosters.txt", true);
 		FileWriter fw = new FileWriter(file, true);
 		BufferedWriter bw = new BufferedWriter(fw);
 
 		// Write the headers of the output
 		bw.write(teamName);
 		bw.newLine();
+		
+		// Print the coach information
 		bw.write(
 				"Position\tFirst_Name\t\tLast_Name\t\tOverall\tOffense\tDefense\tAge\tContract_Amount\tContract_Years\tInside_Scoring\tMid-Range_Scoring\t3-Point_Scoring\tFree_Throw\tOffensive_Rebounding\tBall_Handling\tPassing\tPost_Defense\tPerimeter_Defense\tDefensive_Rebounding\tSteal\tBlock\tHeight\tSpeed\tStamina\tInjury\tPotential");
 		bw.newLine();
@@ -572,13 +574,8 @@ public class Team {
 		bw.write(coachInformation);
 		bw.newLine();
 
-		// Display the position information
+		// Print the player information
 		for (int i = 0; i < roster.length && roster[i] != null; i++) {
-			// String positionString = "";
-			// for (int j = 0; j < roster[i].getPosition().length; j++) {
-			// positionString += Integer.toString(roster[i].getPosition()[j]);
-			// positionString += " ";
-			// }
 
 			// Format print player information
 			String playerInformation = String.format(
@@ -672,6 +669,28 @@ public class Team {
 		}
 
 		return totalReboundingRating / 2;
+	}
+	
+	/**
+	 * Determines whether the rotation possessions specified are valid. Valid means the total rotation minutes for the team adds up to 1000 possessions.
+	 * 
+	 * @throws IllegalStateException
+	 * 		Throws an IllegalStateException if the rotation possessions of the team does not add up to 1000 possessions
+	 */
+	public void checkValidRotationPossessions() {
+		
+		int rotationPossessions = 0;
+		
+		for (int i = 0; i < roster.length; i++) {
+			if (roster[i] != null) {
+				rotationPossessions += roster[i].getInitialRotationPossessions();
+			}
+		}
+		
+		if (rotationPossessions != 1000) {
+			throw new IllegalStateException("The total rotation possessions of the team must add up to 1000.");
+		}
+		
 	}
 
 }

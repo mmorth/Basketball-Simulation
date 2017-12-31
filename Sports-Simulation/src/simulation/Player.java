@@ -278,7 +278,7 @@ public class Player implements Athlete {
 		setBlock(block);
 		setHeight(height);
 		setSpeed(speed);
-		setStamina(stamina);
+		setStamina(100);
 		setStaminaDecrease(stamina / 25);
 		setInjury(injury);
 		setPotential(potential);
@@ -324,7 +324,7 @@ public class Player implements Athlete {
 	public void setFirstName(String playerFirstName) {
 		if (playerFirstName.length() > 15 || Helper.containsSpaces(playerFirstName)) {
 			throw new IllegalArgumentException(
-					"Player first name must be 15 or fewer characters and may not contain any spaces.");
+					"player first name must be 15 or fewer characters and may not contain any spaces.");
 		}
 		this.playerFirstName = playerFirstName;
 	}
@@ -352,7 +352,7 @@ public class Player implements Athlete {
 	public void setLastName(String playerLastName) {
 		if (playerLastName.length() > 15 || Helper.containsSpaces(playerLastName)) {
 			throw new IllegalArgumentException(
-					"Player last name must be 15 or fewer characters and may not contain any spaces.");
+					"player last name must be 15 or fewer characters and may not contain any spaces.");
 		}
 		this.playerLastName = playerLastName;
 	}
@@ -368,32 +368,24 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets a new position for a player
+	 * Sets a new position for a player. If position is less than 0, then the
+	 * position is set to 0. If position is greater that 6, then position is set to
+	 * 6.
 	 * 
 	 * @param position
 	 *            The new position of the player
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if there are more than 5
-	 *             elements in position or if a position is not between 1 and 6
 	 */
 	@Override
 	public void setPosition(int position) {
-		if (position < 1 || position > 5) {
-			throw new IllegalArgumentException("Position must be between 1 and 6 inclusive");
-		}
-
-		if (position < 1) {
-			position = 1;
-		} else if (position > 5) {
-			position = 5;
-		} else if (position == 6) {
-			determineBestPosition();
+		if (position < 0) {
+			this.position = 0;
+		} else if (position > 6) {
+			this.position = 6;
 		} else {
 			this.position = position;
 		}
 
 		calculatePositionRating();
-
 	}
 
 	/**
@@ -437,7 +429,8 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the contract amount to a new value
+	 * Sets the contract amount to a new value. If contractAmount is less than 0,
+	 * then the contract amount is set to 0.
 	 * 
 	 * @param contractAmount
 	 *            New contract amount
@@ -463,7 +456,8 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the number of contract years to a new value
+	 * Sets the number of contract years to a new value. If contractYears is less
+	 * than 0, then the contract years is set to 0
 	 * 
 	 * @param contractYears
 	 *            New number of years left on contract
@@ -471,10 +465,11 @@ public class Player implements Athlete {
 	@Override
 	public void setContractYears(int contractYears) {
 		if (contractYears < 0) {
-			this.contractYears = contractYears;
+			this.contractYears = 0;
 		} else {
 			this.contractYears = contractYears;
 		}
+
 	}
 
 	/**
@@ -488,17 +483,16 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the age of the player to a new value
+	 * Sets the age of the player to a new value. If age is less than 0, then the
+	 * age is set to 0.
 	 * 
 	 * @param age
 	 *            New age of player
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if age is less than 0
 	 */
 	@Override
 	public void setAge(int age) {
 		if (age < 0) {
-			this.age = age;
+			this.age = 0;
 		} else {
 			this.age = age;
 		}
@@ -515,7 +509,9 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the insideScoring rating of the player
+	 * Sets the insideScoring rating of the player. If insideScoring is less than
+	 * 30, then the inside scoring of the player is set to 30. If insideScoring is
+	 * greater than 100, then the inside scoring is set to 100.
 	 * 
 	 * @param The
 	 *            new insideScoring rating of the player
@@ -542,7 +538,10 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the midRangeScoring rating of the player
+	 * Sets the midRangeScoring rating of the player. If midRangeScoring is less
+	 * than 30, then the mid range scoring of the player is set to 30. If
+	 * midRangeScoring is greater than 100, then the mid range scoring of the player
+	 * is set to 100.
 	 * 
 	 * @param The
 	 *            new midRangeScoring rating of the player
@@ -569,7 +568,10 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the threePointScoring rating of the player
+	 * Sets the threePointScoring rating of the player. If threePointScoring is less
+	 * than 30, then the three point scoring of the player is set to 30. If
+	 * threePointScoring is greater than 100, then the three point scoring of the
+	 * player is set to 100.
 	 * 
 	 * @param The
 	 *            new threePointScoring rating of the player
@@ -596,7 +598,9 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the freeThrow rating of the player
+	 * Sets the freeThrow rating of the player. If freeThrow is less than 30, then
+	 * the free throw of the player is set to 30. If freeThrow is greater than 100,
+	 * then the free throw of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new freeThrow rating of the player
@@ -623,7 +627,10 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the offensiveRebounding rating of the player
+	 * Sets the offensiveRebounding rating of the player. If offensiveRebounding is
+	 * less than 30, then the offensive rebounding of the player is set to 30. If
+	 * offensiveRebounding is greater than 100, then the offensive rebounding of the
+	 * player is set to 100.
 	 * 
 	 * @param The
 	 *            new offensiveRebounding rating of the player
@@ -650,7 +657,9 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the ballHandling rating of the player
+	 * Sets the ballHandling rating of the player. If ballHandling is less than 30,
+	 * then the ball handling of the player is set to 30. If ballHandling is greater
+	 * than 100, then the ball handling of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new ballHandling rating of the player
@@ -677,11 +686,14 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the passing rating of the player
+	 * Sets the passing rating of the player. If passing is less than 30, then the
+	 * passing of the player is set to 30. If passing is greater than 100, then the
+	 * passing of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new passing rating of the player
 	 */
+	@Override
 	public void setPassing(int passing) {
 		if (passing < 30) {
 			this.passing = 30;
@@ -703,7 +715,9 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the postDefense rating of the player
+	 * Sets the postDefense rating of the player. If postDefense is less than 30,
+	 * then the post defense of the player is set to 30. If postDefense is greater
+	 * than 100, then the post defense of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new postDefense rating of the player
@@ -730,7 +744,10 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the perimeterDefense rating of the player
+	 * Sets the perimeterDefense rating of the player. If perimeterDefense is less
+	 * than 30, then the perimeter defense of the player is set to 30. If
+	 * perimeterDefense is greater than 100, then the perimeter defense of the
+	 * player is set to 100.
 	 * 
 	 * @param The
 	 *            new perimeterDefense rating of the player
@@ -757,7 +774,10 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the defensiveRebounding rating of the player
+	 * Sets the defensiveRebounding rating of the player. If defensiveRebounding is
+	 * less than 30, then the defensive rebounding of the player is set to 30. If
+	 * defensiveRebounding is greater than 100, then the defensive rebounding of the
+	 * player is set to 100.
 	 * 
 	 * @param The
 	 *            new defensiveRebounding rating of the player
@@ -784,7 +804,9 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the steal rating of the player
+	 * Sets the steal rating of the player. If steal is less than 30, then the steal
+	 * of the player is set to 30. If steal is greater than 100, then the steal of
+	 * the player is set to 100.
 	 * 
 	 * @param The
 	 *            new steal rating of the player
@@ -811,7 +833,9 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the block rating of the player
+	 * Sets the block rating of the player. If block is less than 30, then the block
+	 * of the player is set to 30. If block is greater than 100, then the block of
+	 * the player is set to 100.
 	 * 
 	 * @param The
 	 *            new block rating of the player
@@ -838,7 +862,9 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the height rating of the player
+	 * Sets the height rating of the player. If height is less than 30, then the
+	 * height of the player is set to 30. If height is greater than 100, then the
+	 * height of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new height rating of the player
@@ -865,7 +891,9 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the speed rating of the player
+	 * Sets the speed rating of the player. If speed is less than 30, then the speed
+	 * of the player is set to 30. If speed is greater than 100, then the speed of
+	 * the player is set to 100.
 	 * 
 	 * @param The
 	 *            new speed rating of the player
@@ -892,7 +920,9 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the stamina rating of the player
+	 * Sets the stamina rating of the player. If stamina is less than 30, then the
+	 * stamina of the player is set to 30. If stamina is greater than 100, then the
+	 * stamina of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new stamina rating of the player
@@ -919,7 +949,9 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the injury rating of the player
+	 * Sets the injury rating of the player. If injury is less than 30, then the
+	 * injury of the player is set to 30. If injury is greater than 100, then the
+	 * injury of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new injury rating of the player
@@ -946,7 +978,9 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the potential rating of the player
+	 * Sets the potential rating of the player. If potential is less than 30, then
+	 * the potential of the player is set to 30. If potential is greater than 100,
+	 * then the potential of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new potential rating of the player
@@ -972,7 +1006,11 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the rotationPossessionsRemaining rating of the player
+	 * Sets the rotationPossessionsRemaining rating of the player. If
+	 * rotationPossessionsRemaining is less than 0, then the rotations possessions
+	 * remaining of the player is set to 0. If rotationPossessionsRemaining is
+	 * greater than 200, then the rotation possessions remaining of the player is
+	 * set to 200.
 	 * 
 	 * @param The
 	 *            new rotationPossessionsRemaining rating of the player
@@ -997,7 +1035,11 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the initialRotationPossessions rating of the player
+	 * Sets the initialRotationPossessions rating of the player. If
+	 * initialRotationPossessions is less than 0, then the initial rotation
+	 * possessions of the player is set to 0. If initialRotationPossessions is
+	 * greater than 200, then the initial rotation possessions of the player is set
+	 * to 200.
 	 * 
 	 * @param The
 	 *            new initialRotationPossessions rating of the player
@@ -1022,7 +1064,10 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the staminaDecrease rating of the player
+	 * Sets the staminaDecrease rating of the player. If staminaDecrease is less
+	 * than 1, then the stamina decrease of the player is set to 1. If
+	 * staminaDecrease is greater than 100, then the stamina decrease of the player
+	 * is set to 100.
 	 * 
 	 * @param The
 	 *            new staminaDecrease rating of the player
@@ -1056,7 +1101,8 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the pointsGame rating of the player
+	 * Sets the pointsGame rating of the player. If pointsGame is less than 0,
+	 * points game is set to 0.
 	 * 
 	 * @param The
 	 *            new pointsGame rating of the player
@@ -1079,7 +1125,8 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the reboundsGame rating of the player
+	 * Sets the reboundsGame rating of the player. If reboundsGame is less than 0,
+	 * rebounds game is set to 0.
 	 * 
 	 * @param The
 	 *            new reboundsGame rating of the player
@@ -1102,7 +1149,8 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the assistsGame rating of the player
+	 * Sets the assistsGame rating of the player. If assistsGame is less than 0,
+	 * assists game is set to 0.
 	 * 
 	 * @param The
 	 *            new assistsGame rating of the player
@@ -1125,7 +1173,8 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the blocksGame rating of the player
+	 * Sets the blocksGame rating of the player. If blocksGame is less than 0,
+	 * blocks game is set to 0.
 	 * 
 	 * @param The
 	 *            new blocksGame rating of the player
@@ -1148,7 +1197,8 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the stealsGame rating of the player
+	 * Sets the stealsGame rating of the player. If stealsGame is less than 0,
+	 * steals game is set to 0.
 	 * 
 	 * @param The
 	 *            new stealsGame rating of the player
@@ -1171,7 +1221,8 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Sets the turnoversGame rating of the player
+	 * Sets the turnoversGame rating of the player. If turnoversGame is less than 0,
+	 * turnovers game is set to 0.
 	 * 
 	 * @param The
 	 *            new turnoversGame rating of the player
@@ -1194,10 +1245,12 @@ public class Player implements Athlete {
 		blocksGame = 0;
 		stealsGame = 0;
 		turnoversGame = 0;
+		rotationPossessionsRemaining = initialRotationPossessions;
+		stamina = 100;
 	}
 
 	/**
-	 * Determines and stores the rating of the player in a given position
+	 * Determines and stores the rating of the player for their given position
 	 *
 	 */
 	public void calculatePositionRating() {
@@ -1215,7 +1268,8 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Calculates the overall, offensive, and defensive ratings of the point guard
+	 * Calculates the overall, offensive, and defensive ratings if the player is in
+	 * the Point Guard position
 	 */
 	public void calculatePointGuardRating() {
 		offensiveRating = (int) Math.round((.06) * (insideScoring) + (.08) * (midRangeScoring)
@@ -1229,8 +1283,8 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Calculates the overall, offensive, and defensive ratings of the shooting
-	 * guard
+	 * Calculates the overall, offensive, and defensive ratings if the player is in
+	 * the Shooting Guard position
 	 */
 	public void calculateShootingGuardRating() {
 		offensiveRating = (int) Math.round((.1) * (insideScoring) + (.1) * (midRangeScoring)
@@ -1243,7 +1297,8 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Calculates the overall, offensive, and defensive ratings of the small forward
+	 * Calculates the overall, offensive, and defensive ratings if the player is in
+	 * the Small Forward position
 	 */
 	public void calculateSmallForwardRating() {
 		offensiveRating = (int) Math.round((.12) * (insideScoring) + (.12) * (midRangeScoring)
@@ -1257,7 +1312,8 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Calculates the overall, offensive, and defensive ratings of the power forward
+	 * Calculates the overall, offensive, and defensive ratings if the player is in
+	 * the Power Forward position
 	 */
 	public void calculatePowerForwardRating() {
 		offensiveRating = (int) Math.round((.15) * (insideScoring) + (.1) * (midRangeScoring)
@@ -1271,7 +1327,8 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Calculates the overall, offensive, and defensive ratings of the center
+	 * Calculates the overall, offensive, and defensive ratings if the player is in
+	 * the Center position
 	 */
 	public void calculateCenterRating() {
 		offensiveRating = (int) Math.round((.18) * (insideScoring) + (.12) * (midRangeScoring)
@@ -1284,7 +1341,10 @@ public class Player implements Athlete {
 	}
 
 	/**
-	 * Determines the best position for a player to play based on their ratings
+	 * Determines the best position for a player to play based on their ratings and
+	 * sets their position to the position with the highest overall rating. The
+	 * method then sets the overall, offensive, and defensive rating of the player
+	 * to the ratings for that positoin.
 	 */
 	public void determineBestPosition() {
 		int maxRating = 0;

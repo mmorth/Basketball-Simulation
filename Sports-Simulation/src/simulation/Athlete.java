@@ -2,6 +2,9 @@ package simulation;
 
 /**
  * Represents an athlete on a basketball team.
+ * Stores the common methods between the Player and Coach class
+ * Will later be used when other types of players or coaches are created
+ * An Athlete currently represents either a Coach or a Player
  * 
  * @author Matthew Orth
  *
@@ -56,9 +59,6 @@ public interface Athlete {
 	 * 
 	 * @param position
 	 *            The new position of the athlete
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if there are more than 5
-	 *             elements in position or if a position is not between 1 and 6
 	 */
 	public void setPosition(int position);
 
@@ -249,7 +249,9 @@ public interface Athlete {
 	public void setPostDefense(int postDefense);
 
 	/**
-	 * Returns the perimeterDefense rating of the athlete
+	 * Returns the perimeterDefense rating of the athlete	 * @throws IllegalArgumentException
+	 *             Throws an IllegalArgument exception if there are more than 5
+	 *             elements in position or if a position is not between 1 and 6
 	 * 
 	 * @return The perimeterDefense rating of the athlete
 	 */

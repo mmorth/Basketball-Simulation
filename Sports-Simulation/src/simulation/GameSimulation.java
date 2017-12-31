@@ -1096,10 +1096,10 @@ public class GameSimulation {
 		}
 
 		double shotValue = (weight * (.7 * offenseShotRating + .1 * offensivePlayer.getSpeed()
-				+ .1 * offensivePlayer.getHeight() + .1 * passer.getPassing()) + (1 - weight) * rand.nextDouble())
+				+ .1 * offensivePlayer.getHeight() + .1 * passer.getPassing()) + (1 - weight) * rand.nextDouble() * 100)
 				- (weight * (.6 * defensePlayerRating + .2 * defensivePlayer.getBlock()
 						+ .1 * defensivePlayer.getHeight() + .1 * defensivePlayer.getSpeed())
-						+ (1 - weight) * rand.nextDouble());
+						+ (1 - weight) * rand.nextDouble() * 100);
 
 		if (shotValue > 0 && shotLocation == 3) {
 			offensivePlayer.setPointsGame(offensivePlayer.getPointsGame() + 3);

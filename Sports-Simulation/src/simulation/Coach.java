@@ -300,13 +300,10 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets a new position for a coach
+	 * Sets a new position for a coach, which is always set to 0
 	 * 
 	 * @param position
 	 *            The new position of the coach
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if there are more than 5
-	 *             elements in position or if a position is not between 1 and 6
 	 */
 	@Override
 	public void setPosition(int position) {
@@ -354,13 +351,11 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the contract amount to a new value
+	 * Sets the contract amount to a new value. If contractAmount is less than 0,
+	 * then the contract amount is set to 0.
 	 * 
 	 * @param contractAmount
 	 *            New contract amount
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if contractAmount is less
-	 *             than 0
 	 */
 	@Override
 	public void setContractAmount(double contractAmount) {
@@ -383,13 +378,11 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the number of contract years to a new value
+	 * Sets the number of contract years to a new value. If contractYears is less
+	 * than 0, then the contract years is set to 0
 	 * 
 	 * @param contractYears
 	 *            New number of years left on contract
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if contractYears is less than
-	 *             0
 	 */
 	@Override
 	public void setContractYears(int contractYears) {
@@ -412,20 +405,19 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the age of the coach to a new value
+	 * Sets the age of the coach to a new value. If age is less than 18, then the
+	 * age is set to 18.
 	 * 
 	 * @param age
 	 *            New age of coach
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if age is less than 0
 	 */
 	@Override
 	public void setAge(int age) {
-		if (age < 0) {
-			throw new IllegalArgumentException("Age of coach must be greater than zero.");
+		if (age < 18) {
+			this.age = 18;
+		} else {
+			this.age = age;
 		}
-
-		this.age = age;
 	}
 
 	/**
@@ -439,7 +431,9 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the insideScoring rating of the coach
+	 * Sets the insideScoring rating of the coach. If insideScoring is less than 30,
+	 * then the inside scoring of the player is set to 30. If insideScoring is
+	 * greater than 100, then the inside scoring is set to 100.
 	 * 
 	 * @param The
 	 *            new insideScoring rating of the coach
@@ -466,7 +460,9 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the midRangeScoring rating of the coach
+	 * Sets the midRangeScoring rating of the coach. If midRangeScoring is less than
+	 * 30, then the mid range scoring of the player is set to 30. If midRangeScoring
+	 * is greater than 100, then the mid range scoring of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new midRangeScoring rating of the coach
@@ -493,7 +489,10 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the threePointScoring rating of the coach
+	 * Sets the threePointScoring rating of the coach. If threePointScoring is less
+	 * than 30, then the three point scoring of the player is set to 30. If
+	 * threePointScoring is greater than 100, then the three point scoring of the
+	 * player is set to 100.
 	 * 
 	 * @param The
 	 *            new threePointScoring rating of the coach
@@ -520,7 +519,9 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the freeThrow rating of the coach
+	 * Sets the freeThrow rating of the coach. If freeThrow is less than 30, then
+	 * the free throw of the player is set to 30. If freeThrow is greater than 100,
+	 * then the free throw of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new freeThrow rating of the coach
@@ -547,7 +548,10 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the offensiveRebounding rating of the coach
+	 * Sets the offensiveRebounding rating of the coach. If offensiveRebounding is
+	 * less than 30, then the offensive rebounding of the player is set to 30. If
+	 * offensiveRebounding is greater than 100, then the offensive rebounding of the
+	 * player is set to 100.
 	 * 
 	 * @param The
 	 *            new offensiveRebounding rating of the coach
@@ -574,7 +578,9 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the ballHandling rating of the coach
+	 * Sets the ballHandling rating of the coach. If ballHandling is less than 30,
+	 * then the ball handling of the player is set to 30. If ballHandling is greater
+	 * than 100, then the ball handling of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new ballHandling rating of the coach
@@ -601,7 +607,9 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the passing rating of the coach
+	 * Sets the passing rating of the coach. If passing is less than 30, then the
+	 * passing of the player is set to 30. If passing is greater than 100, then the
+	 * passing of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new passing rating of the coach
@@ -628,7 +636,9 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the postDefense rating of the coach
+	 * Sets the postDefense rating of the coach. If postDefense is less than 30,
+	 * then the post defense of the player is set to 30. If postDefense is greater
+	 * than 100, then the post defense of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new postDefense rating of the coach
@@ -655,7 +665,10 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the perimeterDefense rating of the coach
+	 * Sets the perimeterDefense rating of the coach. If perimeterDefense is less
+	 * than 30, then the perimeter defense of the player is set to 30. If
+	 * perimeterDefense is greater than 100, then the perimeter defense of the
+	 * player is set to 100.
 	 * 
 	 * @param The
 	 *            new perimeterDefense rating of the coach
@@ -682,7 +695,10 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the defensiveRebounding rating of the coach
+	 * Sets the defensiveRebounding rating of the coach. If defensiveRebounding is
+	 * less than 30, then the defensive rebounding of the player is set to 30. If
+	 * defensiveRebounding is greater than 100, then the defensive rebounding of the
+	 * player is set to 100.
 	 * 
 	 * @param The
 	 *            new defensiveRebounding rating of the coach
@@ -709,7 +725,9 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the steal rating of the coach
+	 * Sets the steal rating of the coach. If steal is less than 30, then the steal
+	 * of the player is set to 30. If steal is greater than 100, then the steal of
+	 * the player is set to 100.
 	 * 
 	 * @param The
 	 *            new steal rating of the coach
@@ -736,7 +754,9 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the block rating of the coach
+	 * Sets the block rating of the coach. If block is less than 30, then the block
+	 * of the player is set to 30. If block is greater than 100, then the block of
+	 * the player is set to 100.
 	 * 
 	 * @param The
 	 *            new block rating of the coach
@@ -763,7 +783,9 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the height rating of the coach
+	 * Sets the height rating of the coach. If height is less than 30, then the
+	 * height of the player is set to 30. If height is greater than 100, then the
+	 * height of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new height rating of the coach
@@ -790,7 +812,9 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the speed rating of the coach
+	 * Sets the speed rating of the coach. If speed is less than 30, then the speed
+	 * of the player is set to 30. If speed is greater than 100, then the speed of
+	 * the player is set to 100.
 	 * 
 	 * @param The
 	 *            new speed rating of the coach
@@ -817,7 +841,9 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the stamina rating of the coach
+	 * Sets the stamina rating of the coach. If stamina is less than 30, then the
+	 * stamina of the player is set to 30. If stamina is greater than 100, then the
+	 * stamina of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new stamina rating of the coach
@@ -844,7 +870,9 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the injury rating of the coach
+	 * Sets the injury rating of the coach. If injury is less than 30, then the
+	 * injury of the player is set to 30. If injury is greater than 100, then the
+	 * injury of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new injury rating of the coach
@@ -871,7 +899,9 @@ public class Coach implements Athlete {
 	}
 
 	/**
-	 * Sets the potential rating of the coach
+	 * Sets the potential rating of the coach. If potential is less than 30, then
+	 * the potential of the player is set to 30. If potential is greater than 100,
+	 * then the potential of the player is set to 100.
 	 * 
 	 * @param The
 	 *            new potential rating of the coach
@@ -886,9 +916,10 @@ public class Coach implements Athlete {
 			this.potential = potential;
 		}
 	}
-	
+
 	/**
-	 * Calculates the overall, offensive, and defensive ratings of the coach
+	 * Calculates the overall, offensive, and defensive ratings of the coach based
+	 * on their various ratings
 	 */
 	public void calculateCoachRatings() {
 		double offensiveWeight = .125;

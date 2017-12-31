@@ -337,9 +337,10 @@ public class JUnitTests {
 		assertEquals(p1.getContractAmount(), 7.25, .01);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetContractAmountInvalid() {
 		p1.setContractAmount(-.1);
+		assertEquals(p1.getContractAmount(), 0, .01);
 	}
 
 	@Test
@@ -353,9 +354,10 @@ public class JUnitTests {
 		assertEquals(p1.getContractYears(), 4);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void playerSetContractYearsInvalid() {
 		p1.setContractYears(-1);
+		assertEquals(p1.getContractYears(), 0);
 	}
 
 	@Test
@@ -1640,7 +1642,7 @@ public class JUnitTests {
 					assertEquals(roster[i].getSteal(), 54);
 					assertEquals(roster[i].getBlock(), 54);
 					assertEquals(roster[i].getSpeed(), 54);
-					assertEquals(roster[i].getStamina(), 54);
+					assertEquals(roster[i].getStamina(), 100);
 					assertEquals(roster[i].getInjury(), 54);
 					assertEquals(roster[i].getPotential(), 54);
 					assertEquals(roster[i].getHeight(), 50);
@@ -1658,7 +1660,7 @@ public class JUnitTests {
 					assertEquals(roster[i].getSteal(), 55);
 					assertEquals(roster[i].getBlock(), 55);
 					assertEquals(roster[i].getSpeed(), 55);
-					assertEquals(roster[i].getStamina(), 55);
+					assertEquals(roster[i].getStamina(), 100);
 					assertEquals(roster[i].getInjury(), 55);
 					assertEquals(roster[i].getPotential(), 55);
 					assertEquals(roster[i].getHeight(), 50);
@@ -1676,7 +1678,7 @@ public class JUnitTests {
 					assertEquals(roster[i].getSteal(), 56);
 					assertEquals(roster[i].getBlock(), 56);
 					assertEquals(roster[i].getSpeed(), 56);
-					assertEquals(roster[i].getStamina(), 56);
+					assertEquals(roster[i].getStamina(), 100);
 					assertEquals(roster[i].getInjury(), 56);
 					assertEquals(roster[i].getPotential(), 56);
 					assertEquals(roster[i].getHeight(), 50);
@@ -1694,7 +1696,7 @@ public class JUnitTests {
 					assertEquals(roster[i].getSteal(), 57);
 					assertEquals(roster[i].getBlock(), 57);
 					assertEquals(roster[i].getSpeed(), 57);
-					assertEquals(roster[i].getStamina(), 57);
+					assertEquals(roster[i].getStamina(), 100);
 					assertEquals(roster[i].getInjury(), 57);
 					assertEquals(roster[i].getPotential(), 57);
 					assertEquals(roster[i].getHeight(), 50);
@@ -2228,69 +2230,64 @@ public class JUnitTests {
 	
 	@Test
 	public void playerSubstitutePlayers() {
-		
+		// Check that all players are being subbed into the game
 	}
 	
 	@Test
 	public void playerSelectPlayer() {
-		
+		// Check that the method selects the correct bench player to sub into the game
 	}
 	
 	@Test
 	public void GSprocessSimulation() {
-		
+		// Check that the outcomes of the games are as desired
 	}
 	
 	@Test
 	public void GSsimulatePossession() {
-		
+		// Check that the outcomes of a simulated possession are as desired
 	}
 	
 	@Test
 	public void GSprintScoreboard() {
-		
+		// Check that the correct scoreboard is being printed to the console
 	}
 	
 	@Test
 	public void GSprintBoxScore() {
-		
+		// Check that the correct output is being printed to the file
 	}
 	
 	@Test
 	public void GSprintOptions() {
-		
+		// Check that the correct output is being printed to the console
 	}
 	
 	@Test
 	public void GSsimulatePossessionsQuarter() {
-		
+		// Check that the simulations of a quarter are as expected
 	}
 	
 	@Test
 	public void GSdeterminePassOutcome() {
-		
+		// Check that the outcome of a pass are as desired
 	}
 	
 	@Test
 	public void GSdetermineShotOutcome() {
-		
+		// Check that the outcomes of a shot are as desired
 	}
 	
 	@Test
 	public void GSdetermineReboundOutcome() {
-		
-	}
-	
-	@Test
-	public void GSrunSimulationsTeamWinsandAverageScores() {
-		
+		// Check that the outcome of a rebound are as desired
 	}
 	
 	// ---------------League Class--------------
 	
 	@Test
 	public void leagueCreateLeague() {
-		
+		// Check that reading in from a file creates the correct league
 	}
 	
 }
