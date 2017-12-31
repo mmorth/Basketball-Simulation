@@ -95,9 +95,6 @@ public interface Athlete {
 	 * 
 	 * @param contractAmount
 	 *            New contract amount
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if contractAmount is less
-	 *             than 0
 	 */
 	public void setContractAmount(double contractAmount);
 
@@ -113,9 +110,6 @@ public interface Athlete {
 	 * 
 	 * @param contractYears
 	 *            New number of years left on contract
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if contractYears is less than
-	 *             0
 	 */
 	public void setContractYears(int contractYears);
 
@@ -131,8 +125,6 @@ public interface Athlete {
 	 * 
 	 * @param age
 	 *            New age of athlete
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if age is less than 0
 	 */
 	public void setAge(int age);
 

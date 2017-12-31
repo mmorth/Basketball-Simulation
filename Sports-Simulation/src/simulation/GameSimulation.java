@@ -878,11 +878,11 @@ public class GameSimulation {
 		bw.newLine();
 
 		for (int i = 0; i < team1.getRoster().length && team1.getRoster()[i] != null; i++) {
-			String playerStats = String.format("%s %s\t\t%d\t%d\t\t%d\t%d\t%d\t%d", team1.getRoster()[i].getFirstName(),
+			String playerStats = String.format("%s %s\t\t%d\t%d\t\t%d\t%d\t%d\t%dTEMP\t%d\t%d", team1.getRoster()[i].getFirstName(),
 					team1.getRoster()[i].getLastName(), team1.getRoster()[i].getPointsGame(),
 					team1.getRoster()[i].getReboundsGame(), team1.getRoster()[i].getAssistsGame(),
 					team1.getRoster()[i].getBlocksGame(), team1.getRoster()[i].getStealsGame(),
-					team1.getRoster()[i].getTurnoversGame());
+					team1.getRoster()[i].getTurnoversGame(), team1.getRoster()[i].getStamina(), team1.getRoster()[i].getRotationPossessionsRemaining());
 
 			bw.write(playerStats);
 			bw.newLine();

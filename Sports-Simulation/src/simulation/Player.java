@@ -291,7 +291,7 @@ public class Player implements Athlete {
 		setBlocksGame(blocksGame);
 		setStealsGame(stealsGame);
 		setTurnoversGame(turnoversGame);
-		
+
 		pointsGame = 0;
 		reboundsGame = 0;
 		assistsGame = 0;
@@ -441,17 +441,14 @@ public class Player implements Athlete {
 	 * 
 	 * @param contractAmount
 	 *            New contract amount
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if contractAmount is less
-	 *             than 0
 	 */
 	@Override
 	public void setContractAmount(double contractAmount) {
 		if (contractAmount < 0) {
-			throw new IllegalArgumentException("Contract amount must be greater than or equal to zero.");
+			this.contractAmount = 0;
+		} else {
+			this.contractAmount = contractAmount;
 		}
-
-		this.contractAmount = contractAmount;
 
 	}
 
@@ -470,17 +467,14 @@ public class Player implements Athlete {
 	 * 
 	 * @param contractYears
 	 *            New number of years left on contract
-	 * @throws IllegalArgumentException
-	 *             Throws an IllegalArgument exception if contractYears is less than
-	 *             0
 	 */
 	@Override
 	public void setContractYears(int contractYears) {
 		if (contractYears < 0) {
-			throw new IllegalArgumentException("Contract years must be greater than or equal to zero.");
+			this.contractYears = contractYears;
+		} else {
+			this.contractYears = contractYears;
 		}
-
-		this.contractYears = contractYears;
 	}
 
 	/**
@@ -504,10 +498,10 @@ public class Player implements Athlete {
 	@Override
 	public void setAge(int age) {
 		if (age < 0) {
-			throw new IllegalArgumentException("Age of player must be greater than zero.");
+			this.age = age;
+		} else {
+			this.age = age;
 		}
-
-		this.age = age;
 	}
 
 	/**
@@ -1189,7 +1183,7 @@ public class Player implements Athlete {
 			this.turnoversGame = turnoversGame;
 		}
 	}
-	
+
 	/**
 	 * Resets the player's game statistics after a game has ended
 	 */
@@ -1242,9 +1236,8 @@ public class Player implements Athlete {
 		offensiveRating = (int) Math.round((.1) * (insideScoring) + (.1) * (midRangeScoring)
 				+ (.15) * (threePointScoring) + (.1) * (freeThrow) + (.05) * (offensiveRebounding)
 				+ (.18) * (ballHandling) + (.12) * (passing) + (.12) * (speed) + (.08) * (height));
-		defensiveRating = (int) Math
-				.round((.1) * (postDefense) + (.28) * (perimeterDefense) + (.1) * (defensiveRebounding)
-						+ (.1) * (steal) + (.07) * (block) + (.25) * (speed) + (.1) * (height));
+		defensiveRating = (int) Math.round((.1) * (postDefense) + (.28) * (perimeterDefense)
+				+ (.1) * (defensiveRebounding) + (.1) * (steal) + (.07) * (block) + (.25) * (speed) + (.1) * (height));
 		overallRating = (offensiveRating + defensiveRating) / 2;
 		position = 2;
 	}
@@ -1284,9 +1277,8 @@ public class Player implements Athlete {
 		offensiveRating = (int) Math.round((.18) * (insideScoring) + (.12) * (midRangeScoring)
 				+ (.08) * (threePointScoring) + (.06) * (freeThrow) + (.2) * (offensiveRebounding)
 				+ (.03) * (ballHandling) + (.06) * (passing) + (.1) * (speed) + (.17) * (height));
-		defensiveRating = (int) Math
-				.round((.18) * (postDefense) + (.08) * (perimeterDefense) + (.26) * (defensiveRebounding)
-						+ (.03) * (steal) + (.15) * (block) + (.1) * (speed) + (.2) * (height));
+		defensiveRating = (int) Math.round((.18) * (postDefense) + (.08) * (perimeterDefense)
+				+ (.26) * (defensiveRebounding) + (.03) * (steal) + (.15) * (block) + (.1) * (speed) + (.2) * (height));
 		overallRating = (offensiveRating + defensiveRating) / 2;
 		position = 5;
 	}

@@ -33,6 +33,7 @@ public class JUnitTests {
 	// Create team
 	Team t1, t2;
 
+	Team Scaled;
 	Team OneHundred;
 	Team NinetyFive;
 	Team Ninety;
@@ -186,6 +187,7 @@ public class JUnitTests {
 				team1Rating, team1Rating, team1Rating, team1Rating, team1Rating, team1Rating);
 
 		// Coach genCoach = new Coach("First", "Last", 100, 100, 25, 5, 2);
+		Scaled = new Team("Scaled", TestMatchups.createScaledRoster(), ct1);
 		OneHundred = new Team("100", TestMatchups.createOneHundredRoster(), ct1);
 		NinetyFive = new Team("95", TestMatchups.createNinetyFiveRoster(), ct1);
 		Ninety = new Team("90", TestMatchups.createNinetyRoster(), ct1);
@@ -1783,10 +1785,10 @@ public class JUnitTests {
 	// }
 
 	@Test
-	public void OneHundredVSOneHundred() throws IOException {
+	public void ScaledVSOneScaled() throws IOException {
 
-		Team team1 = OneHundred;
-		Team team2 = OneHundred;
+		Team team1 = Scaled;
+		Team team2 = Scaled;
 
 		double team1LowerWinPercentage = .45;
 		double team1UpperWinPercentage = .57;
@@ -1821,6 +1823,46 @@ public class JUnitTests {
 
 		assertTrue(true);
 	}
+	
+//	@Test
+//	public void OneHundredVSOneHundred() throws IOException {
+//
+//		Team team1 = OneHundred;
+//		Team team2 = OneHundred;
+//
+//		double team1LowerWinPercentage = .45;
+//		double team1UpperWinPercentage = .57;
+//
+//		double team2LowerWinPercentage = .45;
+//		double team2UpperWinPercentage = .57;
+//
+//		double team1LowerAverageScore = 98;
+//		double team1UpperAverageScore = 108;
+//
+//		double team2LowerAverageScore = 98;
+//		double team2UpperAverageScore = 108;
+//
+//		GameSimulation gs = new GameSimulation(team1, team2, 1);
+//		gs.runSimulations(numberSimulations, team1, team2);
+//
+//		double team1WinPercentage = (double) gs.getTeam1Wins() / numberSimulations;
+//		double team2WinPercentage = (double) gs.getTeam2Wins() / numberSimulations;
+//
+//		if ((!((team1WinPercentage < team1UpperWinPercentage && team1WinPercentage > team1LowerWinPercentage)
+//				|| (team2WinPercentage < team2UpperWinPercentage && team2WinPercentage > team2LowerWinPercentage)))
+//				|| (!((gs.getTeam1AverageScore() < team1UpperAverageScore
+//						&& gs.getTeam1AverageScore() > team1LowerAverageScore)
+//						|| (gs.getTeam2AverageScore() < team2UpperAverageScore
+//								&& gs.getTeam2AverageScore() > team2LowerAverageScore)))) {
+//			String failMessage = Helper.createString(team1.getTeamOverallRating(), team2.getTeamOverallRating(), gs,
+//					team1LowerWinPercentage, team1UpperWinPercentage, team1WinPercentage, team1LowerAverageScore,
+//					team1UpperAverageScore, gs.getTeam1AverageScore(), team2LowerWinPercentage, team2UpperWinPercentage,
+//					team2WinPercentage, team2LowerAverageScore, team2UpperAverageScore, gs.getTeam2AverageScore());
+//			fail(failMessage);
+//		}
+//
+//		assertTrue(true);
+//	}
 //
 //	@Test
 //	public void OneHundredVSNinetyFive() throws IOException {
