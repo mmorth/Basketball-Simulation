@@ -322,9 +322,10 @@ public class Team {
 	 */
 	public void setOnBench() {
 		onBench = new Player[maximumTeamSize - numPlayersOnCourt];
-
-		for (int i = numPlayersOnCourt; i < (maximumTeamSize - numPlayersOnCourt) && roster[i] != null; i++) {
-			onBench[i] = roster[i];
+		int benchLocation = 0;
+		
+		for (int i = numPlayersOnCourt; i < (maximumTeamSize - numPlayersOnCourt) && roster[i] != null; i++, benchLocation++) {
+			onBench[benchLocation] = roster[i];
 		}
 
 	}
@@ -414,7 +415,7 @@ public class Team {
 
 		// Check sub for Point Guard
 		if (onCourt[0].getStamina() <= 25 || onCourt[0].getRotationPossessionsRemaining() <= 0) {
-			int sub = selectPlayer(possessions);
+			int sub = selectPlayer(onCourt[0], possessions);
 			if (sub != -1) {
 				Player temp = onCourt[0];
 				onCourt[0] = onBench[sub];
@@ -424,7 +425,7 @@ public class Team {
 
 		// Check sub for Shooting Guard
 		if (onCourt[1].getStamina() <= 25 || onCourt[1].getRotationPossessionsRemaining() <= 0) {
-			int sub = selectPlayer(possessions);
+			int sub = selectPlayer(onCourt[1], possessions);
 			if (sub != -1) {
 				Player temp = onCourt[1];
 				onCourt[1] = onBench[sub];
@@ -434,7 +435,7 @@ public class Team {
 
 		// Check sub for Small Forward
 		if (onCourt[2].getStamina() <= 25 || onCourt[2].getRotationPossessionsRemaining() <= 0) {
-			int sub = selectPlayer(possessions);
+			int sub = selectPlayer(onCourt[2], possessions);
 			if (sub != -1) {
 				Player temp = onCourt[2];
 				onCourt[2] = onBench[sub];
@@ -444,7 +445,7 @@ public class Team {
 
 		// Check sub for Power Forward
 		if (onCourt[3].getStamina() <= 25 || onCourt[3].getRotationPossessionsRemaining() <= 0) {
-			int sub = selectPlayer(possessions);
+			int sub = selectPlayer(onCourt[3], possessions);
 			if (sub != -1) {
 				Player temp = onCourt[3];
 				onCourt[3] = onBench[sub];
@@ -454,7 +455,7 @@ public class Team {
 
 		// Check sub for Center
 		if (onCourt[4].getStamina() <= 25 || onCourt[4].getRotationPossessionsRemaining() <= 0) {
-			int sub = selectPlayer(possessions);
+			int sub = selectPlayer(onCourt[4], possessions);
 			if (sub != -1) {
 				Player temp = onCourt[4];
 				onCourt[4] = onBench[sub];
@@ -475,30 +476,38 @@ public class Team {
 	 *            The number of possessions remaining in the game
 	 * @return The player on the bench to sub into the game
 	 */
-	public int selectPlayer(int possessions) {
+	public int selectPlayer(Player subOut, int possessions) {
 		
-		boolean emptyBench = true;
+		boolean needSubPlayer = true;
+		boolean isEmptyBench = true;
 		
 		for (int i = 0; i < onBench.length && onBench[i] != null; i++) {
-			if (onBench[i] != null || !(onBench[i].equals(new Player()))) {
-				emptyBench = false;
-				break;
+			if (onBench[i] != null && !(onBench[i].equals(new Player()))) {
+				isEmptyBench = false;
 			}
 		}
+		
+		if (isEmptyBench == true) {
+			return -1;
+		}
+		
+		if (subOut.getRotationPossessionsRemaining() > 0 && subOut.getStamina() >= 25) {
+			needSubPlayer = false;
+		}
 
-		if (emptyBench == false) {
+		if (needSubPlayer == true) {
 
 			int subPlayer = -1;
 			int maxMinutes = 0;
 
-			for (int i = 0; i < onBench.length; i++) {
-				if (onBench[i].getRotationPossessionsRemaining() >= possessions) {
+			for (int i = 0; i < onBench.length && onBench[i] != null; i++) {
+				if (onBench[i].getRotationPossessionsRemaining() >= possessions && onBench[i].getStamina() >= 25) {
 					subPlayer = i;
 					break;
 				}
-				if (onBench[i].getRotationPossessionsRemaining() > maxMinutes && onBench[i].getStamina() > 75) {
-					subPlayer = i;
-				}
+//				if (onBench[i].getRotationPossessionsRemaining() > maxMinutes && onBench[i].getStamina() > 75) {
+//					subPlayer = i;
+//				}
 			}
 
 			// If no sub has been found, select the bench player with the most rotation
