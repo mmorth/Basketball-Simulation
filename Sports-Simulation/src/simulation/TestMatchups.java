@@ -1,5 +1,11 @@
 package simulation;
 
+/**
+ * Creates teams for testing the simulation between two teams
+ * 
+ * @author Matthew Orth
+ *
+ */
 public class TestMatchups {
 
 	private static Team[] teams;
@@ -573,7 +579,7 @@ public class TestMatchups {
 				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
-	
+
 	public static Player[] createScaledRoster() {
 		Player[] roster = new Player[15];
 		int rating = 100;
@@ -593,34 +599,48 @@ public class TestMatchups {
 		int rating14 = 30;
 		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
 				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
-		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating1, rating1, rating1, rating1, rating1, rating1, rating1,
-				rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1);
-		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating2, rating2, rating2, rating2, rating2, rating2, rating2,
-				rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2);
-		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating3, rating3, rating3, rating3, rating3, rating3, rating3,
-				rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3);
-		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating4, rating4, rating4, rating4, rating4, rating4, rating4,
-				rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4);
-		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating5, rating5, rating5, rating5, rating5, rating5, rating5,
-				rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5);
-		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating6, rating6, rating6, rating6, rating6, rating6, rating6,
-				rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6);
-		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating7, rating7, rating7, rating7, rating7, rating7, rating7,
-				rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7);
-		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating8, rating8, rating8, rating8, rating8, rating8, rating8,
-				rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8);
-		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating9, rating9, rating9, rating9, rating9, rating9, rating9,
-				rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9);
-		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating10, rating10, rating10, rating10, rating10, rating10, rating10,
-				rating10, rating10, rating10, rating10, rating10, rating10, rating10, rating10, rating10, rating10, rating10);
-		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating11, rating11, rating11, rating11, rating11, rating11, rating11,
-				rating11, rating11, rating11, rating11, rating11, rating11, rating11, rating11, rating11, rating11, rating11);
-		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating12, rating12, rating12, rating12, rating12, rating12, rating12,
-				rating12, rating12, rating12, rating12, rating12, rating12, rating12, rating12, rating12, rating12, rating12);
-		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating13, rating13, rating13, rating13, rating13, rating13, rating13,
-				rating13, rating13, rating13, rating13, rating13, rating13, rating13, rating13, rating13, rating13, rating13);
-		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating14, rating14, rating14, rating14, rating14, rating14, rating14,
-				rating14, rating14, rating14, rating14, rating14, rating14, rating14, rating14, rating14, rating14, rating14);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating1, rating1, rating1, rating1, rating1, rating1,
+				rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1,
+				rating1);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating2, rating2, rating2, rating2, rating2, rating2,
+				rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2,
+				rating2);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating3, rating3, rating3, rating3, rating3, rating3,
+				rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3,
+				rating3);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating4, rating4, rating4, rating4, rating4, rating4,
+				rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4,
+				rating4);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating5, rating5, rating5, rating5, rating5, rating5,
+				rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5,
+				rating5);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating6, rating6, rating6, rating6, rating6, rating6,
+				rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6,
+				rating6);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating7, rating7, rating7, rating7, rating7, rating7,
+				rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7,
+				rating7);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating8, rating8, rating8, rating8, rating8, rating8,
+				rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8,
+				rating8);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating9, rating9, rating9, rating9, rating9, rating9,
+				rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9,
+				rating9);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating10, rating10, rating10, rating10, rating10,
+				rating10, rating10, rating10, rating10, rating10, rating10, rating10, rating10, rating10, rating10,
+				rating10, rating10, rating10);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating11, rating11, rating11, rating11, rating11,
+				rating11, rating11, rating11, rating11, rating11, rating11, rating11, rating11, rating11, rating11,
+				rating11, rating11, rating11);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating12, rating12, rating12, rating12, rating12,
+				rating12, rating12, rating12, rating12, rating12, rating12, rating12, rating12, rating12, rating12,
+				rating12, rating12, rating12);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating13, rating13, rating13, rating13, rating13,
+				rating13, rating13, rating13, rating13, rating13, rating13, rating13, rating13, rating13, rating13,
+				rating13, rating13, rating13);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating14, rating14, rating14, rating14, rating14,
+				rating14, rating14, rating14, rating14, rating14, rating14, rating14, rating14, rating14, rating14,
+				rating14, rating14, rating14);
 		return roster;
 	}
 

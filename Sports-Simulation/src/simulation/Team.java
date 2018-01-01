@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * Represents a basketball team. Stores name and rating.
  * 
- * @author Owner
+ * @author Matthew Orth
  *
  */
 public class Team {
@@ -86,8 +86,8 @@ public class Team {
 		generateNewTeamDefensiveRating();
 		generateNewTeamOverallRating();
 		generateNewTeamSalary();
-		
-//		checkValidRotationPossessions();
+
+		// checkValidRotationPossessions();
 
 	}
 
@@ -144,8 +144,8 @@ public class Team {
 		generateNewTeamDefensiveRating();
 		generateNewTeamOverallRating();
 		generateNewTeamSalary();
-		
-//		checkValidRotationPossessions();
+
+		// checkValidRotationPossessions();
 	}
 
 	/**
@@ -163,8 +163,8 @@ public class Team {
 		generateNewTeamDefensiveRating();
 		generateNewTeamOverallRating();
 		generateNewTeamSalary();
-		
-//		checkValidRotationPossessions();
+
+		// checkValidRotationPossessions();
 	}
 
 	/**
@@ -177,7 +177,8 @@ public class Team {
 	}
 
 	/**
-	 * Sets the coach of the team. It also resets the coach boost ratings of the players on the team.
+	 * Sets the coach of the team. It also resets the coach boost ratings of the
+	 * players on the team.
 	 * 
 	 * @param The
 	 *            new coach of the team
@@ -338,7 +339,8 @@ public class Team {
 	}
 
 	/**
-	 * Updates the player ratings on the team based on the coach's overall rating in categories. Used when a coach is added to the team.
+	 * Updates the player ratings on the team based on the coach's overall rating in
+	 * categories. Used when a coach is added to the team.
 	 */
 	public void coachBoostPlayerRatings() {
 		for (int i = 0; i < roster.length && roster[i] != null; i++) {
@@ -375,7 +377,8 @@ public class Team {
 	}
 
 	/**
-	 * Updates the player ratings on the team based on the coach's overall rating in categories. Used when a coach is removed from the team.
+	 * Updates the player ratings on the team based on the coach's overall rating in
+	 * categories. Used when a coach is removed from the team.
 	 */
 	public void removeCoachRatingsBoost() {
 		for (int i = 0; i < roster.length && roster[i] != null; i++) {
@@ -477,7 +480,8 @@ public class Team {
 	}
 
 	/**
-	 * Selects the player to sub into the game based on their stamina and rotations possessions remaining
+	 * Selects the player to sub into the game based on their stamina and rotations
+	 * possessions remaining
 	 * 
 	 * @param possessions
 	 *            The number of possessions remaining in the game
@@ -557,7 +561,7 @@ public class Team {
 		// Write the headers of the output
 		bw.write(teamName);
 		bw.newLine();
-		
+
 		// Print the coach information
 		bw.write(
 				"Position\tFirst_Name\t\tLast_Name\t\tOverall\tOffense\tDefense\tAge\tContract_Amount\tContract_Years\tInside_Scoring\tMid-Range_Scoring\t3-Point_Scoring\tFree_Throw\tOffensive_Rebounding\tBall_Handling\tPassing\tPost_Defense\tPerimeter_Defense\tDefensive_Rebounding\tSteal\tBlock\tHeight\tSpeed\tStamina\tInjury\tPotential");
@@ -670,27 +674,29 @@ public class Team {
 
 		return totalReboundingRating / 2;
 	}
-	
+
 	/**
-	 * Determines whether the rotation possessions specified are valid. Valid means the total rotation minutes for the team adds up to 1000 possessions.
+	 * Determines whether the rotation possessions specified are valid. Valid means
+	 * the total rotation minutes for the team adds up to 1000 possessions.
 	 * 
 	 * @throws IllegalStateException
-	 * 		Throws an IllegalStateException if the rotation possessions of the team does not add up to 1000 possessions
+	 *             Throws an IllegalStateException if the rotation possessions of
+	 *             the team does not add up to 1000 possessions
 	 */
 	public void checkValidRotationPossessions() {
-		
+
 		int rotationPossessions = 0;
-		
+
 		for (int i = 0; i < roster.length; i++) {
 			if (roster[i] != null) {
 				rotationPossessions += roster[i].getInitialRotationPossessions();
 			}
 		}
-		
+
 		if (rotationPossessions != 1000) {
 			throw new IllegalStateException("The total rotation possessions of the team must add up to 1000.");
 		}
-		
+
 	}
 
 }

@@ -18,6 +18,7 @@ public class GameSimulation {
 
 	public static int DEBUG = 0;
 
+	// TODO Remove unecessary code when done testing
 	// /**
 	// * Makes calls to the simulation methods to simulate
 	// *
@@ -131,6 +132,7 @@ public class GameSimulation {
 	 */
 	private static int team2Score;
 
+	// TODO Remove unnecessary code when finished testing
 	// /**
 	// * Represents team1's offensive rating relative to team2's defensive rating
 	// */
@@ -185,6 +187,7 @@ public class GameSimulation {
 		team1Score = 0;
 		team2Score = 0;
 
+		// TODO Remove unnecessary code when finished testing
 		// team1RelativeRating = (team1.getTeamOffensiveRating() -
 		// team2.getTeamDefensiveRating() + 100) / 2;
 		// team2RelativeRating = (team2.getTeamOffensiveRating() -
@@ -227,7 +230,8 @@ public class GameSimulation {
 		// Stores the user's choice for how much of the game they want to simulate
 		char choice = ' ';
 
-		// Continues the simulation process for 100 possessions for each team
+		// Continues the simulation process for 200 possessions for both teams combined.
+		// 100 possessions for each team
 		for (int possessions = 1; possessions <= 200; possessions++) {
 			// If the user choose to simulate the game, then simulate the game by quarters
 			if (choice != 'g') {
@@ -257,6 +261,7 @@ public class GameSimulation {
 					possessions--;
 				}
 
+				// Simulate possessions until the game is over if the user input 'g'
 			} else if (choice == 'g' && possessions < 200) {
 				possessions = simulatePossessionsQuarter(possessions);
 			}
@@ -299,6 +304,7 @@ public class GameSimulation {
 						choice = input.next().charAt(0);
 					}
 
+					// Determine user's choice of simulation length
 					if (choice == 'p') {
 						simulatePossession(possessions);
 
@@ -319,19 +325,18 @@ public class GameSimulation {
 						- team2ThirdQuarterScore - team2FirstQuarterScore;
 			}
 
-			
-				printBoxScore(team1FirstQuarterScore, team1SecondQuarterScore, team1ThirdQuarterScore,
-						team1FourthQuarterScore, team1OvertimeScore, team2FirstQuarterScore, team2SecondQuarterScore,
-						team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore);
-				
-				// Reset the player's game statistics for each team
-				for (int i = 0; i < team1.getRoster().length && team1.getRoster()[i] != null; i++) {
-					team1.getRoster()[i].resetGameStats();
-				}
-				
-				for (int i = 0; i < team2.getRoster().length && team2.getRoster()[i] != null; i++) {
-					team2.getRoster()[i].resetGameStats();
-				}
+			printBoxScore(team1FirstQuarterScore, team1SecondQuarterScore, team1ThirdQuarterScore,
+					team1FourthQuarterScore, team1OvertimeScore, team2FirstQuarterScore, team2SecondQuarterScore,
+					team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore);
+
+			// Reset the player's game statistics for each team
+			for (int i = 0; i < team1.getRoster().length && team1.getRoster()[i] != null; i++) {
+				team1.getRoster()[i].resetGameStats();
+			}
+
+			for (int i = 0; i < team2.getRoster().length && team2.getRoster()[i] != null; i++) {
+				team2.getRoster()[i].resetGameStats();
+			}
 
 		} else {
 			System.out.println("Game ended. Draw.");
@@ -350,6 +355,7 @@ public class GameSimulation {
 	 */
 	public void simulatePossession(int possessions) {
 
+		// TODO Remove after testing complete
 		// Random rng = new Random();
 		//
 		// double shotMultiplier = 0;
@@ -394,21 +400,23 @@ public class GameSimulation {
 		// team2Score += team2Shot;
 		// }
 
+		// Used as random number generator for calculations
 		Random rand = new Random();
 
 		// Determine which team has the ball and calculate their score
 		if (possessionArrow == 0) {
 
+			// Continue looping while team1 has the ball
 			while (possessionArrow == 0) {
 
-				// team1Score++;
-
-				// Infinite loop is happening because of teams not scoring
-				// Check through logic on pass, score, and rebounding
-
+				// Shooter and shot defender for the possession
 				Player shooter = new Player();
 				Player shotDefender = new Player();
+
+				// Select the shooter on offense
 				double playerShootSelector = rand.nextDouble();
+
+				// Calculate the range of values for who will shoot
 				int team1TotalShootingRating = team1.calculateTotalShootingRating();
 				double team1PointGuardShootRange = (double) team1.getOnCourt()[0].getAverageShootingRating()
 						/ team1TotalShootingRating;
@@ -418,10 +426,12 @@ public class GameSimulation {
 						/ team1TotalShootingRating;
 				double team1PowerForwardShootRange = (double) team1.getOnCourt()[3].getAverageShootingRating()
 						/ team1TotalShootingRating;
+				// TODO Remove when sure is not needed
 				// double team1CenterShootRange = (double)
 				// team1.getOnCourt()[4].getAverageShootingRating()
 				// / team1TotalShootingRating;
 
+				// Determine who will shoot the ball
 				if (playerShootSelector < team1PointGuardShootRange) {
 					shooter = team1.getOnCourt()[0];
 					shotDefender = team1.getOnCourt()[0];
@@ -441,12 +451,14 @@ public class GameSimulation {
 					shotDefender = team1.getOnCourt()[4];
 				}
 
+				// Declare the passer and the pass defender for each team
 				Player passer = new Player();
 				Player passDefender = new Player();
 
 				// Determine whether to keep the do-while loop because that would cause there
 				// to be an assist on every made basket
 				do {
+					// Determine the ranges for who will shoot the ball
 					double playerPassSelector = rand.nextDouble();
 					int team1TotalPassingRating = team1.calculateTotalPassingRating();
 					double team1PointGuardPassRange = (double) team1.getOnCourt()[0].getPassing()
@@ -460,6 +472,7 @@ public class GameSimulation {
 					// double team1CenterPassRange = team1.getOnCourt()[4].getPassing() /
 					// team1TotalPassingRating;
 
+					// Determine the passer and the pass defender
 					if (playerPassSelector < team1PointGuardPassRange) {
 						passer = team1.getOnCourt()[0];
 						passDefender = team2.getOnCourt()[0];
@@ -481,8 +494,11 @@ public class GameSimulation {
 
 				} while (passer == shooter);
 
+				// Declare the rebounder and rebound defender
 				Player rebounder = new Player();
 				Player reboundDefender = new Player();
+
+				// Calculate the rebounding ranges for each player
 				double playerReboundSelector = rand.nextDouble();
 				int team1TotalReboundingRating = team1.getTotalReboundingRating();
 				double team1PointGuardReboundRange = (double) team1.getOnCourt()[0].getOffensiveRebounding()
@@ -497,6 +513,7 @@ public class GameSimulation {
 				// team1.getOnCourt()[4].getOffensiveRebounding()
 				// / team1TotalReboundingRating;
 
+				// Determine the rebounder and rebound defender
 				if (playerReboundSelector < team1PointGuardReboundRange) {
 					rebounder = team1.getOnCourt()[0];
 					reboundDefender = team1.getOnCourt()[0];
@@ -516,6 +533,7 @@ public class GameSimulation {
 					reboundDefender = team1.getOnCourt()[4];
 				}
 
+				// Determine where on the court the ball is passed
 				double passLocation = rand.nextDouble();
 				int location = -1;
 
@@ -527,12 +545,16 @@ public class GameSimulation {
 					location = 1;
 				}
 
+				// Determine the outcome of the pass
 				int successfulPass = determinePassOutcome(passer, passDefender, location);
 				int team1ScoreIncrease = 0;
 
+				// If the pass is successful, check if the offensive player scored and how much
+				// they scored
 				if (successfulPass == 1) {
 					team1ScoreIncrease = determineShotOutcome(shooter, shotDefender, passer);
 
+					// If the shot is missed, determine who gets the rebound
 					if (team1ScoreIncrease == 0) {
 						int reboundPossession = determineReboundOutcome(rebounder, reboundDefender);
 
@@ -551,7 +573,11 @@ public class GameSimulation {
 			}
 
 		} else {
-			
+
+			// NOTE: Commenting for this section is the same as above, except in terms of
+			// the other team
+
+			// If team2 has the ball
 			while (possessionArrow == 1) {
 
 				Player shooter = new Player();
@@ -847,21 +873,26 @@ public class GameSimulation {
 		String team2Results = String.format("%s\t\t%d\t%d\t%d\t%d\t%d\t%d", team2.getTeamName(), team2FirstQuarterScore,
 				team2SecondQuarterScore, team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore,
 				team2Score);
-		
+
+		// Determine file save location
 		String d = System.getProperty("user.home");
 		String dir = d + File.separator + "Documents" + File.separator + "Basketball-Simulation" + File.separator
 				+ "Game_Results.txt";
 		final File file = new File(dir);
 		file.getParentFile().mkdirs();// all directories down
 
+		// Setup writing to the file
 		FileWriter fw = new FileWriter(file, true);
 		BufferedWriter bw = new BufferedWriter(fw);
 
+		// TODO Remove after testing is complete
 		// FileWriter fw = new
 		// FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\GameResults.txt", true);
-//		FileWriter fw = new FileWriter("/home/mmorth/Coding/Storage_Files/GameResults.txt", true);
-//		BufferedWriter bw = new BufferedWriter(fw);
+		// FileWriter fw = new
+		// FileWriter("/home/mmorth/Coding/Storage_Files/GameResults.txt", true);
+		// BufferedWriter bw = new BufferedWriter(fw);
 
+		// Print the score headers
 		bw.write(scoreHeader);
 		bw.newLine();
 		bw.write(team1Results);
@@ -869,6 +900,7 @@ public class GameSimulation {
 		bw.write(team2Results);
 		bw.newLine();
 
+		// Print information for team 1
 		bw.write(team1.getTeamName());
 		bw.newLine();
 		String team1PlayerStatsHeader = String
@@ -877,12 +909,14 @@ public class GameSimulation {
 		bw.write(team1PlayerStatsHeader);
 		bw.newLine();
 
+		// Print the player stats
 		for (int i = 0; i < team1.getRoster().length && team1.getRoster()[i] != null; i++) {
-			String playerStats = String.format("%s %s\t\t%d\t%d\t\t%d\t%d\t%d\t%dTEMP\t%d\t%d", team1.getRoster()[i].getFirstName(),
-					team1.getRoster()[i].getLastName(), team1.getRoster()[i].getPointsGame(),
-					team1.getRoster()[i].getReboundsGame(), team1.getRoster()[i].getAssistsGame(),
-					team1.getRoster()[i].getBlocksGame(), team1.getRoster()[i].getStealsGame(),
-					team1.getRoster()[i].getTurnoversGame(), team1.getRoster()[i].getStamina(), team1.getRoster()[i].getRotationPossessionsRemaining());
+			String playerStats = String.format("%s %s\t\t%d\t%d\t\t%d\t%d\t%d\t%dTEMP\t%d\t%d",
+					team1.getRoster()[i].getFirstName(), team1.getRoster()[i].getLastName(),
+					team1.getRoster()[i].getPointsGame(), team1.getRoster()[i].getReboundsGame(),
+					team1.getRoster()[i].getAssistsGame(), team1.getRoster()[i].getBlocksGame(),
+					team1.getRoster()[i].getStealsGame(), team1.getRoster()[i].getTurnoversGame(),
+					team1.getRoster()[i].getStamina(), team1.getRoster()[i].getRotationPossessionsRemaining());
 
 			bw.write(playerStats);
 			bw.newLine();
@@ -890,6 +924,7 @@ public class GameSimulation {
 
 		bw.newLine();
 
+		// Print team2 information
 		bw.write(team2.getTeamName());
 		bw.newLine();
 		String team2PlayerStatsHeader = String
@@ -898,6 +933,7 @@ public class GameSimulation {
 		bw.write(team2PlayerStatsHeader);
 		bw.newLine();
 
+		// Print player stats
 		for (int i = 0; i < team2.getRoster().length && team2.getRoster()[i] != null; i++) {
 			String playerStats = String.format("%s %s\t\t%d\t%d\t\t%d\t%d\t%d\t%d", team2.getRoster()[i].getFirstName(),
 					team2.getRoster()[i].getLastName(), team2.getRoster()[i].getPointsGame(),
@@ -956,26 +992,31 @@ public class GameSimulation {
 	 * @return The number of possessions remaining in the game
 	 */
 	public int simulatePossessionsQuarter(int possessions) {
+		// Simulate through the first quarter
 		if (possessions <= 50) {
 			for (int i = possessions; i <= 50; i++) {
 				simulatePossession(possessions);
 			}
 			possessions = 50;
+			// Simulate through the second quarter
 		} else if (possessions <= 100) {
 			for (int i = possessions; i <= 100; i++) {
 				simulatePossession(possessions);
 			}
 			possessions = 100;
+			// Simulate through the third quarter
 		} else if (possessions <= 150) {
 			for (int i = possessions; i <= 150; i++) {
 				simulatePossession(possessions);
 			}
 			possessions = 150;
+			// Simulate through the fourth quarter
 		} else if (possessions <= 200) {
 			for (int i = possessions; i <= 200; i++) {
 				simulatePossession(possessions);
 			}
 			possessions = 200;
+			// Simulate through overtime if necessary
 		} else {
 			for (int i = possessions; i <= 210; i++) {
 				simulatePossession(possessions);
@@ -986,6 +1027,7 @@ public class GameSimulation {
 		return possessions;
 	}
 
+	// TODO Remove once sure not needed
 	// /**
 	// * Calculates how much increase in chance that team1 scores on this possession
 	// */
@@ -1033,6 +1075,8 @@ public class GameSimulation {
 	 */
 	public int determinePassOutcome(Player offensivePlayer, Player defensivePlayer, int location) {
 		Random rand = new Random();
+
+		// Determine weight and location of the ball to set the defensive rating
 		double weight = .8;
 		int defenseRating = 0;
 		if (location == 3 || location == 2) {
@@ -1040,10 +1084,14 @@ public class GameSimulation {
 		} else {
 			defenseRating = defensivePlayer.getPostDefense();
 		}
+
+		// Calculate the pass value based on the weights of the offensive and defensive
+		// player ratings
 		double passValue = (weight * (.25 * offensivePlayer.getBallHandling() + .75 * offensivePlayer.getPassing())
 				+ (1 - weight) * rand.nextDouble())
 				- (weight * (.8 * defenseRating + .2 * defensivePlayer.getSteal() + (1 - weight) * rand.nextDouble()));
 
+		// Check if the pass was successful
 		if (passValue > 0) {
 			return 1;
 		} else {
@@ -1066,6 +1114,7 @@ public class GameSimulation {
 		Random rand = new Random();
 		double weight = .8;
 
+		// Determine shot area and player shooting location tendencies
 		double shotArea = rand.nextDouble() * 1.05;
 		double playerInsideShotTendency = offensivePlayer.getInsideScoring()
 				/ offensivePlayer.getAverageShootingRating();
@@ -1077,6 +1126,8 @@ public class GameSimulation {
 		int shotLocation = -1;
 		int defensePlayerRating = 0;
 
+		// Determine the offensive shooting rating and defensive rating based on where
+		// the shot is taken on the court
 		if (shotArea < playerInsideShotTendency) {
 			offenseShotRating = offensivePlayer.getInsideScoring();
 			defensePlayerRating = defensivePlayer.getPostDefense();
@@ -1095,12 +1146,15 @@ public class GameSimulation {
 			shotLocation = 0;
 		}
 
+		// Determine the shot value based on the offensive and defensive player ratings
 		double shotValue = (weight * (.7 * offenseShotRating + .1 * offensivePlayer.getSpeed()
 				+ .1 * offensivePlayer.getHeight() + .1 * passer.getPassing()) + (1 - weight) * rand.nextDouble() * 100)
 				- (weight * (.6 * defensePlayerRating + .2 * defensivePlayer.getBlock()
 						+ .1 * defensivePlayer.getHeight() + .1 * defensivePlayer.getSpeed())
 						+ (1 - weight) * rand.nextDouble() * 100);
 
+		// Calculate if the shot was made and how many points based on the shot value
+		// and the location on the floor
 		if (shotValue > 0 && shotLocation == 3) {
 			offensivePlayer.setPointsGame(offensivePlayer.getPointsGame() + 3);
 			passer.setAssistsGame(passer.getAssistsGame() + 1);
@@ -1129,19 +1183,23 @@ public class GameSimulation {
 	 * @param offensivePlayer
 	 *            The offensive player attempting the rebounding
 	 * @param defensivePlayer
-	 *            The defensive player attempting the reoubnding
+	 *            The defensive player attempting the rebounding
 	 * @return Returns 1 if the offensive player rebounds the ball. Returns 0
 	 *         otherwise
 	 */
 	public int determineReboundOutcome(Player offensivePlayer, Player defensivePlayer) {
 		Random rand = new Random();
 		double weight = .8;
+
+		// Calculate the rebound value based on the offensive and defensive player
+		// ratings
 		double reboundValue = (weight
 				* (.8 * offensivePlayer.getOffensiveRebounding() + .2 * offensivePlayer.getHeight())
 				+ (1 - weight) * rand.nextDouble())
 				- (weight * (.8 * defensivePlayer.getDefensiveRebounding() + .2 * defensivePlayer.getHeight()
 						+ (1 - weight) * rand.nextDouble()));
 
+		// Check which player rebounded the ball
 		if (reboundValue > 0) {
 			offensivePlayer.setReboundsGame(offensivePlayer.getReboundsGame() + 1);
 			defensivePlayer.setBlocksGame(defensivePlayer.getBlocksGame() + 1);
@@ -1171,6 +1229,8 @@ public class GameSimulation {
 
 		int i;
 
+		// Run i number of simlations between team1 and team2 and calculate the average
+		// score and the number of wins for each team
 		for (i = 0; i < numSimulations; i++) {
 
 			GameSimulation s1 = new GameSimulation(team1, team2, 1);
