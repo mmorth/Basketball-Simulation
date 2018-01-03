@@ -1791,8 +1791,10 @@ public class JUnitTests {
 	@Test
 	public void ScaledVSOneScaled() throws IOException {
 
-		Team team1 = Scaled;
-		Team team2 = Scaled;
+		Team team1 = new Team("Scaled", TestMatchups.createScaledRoster(), ct1);
+		;
+		Team team2 = new Team("Scaled", TestMatchups.createScaledRoster(), ct1);
+		;
 
 		double team1LowerWinPercentage = .45;
 		double team1UpperWinPercentage = .57;
@@ -1831,8 +1833,8 @@ public class JUnitTests {
 	// @Test
 	// public void OneHundredVSOneHundred() throws IOException {
 	//
-	// Team team1 = OneHundred;
-	// Team team2 = OneHundred;
+	// Team team1 = new Team("100", TestMatchups.createOneHundredRoster(), ct1);
+	// Team team2 = new Team("100", TestMatchups.createOneHundredRoster(), ct1);
 	//
 	// double team1LowerWinPercentage = .45;
 	// double team1UpperWinPercentage = .57;
@@ -1877,8 +1879,8 @@ public class JUnitTests {
 	// @Test
 	// public void OneHundredVSNinetyFive() throws IOException {
 	//
-	// Team team1 = OneHundred;
-	// Team team2 = NinetyFive;
+	// Team team1 = new Team("100", TestMatchups.createOneHundredRoster(), ct1);
+	// Team team2 = new Team("95", TestMatchups.createNinetyFiveRoster(), ct1);
 	//
 	// double team1LowerWinPercentage = .5;
 	// double team1UpperWinPercentage = .6;
@@ -1923,8 +1925,8 @@ public class JUnitTests {
 	// @Test
 	// public void OneHundredVSNinety() throws IOException {
 	//
-	// Team team1 = OneHundred;
-	// Team team2 = Ninety;
+	// Team team1 = new Team("100", TestMatchups.createOneHundredRoster(), ct1);
+	// Team team2 = new Team("90", TestMatchups.createNinetyRoster(), ct1);
 	//
 	// double team1LowerWinPercentage = .57;
 	// double team1UpperWinPercentage = .65;
@@ -1969,8 +1971,8 @@ public class JUnitTests {
 	// @Test
 	// public void OneHundredVSEighty() throws IOException {
 	//
-	// Team team1 = OneHundred;
-	// Team team2 = Eighty;
+	// Team team1 = new Team("100", TestMatchups.createOneHundredRoster(), ct1);
+	// Team team2 = new Team("80", TestMatchups.createEightyRoster(), ct1);
 	//
 	// double team1LowerWinPercentage = .65;
 	// double team1UpperWinPercentage = .75;
@@ -2015,8 +2017,8 @@ public class JUnitTests {
 	// @Test
 	// public void OneHundredVSSeventy() throws IOException {
 	//
-	// Team team1 = OneHundred;
-	// Team team2 = Seventy;
+	// Team team1 = new Team("100", TestMatchups.createOneHundredRoster(), ct1);
+	// Team team2 = new Team("70", TestMatchups.createSeventyRoster(), ct1);
 	//
 	// double team1LowerWinPercentage = .75;
 	// double team1UpperWinPercentage = .85;
@@ -2061,8 +2063,8 @@ public class JUnitTests {
 	// @Test
 	// public void OneHundredVSFifty() throws IOException {
 	//
-	// Team team1 = OneHundred;
-	// Team team2 = Fifty;
+	// Team team1 = new Team("100", TestMatchups.createOneHundredRoster(), ct1);
+	// Team team2 = new Team("50", TestMatchups.createFiftyRoster(), ct1);
 	//
 	// double team1LowerWinPercentage = .95;
 	// double team1UpperWinPercentage = 1.05;
@@ -2107,8 +2109,8 @@ public class JUnitTests {
 	// @Test
 	// public void OneHundredVSThirty() throws IOException {
 	//
-	// Team team1 = OneHundred;
-	// Team team2 = Thirty;
+	// Team team1 = new Team("100", TestMatchups.createOneHundredRoster(), ct1);
+	// Team team2 = new Team("30", TestMatchups.createThirtyRoster(), ct1);
 	//
 	// double team1LowerWinPercentage = .95;
 	// double team1UpperWinPercentage = 1.05;
@@ -2153,8 +2155,8 @@ public class JUnitTests {
 	// @Test
 	// public void EightyVSEighty() throws IOException {
 	//
-	// Team team1 = Eighty;
-	// Team team2 = Eighty;
+	// Team team1 = new Team("80", TestMatchups.createEightyRoster(), ct1);
+	// Team team2 = new Team("80", TestMatchups.createEightyRoster(), ct1);
 	//
 	// double team1LowerWinPercentage = .45;
 	// double team1UpperWinPercentage = .57;
@@ -2199,8 +2201,8 @@ public class JUnitTests {
 	// @Test
 	// public void ThirtyVSThirty() throws IOException {
 	//
-	// Team team1 = Thirty;
-	// Team team2 = Thirty;
+	// Team team1 = new Team("30", TestMatchups.createThirtyRoster(), ct1);
+	// Team team2 = new Team("30", TestMatchups.createThirtyRoster(), ct1);
 	//
 	// double team1LowerWinPercentage = .45;
 	// double team1UpperWinPercentage = .57;
@@ -2245,8 +2247,8 @@ public class JUnitTests {
 	// @Test
 	// public void EightyVSThirty() throws IOException {
 	//
-	// Team team1 = Eighty;
-	// Team team2 = Thirty;
+	// Team team1 = new Team("80", TestMatchups.createEightyRoster(), ct1);;
+	// Team team2 = new Team("30", TestMatchups.createThirtyRoster(), ct1);;
 	//
 	// double team1LowerWinPercentage = .95;
 	// double team1UpperWinPercentage = 1.05;

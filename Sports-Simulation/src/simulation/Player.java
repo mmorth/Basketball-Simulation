@@ -131,9 +131,9 @@ public class Player implements Athlete {
 	private int speed;
 
 	/**
-	 * Stores the stamina rating of the player
+	 * Stores the stamina remaining for the player
 	 */
-	private int stamina;
+	private double stamina;
 
 	/**
 	 * Stores the injury rating of the player
@@ -159,7 +159,7 @@ public class Player implements Athlete {
 	/**
 	 * Stores the decrease in stamina for every possession for the player
 	 */
-	private int staminaDecrease;
+	private double staminaDecrease;
 
 	// Player Game Statistics
 
@@ -192,6 +192,11 @@ public class Player implements Athlete {
 	 * Stores the player's turnovers during a game
 	 */
 	private int turnoversGame;
+	
+	/**
+	 * Stores the number of possessions played by the player in the game
+	 */
+	private int possessionsPlayed;
 
 	/**
 	 * Default Constructor: Remove after testing!
@@ -279,18 +284,16 @@ public class Player implements Athlete {
 		setHeight(height);
 		setSpeed(speed);
 		setStamina(100);
-		setStaminaDecrease(stamina / 25);
+		if (stamina != 0) {
+			setStaminaDecrease(1/((double)stamina/100));
+		} else {
+			setStaminaDecrease(100);
+		}
 		setInjury(injury);
 		setPotential(potential);
 		setInitialRotationPossessions(rotationPossessions);
 		setRotationPossessionsRemaining(rotationPossessions);
 		setPosition(position);
-		setPointsGame(pointsGame);
-		setReboundsGame(reboundsGame);
-		setAssistsGame(assistsGame);
-		setBlocksGame(blocksGame);
-		setStealsGame(stealsGame);
-		setTurnoversGame(turnoversGame);
 
 		pointsGame = 0;
 		reboundsGame = 0;
@@ -505,7 +508,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public int getInsideScoring() {
-		return insideScoring;
+		return insideScoring - (20 - ((int) stamina / 100)*20);
 	}
 
 	/**
@@ -534,7 +537,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public int getMidRangeScoring() {
-		return midRangeScoring;
+		return midRangeScoring - (20 - ((int) stamina / 100)*20);
 	}
 
 	/**
@@ -564,7 +567,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public int getThreePointScoring() {
-		return threePointScoring;
+		return threePointScoring - (20 - ((int) stamina / 100)*20);
 	}
 
 	/**
@@ -594,7 +597,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public int getFreeThrow() {
-		return freeThrow;
+		return freeThrow - (20 - ((int) stamina / 100)*20);
 	}
 
 	/**
@@ -623,7 +626,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public int getOffensiveRebounding() {
-		return offensiveRebounding;
+		return offensiveRebounding - (20 - ((int) stamina / 100)*20);
 	}
 
 	/**
@@ -653,7 +656,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public int getBallHandling() {
-		return ballHandling;
+		return ballHandling - (20 - ((int) stamina / 100)*20);
 	}
 
 	/**
@@ -682,7 +685,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public int getPassing() {
-		return passing;
+		return passing - (20 - ((int) stamina / 100)*20);
 	}
 
 	/**
@@ -711,7 +714,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public int getPostDefense() {
-		return postDefense;
+		return postDefense - (20 - ((int) stamina / 100)*20);
 	}
 
 	/**
@@ -740,7 +743,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public int getPerimeterDefense() {
-		return perimeterDefense;
+		return perimeterDefense - (20 - ((int) stamina / 100)*20);
 	}
 
 	/**
@@ -770,7 +773,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public int getDefensiveRebounding() {
-		return defensiveRebounding;
+		return defensiveRebounding - (20 - ((int) stamina / 100)*20);
 	}
 
 	/**
@@ -800,7 +803,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public int getSteal() {
-		return steal;
+		return steal - (20 - ((int) stamina / 100)*20);
 	}
 
 	/**
@@ -829,7 +832,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public int getBlock() {
-		return block;
+		return block - (20 - ((int) stamina / 100)*20);
 	}
 
 	/**
@@ -887,7 +890,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public int getSpeed() {
-		return speed;
+		return speed - (20 - ((int) stamina / 100)*20);
 	}
 
 	/**
@@ -915,7 +918,7 @@ public class Player implements Athlete {
 	 * @return The stamina rating of the player
 	 */
 	@Override
-	public int getStamina() {
+	public double getStamina() {
 		return stamina;
 	}
 
@@ -928,7 +931,7 @@ public class Player implements Athlete {
 	 *            new stamina rating of the player
 	 */
 	@Override
-	public void setStamina(int stamina) {
+	public void setStamina(double stamina) {
 		if (stamina < 30) {
 			this.stamina = 30;
 		} else if (stamina > 100) {
@@ -945,7 +948,7 @@ public class Player implements Athlete {
 	 */
 	@Override
 	public int getInjury() {
-		return injury;
+		return injury - (20 - ((int) stamina / 100)*20);
 	}
 
 	/**
@@ -1059,7 +1062,7 @@ public class Player implements Athlete {
 	 * 
 	 * @return The staminaDecrease rating of the player
 	 */
-	public int getStaminaDecrease() {
+	public double getStaminaDecrease() {
 		return staminaDecrease;
 	}
 
@@ -1072,7 +1075,7 @@ public class Player implements Athlete {
 	 * @param The
 	 *            new staminaDecrease rating of the player
 	 */
-	public void setStaminaDecrease(int staminaDecrease) {
+	public void setStaminaDecrease(double staminaDecrease) {
 		if (staminaDecrease < 1) {
 			this.staminaDecrease = 1;
 		} else if (staminaDecrease > 100) {
@@ -1236,6 +1239,24 @@ public class Player implements Athlete {
 	}
 
 	/**
+	 * Returns the possessionsPlayed rating of the player
+	 * @return 
+	 *		The possessionsPlayed rating of the player
+	 */
+	public int getPossessionsPlayed() {
+		return possessionsPlayed;
+	}
+
+	/**
+	 * Sets the possessionsPlayed rating of the player
+	 * @param 
+	 * 		The new possessionsPlayed rating of the player
+	 */
+	public void setPossessionsPlayed(int possessionsPlayed) {
+		this.possessionsPlayed = possessionsPlayed;
+	}
+
+	/**
 	 * Resets the player's game statistics after a game has ended
 	 */
 	public void resetGameStats() {
@@ -1247,6 +1268,7 @@ public class Player implements Athlete {
 		turnoversGame = 0;
 		rotationPossessionsRemaining = initialRotationPossessions;
 		stamina = 100;
+		possessionsPlayed = 0;
 	}
 
 	/**

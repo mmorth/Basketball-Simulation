@@ -331,8 +331,7 @@ public class Team {
 		onBench = new Player[maximumTeamSize - numPlayersOnCourt];
 		int benchLocation = 0;
 
-		for (int i = numPlayersOnCourt; i < (maximumTeamSize - numPlayersOnCourt)
-				&& roster[i] != null; i++, benchLocation++) {
+		for (int i = numPlayersOnCourt; i < maximumTeamSize && roster[i] != null; i++, benchLocation++) {
 			onBench[benchLocation] = roster[i];
 		}
 
@@ -424,7 +423,7 @@ public class Team {
 	public void substitutePlayers(int possessions) {
 
 		// Check sub for Point Guard
-		if (onCourt[0].getStamina() <= 25 || onCourt[0].getRotationPossessionsRemaining() <= 0) {
+		if (onCourt[0].getStamina() <= 0 || onCourt[0].getRotationPossessionsRemaining() <= 0) {
 			int sub = selectPlayer(onCourt[0], possessions);
 			if (sub != -1) {
 				Player temp = onCourt[0];
@@ -434,7 +433,7 @@ public class Team {
 		}
 
 		// Check sub for Shooting Guard
-		if (onCourt[1].getStamina() <= 25 || onCourt[1].getRotationPossessionsRemaining() <= 0) {
+		if (onCourt[1].getStamina() <= 0 || onCourt[1].getRotationPossessionsRemaining() <= 0) {
 			int sub = selectPlayer(onCourt[1], possessions);
 			if (sub != -1) {
 				Player temp = onCourt[1];
@@ -444,7 +443,7 @@ public class Team {
 		}
 
 		// Check sub for Small Forward
-		if (onCourt[2].getStamina() <= 25 || onCourt[2].getRotationPossessionsRemaining() <= 0) {
+		if (onCourt[2].getStamina() <= 0 || onCourt[2].getRotationPossessionsRemaining() <= 0) {
 			int sub = selectPlayer(onCourt[2], possessions);
 			if (sub != -1) {
 				Player temp = onCourt[2];
@@ -454,7 +453,7 @@ public class Team {
 		}
 
 		// Check sub for Power Forward
-		if (onCourt[3].getStamina() <= 25 || onCourt[3].getRotationPossessionsRemaining() <= 0) {
+		if (onCourt[3].getStamina() <= 0 || onCourt[3].getRotationPossessionsRemaining() <= 0) {
 			int sub = selectPlayer(onCourt[3], possessions);
 			if (sub != -1) {
 				Player temp = onCourt[3];
@@ -464,7 +463,7 @@ public class Team {
 		}
 
 		// Check sub for Center
-		if (onCourt[4].getStamina() <= 25 || onCourt[4].getRotationPossessionsRemaining() <= 0) {
+		if (onCourt[4].getStamina() <= 0 || onCourt[4].getRotationPossessionsRemaining() <= 0) {
 			int sub = selectPlayer(onCourt[4], possessions);
 			if (sub != -1) {
 				Player temp = onCourt[4];
@@ -489,7 +488,6 @@ public class Team {
 	 */
 	public int selectPlayer(Player subOut, int possessions) {
 
-		boolean needSubPlayer = true;
 		boolean isEmptyBench = true;
 
 		for (int i = 0; i < onBench.length && onBench[i] != null; i++) {
@@ -498,46 +496,51 @@ public class Team {
 			}
 		}
 
-		if (isEmptyBench == true && subOut.getRotationPossessionsRemaining() > 0) {
+		if (isEmptyBench == true) {
 			return -1;
 		}
 
-		if (needSubPlayer == true) {
+		int subPlayer = -1;
+		int maxMinutes = 0;
 
-			int subPlayer = -1;
-			int maxMinutes = 0;
-
-			for (int i = 0; i < onBench.length && onBench[i] != null; i++) {
-				if (onBench[i].getRotationPossessionsRemaining() >= possessions && onBench[i].getStamina() >= 25) {
+		for (int i = 0; i < onBench.length; i++) {
+			if (onBench[i] != null) {
+				if (onBench[i].getRotationPossessionsRemaining() > maxMinutes && onBench[i].getStamina() > 30) {
 					subPlayer = i;
-					break;
-				}
-				// if (onBench[i].getRotationPossessionsRemaining() > maxMinutes &&
-				// onBench[i].getStamina() > 75) {
-				// subPlayer = i;
-				// }
-			}
-
-			// If no sub has been found, select the bench player with the most rotation
-			// minutes remaining
-			if (subPlayer == -1) {
-				for (int i = 0; i < onBench.length; i++) {
-					if (onBench[i] != null) {
-						if (onBench[i].getRotationPossessionsRemaining() >= maxMinutes) {
-							subPlayer = i;
-							maxMinutes = onBench[i].getRotationPossessionsRemaining();
-						}
-					}
 				}
 			}
-
-			return subPlayer;
-
-		} else {
-
-			return -1;
-
 		}
+		
+//		for (int i = 0; i < onBench.length && onBench[i] != null; i++) {
+//			if (onBench[i].getRotationPossessionsRemaining() >= possessions && onBench[i].getStamina() >= 25) {
+//				subPlayer = i;
+//				break;
+//			}
+//			// if (onBench[i].getRotationPossessionsRemaining() > maxMinutes &&
+//			// onBench[i].getStamina() > 75) {
+//			// subPlayer = i;
+//			// }
+//		}
+//
+//		// If no sub has been found, select the bench player with the most rotation
+//		// minutes remaining
+//		if (subPlayer == -1) {
+//			for (int i = 0; i < onBench.length; i++) {
+//				if (onBench[i] != null) {
+//					if (onBench[i].getRotationPossessionsRemaining() >= maxMinutes) {
+//						subPlayer = i;
+//						maxMinutes = onBench[i].getRotationPossessionsRemaining();
+//					}
+//				}
+//			}
+//		}
+
+		if (subPlayer == -1) {
+			return 1;
+		}
+		
+		return subPlayer;
+
 	}
 
 	/**
@@ -698,5 +701,53 @@ public class Team {
 		}
 
 	}
+
+	/**
+	 * Increases each player's current stamina level by 25 at the end of the 1st and
+	 * 3rd quarter
+	 */
+	public void updatePlayerStaminaQuarter() {
+		for (int i = 0; i < roster.length && roster[i] != null; i++) {
+			roster[i].setStamina(roster[i].getStamina() + 25);
+		}
+	}
+
+	/**
+	 * Increases each player's current stamina level by 50 at the end of halftime
+	 */
+	public void updatePlayerStaminaHalf() {
+		for (int i = 0; i < roster.length && roster[i] != null; i++) {
+			roster[i].setStamina(roster[i].getStamina() + 50);
+		}
+	}
+	
+//	/**
+//	 * Updates the player's ratings based on their current stamina remaining
+//	 */
+//	public void updatePlayerRatingsStamina() {
+//		for (int i = 0; i < roster.length; i++) {
+//			if (roster[i] != null) {
+//				roster[i].setInsideScoring(roster[i].getInsideScoring() - (20 - ((int) roster[i].getStamina() / 100)*20));
+//				roster[i].setMidRangeScoring(roster[i].getMidRangeScoring() - (20 - ((int) roster[i].getStamina() / 100)*20));
+//				roster[i].setThreePointScoring(roster[i].getThreePointScoring() - (20 - ((int) roster[i].getStamina() / 100)*20));
+//				roster[i].setFreeThrow(roster[i].getFreeThrow() - (20 - ((int) roster[i].getStamina() / 100)*20));
+//				roster[i].setOffensiveRebounding(roster[i].getOffensiveRebounding() - (20 - ((int) roster[i].getStamina() / 100)*20));
+//				roster[i].setBallHandling(roster[i].getBallHandling() - (20 - ((int) roster[i].getStamina() / 100)*20));
+//				roster[i].setPassing(roster[i].getPassing() - (20 - ((int) roster[i].getStamina() / 100)*20));
+//				roster[i].setPostDefense(roster[i].getPostDefense() - (20 - ((int) roster[i].getStamina() / 100)*20));
+//				roster[i].setPerimeterDefense(roster[i].getPerimeterDefense() - (20 - ((int) roster[i].getStamina() / 100)*20));
+//				roster[i].setDefensiveRebounding(roster[i].getDefensiveRebounding() - (20 - ((int) roster[i].getStamina() / 100)*20));
+//				roster[i].setSteal(roster[i].getSteal() - (20 - ((int) roster[i].getStamina() / 100)*20));
+//				roster[i].setBlock(roster[i].getBlock() - (20 - ((int) roster[i].getStamina() / 100)*20));
+//				roster[i].setHeight(roster[i].getHeight() - (20 - ((int) roster[i].getStamina() / 100)*20));
+//				roster[i].setSpeed(roster[i].getSpeed() - (20 - ((int) roster[i].getStamina() / 100)*20));
+//				roster[i].setInjury(roster[i].getInjury() - (20 - ((int) roster[i].getStamina() / 100)*20));
+//				roster[i].setPotential(potential);
+//				roster[i].setInitialRotationPossessions(rotationPossessions);
+//				roster[i].setRotationPossessionsRemaining(rotationPossessions);
+//				roster[i].setPosition(position);
+//			}
+//		}
+//	}
 
 }

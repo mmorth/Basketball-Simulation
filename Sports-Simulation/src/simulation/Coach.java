@@ -132,7 +132,7 @@ public class Coach implements Athlete {
 	/**
 	 * Stores the stamina rating of the coach
 	 */
-	private int stamina;
+	private double stamina;
 
 	/**
 	 * Stores the injury rating of the coach
@@ -836,7 +836,7 @@ public class Coach implements Athlete {
 	 * @return The stamina rating of the coach
 	 */
 	@Override
-	public int getStamina() {
+	public double getStamina() {
 		return stamina;
 	}
 
@@ -849,7 +849,7 @@ public class Coach implements Athlete {
 	 *            new stamina rating of the coach
 	 */
 	@Override
-	public void setStamina(int stamina) {
+	public void setStamina(double stamina) {
 		if (stamina < 30) {
 			this.stamina = 30;
 		} else if (stamina > 100) {

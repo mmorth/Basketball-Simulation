@@ -31,6 +31,7 @@ public class TestMatchups {
 	private Team Fourty = new Team("40", createFourtyRoster(), ct1);
 	private Team ThirtyFive = new Team("35", createThirtyFiveRoster(), ct1);
 	private Team Thirty = new Team("30", createThirtyRoster(), ct1);
+	private Team Scaled = new Team("Scaled", createScaledRoster(), ct1);
 
 	public TestMatchups() {
 
@@ -597,50 +598,41 @@ public class TestMatchups {
 		int rating12 = 40;
 		int rating13 = 35;
 		int rating14 = 30;
-		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
-				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
-		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating1, rating1, rating1, rating1, rating1, rating1,
-				rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1,
-				rating1);
-		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating2, rating2, rating2, rating2, rating2, rating2,
-				rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2,
-				rating2);
-		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating3, rating3, rating3, rating3, rating3, rating3,
-				rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3,
-				rating3);
-		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating4, rating4, rating4, rating4, rating4, rating4,
-				rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4,
-				rating4);
-		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating5, rating5, rating5, rating5, rating5, rating5,
-				rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5,
-				rating5);
-		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating6, rating6, rating6, rating6, rating6, rating6,
-				rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6,
-				rating6);
-		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating7, rating7, rating7, rating7, rating7, rating7,
-				rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7,
-				rating7);
-		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating8, rating8, rating8, rating8, rating8, rating8,
-				rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8,
-				rating8);
-		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating9, rating9, rating9, rating9, rating9, rating9,
-				rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9,
-				rating9);
-		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating10, rating10, rating10, rating10, rating10,
+		roster[0] = new Player(1, "100", "Overall", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, 200);
+		roster[1] = new Player(1, "95", "Overall", 25, 5, 2, rating1, rating1, rating1, rating1, rating1, rating1,
+				rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, 200);
+		roster[2] = new Player(1, "90", "Overall", 25, 5, 2, rating2, rating2, rating2, rating2, rating2, rating2,
+				rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, 175);
+		roster[3] = new Player(1, "85", "Overall", 25, 5, 2, rating3, rating3, rating3, rating3, rating3, rating3,
+				rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, 150);
+		roster[4] = new Player(1, "80", "Overall", 25, 5, 2, rating4, rating4, rating4, rating4, rating4, rating4,
+				rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, 125);
+		roster[5] = new Player(1, "75", "Overall", 25, 5, 2, rating5, rating5, rating5, rating5, rating5, rating5,
+				rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, 100);
+		roster[6] = new Player(1, "70", "Overall", 25, 5, 2, rating6, rating6, rating6, rating6, rating6, rating6,
+				rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, 25);
+		roster[7] = new Player(1, "65", "Overall", 25, 5, 2, rating7, rating7, rating7, rating7, rating7, rating7,
+				rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, 25);
+		roster[8] = new Player(1, "60", "Overall", 25, 5, 2, rating8, rating8, rating8, rating8, rating8, rating8,
+				rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, 25);
+		roster[9] = new Player(1, "55", "Overall", 25, 5, 2, rating9, rating9, rating9, rating9, rating9, rating9,
+				rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, 25);
+		roster[10] = new Player(1, "50", "Overall", 25, 5, 2, rating10, rating10, rating10, rating10, rating10,
 				rating10, rating10, rating10, rating10, rating10, rating10, rating10, rating10, rating10, rating10,
-				rating10, rating10, rating10);
-		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating11, rating11, rating11, rating11, rating11,
+				rating10, rating10, 25);
+		roster[11] = new Player(1, "45", "Overall", 25, 5, 2, rating11, rating11, rating11, rating11, rating11,
 				rating11, rating11, rating11, rating11, rating11, rating11, rating11, rating11, rating11, rating11,
-				rating11, rating11, rating11);
-		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating12, rating12, rating12, rating12, rating12,
+				rating11, rating11, 25);
+		roster[12] = new Player(1, "40", "Overall", 25, 5, 2, rating12, rating12, rating12, rating12, rating12,
 				rating12, rating12, rating12, rating12, rating12, rating12, rating12, rating12, rating12, rating12,
-				rating12, rating12, rating12);
-		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating13, rating13, rating13, rating13, rating13,
+				rating12, rating12, 25);
+		roster[13] = new Player(1, "35", "Overall", 25, 5, 2, rating13, rating13, rating13, rating13, rating13,
 				rating13, rating13, rating13, rating13, rating13, rating13, rating13, rating13, rating13, rating13,
-				rating13, rating13, rating13);
-		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating14, rating14, rating14, rating14, rating14,
+				rating13, rating13, 25);
+		roster[14] = new Player(1, "30", "Overall", 25, 5, 2, rating14, rating14, rating14, rating14, rating14,
 				rating14, rating14, rating14, rating14, rating14, rating14, rating14, rating14, rating14, rating14,
-				rating14, rating14, rating14);
+				rating14, rating14,  25);
 		return roster;
 	}
 
@@ -762,6 +754,14 @@ public class TestMatchups {
 
 	public void setThirty(Team thirty) {
 		Thirty = thirty;
+	}
+
+	public Team getScaled() {
+		return Scaled;
+	}
+
+	public void setScaled(Team scaled) {
+		Scaled = scaled;
 	}
 
 }

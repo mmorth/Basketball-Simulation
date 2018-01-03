@@ -345,7 +345,7 @@ public interface Athlete {
 	 * 
 	 * @return The stamina rating of the athlete
 	 */
-	public int getStamina();
+	public double getStamina();
 
 	/**
 	 * Sets the stamina rating of the athlete
@@ -353,7 +353,7 @@ public interface Athlete {
 	 * @param The
 	 *            new stamina rating of the athlete
 	 */
-	public void setStamina(int stamina);
+	public void setStamina(double stamina);
 
 	/**
 	 * Returns the injury rating of the athlete
