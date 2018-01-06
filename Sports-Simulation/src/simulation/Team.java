@@ -505,40 +505,43 @@ public class Team {
 
 		for (int i = 0; i < onBench.length; i++) {
 			if (onBench[i] != null) {
-				if (onBench[i].getRotationPossessionsRemaining() > maxMinutes && onBench[i].getStamina() > 30) {
+				if (onBench[i].getRotationPossessionsRemaining() > maxMinutes && onBench[i].getStamina() > 30
+						&& subOut.getStamina() >= 30 && subOut.getRotationPossessionsRemaining() >= 0) {
 					subPlayer = i;
+					maxMinutes = onBench[i].getRotationPossessionsRemaining();
 				}
 			}
 		}
-		
-//		for (int i = 0; i < onBench.length && onBench[i] != null; i++) {
-//			if (onBench[i].getRotationPossessionsRemaining() >= possessions && onBench[i].getStamina() >= 25) {
-//				subPlayer = i;
-//				break;
-//			}
-//			// if (onBench[i].getRotationPossessionsRemaining() > maxMinutes &&
-//			// onBench[i].getStamina() > 75) {
-//			// subPlayer = i;
-//			// }
-//		}
-//
-//		// If no sub has been found, select the bench player with the most rotation
-//		// minutes remaining
-//		if (subPlayer == -1) {
-//			for (int i = 0; i < onBench.length; i++) {
-//				if (onBench[i] != null) {
-//					if (onBench[i].getRotationPossessionsRemaining() >= maxMinutes) {
-//						subPlayer = i;
-//						maxMinutes = onBench[i].getRotationPossessionsRemaining();
-//					}
-//				}
-//			}
-//		}
+
+		// for (int i = 0; i < onBench.length && onBench[i] != null; i++) {
+		// if (onBench[i].getRotationPossessionsRemaining() >= possessions &&
+		// onBench[i].getStamina() >= 25) {
+		// subPlayer = i;
+		// break;
+		// }
+		// // if (onBench[i].getRotationPossessionsRemaining() > maxMinutes &&
+		// // onBench[i].getStamina() > 75) {
+		// // subPlayer = i;
+		// // }
+		// }
+		//
+		// // If no sub has been found, select the bench player with the most rotation
+		// // minutes remaining
+		// if (subPlayer == -1) {
+		// for (int i = 0; i < onBench.length; i++) {
+		// if (onBench[i] != null) {
+		// if (onBench[i].getRotationPossessionsRemaining() >= maxMinutes) {
+		// subPlayer = i;
+		// maxMinutes = onBench[i].getRotationPossessionsRemaining();
+		// }
+		// }
+		// }
+		// }
 
 		if (subPlayer == -1) {
 			return 1;
 		}
-		
+
 		return subPlayer;
 
 	}
@@ -720,34 +723,49 @@ public class Team {
 			roster[i].setStamina(roster[i].getStamina() + 50);
 		}
 	}
-	
-//	/**
-//	 * Updates the player's ratings based on their current stamina remaining
-//	 */
-//	public void updatePlayerRatingsStamina() {
-//		for (int i = 0; i < roster.length; i++) {
-//			if (roster[i] != null) {
-//				roster[i].setInsideScoring(roster[i].getInsideScoring() - (20 - ((int) roster[i].getStamina() / 100)*20));
-//				roster[i].setMidRangeScoring(roster[i].getMidRangeScoring() - (20 - ((int) roster[i].getStamina() / 100)*20));
-//				roster[i].setThreePointScoring(roster[i].getThreePointScoring() - (20 - ((int) roster[i].getStamina() / 100)*20));
-//				roster[i].setFreeThrow(roster[i].getFreeThrow() - (20 - ((int) roster[i].getStamina() / 100)*20));
-//				roster[i].setOffensiveRebounding(roster[i].getOffensiveRebounding() - (20 - ((int) roster[i].getStamina() / 100)*20));
-//				roster[i].setBallHandling(roster[i].getBallHandling() - (20 - ((int) roster[i].getStamina() / 100)*20));
-//				roster[i].setPassing(roster[i].getPassing() - (20 - ((int) roster[i].getStamina() / 100)*20));
-//				roster[i].setPostDefense(roster[i].getPostDefense() - (20 - ((int) roster[i].getStamina() / 100)*20));
-//				roster[i].setPerimeterDefense(roster[i].getPerimeterDefense() - (20 - ((int) roster[i].getStamina() / 100)*20));
-//				roster[i].setDefensiveRebounding(roster[i].getDefensiveRebounding() - (20 - ((int) roster[i].getStamina() / 100)*20));
-//				roster[i].setSteal(roster[i].getSteal() - (20 - ((int) roster[i].getStamina() / 100)*20));
-//				roster[i].setBlock(roster[i].getBlock() - (20 - ((int) roster[i].getStamina() / 100)*20));
-//				roster[i].setHeight(roster[i].getHeight() - (20 - ((int) roster[i].getStamina() / 100)*20));
-//				roster[i].setSpeed(roster[i].getSpeed() - (20 - ((int) roster[i].getStamina() / 100)*20));
-//				roster[i].setInjury(roster[i].getInjury() - (20 - ((int) roster[i].getStamina() / 100)*20));
-//				roster[i].setPotential(potential);
-//				roster[i].setInitialRotationPossessions(rotationPossessions);
-//				roster[i].setRotationPossessionsRemaining(rotationPossessions);
-//				roster[i].setPosition(position);
-//			}
-//		}
-//	}
+
+	// /**
+	// * Updates the player's ratings based on their current stamina remaining
+	// */
+	// public void updatePlayerRatingsStamina() {
+	// for (int i = 0; i < roster.length; i++) {
+	// if (roster[i] != null) {
+	// roster[i].setInsideScoring(roster[i].getInsideScoring() - (20 - ((int)
+	// roster[i].getStamina() / 100)*20));
+	// roster[i].setMidRangeScoring(roster[i].getMidRangeScoring() - (20 - ((int)
+	// roster[i].getStamina() / 100)*20));
+	// roster[i].setThreePointScoring(roster[i].getThreePointScoring() - (20 -
+	// ((int) roster[i].getStamina() / 100)*20));
+	// roster[i].setFreeThrow(roster[i].getFreeThrow() - (20 - ((int)
+	// roster[i].getStamina() / 100)*20));
+	// roster[i].setOffensiveRebounding(roster[i].getOffensiveRebounding() - (20 -
+	// ((int) roster[i].getStamina() / 100)*20));
+	// roster[i].setBallHandling(roster[i].getBallHandling() - (20 - ((int)
+	// roster[i].getStamina() / 100)*20));
+	// roster[i].setPassing(roster[i].getPassing() - (20 - ((int)
+	// roster[i].getStamina() / 100)*20));
+	// roster[i].setPostDefense(roster[i].getPostDefense() - (20 - ((int)
+	// roster[i].getStamina() / 100)*20));
+	// roster[i].setPerimeterDefense(roster[i].getPerimeterDefense() - (20 - ((int)
+	// roster[i].getStamina() / 100)*20));
+	// roster[i].setDefensiveRebounding(roster[i].getDefensiveRebounding() - (20 -
+	// ((int) roster[i].getStamina() / 100)*20));
+	// roster[i].setSteal(roster[i].getSteal() - (20 - ((int) roster[i].getStamina()
+	// / 100)*20));
+	// roster[i].setBlock(roster[i].getBlock() - (20 - ((int) roster[i].getStamina()
+	// / 100)*20));
+	// roster[i].setHeight(roster[i].getHeight() - (20 - ((int)
+	// roster[i].getStamina() / 100)*20));
+	// roster[i].setSpeed(roster[i].getSpeed() - (20 - ((int) roster[i].getStamina()
+	// / 100)*20));
+	// roster[i].setInjury(roster[i].getInjury() - (20 - ((int)
+	// roster[i].getStamina() / 100)*20));
+	// roster[i].setPotential(potential);
+	// roster[i].setInitialRotationPossessions(rotationPossessions);
+	// roster[i].setRotationPossessionsRemaining(rotationPossessions);
+	// roster[i].setPosition(position);
+	// }
+	// }
+	// }
 
 }
