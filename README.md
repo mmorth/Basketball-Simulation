@@ -1,4 +1,6 @@
-# Sports-Simulation
+# Basketball-Simulation
 
-This is a sport simulation software. The user can create their own team with their own ratings and challenge other teams to see who wins.
-Currently all the team building and simulation is done through altering code and through I/O from the console. Future plans are to create a GUI for this process.
+This project is a basketball simulation program written in Java. The user can upload team information via a formatted text file. Two made up teams can then play each other in a game. Currently, this process is done though the console. Below is a list of future features:
+* Have individual player stats with player substitutions
+* Simulate entire seasons
+* Create a GUI for the application
