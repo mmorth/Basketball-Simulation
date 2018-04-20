@@ -6,15 +6,10 @@ public class Tester {
 
 	public static void main(String[] args) {
 
-		Random rng = new Random();
+		int shooting = 70;
+		double weight = .125;
 		
-		for (int i = 0; i < 10; i++) {
-			int rand = rng.nextInt(3)+1;
-			if (rand == 2) {
-				System.out.println("WHAT THE HECK!!!!!?!?!?!?!?");
-			}
-			System.out.println(rand);
-		}
+		System.out.println((int) Math.round((shooting*weight+shooting*weight)/2));
 		
 	}
 

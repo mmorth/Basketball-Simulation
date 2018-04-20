@@ -1,464 +1,767 @@
 package simulation;
 
+/**
+ * Creates teams for testing the simulation between two teams
+ * 
+ * @author Matthew Orth
+ *
+ */
 public class TestMatchups {
 
 	private static Team[] teams;
 
-	private static Team OneHundred = new Team("100", createOneHundredRoster());
-	private static Team NinetyFive = new Team("95", createNinetyFiveRoster());
-	private static Team Ninety = new Team("90", createNinetyRoster());
-	private static Team EightyFive = new Team("85", createEightyFiveRoster());
-	private static Team Eighty = new Team("80", createEightyRoster());
-	private static Team SeventyFive = new Team("75", createSeventyFiveRoster());
-	private static Team Seventy = new Team("70", createSeventyRoster());
-	private static Team SixtyFive = new Team("65", createSixtyFiveRoster());
-	private static Team Sixty = new Team("60", createSixtyRoster());
-	private static Team FiftyFive = new Team("55", createFiftyFiveRoster());
-	private static Team Fifty = new Team("50", createFiftyRoster());
-	private static Team FourtyFive = new Team("45", createFourtyFiveRoster());
-	private static Team Fourty = new Team("40", createFourtyRoster());
-	private static Team ThirtyFive = new Team("35", createThirtyFiveRoster());
-	private static Team Thirty = new Team("30", createThirtyRoster());
+	int noCoachRating = 30;
+
+	Coach ct1 = new Coach(1, "First", "Last", 25, 5, 2, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
+			noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating,
+			noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating, noCoachRating);
+
+	private Team OneHundred = new Team("100", createOneHundredRoster(), ct1);
+	private Team NinetyFive = new Team("95", createNinetyFiveRoster(), ct1);
+	private Team Ninety = new Team("90", createNinetyRoster(), ct1);
+	private Team EightyFive = new Team("85", createEightyFiveRoster(), ct1);
+	private Team Eighty = new Team("80", createEightyRoster(), ct1);
+	private Team SeventyFive = new Team("75", createSeventyFiveRoster(), ct1);
+	private Team Seventy = new Team("70", createSeventyRoster(), ct1);
+	private Team SixtyFive = new Team("65", createSixtyFiveRoster(), ct1);
+	private Team Sixty = new Team("60", createSixtyRoster(), ct1);
+	private Team FiftyFive = new Team("55", createFiftyFiveRoster(), ct1);
+	private Team Fifty = new Team("50", createFiftyRoster(), ct1);
+	private Team FourtyFive = new Team("45", createFourtyFiveRoster(), ct1);
+	private Team Fourty = new Team("40", createFourtyRoster(), ct1);
+	private Team ThirtyFive = new Team("35", createThirtyFiveRoster(), ct1);
+	private Team Thirty = new Team("30", createThirtyRoster(), ct1);
+	private Team Scaled = new Team("Scaled", createScaledRoster(), ct1);
+
+	public TestMatchups() {
+
+	}
 
 	public static void main(String[] args) {
 
 	}
 
-	public static Athlete[] createOneHundredRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 100;
-		int defensiveRating = 100;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
-		return roster;
-	}
-	
-	public static Athlete[] createNinetyFiveRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 95;
-		int defensiveRating = 95;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
-		return roster;
-	}
-	
-	public static Athlete[] createNinetyRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 90;
-		int defensiveRating = 90;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
-		return roster;
-	}
-	
-	public static Athlete[] createEightyFiveRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 85;
-		int defensiveRating = 85;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
-		return roster;
-	}
-	
-	public static Athlete[] createEightyRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 80;
-		int defensiveRating = 80;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
-		return roster;
-	}
-	
-	public static Athlete[] createSeventyFiveRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 75;
-		int defensiveRating = 75;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
-		return roster;
-	}
-	
-	public static Athlete[] createSeventyRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 70;
-		int defensiveRating = 70;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
-		return roster;
-	}
-	
-	public static Athlete[] createSixtyFiveRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 65;
-		int defensiveRating = 65;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
-		return roster;
-	}
-	
-	public static Athlete[] createSixtyRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 60;
-		int defensiveRating = 60;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
-		return roster;
-	}
-	
-	public static Athlete[] createFiftyFiveRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 55;
-		int defensiveRating = 55;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
-		return roster;
-	}
-	
-	public static Athlete[] createFiftyRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 50;
-		int defensiveRating = 50;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
-		return roster;
-	}
-	
-	public static Athlete[] createFourtyFiveRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 45;
-		int defensiveRating = 45;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
-		return roster;
-	}
-	
-	public static Athlete[] createFourtyRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 40;
-		int defensiveRating = 40;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
-		return roster;
-	}
-	
-	public static Athlete[] createThirtyFiveRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 35;
-		int defensiveRating = 35;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
-		return roster;
-	}
-	
-	public static Athlete[] createThirtyRoster() {
-		Athlete[] roster = new Athlete[7];
-		int offensiveRating = 30;
-		int defensiveRating = 30;
-		int[] position0 = { 0 };
-		roster[0] = new Coach("First", "Last", offensiveRating, defensiveRating, position0, 5, 2, 25);
-		int[] position1 = { 1 };
-		roster[1] = new Player("First", "Last", offensiveRating, defensiveRating, position1, 5, 2, 25);
-		int[] position2 = { 2 };
-		roster[2] = new Player("First", "Last", offensiveRating, defensiveRating, position2, 5, 2, 25);
-		int[] position3 = { 3 };
-		roster[3] = new Player("First", "Last", offensiveRating, defensiveRating, position3, 5, 2, 25);
-		int[] position4 = { 4 };
-		roster[4] = new Player("First", "Last", offensiveRating, defensiveRating, position4, 5, 2, 25);
-		int[] position5 = { 5 };
-		roster[5] = new Player("First", "Last", offensiveRating, defensiveRating, position5, 5, 2, 25);
-		int[] position6 = { 6 };
-		roster[6] = new Player("First", "Last", offensiveRating, defensiveRating, position6, 5, 2, 25);
+	public static Player[] createOneHundredRoster() {
+		Player[] roster = new Player[15];
+		int rating = 100;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
 		return roster;
 	}
 
-	public static Team getOneHundred() {
+	public static Player[] createNinetyFiveRoster() {
+		Player[] roster = new Player[15];
+		int rating = 95;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		return roster;
+	}
+
+	public static Player[] createNinetyRoster() {
+		Player[] roster = new Player[15];
+		int rating = 90;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		return roster;
+	}
+
+	public static Player[] createEightyFiveRoster() {
+		Player[] roster = new Player[15];
+		int rating = 85;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		return roster;
+	}
+
+	public static Player[] createEightyRoster() {
+		Player[] roster = new Player[15];
+		int rating = 80;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		return roster;
+	}
+
+	public static Player[] createSeventyFiveRoster() {
+		Player[] roster = new Player[15];
+		int rating = 75;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		return roster;
+	}
+
+	public static Player[] createSeventyRoster() {
+		Player[] roster = new Player[15];
+		int rating = 70;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		return roster;
+	}
+
+	public static Player[] createSixtyFiveRoster() {
+		Player[] roster = new Player[15];
+		int rating = 65;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		return roster;
+	}
+
+	public static Player[] createSixtyRoster() {
+		Player[] roster = new Player[15];
+		int rating = 60;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		return roster;
+	}
+
+	public static Player[] createFiftyFiveRoster() {
+		Player[] roster = new Player[15];
+		int rating = 55;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		return roster;
+	}
+
+	public static Player[] createFiftyRoster() {
+		Player[] roster = new Player[15];
+		int rating = 50;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		return roster;
+	}
+
+	public static Player[] createFourtyFiveRoster() {
+		Player[] roster = new Player[15];
+		int rating = 45;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		return roster;
+	}
+
+	public static Player[] createFourtyRoster() {
+		Player[] roster = new Player[15];
+		int rating = 40;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		return roster;
+	}
+
+	public static Player[] createThirtyFiveRoster() {
+		Player[] roster = new Player[15];
+		int rating = 35;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		return roster;
+	}
+
+	public static Player[] createThirtyRoster() {
+		Player[] roster = new Player[15];
+		int rating = 30;
+		roster[0] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[1] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[2] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[3] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[4] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[5] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[6] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[7] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[8] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[9] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[10] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[11] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[12] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[13] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		roster[14] = new Player(1, "First", "Last", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, rating);
+		return roster;
+	}
+
+	public static Player[] createScaledRoster() {
+		Player[] roster = new Player[15];
+		int rating = 100;
+		int rating1 = 95;
+		int rating2 = 90;
+		int rating3 = 85;
+		int rating4 = 80;
+		int rating5 = 75;
+		int rating6 = 70;
+		int rating7 = 65;
+		int rating8 = 60;
+		int rating9 = 55;
+		int rating10 = 50;
+		int rating11 = 45;
+		int rating12 = 40;
+		int rating13 = 35;
+		int rating14 = 30;
+		roster[0] = new Player(1, "100", "Overall", 25, 5, 2, rating, rating, rating, rating, rating, rating, rating,
+				rating, rating, rating, rating, rating, rating, rating, rating, rating, rating, 200);
+		roster[1] = new Player(1, "95", "Overall", 25, 5, 2, rating1, rating1, rating1, rating1, rating1, rating1,
+				rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, rating1, 200);
+		roster[2] = new Player(1, "90", "Overall", 25, 5, 2, rating2, rating2, rating2, rating2, rating2, rating2,
+				rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, rating2, 175);
+		roster[3] = new Player(1, "85", "Overall", 25, 5, 2, rating3, rating3, rating3, rating3, rating3, rating3,
+				rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, rating3, 150);
+		roster[4] = new Player(1, "80", "Overall", 25, 5, 2, rating4, rating4, rating4, rating4, rating4, rating4,
+				rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, rating4, 125);
+		roster[5] = new Player(1, "75", "Overall", 25, 5, 2, rating5, rating5, rating5, rating5, rating5, rating5,
+				rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, rating5, 100);
+		roster[6] = new Player(1, "70", "Overall", 25, 5, 2, rating6, rating6, rating6, rating6, rating6, rating6,
+				rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, rating6, 25);
+		roster[7] = new Player(1, "65", "Overall", 25, 5, 2, rating7, rating7, rating7, rating7, rating7, rating7,
+				rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, rating7, 25);
+		roster[8] = new Player(1, "60", "Overall", 25, 5, 2, rating8, rating8, rating8, rating8, rating8, rating8,
+				rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, rating8, 25);
+		roster[9] = new Player(1, "55", "Overall", 25, 5, 2, rating9, rating9, rating9, rating9, rating9, rating9,
+				rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, rating9, 25);
+		roster[10] = new Player(1, "50", "Overall", 25, 5, 2, rating10, rating10, rating10, rating10, rating10,
+				rating10, rating10, rating10, rating10, rating10, rating10, rating10, rating10, rating10, rating10,
+				rating10, rating10, 25);
+		roster[11] = new Player(1, "45", "Overall", 25, 5, 2, rating11, rating11, rating11, rating11, rating11,
+				rating11, rating11, rating11, rating11, rating11, rating11, rating11, rating11, rating11, rating11,
+				rating11, rating11, 25);
+		roster[12] = new Player(1, "40", "Overall", 25, 5, 2, rating12, rating12, rating12, rating12, rating12,
+				rating12, rating12, rating12, rating12, rating12, rating12, rating12, rating12, rating12, rating12,
+				rating12, rating12, 25);
+		roster[13] = new Player(1, "35", "Overall", 25, 5, 2, rating13, rating13, rating13, rating13, rating13,
+				rating13, rating13, rating13, rating13, rating13, rating13, rating13, rating13, rating13, rating13,
+				rating13, rating13, 25);
+		roster[14] = new Player(1, "30", "Overall", 25, 5, 2, rating14, rating14, rating14, rating14, rating14,
+				rating14, rating14, rating14, rating14, rating14, rating14, rating14, rating14, rating14, rating14,
+				rating14, rating14,  25);
+		return roster;
+	}
+
+	public Team getOneHundred() {
 		return OneHundred;
 	}
 
-	public static void setOneHundred(Team oneHundred) {
+	public void setOneHundred(Team oneHundred) {
 		OneHundred = oneHundred;
 	}
 
-	public static Team getNinetyFive() {
+	public Team getNinetyFive() {
 		return NinetyFive;
 	}
 
-	public static void setNinetyFive(Team ninetyFive) {
+	public void setNinetyFive(Team ninetyFive) {
 		NinetyFive = ninetyFive;
 	}
 
-	public static Team getNinety() {
+	public Team getNinety() {
 		return Ninety;
 	}
 
-	public static void setNinety(Team ninety) {
+	public void setNinety(Team ninety) {
 		Ninety = ninety;
 	}
 
-	public static Team getEightyFive() {
+	public Team getEightyFive() {
 		return EightyFive;
 	}
 
-	public static void setEightyFive(Team eightyFive) {
+	public void setEightyFive(Team eightyFive) {
 		EightyFive = eightyFive;
 	}
 
-	public static Team getEighty() {
+	public Team getEighty() {
 		return Eighty;
 	}
 
-	public static void setEighty(Team eighty) {
+	public void setEighty(Team eighty) {
 		Eighty = eighty;
 	}
 
-	public static Team getSeventyFive() {
+	public Team getSeventyFive() {
 		return SeventyFive;
 	}
 
-	public static void setSeventyFive(Team seventyFive) {
+	public void setSeventyFive(Team seventyFive) {
 		SeventyFive = seventyFive;
 	}
 
-	public static Team getSeventy() {
+	public Team getSeventy() {
 		return Seventy;
 	}
 
-	public static void setSeventy(Team seventy) {
+	public void setSeventy(Team seventy) {
 		Seventy = seventy;
 	}
 
-	public static Team getSixtyFive() {
+	public Team getSixtyFive() {
 		return SixtyFive;
 	}
 
-	public static void setSixtyFive(Team sixtyFive) {
+	public void setSixtyFive(Team sixtyFive) {
 		SixtyFive = sixtyFive;
 	}
 
-	public static Team getSixty() {
+	public Team getSixty() {
 		return Sixty;
 	}
 
-	public static void setSixty(Team sixty) {
+	public void setSixty(Team sixty) {
 		Sixty = sixty;
 	}
 
-	public static Team getFiftyFive() {
+	public Team getFiftyFive() {
 		return FiftyFive;
 	}
 
-	public static void setFiftyFive(Team fiftyFive) {
+	public void setFiftyFive(Team fiftyFive) {
 		FiftyFive = fiftyFive;
 	}
 
-	public static Team getFifty() {
+	public Team getFifty() {
 		return Fifty;
 	}
 
-	public static void setFifty(Team fifty) {
+	public void setFifty(Team fifty) {
 		Fifty = fifty;
 	}
 
-	public static Team getFourtyFive() {
+	public Team getFourtyFive() {
 		return FourtyFive;
 	}
 
-	public static void setFourtyFive(Team fourtyFive) {
+	public void setFourtyFive(Team fourtyFive) {
 		FourtyFive = fourtyFive;
 	}
 
-	public static Team getFourty() {
+	public Team getFourty() {
 		return Fourty;
 	}
 
-	public static void setFourty(Team fourty) {
+	public void setFourty(Team fourty) {
 		Fourty = fourty;
 	}
 
-	public static Team getThirtyFive() {
+	public Team getThirtyFive() {
 		return ThirtyFive;
 	}
 
-	public static void setThirtyFive(Team thirtyFive) {
+	public void setThirtyFive(Team thirtyFive) {
 		ThirtyFive = thirtyFive;
 	}
 
-	public static Team getThirty() {
+	public Team getThirty() {
 		return Thirty;
 	}
 
-	public static void setThirty(Team thirty) {
+	public void setThirty(Team thirty) {
 		Thirty = thirty;
 	}
-	
-	
+
+	public Team getScaled() {
+		return Scaled;
+	}
+
+	public void setScaled(Team scaled) {
+		Scaled = scaled;
+	}
 
 }

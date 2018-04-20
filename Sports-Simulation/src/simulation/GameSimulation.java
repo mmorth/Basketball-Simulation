@@ -1,6 +1,7 @@
 package simulation;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,6 +18,7 @@ public class GameSimulation {
 
 	public static int DEBUG = 0;
 
+	// TODO Remove unecessary code when done testing
 	// /**
 	// * Makes calls to the simulation methods to simulate
 	// *
@@ -130,27 +132,33 @@ public class GameSimulation {
 	 */
 	private static int team2Score;
 
-	/**
-	 * Represents team1's offensive rating relative to team2's defensive rating
-	 */
-	private double team1RelativeRating;
+	// TODO Remove unnecessary code when finished testing
+	// /**
+	// * Represents team1's offensive rating relative to team2's defensive rating
+	// */
+	// private double team1RelativeRating;
+	//
+	// /**
+	// * Represents team2's offensive rating relative to team1's defensive rating
+	// */
+	// private double team2RelativeRating;
+	//
+	// /**
+	// * Makes it easier for team1 to score if they have a higher offensive rating
+	// * compared to the other team2's defensive rating
+	// */
+	// private double team1Boost;
+	//
+	// /**
+	// * Makes it easier for team2 to score if they have a higher offensive rating
+	// * compared to the other team1's defensive rating
+	// */
+	// private double team2Boost;
 
 	/**
-	 * Represents team2's offensive rating relative to team1's defensive rating
+	 * Stores which team has the ball for the next possession
 	 */
-	private double team2RelativeRating;
-
-	/**
-	 * Makes it easier for team1 to score if they have a higher offensive rating
-	 * compared to the other team2's defensive rating
-	 */
-	private double team1Boost;
-
-	/**
-	 * Makes it easier for team2 to score if they have a higher offensive rating
-	 * compared to the other team1's defensive rating
-	 */
-	private double team2Boost;
+	private int possessionArrow;
 
 	// TODO Remove once testing is complete
 	private int team1Wins = 0;
@@ -179,12 +187,15 @@ public class GameSimulation {
 		team1Score = 0;
 		team2Score = 0;
 
-		team1RelativeRating = (team1.getTeamOffensiveRating() - team2.getTeamDefensiveRating() + 100) / 2;
-		team2RelativeRating = (team2.getTeamOffensiveRating() - team1.getTeamDefensiveRating() + 100) / 2;
+		// TODO Remove unnecessary code when finished testing
+		// team1RelativeRating = (team1.getTeamOffensiveRating() -
+		// team2.getTeamDefensiveRating() + 100) / 2;
+		// team2RelativeRating = (team2.getTeamOffensiveRating() -
+		// team1.getTeamDefensiveRating() + 100) / 2;
 
-		team1BoostCalculation();
-		team2BoostCalculation();
-		
+		// team1BoostCalculation();
+		// team2BoostCalculation();
+
 		DEBUG = debug;
 
 	}
@@ -219,12 +230,13 @@ public class GameSimulation {
 		// Stores the user's choice for how much of the game they want to simulate
 		char choice = ' ';
 
-		// Continues the simulation process for 100 possessions for each team
-		for (int possessions = 1; possessions <= 100; possessions++) {
+		// Continues the simulation process for 200 possessions for both teams combined.
+		// 100 possessions for each team
+		for (int possessions = 1; possessions <= 200; possessions++) {
 			// If the user choose to simulate the game, then simulate the game by quarters
 			if (choice != 'g') {
 
-				//TODO Remove after testing
+				// TODO Remove after testing
 				if (DEBUG == 0) {
 					printOptions(possessions, team1Score, team2Score);
 				}
@@ -238,7 +250,7 @@ public class GameSimulation {
 
 				// Simulate based on user's choice
 				if (choice == 'p') {
-					simulatePossession();
+					simulatePossession(possessions);
 				} else if (choice == 'q') {
 					possessions = simulatePossessionsQuarter(possessions);
 				} else if (choice == 'g') {
@@ -249,25 +261,34 @@ public class GameSimulation {
 					possessions--;
 				}
 
-			} else if (choice == 'g' && possessions < 100) {
+				// Simulate possessions until the game is over if the user input 'g'
+			} else if (choice == 'g' && possessions < 200) {
 				possessions = simulatePossessionsQuarter(possessions);
 			}
 
 			// Calculate the number of points scored by the team during the quarter
-			if (possessions == 25) {
+			if (possessions == 50) {
 				team1FirstQuarterScore = team1Score;
 				team2FirstQuarterScore = team2Score;
-			} else if (possessions == 50) {
+				team1.updatePlayerStaminaQuarter();
+				team2.updatePlayerStaminaQuarter();
+			} else if (possessions == 100) {
 				team1SecondQuarterScore = team1Score - team1FirstQuarterScore;
 				team2SecondQuarterScore = team2Score - team2FirstQuarterScore;
-			} else if (possessions == 75) {
+				team1.updatePlayerStaminaHalf();
+				team2.updatePlayerStaminaHalf();
+			} else if (possessions == 150) {
 				team1ThirdQuarterScore = team1Score - team1SecondQuarterScore - team1FirstQuarterScore;
 				team2ThirdQuarterScore = team2Score - team2SecondQuarterScore - team2FirstQuarterScore;
-			} else if (possessions == 100) {
+				team1.updatePlayerStaminaQuarter();
+				team2.updatePlayerStaminaQuarter();
+			} else if (possessions == 200) {
 				team1FourthQuarterScore = team1Score - team1SecondQuarterScore - team1ThirdQuarterScore
 						- team1FirstQuarterScore;
 				team2FourthQuarterScore = team2Score - team2SecondQuarterScore - team2ThirdQuarterScore
 						- team2FirstQuarterScore;
+				team1.updatePlayerStaminaQuarter();
+				team2.updatePlayerStaminaQuarter();
 			}
 
 		}
@@ -277,9 +298,9 @@ public class GameSimulation {
 			// Overtime simulation. Only happens when the two team's scores are tied at the
 			// end of the game
 			while (team1Score == team2Score) {
-				for (int possessions = 101; possessions <= 110; possessions++) {
-					
-					//TODO Remove after testing
+				for (int possessions = 201; possessions <= 210; possessions++) {
+
+					// TODO Remove after testing
 					if (DEBUG == 0) {
 						System.out.println("\n\nPress p to simulate possession or g to end game");
 					}
@@ -291,14 +312,15 @@ public class GameSimulation {
 						choice = input.next().charAt(0);
 					}
 
+					// Determine user's choice of simulation length
 					if (choice == 'p') {
-						simulatePossession();
-						
-						//TODO Remove after testing
+						simulatePossession(possessions);
+
+						// TODO Remove after testing
 						if (DEBUG == 0) {
 							printScoreboard(team1Score, team2Score);
 						}
-						
+
 					} else {
 						possessions = simulatePossessionsQuarter(possessions);
 					}
@@ -311,11 +333,17 @@ public class GameSimulation {
 						- team2ThirdQuarterScore - team2FirstQuarterScore;
 			}
 
-			//TODO Remove after testing
-			if (DEBUG == 0) {
-				printFinalScores(team1FirstQuarterScore, team1SecondQuarterScore, team1ThirdQuarterScore,
-						team1FourthQuarterScore, team1OvertimeScore, team2FirstQuarterScore, team2SecondQuarterScore,
-						team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore);
+			printBoxScore(team1FirstQuarterScore, team1SecondQuarterScore, team1ThirdQuarterScore,
+					team1FourthQuarterScore, team1OvertimeScore, team2FirstQuarterScore, team2SecondQuarterScore,
+					team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore);
+
+			// Reset the player's game statistics for each team
+			for (int i = 0; i < team1.getRoster().length && team1.getRoster()[i] != null; i++) {
+				team1.getRoster()[i].resetGameStats();
+			}
+
+			for (int i = 0; i < team2.getRoster().length && team2.getRoster()[i] != null; i++) {
+				team2.getRoster()[i].resetGameStats();
 			}
 
 		} else {
@@ -327,55 +355,414 @@ public class GameSimulation {
 	/**
 	 * Simulates a basketball possession
 	 * 
-	 * @param offenseTeam
-	 *            Current offensive team
-	 * @param defenseTeam
-	 *            Current defensive team
+	 * @param possessions
+	 *            The number of possessions remaining in the game
 	 * @return Points scored by offensive team on current possession
 	 */
-	public void simulatePossession() {
+	public void simulatePossession(int possessions) {
 
-		Random rng = new Random();
+		// TODO Remove after testing complete
+		// Random rng = new Random();
+		//
+		// double shotMultiplier = 0;
+		//
+		// // Team1 scoring calculations
+		// double team1ShotSelection = rng.nextDouble();
+		// int team1Shot = 0;
+		//
+		// if (team1ShotSelection <= .1) {
+		// shotMultiplier = .5;
+		// team1Shot = 1;
+		// } else if (team1ShotSelection <= .7) {
+		// shotMultiplier = 1;
+		// team1Shot = 2;
+		// } else {
+		// shotMultiplier = 1.2;
+		// team1Shot = 3;
+		// }
+		//
+		// if (team1Boost * rng.nextDouble() * team1RelativeRating >
+		// ((team1RelativeRating / 2.5) + 5) * shotMultiplier) {
+		// team1Score += team1Shot;
+		// }
+		//
+		// // Team2 scoring calculations
+		// double team2ShotSelection = rng.nextDouble();
+		// int team2Shot = 0;
+		//
+		// if (team2ShotSelection <= .1) {
+		// shotMultiplier = .5;
+		// team2Shot = 1;
+		// } else if (team2ShotSelection <= .7) {
+		// shotMultiplier = 1;
+		// team2Shot = 2;
+		// } else {
+		// shotMultiplier = 1.2;
+		// team2Shot = 3;
+		// }
+		//
+		// if (team2Boost * rng.nextDouble() * team2RelativeRating >
+		// ((team2RelativeRating / 2.5) + 5) * shotMultiplier) {
+		// team2Score += team2Shot;
+		// }
 
-		double shotMultiplier = 0;
+		// Used as random number generator for calculations
+		Random rand = new Random();
 
-		// Team1 scoring calculations
-		double team1ShotSelection = rng.nextDouble();
-		int team1Shot = 0;
+		// Determine which team has the ball and calculate their score
+		if (possessionArrow == 0) {
 
-		if (team1ShotSelection <= .1) {
-			shotMultiplier = .5;
-			team1Shot = 1;
-		} else if (team1ShotSelection <= .7) {
-			shotMultiplier = 1;
-			team1Shot = 2;
+			// Continue looping while team1 has the ball
+			while (possessionArrow == 0) {
+
+				// Shooter and shot defender for the possession
+				Player shooter = new Player();
+				Player shotDefender = new Player();
+
+				// Select the shooter on offense
+				double playerShootSelector = rand.nextDouble();
+
+				// Calculate the range of values for who will shoot
+				int team1TotalShootingRating = team1.calculateTotalShootingRating();
+				double team1PointGuardShootRange = (double) team1.getOnCourt()[0].getAverageShootingRating()
+						/ team1TotalShootingRating;
+				double team1ShootingGuardShootRange = (double) team1.getOnCourt()[1].getAverageShootingRating()
+						/ team1TotalShootingRating;
+				double team1SmallForwardShootRange = (double) team1.getOnCourt()[2].getAverageShootingRating()
+						/ team1TotalShootingRating;
+				double team1PowerForwardShootRange = (double) team1.getOnCourt()[3].getAverageShootingRating()
+						/ team1TotalShootingRating;
+				// TODO Remove when sure is not needed
+				// double team1CenterShootRange = (double)
+				// team1.getOnCourt()[4].getAverageShootingRating()
+				// / team1TotalShootingRating;
+
+				// Determine who will shoot the ball
+				if (playerShootSelector < team1PointGuardShootRange) {
+					shooter = team1.getOnCourt()[0];
+					shotDefender = team2.getOnCourt()[0];
+				} else if (playerShootSelector < team1ShootingGuardShootRange + team1PointGuardShootRange) {
+					shooter = team1.getOnCourt()[1];
+					shotDefender = team2.getOnCourt()[1];
+				} else if (playerShootSelector < team1SmallForwardShootRange + team1ShootingGuardShootRange
+						+ team1PointGuardShootRange) {
+					shooter = team1.getOnCourt()[2];
+					shotDefender = team2.getOnCourt()[2];
+				} else if (playerShootSelector < team1PowerForwardShootRange + team1SmallForwardShootRange
+						+ team1ShootingGuardShootRange + team1PointGuardShootRange) {
+					shooter = team1.getOnCourt()[3];
+					shotDefender = team2.getOnCourt()[3];
+				} else {
+					shooter = team1.getOnCourt()[4];
+					shotDefender = team2.getOnCourt()[4];
+				}
+
+				// Declare the passer and the pass defender for each team
+				Player passer = new Player();
+				Player passDefender = new Player();
+
+				// Determine whether to keep the do-while loop because that would cause there
+				// to be an assist on every made basket
+				do {
+					// Determine the ranges for who will shoot the ball
+					double playerPassSelector = rand.nextDouble();
+					int team1TotalPassingRating = team1.calculateTotalPassingRating();
+					double team1PointGuardPassRange = (double) team1.getOnCourt()[0].getPassing()
+							/ team1TotalPassingRating;
+					double team1ShootingGuardPassRange = (double) team1.getOnCourt()[1].getPassing()
+							/ team1TotalPassingRating;
+					double team1SmallForwardPassRange = (double) team1.getOnCourt()[2].getPassing()
+							/ team1TotalPassingRating;
+					double team1PowerForwardPassRange = (double) team1.getOnCourt()[3].getPassing()
+							/ team1TotalPassingRating;
+					// double team1CenterPassRange = team1.getOnCourt()[4].getPassing() /
+					// team1TotalPassingRating;
+
+					// Determine the passer and the pass defender
+					if (playerPassSelector < team1PointGuardPassRange) {
+						passer = team1.getOnCourt()[0];
+						passDefender = team2.getOnCourt()[0];
+					} else if (playerPassSelector < team1ShootingGuardPassRange + team1PointGuardPassRange) {
+						passer = team1.getOnCourt()[1];
+						passDefender = team2.getOnCourt()[1];
+					} else if (playerPassSelector < team1SmallForwardPassRange + team1ShootingGuardPassRange
+							+ team1PointGuardPassRange) {
+						passer = team1.getOnCourt()[2];
+						passDefender = team2.getOnCourt()[2];
+					} else if (playerPassSelector < team1PowerForwardPassRange + team1SmallForwardPassRange
+							+ team1ShootingGuardPassRange + team1PointGuardPassRange) {
+						passer = team1.getOnCourt()[3];
+						passDefender = team2.getOnCourt()[3];
+					} else {
+						passer = team1.getOnCourt()[4];
+						passDefender = team2.getOnCourt()[4];
+					}
+
+				} while (passer == shooter);
+
+				// Declare the rebounder and rebound defender
+				Player rebounder = new Player();
+				Player reboundDefender = new Player();
+
+				// Calculate the rebounding ranges for each player
+				double playerReboundSelector = rand.nextDouble();
+				int team1TotalReboundingRating = team1.getTotalReboundingRating();
+				double team1PointGuardReboundRange = (double) team1.getOnCourt()[0].getOffensiveRebounding()
+						/ team1TotalReboundingRating;
+				double team1ReboundingGuardReboundRange = (double) team1.getOnCourt()[1].getOffensiveRebounding()
+						/ team1TotalReboundingRating;
+				double team1SmallForwardReboundRange = (double) team1.getOnCourt()[2].getOffensiveRebounding()
+						/ team1TotalReboundingRating;
+				double team1PowerForwardReboundRange = (double) team1.getOnCourt()[3].getOffensiveRebounding()
+						/ team1TotalReboundingRating;
+				// double team1CenterReboundRange = (double)
+				// team1.getOnCourt()[4].getOffensiveRebounding()
+				// / team1TotalReboundingRating;
+
+				// Determine the rebounder and rebound defender
+				if (playerReboundSelector < team1PointGuardReboundRange) {
+					rebounder = team1.getOnCourt()[0];
+					reboundDefender = team2.getOnCourt()[0];
+				} else if (playerReboundSelector < team1ReboundingGuardReboundRange + team1PointGuardReboundRange) {
+					rebounder = team1.getOnCourt()[1];
+					reboundDefender = team2.getOnCourt()[1];
+				} else if (playerReboundSelector < team1SmallForwardReboundRange + team1ReboundingGuardReboundRange
+						+ team1PointGuardReboundRange) {
+					rebounder = team1.getOnCourt()[2];
+					reboundDefender = team2.getOnCourt()[2];
+				} else if (playerReboundSelector < team1PowerForwardReboundRange + team1SmallForwardReboundRange
+						+ team1ReboundingGuardReboundRange + team1PointGuardReboundRange) {
+					rebounder = team1.getOnCourt()[3];
+					reboundDefender = team2.getOnCourt()[3];
+				} else {
+					rebounder = team1.getOnCourt()[4];
+					reboundDefender = team2.getOnCourt()[4];
+				}
+
+				// Determine where on the court the ball is passed
+				double passLocation = rand.nextDouble();
+				int location = -1;
+
+				if (passLocation < .5) {
+					location = 3;
+				} else if (passLocation < .8) {
+					location = 2;
+				} else {
+					location = 1;
+				}
+
+				// Determine the outcome of the pass
+				int successfulPass = determinePassOutcome(passer, passDefender, location);
+				int team1ScoreIncrease = 0;
+
+				// If the pass is successful, check if the offensive player scored and how much
+				// they scored
+				if (successfulPass == 1) {
+					team1ScoreIncrease = determineShotOutcome(shooter, shotDefender, passer);
+
+					// If the shot is missed, determine who gets the rebound
+					if (team1ScoreIncrease == 0) {
+						int reboundPossession = determineReboundOutcome(rebounder, reboundDefender);
+
+						if (reboundPossession == 1) {
+							possessionArrow = 0;
+						} else {
+							possessionArrow = 1;
+						}
+					} else {
+						team1Score += team1ScoreIncrease;
+					}
+				} else {
+					possessionArrow = 1;
+				}
+
+			}
+
 		} else {
-			shotMultiplier = 1.2;
-			team1Shot = 3;
+
+			// NOTE: Commenting for this section is the same as above, except in terms of
+			// the other team
+
+			// If team2 has the ball
+			while (possessionArrow == 1) {
+
+				Player shooter = new Player();
+				Player shotDefender = new Player();
+				double playerShootSelector = rand.nextDouble();
+				int team2TotalShootingRating = team2.calculateTotalShootingRating();
+				double team2PointGuardShootRange = (double) team2.getOnCourt()[0].getAverageShootingRating()
+						/ team2TotalShootingRating;
+				double team2ShootingGuardShootRange = (double) team2.getOnCourt()[1].getAverageShootingRating()
+						/ team2TotalShootingRating;
+				double team2SmallForwardShootRange = (double) team2.getOnCourt()[2].getAverageShootingRating()
+						/ team2TotalShootingRating;
+				double team2PowerForwardShootRange = (double) team2.getOnCourt()[3].getAverageShootingRating()
+						/ team2TotalShootingRating;
+				// double team2CenterShootRange = (double)
+				// team2.getOnCourt()[4].getAverageShootingRating()
+				// / team2TotalShootingRating;
+
+				if (playerShootSelector < team2PointGuardShootRange) {
+					shooter = team2.getOnCourt()[0];
+					shotDefender = team1.getOnCourt()[0];
+				} else if (playerShootSelector < team2ShootingGuardShootRange + team2PointGuardShootRange) {
+					shooter = team2.getOnCourt()[1];
+					shotDefender = team1.getOnCourt()[1];
+				} else if (playerShootSelector < team2SmallForwardShootRange + team2ShootingGuardShootRange
+						+ team2PointGuardShootRange) {
+					shooter = team2.getOnCourt()[2];
+					shotDefender = team1.getOnCourt()[2];
+				} else if (playerShootSelector < team2PowerForwardShootRange + team2SmallForwardShootRange
+						+ team2ShootingGuardShootRange + team2PointGuardShootRange) {
+					shooter = team2.getOnCourt()[3];
+					shotDefender = team1.getOnCourt()[3];
+				} else {
+					shooter = team2.getOnCourt()[4];
+					shotDefender = team1.getOnCourt()[4];
+				}
+
+				Player passer = new Player();
+				Player passDefender = new Player();
+
+				// Determine whether to keep the do-while loop because that would cause there
+				// to be an assist on every made basket
+				do {
+					double playerPassSelector = rand.nextDouble();
+					int team2TotalPassingRating = team2.calculateTotalPassingRating();
+					double team2PointGuardPassRange = (double) team2.getOnCourt()[0].getPassing()
+							/ team2TotalPassingRating;
+					double team2ShootingGuardPassRange = (double) team2.getOnCourt()[1].getPassing()
+							/ team2TotalPassingRating;
+					double team2SmallForwardPassRange = (double) team2.getOnCourt()[2].getPassing()
+							/ team2TotalPassingRating;
+					double team2PowerForwardPassRange = (double) team2.getOnCourt()[3].getPassing()
+							/ team2TotalPassingRating;
+					// double team2CenterPassRange = team2.getOnCourt()[4].getPassing() /
+					// team2TotalPassingRating;
+
+					if (playerPassSelector < team2PointGuardPassRange) {
+						passer = team2.getOnCourt()[0];
+						passDefender = team1.getOnCourt()[0];
+					} else if (playerPassSelector < team2ShootingGuardPassRange + team2PointGuardPassRange) {
+						passer = team2.getOnCourt()[1];
+						passDefender = team1.getOnCourt()[1];
+					} else if (playerPassSelector < team2SmallForwardPassRange + team2ShootingGuardPassRange
+							+ team2PointGuardPassRange) {
+						passer = team2.getOnCourt()[2];
+						passDefender = team1.getOnCourt()[2];
+					} else if (playerPassSelector < team2PowerForwardPassRange + team2SmallForwardPassRange
+							+ team2ShootingGuardPassRange + team2PointGuardPassRange) {
+						passer = team2.getOnCourt()[3];
+						passDefender = team1.getOnCourt()[3];
+					} else {
+						passer = team2.getOnCourt()[4];
+						passDefender = team1.getOnCourt()[4];
+					}
+
+				} while (passer == shooter);
+
+				Player rebounder = new Player();
+				Player reboundDefender = new Player();
+				double playerReboundSelector = rand.nextDouble();
+				int team2TotalReboundingRating = team2.getTotalReboundingRating();
+				double team2PointGuardReboundRange = (double) team2.getOnCourt()[0].getOffensiveRebounding()
+						/ team2TotalReboundingRating;
+				double team2ReboundingGuardReboundRange = (double) team2.getOnCourt()[1].getOffensiveRebounding()
+						/ team2TotalReboundingRating;
+				double team2SmallForwardReboundRange = (double) team2.getOnCourt()[2].getOffensiveRebounding()
+						/ team2TotalReboundingRating;
+				double team2PowerForwardReboundRange = (double) team2.getOnCourt()[3].getOffensiveRebounding()
+						/ team2TotalReboundingRating;
+				// double team2CenterReboundRange = (double)
+				// team2.getOnCourt()[4].getOffensiveRebounding()
+				// / team2TotalReboundingRating;
+
+				if (playerReboundSelector < team2PointGuardReboundRange) {
+					rebounder = team2.getOnCourt()[0];
+					reboundDefender = team1.getOnCourt()[0];
+				} else if (playerReboundSelector < team2ReboundingGuardReboundRange + team2PointGuardReboundRange) {
+					rebounder = team2.getOnCourt()[1];
+					reboundDefender = team1.getOnCourt()[1];
+				} else if (playerReboundSelector < team2SmallForwardReboundRange + team2ReboundingGuardReboundRange
+						+ team2PointGuardReboundRange) {
+					rebounder = team2.getOnCourt()[2];
+					reboundDefender = team1.getOnCourt()[2];
+				} else if (playerReboundSelector < team2PowerForwardReboundRange + team2SmallForwardReboundRange
+						+ team2ReboundingGuardReboundRange + team2PointGuardReboundRange) {
+					rebounder = team2.getOnCourt()[3];
+					reboundDefender = team1.getOnCourt()[3];
+				} else {
+					rebounder = team2.getOnCourt()[4];
+					reboundDefender = team1.getOnCourt()[4];
+				}
+
+				double passLocation = rand.nextDouble();
+				int location = -1;
+
+				if (passLocation < .5) {
+					location = 3;
+				} else if (passLocation < .8) {
+					location = 2;
+				} else {
+					location = 1;
+				}
+
+				int successfulPass = determinePassOutcome(passer, passDefender, location);
+				int team2ScoreIncrease = 0;
+
+				if (successfulPass == 1) {
+					team2ScoreIncrease = determineShotOutcome(shooter, shotDefender, passer);
+
+					if (team2ScoreIncrease == 0) {
+						int reboundPossession = determineReboundOutcome(rebounder, reboundDefender);
+
+						if (reboundPossession == 1) {
+							possessionArrow = 1;
+						} else {
+							possessionArrow = 0;
+						}
+					} else {
+						team2Score += team2ScoreIncrease;
+					}
+				} else {
+					possessionArrow = 0;
+				}
+
+			}
+
 		}
 
-		if (team1Boost * rng.nextDouble() * team1RelativeRating > ((team1RelativeRating / 2.5) + 5) * shotMultiplier) {
-			team1Score += team1Shot;
+		// Decrease rotation minutes remaining and player stamina for team 1
+		for (int i = 0; i < team1.getOnCourt().length && team1.getOnCourt()[i] != null; i++) {
+			team1.getOnCourt()[i].setStamina(team1.getOnCourt()[i].getStaminaDecrease());
+			team1.getOnCourt()[i]
+					.setRotationPossessionsRemaining(team1.getOnCourt()[i].getRotationPossessionsRemaining() - 1);
+
+			team1.getOnCourt()[i].setPossessionsPlayed(team1.getOnCourt()[i].getPossessionsPlayed() + 1);
 		}
 
-		// Team2 scoring calculations
-		double team2ShotSelection = rng.nextDouble();
-		int team2Shot = 0;
+		// Decrease rotation minutes remaining and player stamina for team 1
+		for (int i = 0; i < team2.getOnCourt().length && team2.getOnCourt()[i] != null; i++) {
+			team2.getOnCourt()[i].setStamina(team2.getOnCourt()[i].getStaminaDecrease());
+			team2.getOnCourt()[i]
+					.setRotationPossessionsRemaining(team2.getOnCourt()[i].getRotationPossessionsRemaining() - 1);
 
-		if (team2ShotSelection <= .1) {
-			shotMultiplier = .5;
-			team2Shot = 1;
-		} else if (team2ShotSelection <= .7) {
-			shotMultiplier = 1;
-			team2Shot = 2;
-		} else {
-			shotMultiplier = 1.2;
-			team2Shot = 3;
+			team2.getOnCourt()[i].setPossessionsPlayed(team2.getOnCourt()[i].getPossessionsPlayed() + 1);
 		}
 
-		if (team2Boost * rng.nextDouble() * team2RelativeRating > ((team2RelativeRating / 2.5) + 5) * shotMultiplier) {
-			team2Score += team2Shot;
+		// Increase stamina for players currently on the bench for team 1
+		for (int i = 0; i < team1.getOnBench().length && team1.getOnBench()[i] != null; i++) {
+			team1.getOnBench()[i].setStamina(team1.getOnBench()[i].getStamina() + 5);
 		}
+
+		// Increase stamina for players currently on the bench for team 2
+		for (int i = 0; i < team2.getOnBench().length && team1.getOnBench()[i] != null; i++) {
+			team2.getOnBench()[i].setStamina(team2.getOnBench()[i].getStamina() + 5);
+		}
+
+		// Substitute players into game if necessary
+		team1.substitutePlayers(201 - possessions);
+		team2.substitutePlayers(201 - possessions);
 
 	}
 
@@ -458,6 +845,130 @@ public class GameSimulation {
 	}
 
 	/**
+	 * Print the final box score for each team at the end of the simulation game.
+	 * 
+	 * @param team1FirstQuarterScore
+	 *            The number of points scored by team 1 in the first quarter
+	 * @param team1SecondQuarterScore
+	 *            The number of points scored by team 1 in the second quarter
+	 * @param team1ThirdQuarterScore
+	 *            The number of points scored by team 1 in the third quarter
+	 * @param team1FourthQuarterScore
+	 *            The number of points scored by team 1 in the fourth quarter
+	 * @param team1OvertimeScore
+	 *            The number of points scored by team 1 in overtime
+	 * @param team2FirstQuarterScore
+	 *            The number of points scored by team 2 in the first quarter
+	 * @param team2SecondQuarterScore
+	 *            The number of points scored by team 2 in the second quarter
+	 * @param team2ThirdQuarterScore
+	 *            The number of points scored by team 2 in the third quarter
+	 * @param team2FourthQuarterScore
+	 *            The number of points scored by team 2 in the fourth quarter
+	 * @param team2OvertimeScore
+	 *            The number of points scored by team 2 in overtime
+	 * @throws IOException
+	 *             Throws an IOException if the specified file does not exist
+	 */
+	public void printBoxScore(int team1FirstQuarterScore, int team1SecondQuarterScore, int team1ThirdQuarterScore,
+			int team1FourthQuarterScore, int team1OvertimeScore, int team2FirstQuarterScore,
+			int team2SecondQuarterScore, int team2ThirdQuarterScore, int team2FourthQuarterScore,
+			int team2OvertimeScore) throws IOException {
+
+		// Print team scores
+		String scoreHeader = String.format("\nTeam\t\tQ1\tQ2\tQ3\tQ4\tOT\tFinal");
+		String team1Results = String.format("%s\t\t%d\t%d\t%d\t%d\t%d\t%d", team1.getTeamName(), team1FirstQuarterScore,
+				team1SecondQuarterScore, team1ThirdQuarterScore, team1FourthQuarterScore, team1OvertimeScore,
+				team1Score);
+		String team2Results = String.format("%s\t\t%d\t%d\t%d\t%d\t%d\t%d", team2.getTeamName(), team2FirstQuarterScore,
+				team2SecondQuarterScore, team2ThirdQuarterScore, team2FourthQuarterScore, team2OvertimeScore,
+				team2Score);
+
+		// Determine file save location
+		String d = System.getProperty("user.home");
+		String dir = d + File.separator + "Documents" + File.separator + "Basketball-Simulation" + File.separator
+				+ "Game_Results.txt";
+		final File file = new File(dir);
+		file.getParentFile().mkdirs();// all directories down
+
+		// Setup writing to the file
+		FileWriter fw = new FileWriter(file, true);
+		BufferedWriter bw = new BufferedWriter(fw);
+
+		// TODO Remove after testing is complete
+		// FileWriter fw = new
+		// FileWriter("C:\\Users\\Owner\\OneDrive\\Basketball\\GameResults.txt", true);
+		// FileWriter fw = new
+		// FileWriter("/home/mmorth/Coding/Storage_Files/GameResults.txt", true);
+		// BufferedWriter bw = new BufferedWriter(fw);
+
+		// Print the score headers
+		bw.write(scoreHeader);
+		bw.newLine();
+		bw.write(team1Results);
+		bw.newLine();
+		bw.write(team2Results);
+		bw.newLine();
+
+		// Print information for team 1
+		bw.write(team1.getTeamName());
+		bw.newLine();
+		String team1PlayerStatsHeader = String
+				.format("Player\t\t\tPoints\tRebounds\tAssists\tBlocks\tSteals\tTurnovers");
+
+		bw.write(team1PlayerStatsHeader);
+		bw.newLine();
+
+		// Print the player stats
+		for (int i = 0; i < team1.getRoster().length && team1.getRoster()[i] != null; i++) {
+			String playerStats = String.format("%s %s\t\t%d\t%d\t\t%d\t%d\t%d\t%dTEMP\t%.2f\t%d\t%d",
+					team1.getRoster()[i].getFirstName(), team1.getRoster()[i].getLastName(),
+					team1.getRoster()[i].getPointsGame(), team1.getRoster()[i].getReboundsGame(),
+					team1.getRoster()[i].getAssistsGame(), team1.getRoster()[i].getBlocksGame(),
+					team1.getRoster()[i].getStealsGame(), team1.getRoster()[i].getTurnoversGame(),
+					team1.getRoster()[i].getStamina(), team1.getRoster()[i].getRotationPossessionsRemaining(),
+					team1.getRoster()[i].getPossessionsPlayed());
+
+			bw.write(playerStats);
+			bw.newLine();
+		}
+
+		bw.newLine();
+
+		// Print team2 information
+		bw.write(team2.getTeamName());
+		bw.newLine();
+		String team2PlayerStatsHeader = String
+				.format("Player\t\t\tPoints\tRebounds\tAssists\tBlocks\tSteals\tTurnovers");
+
+		bw.write(team2PlayerStatsHeader);
+		bw.newLine();
+
+		// Print player stats
+		for (int i = 0; i < team2.getRoster().length && team2.getRoster()[i] != null; i++) {
+			String playerStats = String.format("%s %s\t\t%d\t%d\t\t%d\t%d\t%d\t%d", team2.getRoster()[i].getFirstName(),
+					team2.getRoster()[i].getLastName(), team2.getRoster()[i].getPointsGame(),
+					team2.getRoster()[i].getReboundsGame(), team2.getRoster()[i].getAssistsGame(),
+					team2.getRoster()[i].getBlocksGame(), team2.getRoster()[i].getStealsGame(),
+					team2.getRoster()[i].getTurnoversGame());
+
+			bw.write(playerStats);
+			bw.newLine();
+		}
+
+		bw.newLine();
+
+		bw.newLine();
+		bw.newLine();
+
+		fw.flush();
+		bw.flush();
+		fw.close();
+		bw.close();
+
+	}
+
+	/**
 	 * Print the options menu for the user to choose from
 	 * 
 	 * @param remainingPossessions
@@ -470,7 +981,7 @@ public class GameSimulation {
 	 */
 	public void printOptions(int remainingPossessions, int pointsTeam1, int pointsTeam2) {
 		printScoreboard(pointsTeam1, pointsTeam2);
-		System.out.println((101 - remainingPossessions) + " possessions remaining");
+		System.out.println((201 - remainingPossessions) + " possessions remaining");
 		System.out.println("Options: ");
 		System.out.println("Press p to simulate a possession");
 		System.out.println("Press q to simulate a quarter");
@@ -492,85 +1003,245 @@ public class GameSimulation {
 	 * @return The number of possessions remaining in the game
 	 */
 	public int simulatePossessionsQuarter(int possessions) {
-		if (possessions <= 25) {
-			for (int i = possessions; i <= 25; i++) {
-				simulatePossession();
-			}
-			possessions = 25;
-		} else if (possessions <= 50) {
+		// Simulate through the first quarter
+		if (possessions <= 50) {
 			for (int i = possessions; i <= 50; i++) {
-				simulatePossession();
+				simulatePossession(possessions);
 			}
 			possessions = 50;
-		} else if (possessions <= 75) {
-			for (int i = possessions; i <= 75; i++) {
-				simulatePossession();
-			}
-			possessions = 75;
+			// Simulate through the second quarter
 		} else if (possessions <= 100) {
 			for (int i = possessions; i <= 100; i++) {
-				simulatePossession();
+				simulatePossession(possessions);
 			}
 			possessions = 100;
-		} else {
-			for (int i = possessions; i <= 110; i++) {
-				simulatePossession();
+			// Simulate through the third quarter
+		} else if (possessions <= 150) {
+			for (int i = possessions; i <= 150; i++) {
+				simulatePossession(possessions);
 			}
-			possessions = 110;
+			possessions = 150;
+			// Simulate through the fourth quarter
+		} else if (possessions <= 200) {
+			for (int i = possessions; i <= 200; i++) {
+				simulatePossession(possessions);
+			}
+			possessions = 200;
+			// Simulate through overtime if necessary
+		} else {
+			for (int i = possessions; i <= 210; i++) {
+				simulatePossession(possessions);
+			}
+			possessions = 210;
 		}
 
 		return possessions;
 	}
 
-	/**
-	 * Calculates how much increase in chance that team1 scores on this possession
-	 */
-	public void team1BoostCalculation() {
-		double ratio = team1.getTeamOffensiveRating() / team2.getTeamDefensiveRating();
+	// TODO Remove once sure not needed
+	// /**
+	// * Calculates how much increase in chance that team1 scores on this possession
+	// */
+	// public void team1BoostCalculation() {
+	// double ratio = team1.getTeamOffensiveRating() /
+	// team2.getTeamDefensiveRating();
+	//
+	// if (ratio >= 2) {
+	// team1Boost = 1.1 + .2 * ratio;
+	// } else if (ratio < 1) {
+	// team1Boost = 1;
+	// } else {
+	// team1Boost = .9 + .1 * ratio;
+	// }
+	//
+	// }
+	//
+	// /**
+	// * Calculates how much increase in change that team2 scores on this possession
+	// */
+	// public void team2BoostCalculation() {
+	// double ratio = team2.getTeamOffensiveRating() /
+	// team1.getTeamDefensiveRating();
+	//
+	// if (ratio >= 2) {
+	// team2Boost = 1.1 + .2 * ratio;
+	// } else if (ratio <= 1) {
+	// team2Boost = 1;
+	// } else {
+	// team2Boost = .9 + .1 * ratio;
+	// }
+	//
+	// }
 
-		if (ratio >= 2) {
-			team1Boost = 1.1 + .2 * ratio;
-		} else if (ratio < 1) {
-			team1Boost = 1;
+	/**
+	 * Determines whether the pass is successful
+	 * 
+	 * @param offensivePlayer
+	 *            The offensive player attempting the pass
+	 * @param defensivePlayer
+	 *            The defensive player attempting the pass
+	 * @param location
+	 *            The location of the pass
+	 * @return Returns 1 if the pass was successful. Returns 0 otherwise.
+	 */
+	public int determinePassOutcome(Player offensivePlayer, Player defensivePlayer, int location) {
+		Random rand = new Random();
+
+		// Determine weight and location of the ball to set the defensive rating
+		double weight = .8;
+		int defenseRating = 0;
+		if (location == 3 || location == 2) {
+			defenseRating = defensivePlayer.getPerimeterDefense();
 		} else {
-			team1Boost = .9 + .1 * ratio;
+			defenseRating = defensivePlayer.getPostDefense();
+		}
+
+		// Calculate the pass value based on the weights of the offensive and defensive
+		// player ratings
+		double passValue = (weight * (.25 * offensivePlayer.getBallHandling() + .75 * offensivePlayer.getPassing())
+				+ (1 - weight) * rand.nextDouble())
+				- (weight * (.8 * defenseRating + .2 * defensivePlayer.getSteal() + (1 - weight) * rand.nextDouble()));
+
+		// Check if the pass was successful
+		if (passValue > 0) {
+			return 1;
+		} else {
+			offensivePlayer.setTurnoversGame(offensivePlayer.getTurnoversGame() + 1);
+			defensivePlayer.setStealsGame(defensivePlayer.getStealsGame() + 1);
+			return 0;
+		}
+	}
+
+	/**
+	 * Determines whether the attempted shot was made or missed
+	 * 
+	 * @param offensivePlayer
+	 *            The offensive player attempting the shot
+	 * @param defensivePlayer
+	 *            The defender on the player attempting the shot
+	 * @return Returns the value of the shot made or 0 if the shot was missed
+	 */
+	public int determineShotOutcome(Player offensivePlayer, Player defensivePlayer, Player passer) {
+		Random rand = new Random();
+		double weight = .8;
+
+		// Determine shot area and player shooting location tendencies
+		double shotArea = rand.nextDouble() * 1.05;
+		double playerInsideShotTendency = offensivePlayer.getInsideScoring()
+				/ offensivePlayer.getAverageShootingRating();
+		double playerMidRangeShotTendency = offensivePlayer.getMidRangeScoring()
+				/ offensivePlayer.getAverageShootingRating();
+		double playerThreePointShotTendency = offensivePlayer.getThreePointScoring()
+				/ offensivePlayer.getAverageShootingRating();
+		int offenseShotRating = 0;
+		int shotLocation = -1;
+		int defensePlayerRating = 0;
+
+		// Determine the offensive shooting rating and defensive rating based on where
+		// the shot is taken on the court
+		if (shotArea < playerInsideShotTendency) {
+			offenseShotRating = offensivePlayer.getInsideScoring();
+			defensePlayerRating = defensivePlayer.getPostDefense();
+			shotLocation = 1;
+		} else if (shotArea < playerInsideShotTendency + playerMidRangeShotTendency) {
+			offenseShotRating = offensivePlayer.getMidRangeScoring();
+			defensePlayerRating = defensivePlayer.getPerimeterDefense();
+			shotLocation = 2;
+		} else if (shotArea < playerInsideShotTendency + playerMidRangeShotTendency + playerThreePointShotTendency) {
+			offenseShotRating = offensivePlayer.getThreePointScoring();
+			defensePlayerRating = defensivePlayer.getPerimeterDefense();
+			shotLocation = 3;
+		} else {
+			offenseShotRating = offensivePlayer.getFreeThrow();
+			defensePlayerRating = defensivePlayer.getPerimeterDefense();
+			shotLocation = 0;
+		}
+
+		// Determine the shot value based on the offensive and defensive player ratings
+		double shotValue = (weight * (.7 * offenseShotRating + .1 * offensivePlayer.getSpeed()
+				+ .1 * offensivePlayer.getHeight() + .1 * passer.getPassing()) + (1 - weight) * rand.nextDouble() * 100)
+				- (weight * (.6 * defensePlayerRating + .2 * defensivePlayer.getBlock()
+						+ .1 * defensivePlayer.getHeight() + .1 * defensivePlayer.getSpeed())
+						+ (1 - weight) * rand.nextDouble() * 100);
+
+		// Calculate if the shot was made and how many points based on the shot value
+		// and the location on the floor
+		if (shotValue > 0 && shotLocation == 3) {
+			offensivePlayer.setPointsGame(offensivePlayer.getPointsGame() + 3);
+			passer.setAssistsGame(passer.getAssistsGame() + 1);
+			return 3;
+		} else if (shotValue > 0 && shotLocation == 2) {
+			offensivePlayer.setPointsGame(offensivePlayer.getPointsGame() + 2);
+			passer.setAssistsGame(passer.getAssistsGame() + 1);
+			return 2;
+		} else if (shotValue > 0 && shotLocation == 1) {
+			offensivePlayer.setPointsGame(offensivePlayer.getPointsGame() + 2);
+			passer.setAssistsGame(passer.getAssistsGame() + 1);
+			return 2;
+		} else if (shotValue > 0 && shotLocation == 0) {
+			offensivePlayer.setPointsGame(offensivePlayer.getPointsGame() + 1);
+			passer.setAssistsGame(passer.getAssistsGame() + 1);
+			return 1;
+		} else {
+			return 0;
 		}
 
 	}
 
 	/**
-	 * Calculates how much increase in change that team2 scores on this possession
+	 * Determines who rebounds the ball after a miss
+	 * 
+	 * @param offensivePlayer
+	 *            The offensive player attempting the rebounding
+	 * @param defensivePlayer
+	 *            The defensive player attempting the rebounding
+	 * @return Returns 1 if the offensive player rebounds the ball. Returns 0
+	 *         otherwise
 	 */
-	public void team2BoostCalculation() {
-		double ratio = team2.getTeamOffensiveRating() / team1.getTeamDefensiveRating();
+	public int determineReboundOutcome(Player offensivePlayer, Player defensivePlayer) {
+		Random rand = new Random();
+		double weight = .8;
 
-		if (ratio >= 2) {
-			team2Boost = 1.1 + .2 * ratio;
-		} else if (ratio <= 1) {
-			team2Boost = 1;
+		// Calculate the rebound value based on the offensive and defensive player
+		// ratings
+		double reboundValue = (weight
+				* (.8 * offensivePlayer.getOffensiveRebounding() + .2 * offensivePlayer.getHeight())
+				+ (1 - weight) * rand.nextDouble())
+				- (weight * (.8 * defensivePlayer.getDefensiveRebounding() + .2 * defensivePlayer.getHeight()
+						+ (1 - weight) * rand.nextDouble()));
+
+		// Check which player rebounded the ball
+		if (reboundValue > 0) {
+			offensivePlayer.setReboundsGame(offensivePlayer.getReboundsGame() + 1);
+			defensivePlayer.setBlocksGame(defensivePlayer.getBlocksGame() + 1);
+			return 1;
 		} else {
-			team2Boost = .9 + .1 * ratio;
+			defensivePlayer.setReboundsGame(defensivePlayer.getReboundsGame() + 1);
+			return 0;
 		}
-
 	}
 
 	// TODO: Remove below methods after testing is complete
-	
+
 	/**
-	 * Runs the a simulated game numSimulations number of times. Used for automated testing.
+	 * Runs the a simulated game numSimulations number of times. Used for automated
+	 * testing.
+	 * 
 	 * @param numSimulations
-	 * 		Number of games to simulate
+	 *            Number of games to simulate
 	 * @param team1
-	 * 		The first team in the simulations
+	 *            The first team in the simulations
 	 * @param team2
-	 * 		The second team in the simulations
+	 *            The second team in the simulations
 	 * @throws IOException
-	 * 		Throws an IOException if the files cannot be found
+	 *             Throws an IOException if the files cannot be found
 	 */
 	public void runSimulations(int numSimulations, Team team1, Team team2) throws IOException {
 
 		int i;
 
+		// Run i number of simlations between team1 and team2 and calculate the average
+		// score and the number of wins for each team
 		for (i = 0; i < numSimulations; i++) {
 
 			GameSimulation s1 = new GameSimulation(team1, team2, 1);
@@ -595,7 +1266,6 @@ public class GameSimulation {
 		team2AverageScore /= i;
 
 	}
-	
 
 	public int getTeam1Wins() {
 		return team1Wins;
@@ -611,6 +1281,6 @@ public class GameSimulation {
 
 	public int getTeam2Wins() {
 		return team2Wins;
-	}	
+	}
 
 }
